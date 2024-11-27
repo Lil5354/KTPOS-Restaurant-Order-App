@@ -1,0 +1,10 @@
+E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\bin\Debug\KTPOS Order.exe.config
+E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\bin\Debug\KTPOS Order.exe
+E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\bin\Debug\KTPOS Order.pdb
+E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS Order.csproj.AssemblyReference.cache
+E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS_Order.fLogin.resources
+E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS_Order.Properties.Resources.resources
+E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS Order.csproj.GenerateResource.cache
+E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS Order.csproj.CoreCompileInputs.cache
+E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS Order.exe
+E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS Order.pdb
