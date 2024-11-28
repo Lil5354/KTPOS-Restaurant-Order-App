@@ -2,9 +2,12 @@ E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\bin\Debug\KTPOS Order.exe.config
 E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\bin\Debug\KTPOS Order.exe
 E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\bin\Debug\KTPOS Order.pdb
 E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS Order.csproj.AssemblyReference.cache
-E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS_Order.fLogin.resources
 E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS_Order.Properties.Resources.resources
 E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS Order.csproj.GenerateResource.cache
 E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS Order.csproj.CoreCompileInputs.cache
 E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS Order.exe
 E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS Order.pdb
+E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\bin\Debug\Guna.UI2.dll
+E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS Or.1190A991.Up2Date
+E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS_Order.fCustomer.resources
+E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS_Order.Login.resources

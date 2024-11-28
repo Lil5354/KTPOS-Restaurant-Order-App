@@ -63,6 +63,16 @@ namespace KTPOS_Order.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _04b9623fbf2f88158ccd31572ad6c0b8 {
+            get {
+                object obj = ResourceManager.GetObject("04b9623fbf2f88158ccd31572ad6c0b8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1ddf7dbc9b47c8dab0a1456ae07ac4c6 {
             get {
                 object obj = ResourceManager.GetObject("1ddf7dbc9b47c8dab0a1456ae07ac4c6", resourceCulture);
@@ -76,6 +86,106 @@ namespace KTPOS_Order.Properties {
         internal static System.Drawing.Bitmap _5b22541a9c8beadec5fef91246d5c8c7 {
             get {
                 object obj = ResourceManager.GetObject("5b22541a9c8beadec5fef91246d5c8c7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bars_solid {
+            get {
+                object obj = ResourceManager.GetObject("bars-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap burger_solid {
+            get {
+                object obj = ResourceManager.GetObject("burger-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eye_slash_solid {
+            get {
+                object obj = ResourceManager.GetObject("eye-slash-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eye_solid {
+            get {
+                object obj = ResourceManager.GetObject("eye-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap key_solid {
+            get {
+                object obj = ResourceManager.GetObject("key-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ktpos_icon {
+            get {
+                object obj = ResourceManager.GetObject("ktpos icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifying_glass_solid {
+            get {
+                object obj = ResourceManager.GetObject("magnifying-glass-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shutterstock_1088296091 {
+            get {
+                object obj = ResourceManager.GetObject("shutterstock_1088296091", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Untitled_design {
+            get {
+                object obj = ResourceManager.GetObject("Untitled design", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_solid {
+            get {
+                object obj = ResourceManager.GetObject("user-solid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
