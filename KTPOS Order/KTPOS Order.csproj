@@ -52,6 +52,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer Control\UC_Item.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer Control\UC_Item.Designer.cs">
+      <DependentUpon>UC_Item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer Control\UC_OrderDrink.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer Control\UC_OrderDrink.Designer.cs">
+      <DependentUpon>UC_OrderDrink.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer Control\UC_OrderFood.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer Control\UC_OrderFood.Designer.cs">
+      <DependentUpon>UC_OrderFood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer Control\UC_OrderFoodOption.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer Control\UC_OrderFoodOption.Designer.cs">
+      <DependentUpon>UC_OrderFoodOption.cs</DependentUpon>
+    </Compile>
     <Compile Include="fCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +90,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Customer Control\UC_Item.resx">
+      <DependentUpon>UC_Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer Control\UC_OrderDrink.resx">
+      <DependentUpon>UC_OrderDrink.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer Control\UC_OrderFood.resx">
+      <DependentUpon>UC_OrderFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer Control\UC_OrderFoodOption.resx">
+      <DependentUpon>UC_OrderFoodOption.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fCustomer.resx">
       <DependentUpon>fCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +158,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\eye-slash-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9dd8fcc6e3e80f8997f364abf06fcd83.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d62d6c72fbe203f5cf1061e28e17df67.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d62d6c72fbe203f5cf1061e28e17df671.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d62d6c72fbe203f5cf1061e28e17df672.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bceb84a6f9736ddd47c7709c63290b37.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-cheeseburger-hamburger-fast-food-whopper-veggie-bu-5b240248236510.359649701529086536145.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\26df8325fe115cf3f8c0fd7a99c74108.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmark-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window-maximize-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window-restore-solid %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cocktail.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

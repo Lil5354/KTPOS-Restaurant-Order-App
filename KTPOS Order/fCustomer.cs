@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KTPOS_Order.Customer_Control;
 
 namespace KTPOS_Order
 {
@@ -21,35 +22,84 @@ namespace KTPOS_Order
         {
 
         }
+        private UserControl currentUserControl;
+        public void AddUserControl(UserControl userControl)
+        {
+            // Xóa UserControl hiện tại (nếu có)
+            if (currentUserControl != null)
+            {
+                this.Controls.Remove(currentUserControl);
+                currentUserControl.Dispose();
+            }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+            // Thêm UserControl mới
+            this.Controls.Add(userControl);
+            userControl.Location = new Point(110, 103);
+            userControl.Anchor = AnchorStyles.Top;
+            userControl.BringToFront();
+
+            // Cập nhật tham chiếu
+            currentUserControl = userControl;
+        }
+        private void btnMaxSize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            btnMaxSize.Visible = false;
+            btnMinSize.Visible = true;
+        }
+
+        private void btnMinSize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btnMinSize.Visible = false;
+            btnMaxSize.Visible = true;
+        }
+
+        private void btnFoodOrder_Click(object sender, EventArgs e)
+        {
+            UC_OrderFood ucOrderFood = new UC_OrderFood();
+            AddUserControl(ucOrderFood);
+        }
+
+        private void btnFoodOptions_Click(object sender, EventArgs e)
+        {
+            UC_OrderFoodOption ucOrderFood = new UC_OrderFoodOption();
+            AddUserControl(ucOrderFood);
+        }
+
+        private void btnDrinks_Click(object sender, EventArgs e)
+        {
+            UC_OrderDrink ucOrderFood = new UC_OrderDrink();
+            AddUserControl(ucOrderFood);
+        }
+
+        private void btnPay_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
+        private void btnChat_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void guna2Button3_Click(object sender, EventArgs e)
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
 
         }
-
-        private void guna2Button4_Click(object sender, EventArgs e)
+        public void RemoveSpecificUserControl(UserControl userControl)
         {
-
+            if (this.Controls.Contains(userControl))
+            {
+                this.Controls.Remove(userControl);
+                userControl.Dispose(); 
+            }
+        }
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
-        private void guna2Button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

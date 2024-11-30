@@ -32,13 +32,11 @@ namespace KTPOS_Order
         {
             Application.Exit();
         }
-
-        
-
-        
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            fCustomer cus = new fCustomer();
+            cus.Show();
+            this.Hide();
         }
 
         private void btnEyes_Click_2(object sender, EventArgs e)
@@ -59,6 +57,25 @@ namespace KTPOS_Order
                 btnHide.Visible = false;    
                 btnEyes.Visible = true;
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMinSize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btnMinSize.Visible = false;
+            btnMaxSize.Visible = true;
+        }
+
+        private void btnMaxSize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            btnMaxSize.Visible = false;
+            btnMinSize.Visible = true;
         }
     }
 }
