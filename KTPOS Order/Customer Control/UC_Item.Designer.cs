@@ -109,6 +109,7 @@
             this.Controls.Add(this.guna2Button1);
             this.Name = "UC_Item";
             this.Size = new System.Drawing.Size(174, 208);
+            this.Load += new System.EventHandler(this.UC_Item_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

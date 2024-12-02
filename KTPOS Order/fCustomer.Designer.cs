@@ -274,6 +274,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackgroundImage = global::KTPOS_Order.Properties.Resources.shutterstock_1088296091;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1169, 740);
