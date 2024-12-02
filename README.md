@@ -1,1 +1,0 @@
-# KTPOS-Restaurant-Order-App

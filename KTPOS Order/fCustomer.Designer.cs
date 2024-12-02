@@ -123,9 +123,9 @@
             this.btnFoodOrder.HoverState.ForeColor = System.Drawing.Color.Maroon;
             this.btnFoodOrder.Location = new System.Drawing.Point(12, 12);
             this.btnFoodOrder.Name = "btnFoodOrder";
-            this.btnFoodOrder.Size = new System.Drawing.Size(179, 52);
+            this.btnFoodOrder.Size = new System.Drawing.Size(106, 52);
             this.btnFoodOrder.TabIndex = 21;
-            this.btnFoodOrder.Text = "Món ăn sẵn có";
+            this.btnFoodOrder.Text = "All Items";
             this.btnFoodOrder.Click += new System.EventHandler(this.btnFoodOrder_Click);
             // 
             // btnFoodOptions
@@ -148,11 +148,11 @@
             this.btnFoodOptions.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnFoodOptions.HoverState.FillColor = System.Drawing.Color.White;
             this.btnFoodOptions.HoverState.ForeColor = System.Drawing.Color.Maroon;
-            this.btnFoodOptions.Location = new System.Drawing.Point(197, 12);
+            this.btnFoodOptions.Location = new System.Drawing.Point(141, 12);
             this.btnFoodOptions.Name = "btnFoodOptions";
-            this.btnFoodOptions.Size = new System.Drawing.Size(170, 52);
+            this.btnFoodOptions.Size = new System.Drawing.Size(207, 52);
             this.btnFoodOptions.TabIndex = 22;
-            this.btnFoodOptions.Text = "Món ăn tùy chỉnh";
+            this.btnFoodOptions.Text = "Hamburger and others";
             this.btnFoodOptions.Click += new System.EventHandler(this.btnFoodOptions_Click);
             // 
             // btnDrinks
@@ -177,9 +177,9 @@
             this.btnDrinks.HoverState.ForeColor = System.Drawing.Color.Maroon;
             this.btnDrinks.Location = new System.Drawing.Point(382, 12);
             this.btnDrinks.Name = "btnDrinks";
-            this.btnDrinks.Size = new System.Drawing.Size(145, 52);
+            this.btnDrinks.Size = new System.Drawing.Size(105, 52);
             this.btnDrinks.TabIndex = 23;
-            this.btnDrinks.Text = "Thức uống";
+            this.btnDrinks.Text = "Drinks";
             this.btnDrinks.UseTransparentBackground = true;
             this.btnDrinks.Click += new System.EventHandler(this.btnDrinks_Click);
             // 
@@ -203,11 +203,11 @@
             this.btnPay.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnPay.HoverState.FillColor = System.Drawing.Color.White;
             this.btnPay.HoverState.ForeColor = System.Drawing.Color.Maroon;
-            this.btnPay.Location = new System.Drawing.Point(547, 12);
+            this.btnPay.Location = new System.Drawing.Point(502, 12);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(142, 52);
             this.btnPay.TabIndex = 24;
-            this.btnPay.Text = "Thanh toán";
+            this.btnPay.Text = "Payment";
             this.btnPay.UseTransparentBackground = true;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
@@ -231,7 +231,7 @@
             this.btnChat.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnChat.HoverState.FillColor = System.Drawing.Color.White;
             this.btnChat.HoverState.ForeColor = System.Drawing.Color.Maroon;
-            this.btnChat.Location = new System.Drawing.Point(708, 12);
+            this.btnChat.Location = new System.Drawing.Point(662, 12);
             this.btnChat.Name = "btnChat";
             this.btnChat.Size = new System.Drawing.Size(102, 52);
             this.btnChat.TabIndex = 25;
@@ -264,7 +264,7 @@
             this.txtSearch.MaximumSize = new System.Drawing.Size(240, 38);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
-            this.txtSearch.PlaceholderText = "Tìm kiếm";
+            this.txtSearch.PlaceholderText = "Search";
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(210, 38);
             this.txtSearch.TabIndex = 26;
@@ -274,6 +274,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackgroundImage = global::KTPOS_Order.Properties.Resources.shutterstock_1088296091;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1169, 740);

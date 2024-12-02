@@ -28,107 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.btnOrder = new Guna.UI2.WinForms.Guna2Button();
-            this.txtName = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.txtGradient = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtCost = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.picFood = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.guna2CustomGradientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picFood)).BeginInit();
+            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2CustomGradientPanel1
+            // guna2Button1
             // 
-            this.guna2CustomGradientPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2CustomGradientPanel1.BackgroundImage = global::KTPOS_Order.Properties.Resources._26df8325fe115cf3f8c0fd7a99c74108;
-            this.guna2CustomGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.guna2CustomGradientPanel1.BorderColor = System.Drawing.Color.Maroon;
-            this.guna2CustomGradientPanel1.BorderRadius = 15;
-            this.guna2CustomGradientPanel1.Controls.Add(this.btnOrder);
-            this.guna2CustomGradientPanel1.Controls.Add(this.txtName);
-            this.guna2CustomGradientPanel1.Controls.Add(this.txtCost);
-            this.guna2CustomGradientPanel1.Controls.Add(this.picFood);
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(2, 2);
-            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(20);
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(160, 197);
-            this.guna2CustomGradientPanel1.TabIndex = 44;
+            this.guna2Button1.BorderRadius = 20;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.White;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(0, 0);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(160, 196);
+            this.guna2Button1.TabIndex = 0;
             // 
-            // btnOrder
+            // txtGradient
             // 
-            this.btnOrder.Animated = true;
-            this.btnOrder.AutoRoundedCorners = true;
-            this.btnOrder.BorderRadius = 14;
-            this.btnOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnOrder.FillColor = System.Drawing.Color.Maroon;
-            this.btnOrder.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            this.btnOrder.ForeColor = System.Drawing.Color.White;
-            this.btnOrder.Location = new System.Drawing.Point(89, 152);
-            this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(58, 31);
-            this.btnOrder.TabIndex = 2;
-            this.btnOrder.Text = "Đặt";
-            this.btnOrder.UseTransparentBackground = true;
-            // 
-            // txtName
-            // 
-            this.txtName.BackColor = System.Drawing.Color.Transparent;
-            this.txtName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.txtName.ForeColor = System.Drawing.Color.Maroon;
-            this.txtName.Location = new System.Drawing.Point(48, 109);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(55, 22);
-            this.txtName.TabIndex = 3;
-            this.txtName.Text = "Cúc teo";
+            this.txtGradient.BackColor = System.Drawing.Color.White;
+            this.txtGradient.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGradient.ForeColor = System.Drawing.Color.Maroon;
+            this.txtGradient.Location = new System.Drawing.Point(14, 115);
+            this.txtGradient.Name = "txtGradient";
+            this.txtGradient.Size = new System.Drawing.Size(42, 30);
+            this.txtGradient.TabIndex = 2;
+            this.txtGradient.Text = "Beef";
             // 
             // txtCost
             // 
-            this.txtCost.BackColor = System.Drawing.Color.Transparent;
-            this.txtCost.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Italic);
-            this.txtCost.ForeColor = System.Drawing.Color.Black;
-            this.txtCost.Location = new System.Drawing.Point(20, 156);
+            this.txtCost.BackColor = System.Drawing.Color.White;
+            this.txtCost.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCost.ForeColor = System.Drawing.Color.DimGray;
+            this.txtCost.Location = new System.Drawing.Point(86, 115);
             this.txtCost.Name = "txtCost";
-            this.txtCost.Size = new System.Drawing.Size(48, 19);
-            this.txtCost.TabIndex = 0;
-            this.txtCost.Text = "45.000đ";
+            this.txtCost.Size = new System.Drawing.Size(56, 30);
+            this.txtCost.TabIndex = 3;
+            this.txtCost.Text = "$10.5";
             // 
-            // picFood
+            // guna2HtmlLabel3
             // 
-            this.picFood.Image = global::KTPOS_Order.Properties.Resources.cocktail;
-            this.picFood.ImageRotate = 0F;
-            this.picFood.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picFood.Location = new System.Drawing.Point(0, 0);
-            this.picFood.Name = "picFood";
-            this.picFood.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.picFood.Size = new System.Drawing.Size(160, 103);
-            this.picFood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picFood.TabIndex = 2;
-            this.picFood.TabStop = false;
-            this.picFood.UseTransparentBackground = true;
+            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Segoe UI", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Maroon;
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(14, 146);
+            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(128, 33);
+            this.guna2HtmlLabel3.TabIndex = 4;
+            this.guna2HtmlLabel3.Text = "Hamburger";
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.White;
+            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CirclePictureBox1.Image = global::KTPOS_Order.Properties.Resources.hamburger2;
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(18, 3);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(128, 88);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2CirclePictureBox1.TabIndex = 5;
+            this.guna2CirclePictureBox1.TabStop = false;
             // 
             // UC_Item
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.guna2CustomGradientPanel1);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.guna2CirclePictureBox1);
+            this.Controls.Add(this.guna2HtmlLabel3);
+            this.Controls.Add(this.txtCost);
+            this.Controls.Add(this.txtGradient);
+            this.Controls.Add(this.guna2Button1);
             this.Name = "UC_Item";
-            this.Size = new System.Drawing.Size(164, 200);
-            this.guna2CustomGradientPanel1.ResumeLayout(false);
-            this.guna2CustomGradientPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picFood)).EndInit();
+            this.Size = new System.Drawing.Size(174, 208);
+            this.Load += new System.EventHandler(this.UC_Item_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
-        private Guna.UI2.WinForms.Guna2Button btnOrder;
-        private Guna.UI2.WinForms.Guna2HtmlLabel txtName;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel txtGradient;
         private Guna.UI2.WinForms.Guna2HtmlLabel txtCost;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox picFood;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
     }
 }

@@ -16,5 +16,16 @@ namespace KTPOS_Order.Customer_Control
         {
             InitializeComponent();
         }
+
+        public UC_Item(string str)
+        {
+            InitializeComponent();
+            txtCost.Text = str;
+        }
+
+        private void UC_Item_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

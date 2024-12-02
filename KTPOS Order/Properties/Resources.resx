@@ -136,11 +136,14 @@
   <data name="04b9623fbf2f88158ccd31572ad6c0b8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\04b9623fbf2f88158ccd31572ad6c0b8.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="user-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="burger-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\burger-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1ddf7dbc9b47c8dab0a1456ae07ac4c6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1ddf7dbc9b47c8dab0a1456ae07ac4c6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bars-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bars-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="coca" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\coca.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,14 +151,17 @@
   <data name="d62d6c72fbe203f5cf1061e28e17df672" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\d62d6c72fbe203f5cf1061e28e17df672.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cocktail1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cocktail1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ktpos icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ktpos icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="eye-slash-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eye-slash-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cocktail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cocktail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="26df8325fe115cf3f8c0fd7a99c74108" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\26df8325fe115cf3f8c0fd7a99c74108.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,8 +175,8 @@
   <data name="xmark-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\xmark-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bars-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bars-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1ddf7dbc9b47c8dab0a1456ae07ac4c6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1ddf7dbc9b47c8dab0a1456ae07ac4c6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Untitled design" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Untitled design.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,7 +196,7 @@
   <data name="shutterstock_1088296091" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shutterstock_1088296091.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cocktail" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cocktail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hamburger2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hamburger2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

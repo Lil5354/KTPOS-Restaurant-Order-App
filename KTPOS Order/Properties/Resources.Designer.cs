@@ -163,6 +163,16 @@ namespace KTPOS_Order.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cocktail1 {
+            get {
+                object obj = ResourceManager.GetObject("cocktail1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap d62d6c72fbe203f5cf1061e28e17df67 {
             get {
                 object obj = ResourceManager.GetObject("d62d6c72fbe203f5cf1061e28e17df67", resourceCulture);
@@ -206,6 +216,16 @@ namespace KTPOS_Order.Properties {
         internal static System.Drawing.Bitmap eye_solid {
             get {
                 object obj = ResourceManager.GetObject("eye-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hamburger2 {
+            get {
+                object obj = ResourceManager.GetObject("hamburger2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
