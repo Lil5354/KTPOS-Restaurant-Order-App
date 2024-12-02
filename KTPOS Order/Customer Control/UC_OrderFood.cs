@@ -21,5 +21,18 @@ namespace KTPOS_Order.Customer_Control
         {
 
         }
+       
+        private void FlowMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void UC_OrderFood_Load_1(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                this.FlowMenu.Controls.Add(new UC_Item(i.ToString()));
+            }
+        }
     }
 }

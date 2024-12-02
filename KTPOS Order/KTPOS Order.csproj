@@ -76,6 +76,12 @@
     <Compile Include="Customer Control\UC_OrderFoodOption.Designer.cs">
       <DependentUpon>UC_OrderFoodOption.cs</DependentUpon>
     </Compile>
+    <Compile Include="Customer Control\UC_Payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer Control\UC_Payment.Designer.cs">
+      <DependentUpon>UC_Payment.cs</DependentUpon>
+    </Compile>
     <Compile Include="fCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customer Control\UC_OrderFoodOption.resx">
       <DependentUpon>UC_OrderFoodOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer Control\UC_Payment.resx">
+      <DependentUpon>UC_Payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fCustomer.resx">
       <DependentUpon>fCustomer.cs</DependentUpon>
@@ -194,6 +203,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cocktail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cocktail1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hamburger2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

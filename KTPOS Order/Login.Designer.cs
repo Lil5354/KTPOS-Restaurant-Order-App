@@ -136,7 +136,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(124, 44);
             this.btnLogin.TabIndex = 10;
-            this.btnLogin.Text = "Đăng nhập";
+            this.btnLogin.Text = "Log in";
             this.btnLogin.UseTransparentBackground = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -158,7 +158,7 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(91, 44);
             this.btnExit.TabIndex = 9;
-            this.btnExit.Text = "Thoát";
+            this.btnExit.Text = "Exit";
             this.btnExit.UseTransparentBackground = true;
             // 
             // txtPass
@@ -187,7 +187,7 @@
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.PlaceholderForeColor = System.Drawing.Color.RosyBrown;
-            this.txtPass.PlaceholderText = "Mật khẩu";
+            this.txtPass.PlaceholderText = "Password";
             this.txtPass.SelectedText = "";
             this.txtPass.Size = new System.Drawing.Size(243, 40);
             this.txtPass.TabIndex = 8;
@@ -218,7 +218,7 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.PasswordChar = '\0';
             this.txtUser.PlaceholderForeColor = System.Drawing.Color.RosyBrown;
-            this.txtUser.PlaceholderText = "Tên đăng nhập";
+            this.txtUser.PlaceholderText = "User Name";
             this.txtUser.SelectedText = "";
             this.txtUser.Size = new System.Drawing.Size(243, 40);
             this.txtUser.TabIndex = 7;

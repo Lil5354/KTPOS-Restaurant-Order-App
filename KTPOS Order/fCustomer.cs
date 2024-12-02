@@ -75,7 +75,8 @@ namespace KTPOS_Order
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-
+            UC_Payment ucOrderFood = new UC_Payment();
+            AddUserControl(ucOrderFood);
         }
 
         private void btnChat_Click(object sender, EventArgs e)
