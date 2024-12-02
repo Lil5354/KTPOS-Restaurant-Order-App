@@ -84,8 +84,40 @@
               "ViewState": "AgIAABoAAAAAAAAAAAAAACQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-28T15:58:14.291Z",
+<<<<<<< Updated upstream
               "IsPinned": true,
               "EditorCaption": ""
+=======
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UC_OrderFood.cs",
+              "DocumentMoniker": "E:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS Order\\KTPOS Order\\Customer Control\\UC_OrderFood.cs",
+              "RelativeDocumentMoniker": "KTPOS Order\\Customer Control\\UC_OrderFood.cs",
+              "ToolTip": "E:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS Order\\KTPOS Order\\Customer Control\\UC_OrderFood.cs",
+              "RelativeToolTip": "KTPOS Order\\Customer Control\\UC_OrderFood.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwBsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T08:30:28.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UC_Item.cs [Design]",
+              "DocumentMoniker": "E:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS Order\\KTPOS Order\\Customer Control\\UC_Item.cs",
+              "RelativeDocumentMoniker": "KTPOS Order\\Customer Control\\UC_Item.cs",
+              "ToolTip": "E:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS Order\\KTPOS Order\\Customer Control\\UC_Item.cs [Design]",
+              "RelativeToolTip": "KTPOS Order\\Customer Control\\UC_Item.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-30T07:57:39.63Z",
+              "EditorCaption": " [Design]"
+>>>>>>> Stashed changes
             },
             {
               "$type": "Document",
@@ -134,12 +166,22 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 5,
               "Title": "UC_OrderFoodOption.cs [Design]",
               "DocumentMoniker": "E:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS Order\\KTPOS Order\\Customer Control\\UC_OrderFoodOption.cs",
               "RelativeDocumentMoniker": "KTPOS Order\\Customer Control\\UC_OrderFoodOption.cs",
               "ToolTip": "E:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS Order\\KTPOS Order\\Customer Control\\UC_OrderFoodOption.cs [Design]",
               "RelativeToolTip": "KTPOS Order\\Customer Control\\UC_OrderFoodOption.cs [Design]",
+=======
+              "DocumentIndex": 10,
+              "Title": "UC_Item.Designer.cs",
+              "DocumentMoniker": "E:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS Order\\KTPOS Order\\Customer Control\\UC_Item.Designer.cs",
+              "RelativeDocumentMoniker": "KTPOS Order\\Customer Control\\UC_Item.Designer.cs",
+              "ToolTip": "E:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS Order\\KTPOS Order\\Customer Control\\UC_Item.Designer.cs",
+              "RelativeToolTip": "KTPOS Order\\Customer Control\\UC_Item.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+>>>>>>> Stashed changes
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-29T07:04:51.248Z"
             },
