@@ -122,6 +122,18 @@
     <Compile Include="Staff Control\UC_ListBill.Designer.cs">
       <DependentUpon>UC_ListBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="Staff Control\UC_Payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Staff Control\UC_Payment.Designer.cs">
+      <DependentUpon>UC_Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff Control\UC_QRPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Staff Control\UC_QRPayment.Designer.cs">
+      <DependentUpon>UC_QRPayment.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Customer Control\UC_Item.resx">
       <DependentUpon>UC_Item.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +176,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Staff Control\UC_ListBill.resx">
       <DependentUpon>UC_ListBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff Control\UC_Payment.resx">
+      <DependentUpon>UC_Payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff Control\UC_QRPayment.resx">
+      <DependentUpon>UC_QRPayment.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -253,6 +271,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Management Control\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

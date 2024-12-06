@@ -35,7 +35,7 @@ namespace KTPOS_Order
             {
                 if (CLogin(email, password))
                 {
-                    fCustomer f = new fCustomer();
+                    fStaff f = new fStaff();
                     this.Hide();
                     f.ShowDialog();
                 }

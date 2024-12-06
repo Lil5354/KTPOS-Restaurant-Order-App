@@ -24,7 +24,7 @@ namespace KTPOS_Order.Staff_Control
 
         private void UC_ListBill_Load(object sender, EventArgs e)
         {
-
+            ListBill.Rows.Add(new object[] { 123123, "22/10/2004 09:15:43", 3, "More" });
         }
     }
 }

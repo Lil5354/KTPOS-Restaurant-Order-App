@@ -113,7 +113,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.Account);
-            this.Name = "UC_Account";
             this.Size = new System.Drawing.Size(1129, 751);
             this.ResumeLayout(false);
 

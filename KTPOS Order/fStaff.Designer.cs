@@ -34,7 +34,7 @@
             this.btnChat = new Guna.UI2.WinForms.Guna2Button();
             this.btnManage = new Guna.UI2.WinForms.Guna2Button();
             this.btnProccessing = new Guna.UI2.WinForms.Guna2Button();
-            this.btnTableManage = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPayment = new Guna.UI2.WinForms.Guna2Button();
             btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
@@ -74,10 +74,11 @@
             this.btnMaxSize.FillColor = System.Drawing.Color.Transparent;
             this.btnMaxSize.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnMaxSize.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMaxSize.Location = new System.Drawing.Point(1059, 12);
+            this.btnMaxSize.Location = new System.Drawing.Point(1059, 18);
             this.btnMaxSize.Name = "btnMaxSize";
             this.btnMaxSize.Size = new System.Drawing.Size(25, 25);
             this.btnMaxSize.TabIndex = 23;
+            this.btnMaxSize.Click += new System.EventHandler(this.btnMaxSize_Click);
             // 
             // btnMinSize
             // 
@@ -96,6 +97,7 @@
             this.btnMinSize.Name = "btnMinSize";
             this.btnMinSize.Size = new System.Drawing.Size(25, 25);
             this.btnMinSize.TabIndex = 22;
+            this.btnMinSize.Click += new System.EventHandler(this.btnMinSize_Click);
             // 
             // btnChat
             // 
@@ -117,7 +119,7 @@
             this.btnChat.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnChat.HoverState.FillColor = System.Drawing.Color.White;
             this.btnChat.HoverState.ForeColor = System.Drawing.Color.Maroon;
-            this.btnChat.Location = new System.Drawing.Point(421, 18);
+            this.btnChat.Location = new System.Drawing.Point(355, 18);
             this.btnChat.Name = "btnChat";
             this.btnChat.Size = new System.Drawing.Size(102, 52);
             this.btnChat.TabIndex = 30;
@@ -144,7 +146,7 @@
             this.btnManage.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnManage.HoverState.FillColor = System.Drawing.Color.White;
             this.btnManage.HoverState.ForeColor = System.Drawing.Color.Maroon;
-            this.btnManage.Location = new System.Drawing.Point(565, 18);
+            this.btnManage.Location = new System.Drawing.Point(493, 18);
             this.btnManage.Name = "btnManage";
             this.btnManage.Size = new System.Drawing.Size(148, 52);
             this.btnManage.TabIndex = 29;
@@ -171,38 +173,38 @@
             this.btnProccessing.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnProccessing.HoverState.FillColor = System.Drawing.Color.White;
             this.btnProccessing.HoverState.ForeColor = System.Drawing.Color.Maroon;
-            this.btnProccessing.Location = new System.Drawing.Point(267, 18);
+            this.btnProccessing.Location = new System.Drawing.Point(213, 18);
             this.btnProccessing.Name = "btnProccessing";
             this.btnProccessing.Size = new System.Drawing.Size(123, 52);
             this.btnProccessing.TabIndex = 27;
             this.btnProccessing.Text = "Proccessing";
             // 
-            // btnTableManage
+            // btnPayment
             // 
-            this.btnTableManage.Animated = true;
-            this.btnTableManage.AutoRoundedCorners = true;
-            this.btnTableManage.BackColor = System.Drawing.Color.Transparent;
-            this.btnTableManage.BorderRadius = 25;
-            this.btnTableManage.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.btnTableManage.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnTableManage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTableManage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTableManage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTableManage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTableManage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTableManage.FillColor = System.Drawing.Color.Transparent;
-            this.btnTableManage.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnTableManage.ForeColor = System.Drawing.Color.White;
-            this.btnTableManage.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnTableManage.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnTableManage.HoverState.FillColor = System.Drawing.Color.White;
-            this.btnTableManage.HoverState.ForeColor = System.Drawing.Color.Maroon;
-            this.btnTableManage.Location = new System.Drawing.Point(34, 18);
-            this.btnTableManage.Name = "btnTableManage";
-            this.btnTableManage.Size = new System.Drawing.Size(207, 52);
-            this.btnTableManage.TabIndex = 26;
-            this.btnTableManage.Text = "Table Management";
-            this.btnTableManage.Click += new System.EventHandler(this.btnListBill_Click);
+            this.btnPayment.Animated = true;
+            this.btnPayment.AutoRoundedCorners = true;
+            this.btnPayment.BackColor = System.Drawing.Color.Transparent;
+            this.btnPayment.BorderRadius = 25;
+            this.btnPayment.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.btnPayment.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnPayment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPayment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPayment.FillColor = System.Drawing.Color.Transparent;
+            this.btnPayment.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnPayment.ForeColor = System.Drawing.Color.White;
+            this.btnPayment.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnPayment.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnPayment.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnPayment.HoverState.ForeColor = System.Drawing.Color.Maroon;
+            this.btnPayment.Location = new System.Drawing.Point(34, 18);
+            this.btnPayment.Name = "btnPayment";
+            this.btnPayment.Size = new System.Drawing.Size(159, 52);
+            this.btnPayment.TabIndex = 26;
+            this.btnPayment.Text = "Payment";
+            this.btnPayment.Click += new System.EventHandler(this.btnListBill_Click);
             // 
             // fStaff
             // 
@@ -213,7 +215,7 @@
             this.Controls.Add(this.btnChat);
             this.Controls.Add(this.btnManage);
             this.Controls.Add(this.btnProccessing);
-            this.Controls.Add(this.btnTableManage);
+            this.Controls.Add(this.btnPayment);
             this.Controls.Add(this.btnMaxSize);
             this.Controls.Add(this.btnMinSize);
             this.Controls.Add(btnClose);
@@ -231,6 +233,6 @@
         private Guna.UI2.WinForms.Guna2Button btnChat;
         private Guna.UI2.WinForms.Guna2Button btnManage;
         private Guna.UI2.WinForms.Guna2Button btnProccessing;
-        private Guna.UI2.WinForms.Guna2Button btnTableManage;
+        private Guna.UI2.WinForms.Guna2Button btnPayment;
     }
 }

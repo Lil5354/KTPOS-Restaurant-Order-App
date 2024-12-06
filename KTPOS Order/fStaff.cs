@@ -47,5 +47,19 @@ namespace KTPOS_Order
         {
             Application.Exit();
         }
+
+        private void btnMaxSize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            btnMaxSize.Visible = false;
+            btnMinSize.Visible = true;
+        }
+
+        private void btnMinSize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btnMinSize.Visible = false;
+            btnMaxSize.Visible = true;
+        }
     }
 }
