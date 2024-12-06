@@ -45,10 +45,15 @@
             this.btnItem.FillColor = System.Drawing.Color.White;
             this.btnItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnItem.ForeColor = System.Drawing.Color.White;
+            this.btnItem.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnItem.HoverState.CustomBorderColor = System.Drawing.Color.Maroon;
+            this.btnItem.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnItem.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnItem.Location = new System.Drawing.Point(0, 0);
             this.btnItem.Name = "btnItem";
             this.btnItem.Size = new System.Drawing.Size(160, 196);
             this.btnItem.TabIndex = 0;
+            this.btnItem.Click += new System.EventHandler(this.btnItem_Click);
             // 
             // txtCost
             // 

@@ -27,5 +27,10 @@ namespace KTPOS_Order.Customer_Control
         {
 
         }
+
+        private void btnItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
