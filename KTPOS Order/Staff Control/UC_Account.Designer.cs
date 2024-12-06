@@ -33,12 +33,12 @@
             System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ergreg", System.Windows.Forms.HorizontalAlignment.Left);
             this.Account = new System.Windows.Forms.ListView();
             this.No = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DOB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Gender = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PhoneNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Address = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // Account
@@ -51,6 +51,8 @@
             this.Email,
             this.PhoneNumber,
             this.Address});
+            this.Account.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Account.ForeColor = System.Drawing.Color.Maroon;
             this.Account.GridLines = true;
             listViewGroup1.Header = "wefef";
             listViewGroup1.Name = "etgg";
@@ -63,9 +65,9 @@
             listViewGroup2,
             listViewGroup3});
             this.Account.HideSelection = false;
-            this.Account.Location = new System.Drawing.Point(33, 51);
+            this.Account.Location = new System.Drawing.Point(37, 51);
             this.Account.Name = "Account";
-            this.Account.Size = new System.Drawing.Size(1068, 503);
+            this.Account.Size = new System.Drawing.Size(1075, 503);
             this.Account.TabIndex = 0;
             this.Account.UseCompatibleStateImageBehavior = false;
             this.Account.View = System.Windows.Forms.View.Details;
@@ -74,7 +76,12 @@
             // No
             // 
             this.No.Text = "NO.";
-            this.No.Width = 36;
+            this.No.Width = 52;
+            // 
+            // Name
+            // 
+            this.Name.Text = "Full Name";
+            this.Name.Width = 219;
             // 
             // DOB
             // 
@@ -101,16 +108,12 @@
             this.Address.Text = "Address";
             this.Address.Width = 216;
             // 
-            // Name
-            // 
-            this.Name.Text = "Full Name";
-            this.Name.Width = 219;
-            // 
             // UC_Account
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.Account);
+            this.Name = "UC_Account";
             this.Size = new System.Drawing.Size(1129, 751);
             this.ResumeLayout(false);
 
