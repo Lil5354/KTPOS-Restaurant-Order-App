@@ -35,6 +35,7 @@
             this.btnManage = new Guna.UI2.WinForms.Guna2Button();
             this.btnProccessing = new Guna.UI2.WinForms.Guna2Button();
             this.btnPayment = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTable = new Guna.UI2.WinForms.Guna2Button();
             btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
@@ -119,7 +120,7 @@
             this.btnChat.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnChat.HoverState.FillColor = System.Drawing.Color.White;
             this.btnChat.HoverState.ForeColor = System.Drawing.Color.Maroon;
-            this.btnChat.Location = new System.Drawing.Point(355, 18);
+            this.btnChat.Location = new System.Drawing.Point(480, 18);
             this.btnChat.Name = "btnChat";
             this.btnChat.Size = new System.Drawing.Size(102, 52);
             this.btnChat.TabIndex = 30;
@@ -146,7 +147,7 @@
             this.btnManage.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnManage.HoverState.FillColor = System.Drawing.Color.White;
             this.btnManage.HoverState.ForeColor = System.Drawing.Color.Maroon;
-            this.btnManage.Location = new System.Drawing.Point(493, 18);
+            this.btnManage.Location = new System.Drawing.Point(598, 18);
             this.btnManage.Name = "btnManage";
             this.btnManage.Size = new System.Drawing.Size(148, 52);
             this.btnManage.TabIndex = 29;
@@ -206,12 +207,40 @@
             this.btnPayment.Text = "Payment";
             this.btnPayment.Click += new System.EventHandler(this.btnListBill_Click);
             // 
+            // btnTable
+            // 
+            this.btnTable.Animated = true;
+            this.btnTable.AutoRoundedCorners = true;
+            this.btnTable.BackColor = System.Drawing.Color.Transparent;
+            this.btnTable.BorderRadius = 25;
+            this.btnTable.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.btnTable.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnTable.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTable.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTable.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTable.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTable.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTable.FillColor = System.Drawing.Color.Transparent;
+            this.btnTable.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnTable.ForeColor = System.Drawing.Color.White;
+            this.btnTable.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnTable.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnTable.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnTable.HoverState.ForeColor = System.Drawing.Color.Maroon;
+            this.btnTable.Location = new System.Drawing.Point(352, 18);
+            this.btnTable.Name = "btnTable";
+            this.btnTable.Size = new System.Drawing.Size(102, 52);
+            this.btnTable.TabIndex = 31;
+            this.btnTable.Text = "Table";
+            this.btnTable.UseTransparentBackground = true;
+            // 
             // fStaff
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackgroundImage = global::KTPOS_Order.Properties.Resources.bground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1169, 740);
+            this.Controls.Add(this.btnTable);
             this.Controls.Add(this.btnChat);
             this.Controls.Add(this.btnManage);
             this.Controls.Add(this.btnProccessing);
@@ -234,5 +263,6 @@
         private Guna.UI2.WinForms.Guna2Button btnManage;
         private Guna.UI2.WinForms.Guna2Button btnProccessing;
         private Guna.UI2.WinForms.Guna2Button btnPayment;
+        private Guna.UI2.WinForms.Guna2Button btnTable;
     }
 }

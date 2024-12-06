@@ -134,6 +134,12 @@
     <Compile Include="Staff Control\UC_QRPayment.Designer.cs">
       <DependentUpon>UC_QRPayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Staff Control\UC_Table.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Staff Control\UC_Table.Designer.cs">
+      <DependentUpon>UC_Table.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Customer Control\UC_Item.resx">
       <DependentUpon>UC_Item.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Staff Control\UC_QRPayment.resx">
       <DependentUpon>UC_QRPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff Control\UC_Table.resx">
+      <DependentUpon>UC_Table.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
