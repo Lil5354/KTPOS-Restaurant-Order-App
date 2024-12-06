@@ -18,3 +18,5 @@ E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Cont
 E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_Payment.resources
 E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS_Order.fStaff.resources
 E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_ListBill.resources
+E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS_Order.fManagement.resources
+E:\FILE CỦA THẢO\KTPOS Order\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_Account.resources

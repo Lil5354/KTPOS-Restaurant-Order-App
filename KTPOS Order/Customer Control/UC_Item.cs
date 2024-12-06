@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace KTPOS_Order.Customer_Control
 {
@@ -17,10 +18,11 @@ namespace KTPOS_Order.Customer_Control
             InitializeComponent();
         }
 
-        public UC_Item(string str)
+        public UC_Item(string fName, decimal Price)
         {
             InitializeComponent();
-            txtCost.Text = str;
+            txtName.Text = fName;
+            txtCost.Text = $"${Price:0.00}";
         }
 
         private void UC_Item_Load(object sender, EventArgs e)
