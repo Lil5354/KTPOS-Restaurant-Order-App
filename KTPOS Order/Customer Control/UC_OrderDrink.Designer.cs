@@ -28,29 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Filter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SuspendLayout();
-            // 
-            // Filter
-            // 
-            this.Filter.BackColor = System.Drawing.Color.Transparent;
-            this.Filter.BorderRadius = 7;
-            this.Filter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Filter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Filter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Filter.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.Filter.ItemHeight = 30;
-            this.Filter.Items.AddRange(new object[] {
-            "A-Z",
-            "Bán chạy nhất",
-            "Mới nhất"});
-            this.Filter.Location = new System.Drawing.Point(671, 44);
-            this.Filter.Name = "Filter";
-            this.Filter.Size = new System.Drawing.Size(211, 36);
-            this.Filter.TabIndex = 49;
             // 
             // guna2HtmlLabel1
             // 
@@ -68,7 +47,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackgroundImage = global::KTPOS_Order.Properties.Resources.d62d6c72fbe203f5cf1061e28e17df672;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Controls.Add(this.Filter);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Name = "UC_OrderDrink";
             this.Size = new System.Drawing.Size(929, 751);
@@ -78,8 +56,6 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2ComboBox Filter;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }
