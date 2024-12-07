@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -106,16 +107,16 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Management Control\UC_Admin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Management Control\UC_Admin.Designer.cs">
+      <DependentUpon>UC_Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Proccess\GetDatabase.cs" />
     <Compile Include="Proccess\LgAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Staff Control\UC_Account.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Staff Control\UC_Account.Designer.cs">
-      <DependentUpon>UC_Account.cs</DependentUpon>
-    </Compile>
     <Compile Include="Staff Control\UC_ListBill.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -167,6 +168,9 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Management Control\UC_Admin.resx">
+      <DependentUpon>UC_Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -177,9 +181,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Staff Control\UC_Account.resx">
-      <DependentUpon>UC_Account.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Staff Control\UC_ListBill.resx">
       <DependentUpon>UC_ListBill.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,8 +282,6 @@
   <ItemGroup>
     <None Include="Resources\bground.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Management Control\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

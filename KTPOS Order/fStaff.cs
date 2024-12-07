@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KTPOS_Order.Customer_Control;
+using KTPOS_Order.Management_Control;
 using KTPOS_Order.Staff_Control;
 
 namespace KTPOS_Order
@@ -60,6 +61,12 @@ namespace KTPOS_Order
             this.WindowState = FormWindowState.Normal;
             btnMinSize.Visible = false;
             btnMaxSize.Visible = true;
+        }
+
+        private void btnManage_Click(object sender, EventArgs e)
+        {
+            UC_Admin ucAdmin = new UC_Admin();
+            AddUserControl(ucAdmin);
         }
     }
 }

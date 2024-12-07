@@ -153,6 +153,7 @@
             this.btnManage.TabIndex = 29;
             this.btnManage.Text = "Management";
             this.btnManage.UseTransparentBackground = true;
+            this.btnManage.Click += new System.EventHandler(this.btnManage_Click);
             // 
             // btnProccessing
             // 
@@ -237,8 +238,9 @@
             // fStaff
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoSize = true;
             this.BackgroundImage = global::KTPOS_Order.Properties.Resources.bground;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1169, 740);
             this.Controls.Add(this.btnTable);
             this.Controls.Add(this.btnChat);

@@ -48,8 +48,7 @@ namespace KTPOS_Order
         }
         private void btnAccount_Click(object sender, EventArgs e)
         {
-            UC_Account ucStaff = new UC_Account();
-            AddUserControl(ucStaff);
+            
         }
     }
 }
