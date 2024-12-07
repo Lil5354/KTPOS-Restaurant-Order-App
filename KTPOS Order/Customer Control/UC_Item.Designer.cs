@@ -37,15 +37,19 @@
             // 
             // btnItem
             // 
+            this.btnItem.Animated = true;
+            this.btnItem.BorderColor = System.Drawing.Color.Maroon;
             this.btnItem.BorderRadius = 20;
+            this.btnItem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnItem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnItem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnItem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnItem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnItem.DisabledState.FillColor = System.Drawing.Color.White;
+            this.btnItem.DisabledState.ForeColor = System.Drawing.Color.White;
             this.btnItem.FillColor = System.Drawing.Color.White;
+            this.btnItem.FocusedColor = System.Drawing.Color.White;
             this.btnItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnItem.ForeColor = System.Drawing.Color.White;
-            this.btnItem.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnItem.HoverState.BorderColor = System.Drawing.Color.Maroon;
             this.btnItem.HoverState.CustomBorderColor = System.Drawing.Color.Maroon;
             this.btnItem.HoverState.FillColor = System.Drawing.Color.White;
             this.btnItem.HoverState.ForeColor = System.Drawing.Color.White;
@@ -59,27 +63,30 @@
             // 
             this.txtCost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCost.AutoSize = false;
             this.txtCost.BackColor = System.Drawing.Color.White;
             this.txtCost.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCost.ForeColor = System.Drawing.Color.DimGray;
-            this.txtCost.Location = new System.Drawing.Point(48, 155);
+            this.txtCost.Location = new System.Drawing.Point(3, 145);
             this.txtCost.Name = "txtCost";
-            this.txtCost.Size = new System.Drawing.Size(56, 30);
+            this.txtCost.Size = new System.Drawing.Size(155, 30);
             this.txtCost.TabIndex = 3;
             this.txtCost.Text = "$10.5";
+            this.txtCost.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtName
             // 
-            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.AutoSize = false;
             this.txtName.BackColor = System.Drawing.Color.White;
             this.txtName.Font = new System.Drawing.Font("Segoe UI", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.ForeColor = System.Drawing.Color.Maroon;
-            this.txtName.Location = new System.Drawing.Point(18, 107);
+            this.txtName.Location = new System.Drawing.Point(3, 106);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(128, 33);
+            this.txtName.Size = new System.Drawing.Size(155, 33);
             this.txtName.TabIndex = 4;
-            this.txtName.Text = "Hamburger";
+            this.txtName.Text = "H";
+            this.txtName.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtName.Click += new System.EventHandler(this.txtName_Click);
             // 
             // guna2CirclePictureBox1
             // 
@@ -104,11 +111,11 @@
             this.Controls.Add(this.txtCost);
             this.Controls.Add(this.btnItem);
             this.Name = "UC_Item";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Size = new System.Drawing.Size(160, 196);
             this.Load += new System.EventHandler(this.UC_Item_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
