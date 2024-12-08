@@ -88,7 +88,7 @@ namespace KTPOS_Order
             }
             else
             {
-                MessageBox.Show("Exit cancelled. Continue your activity.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Exit cancelled. Continue your activity ❤️.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Focus();
             }
         }

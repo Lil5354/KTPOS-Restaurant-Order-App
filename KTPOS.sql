@@ -9,8 +9,8 @@ GO
 CREATE TABLE ACCOUNT (
 	Email       NVARCHAR(50) primary key,
 	FullName    NVARCHAR(50) NOT NULL,
-    [Password]  NVARCHAR(50) NOT NULL CHECK(LEN([Password]) >= 6),
-	ExpY			TINYINT	NULL,
+    [Password]  NVARCHAR(50) NOT NULL CHECK(LEN([Password]) >= 6) DEFAULT 'ktpos123',
+	ExpY		TINYINT		  NULL,
     [Role]      NVARCHAR(20) CHECK([Role] IN ('Staff', 'Manager','Chef','Customer'))
 );
 GO
@@ -55,7 +55,7 @@ CREATE TABLE BILLINF(
 INSERT INTO ACCOUNT (FullName, Email, [Password],	ExpY,		[Role]		 ) 
 VALUES
     (N'Võ Đăng Khoa',				'khoavd2809@gmail.com',     'khoavo123',		2,		'Manager'),
-    (N'Dương Thị Thanh Thảo',		'thaott26@gmail.com',		'pupu123',			NULL,   'Manager'),
+    (N'Dương Thị Thanh Thảo',		'thaott26@gmail.com',		'pupu123',			NULL,  'Manager'),
     (N'Hoàng Văn Thiên',			'hvt2003@gmail.com',		'chillguy1',		1,		'Staff'),
     (N'Lê Thiện Nhân',				'nhanle@gmail.com',			'cuchuoi2xu',		1,		'Staff'),
     (N'Nguyễn Thành Đạt',			'dathphong@gmail.com',		'hoangtusitinh',	NULL,	'Staff');
@@ -106,4 +106,4 @@ GO
 SELECT ITEM.fname, fb.fname, idCategory FROM ITEM
 JOIN [F&BCATEGORY] fb
 ON ITEM.idCategory = fb.ID
-SELECT * FROM ACCOUNT
+SELECT FullName, Email, ExpY, [Role] FROM ACCOUNT Order by [Role] ASC

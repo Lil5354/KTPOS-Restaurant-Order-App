@@ -101,6 +101,7 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Management Control\GetList.cs" />
     <Compile Include="Management Control\UC_Admin.cs">
       <SubType>UserControl</SubType>
     </Compile>
