@@ -150,7 +150,7 @@
             this.btnFoodOptions.HoverState.ForeColor = System.Drawing.Color.Maroon;
             this.btnFoodOptions.Location = new System.Drawing.Point(141, 12);
             this.btnFoodOptions.Name = "btnFoodOptions";
-            this.btnFoodOptions.Size = new System.Drawing.Size(207, 52);
+            this.btnFoodOptions.Size = new System.Drawing.Size(250, 52);
             this.btnFoodOptions.TabIndex = 22;
             this.btnFoodOptions.Text = "Hamburger and others";
             this.btnFoodOptions.Click += new System.EventHandler(this.btnFoodOptions_Click);

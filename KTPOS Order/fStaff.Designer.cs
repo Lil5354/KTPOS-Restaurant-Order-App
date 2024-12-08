@@ -177,7 +177,7 @@
             this.btnProccessing.HoverState.ForeColor = System.Drawing.Color.Maroon;
             this.btnProccessing.Location = new System.Drawing.Point(213, 18);
             this.btnProccessing.Name = "btnProccessing";
-            this.btnProccessing.Size = new System.Drawing.Size(123, 52);
+            this.btnProccessing.Size = new System.Drawing.Size(170, 52);
             this.btnProccessing.TabIndex = 27;
             this.btnProccessing.Text = "Proccessing";
             // 
@@ -253,6 +253,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fStaff";
             this.Text = "Staff ";
+            this.Load += new System.EventHandler(this.fStaff_Load);
             this.ResumeLayout(false);
 
         }

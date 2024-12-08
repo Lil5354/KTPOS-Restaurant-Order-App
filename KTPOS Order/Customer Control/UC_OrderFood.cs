@@ -14,7 +14,7 @@ namespace KTPOS_Order.Customer_Control
 {
     public partial class UC_OrderFood : UserControl
     {
-        string connectionString = "Data Source=LAPTOP-QE1MRLKN\\SQLEXPRESS01;Initial Catalog=KTPOS;" + "Integrated Security=true";
+        string connectionString = "Data Source=KHOAZO\\MSSQLSERVER03;Initial Catalog=KTPOS;" + "Integrated Security=true";
         public UC_OrderFood()
         {
             InitializeComponent();
@@ -58,6 +58,11 @@ namespace KTPOS_Order.Customer_Control
             {
                 MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

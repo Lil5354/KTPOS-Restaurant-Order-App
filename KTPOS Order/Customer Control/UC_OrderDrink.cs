@@ -21,5 +21,10 @@ namespace KTPOS_Order.Customer_Control
         {
 
         }
+
+        private void FlowMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
