@@ -10,14 +10,24 @@ using System.Windows.Forms;
 
 namespace KTPOS_Order.Staff_Control
 {
-    public partial class UC_Account : UserControl
+    public partial class btnDelete : UserControl
     {
-        public UC_Account()
+        public btnDelete()
         {
             InitializeComponent();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
         {
 
         }

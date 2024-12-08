@@ -48,8 +48,27 @@ namespace KTPOS_Order
         }
         private void btnAccount_Click(object sender, EventArgs e)
         {
-            UC_Account ucStaff = new UC_Account();
+            btnDelete ucStaff = new btnDelete();
             AddUserControl(ucStaff);
+        }
+
+        private void btnFood_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Do you really want to exit?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialog == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                MessageBox.Show("Exit cancelled. Continue your activity.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Focus();
+            }
         }
     }
 }

@@ -55,8 +55,8 @@ CREATE TABLE BILLINF(
 INSERT INTO ACCOUNT (FullName, Email, [Password],	ExpY,		[Role]		 ) 
 VALUES
     (N'Võ Đăng Khoa',				'khoavd2809@gmail.com',     'khoavo123',		2,		'Manager'),
-    (N'Dương Thị Thanh Thảo',		'thaott26@gmail.com',		'Pupu123',		NULL,   'Staff'),
-    (N'Hoàng Văn Thiên',				'hvt2003@gmail.com',			'Chillguy1',		1,		'Staff'),
+    (N'Dương Thị Thanh Thảo',		'thaott26@gmail.com',		'pupu123',		NULL,   'Manager'),
+    (N'Hoàng Văn Thiên',				'hvt2003@gmail.com',			'chillguy1',		1,		'Staff'),
     (N'Lê Thiện Nhân',				'nhanle@gmail.com',			'cuchuoi2Xu',   1,		'Staff'),
     (N'Nguyễn Thành Đạt',			'dathphong@gmail.com',		'hoangtusitinh',NULL,	'Staff');
 
@@ -97,3 +97,5 @@ VALUES
 (2, 4, 1), -- 1 Steak on the second bill
 (2, 5, 3); -- 3 Ice Creams on the second bill
 
+GO
+SELECT * FROM ACCOUNT 

@@ -117,7 +117,7 @@
             this.btnChat.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnChat.HoverState.FillColor = System.Drawing.Color.White;
             this.btnChat.HoverState.ForeColor = System.Drawing.Color.Maroon;
-            this.btnChat.Location = new System.Drawing.Point(421, 18);
+            this.btnChat.Location = new System.Drawing.Point(437, 18);
             this.btnChat.Name = "btnChat";
             this.btnChat.Size = new System.Drawing.Size(102, 52);
             this.btnChat.TabIndex = 30;
@@ -150,6 +150,7 @@
             this.btnManage.TabIndex = 29;
             this.btnManage.Text = "Management";
             this.btnManage.UseTransparentBackground = true;
+            this.btnManage.Click += new System.EventHandler(this.btnManage_Click);
             // 
             // btnProccessing
             // 
@@ -173,7 +174,7 @@
             this.btnProccessing.HoverState.ForeColor = System.Drawing.Color.Maroon;
             this.btnProccessing.Location = new System.Drawing.Point(267, 18);
             this.btnProccessing.Name = "btnProccessing";
-            this.btnProccessing.Size = new System.Drawing.Size(123, 52);
+            this.btnProccessing.Size = new System.Drawing.Size(148, 52);
             this.btnProccessing.TabIndex = 27;
             this.btnProccessing.Text = "Proccessing";
             // 
@@ -220,6 +221,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fStaff";
             this.Text = "Staff ";
+            this.Load += new System.EventHandler(this.fStaff_Load);
             this.ResumeLayout(false);
 
         }

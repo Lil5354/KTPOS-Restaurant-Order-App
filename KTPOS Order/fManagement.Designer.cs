@@ -59,6 +59,7 @@
             btnClose.Name = "btnClose";
             btnClose.Size = new System.Drawing.Size(25, 25);
             btnClose.TabIndex = 31;
+            btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnChat
             // 
@@ -167,6 +168,7 @@
             this.btnFood.Size = new System.Drawing.Size(102, 52);
             this.btnFood.TabIndex = 32;
             this.btnFood.Text = "Food";
+            this.btnFood.Click += new System.EventHandler(this.btnFood_Click);
             // 
             // btnMaxSize
             // 

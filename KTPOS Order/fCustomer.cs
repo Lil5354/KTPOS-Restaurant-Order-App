@@ -101,6 +101,8 @@ namespace KTPOS_Order
             Application.Exit();
         }
 
-        
+        private void fCustomer_Load(object sender, EventArgs e)
+        {
+        }
     }
 }
