@@ -147,7 +147,7 @@
             this.btnManage.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnManage.HoverState.FillColor = System.Drawing.Color.White;
             this.btnManage.HoverState.ForeColor = System.Drawing.Color.Maroon;
-            this.btnManage.Location = new System.Drawing.Point(598, 18);
+            this.btnManage.Location = new System.Drawing.Point(599, 18);
             this.btnManage.Name = "btnManage";
             this.btnManage.Size = new System.Drawing.Size(148, 52);
             this.btnManage.TabIndex = 29;
@@ -175,7 +175,7 @@
             this.btnProccessing.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnProccessing.HoverState.FillColor = System.Drawing.Color.White;
             this.btnProccessing.HoverState.ForeColor = System.Drawing.Color.Maroon;
-            this.btnProccessing.Location = new System.Drawing.Point(213, 18);
+            this.btnProccessing.Location = new System.Drawing.Point(186, 18);
             this.btnProccessing.Name = "btnProccessing";
             this.btnProccessing.Size = new System.Drawing.Size(170, 52);
             this.btnProccessing.TabIndex = 27;
@@ -228,7 +228,7 @@
             this.btnTable.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnTable.HoverState.FillColor = System.Drawing.Color.White;
             this.btnTable.HoverState.ForeColor = System.Drawing.Color.Maroon;
-            this.btnTable.Location = new System.Drawing.Point(352, 18);
+            this.btnTable.Location = new System.Drawing.Point(361, 18);
             this.btnTable.Name = "btnTable";
             this.btnTable.Size = new System.Drawing.Size(102, 52);
             this.btnTable.TabIndex = 31;

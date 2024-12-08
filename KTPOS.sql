@@ -1,9 +1,9 @@
 ﻿USE MASTER
 GO
 DROP DATABASE IF EXISTS KTPOS
+GO
 CREATE DATABASE KTPOS
 GO
-
 USE KTPOS	
 GO
 CREATE TABLE ACCOUNT (
@@ -55,10 +55,10 @@ CREATE TABLE BILLINF(
 INSERT INTO ACCOUNT (FullName, Email, [Password],	ExpY,		[Role]		 ) 
 VALUES
     (N'Võ Đăng Khoa',				'khoavd2809@gmail.com',     'khoavo123',		2,		'Manager'),
-    (N'Dương Thị Thanh Thảo',		'thaott26@gmail.com',		'Pupu123',		NULL,   'Staff'),
-    (N'Hoàng Văn Thiên',				'hvt2003@gmail.com',			'Chillguy1',		1,		'Staff'),
-    (N'Lê Thiện Nhân',				'nhanle@gmail.com',			'cuchuoi2Xu',   1,		'Staff'),
-    (N'Nguyễn Thành Đạt',			'dathphong@gmail.com',		'hoangtusitinh',NULL,	'Staff');
+    (N'Dương Thị Thanh Thảo',		'thaott26@gmail.com',		'pupu123',			NULL,   'Manager'),
+    (N'Hoàng Văn Thiên',			'hvt2003@gmail.com',		'chillguy1',		1,		'Staff'),
+    (N'Lê Thiện Nhân',				'nhanle@gmail.com',			'cuchuoi2xu',		1,		'Staff'),
+    (N'Nguyễn Thành Đạt',			'dathphong@gmail.com',		'hoangtusitinh',	NULL,	'Staff');
 
 INSERT INTO [TABLE] (fname, status)
 VALUES 
@@ -79,9 +79,14 @@ INSERT INTO ITEM (fname, idCategory, price)
 VALUES 
 ('Coke', 1, 1.5),
 ('Beer', 1, 3.0),
-('Spring Rolls', 2, 5.0),
-('Steak', 3, 20.0),
-('Ice Cream', 4, 4.0);
+('Lemonade', 1, 1.80),  -- Drinks
+('Spring Rolls', 2, 3.50), -- Appetizers
+('Garlic Bread', 2, 2.99),  -- Appetizers
+('Grilled Chicken', 3, 9.99), -- Main Course
+('Beef Steak', 3, 15.99),    -- Main Course
+('Pasta Carbonara', 3, 12.50), -- Main Course
+('Chocolate Cake', 4, 4.99), -- Desserts
+('Ice Cream Sundae', 4, 3.99); -- Desserts
 
 -- Insert data into Bill
 INSERT INTO Bill (Datepayment, idTable, status)
@@ -97,3 +102,8 @@ VALUES
 (2, 4, 1), -- 1 Steak on the second bill
 (2, 5, 3); -- 3 Ice Creams on the second bill
 
+GO
+SELECT ITEM.fname, fb.fname, idCategory FROM ITEM
+JOIN [F&BCATEGORY] fb
+ON ITEM.idCategory = fb.ID
+SELECT * FROM ACCOUNT

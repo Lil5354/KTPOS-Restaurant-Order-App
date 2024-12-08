@@ -30,7 +30,7 @@ namespace KTPOS_Order
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string role = "Manager";
-            fCustomer f = new fCustomer();
+            fStaff f = new fStaff(role);
             this.Hide();
             f.ShowDialog();
             /*

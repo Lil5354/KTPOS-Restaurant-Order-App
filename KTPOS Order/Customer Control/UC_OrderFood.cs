@@ -56,7 +56,7 @@ namespace KTPOS_Order.Customer_Control
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"There are some errors: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
