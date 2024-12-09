@@ -16,7 +16,6 @@ namespace KTPOS_Order.Customer_Control
     public partial class UC_OrderFood : UserControl
     {
         string connectionString = "Data Source=DESKTOP-4S5L10L;Initial Catalog=KTPOS;" + "Integrated Security=true";
-        // Sô lượng Items  trong sql
         decimal Total = 0;
 
         public static List<ListViewItem> listItems = new List<ListViewItem>();
@@ -105,7 +104,6 @@ namespace KTPOS_Order.Customer_Control
 
                 // Câu lệnh SQL để lấy thông tin món ăn có ID = 1 từ bảng ITEM
                 string sql = "SELECT ID, fName, Price FROM ITEM";
-
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
