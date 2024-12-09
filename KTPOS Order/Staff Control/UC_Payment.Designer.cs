@@ -41,7 +41,7 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guna2Button15 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPay = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel30 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2CustomGradientPanel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
@@ -57,7 +57,7 @@
             this.guna2CustomGradientPanel16.BorderRadius = 15;
             this.guna2CustomGradientPanel16.Controls.Add(this.guna2ComboBox1);
             this.guna2CustomGradientPanel16.Controls.Add(this.guna2DataGridView1);
-            this.guna2CustomGradientPanel16.Controls.Add(this.guna2Button15);
+            this.guna2CustomGradientPanel16.Controls.Add(this.btnPay);
             this.guna2CustomGradientPanel16.Controls.Add(this.guna2HtmlLabel30);
             this.guna2CustomGradientPanel16.FillColor = System.Drawing.Color.Maroon;
             this.guna2CustomGradientPanel16.FillColor2 = System.Drawing.Color.Maroon;
@@ -185,25 +185,26 @@
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             // 
-            // guna2Button15
+            // btnPay
             // 
-            this.guna2Button15.Animated = true;
-            this.guna2Button15.AutoRoundedCorners = true;
-            this.guna2Button15.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button15.BorderRadius = 30;
-            this.guna2Button15.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button15.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button15.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button15.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button15.FillColor = System.Drawing.Color.White;
-            this.guna2Button15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button15.ForeColor = System.Drawing.Color.Maroon;
-            this.guna2Button15.Location = new System.Drawing.Point(237, 407);
-            this.guna2Button15.Name = "guna2Button15";
-            this.guna2Button15.Size = new System.Drawing.Size(176, 62);
-            this.guna2Button15.TabIndex = 2;
-            this.guna2Button15.Text = "Payment";
-            this.guna2Button15.UseTransparentBackground = true;
+            this.btnPay.Animated = true;
+            this.btnPay.AutoRoundedCorners = true;
+            this.btnPay.BackColor = System.Drawing.Color.Transparent;
+            this.btnPay.BorderRadius = 30;
+            this.btnPay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPay.FillColor = System.Drawing.Color.White;
+            this.btnPay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPay.ForeColor = System.Drawing.Color.Maroon;
+            this.btnPay.Location = new System.Drawing.Point(237, 407);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(176, 62);
+            this.btnPay.TabIndex = 2;
+            this.btnPay.Text = "Payment";
+            this.btnPay.UseTransparentBackground = true;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // guna2HtmlLabel30
             // 
@@ -239,7 +240,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button15;
+        private Guna.UI2.WinForms.Guna2Button btnPay;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel30;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
     }
