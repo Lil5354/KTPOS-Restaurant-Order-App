@@ -18,8 +18,6 @@ namespace KTPOS_Order.Customer_Control
         public UC_Item()
         {
             InitializeComponent();
-            txtName.Width = btnItem.Width;
-            txtName.Dock = DockStyle.Fill;
         }
 
         public UC_Item(string fName, decimal Price)
