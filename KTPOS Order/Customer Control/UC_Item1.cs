@@ -112,6 +112,7 @@ namespace KTPOS_Order.Customer_Control
 
         private void txtName_Click(object sender, EventArgs e)
         {
+
         }
         public UC_OrderFood UCAReference { get; set; }
        
@@ -119,6 +120,11 @@ namespace KTPOS_Order.Customer_Control
         private void txtCost_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

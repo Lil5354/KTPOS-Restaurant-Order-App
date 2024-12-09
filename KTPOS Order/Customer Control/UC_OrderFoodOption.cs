@@ -12,6 +12,7 @@ namespace KTPOS_Order.Customer_Control
 {
     public partial class UC_OrderFoodOption : UserControl
     {
+        string connectionString = "Data Source=DESKTOP-4S5L10L;Initial Catalog=KTPOS;" + "Integrated Security=true";
         public UC_OrderFoodOption()
         {
             InitializeComponent();
@@ -28,5 +29,13 @@ namespace KTPOS_Order.Customer_Control
         {
             
         }
+
+        private void FlowMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+
     }
 }

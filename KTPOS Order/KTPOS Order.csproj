@@ -64,30 +64,6 @@
     <Compile Include="Customer Control\UC_Item1.Designer.cs">
       <DependentUpon>UC_Item1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer Control\UC_Item2.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Customer Control\UC_Item2.Designer.cs">
-      <DependentUpon>UC_Item2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Customer Control\UC_Item3.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Customer Control\UC_Item3.Designer.cs">
-      <DependentUpon>UC_Item3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Customer Control\UC_Item4.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Customer Control\UC_Item4.Designer.cs">
-      <DependentUpon>UC_Item4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Customer Control\UC_Item5.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Customer Control\UC_Item5.Designer.cs">
-      <DependentUpon>UC_Item5.cs</DependentUpon>
-    </Compile>
     <Compile Include="Customer Control\UC_OrderDrink.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -166,18 +142,6 @@
     </Compile>
     <EmbeddedResource Include="Customer Control\UC_Item1.resx">
       <DependentUpon>UC_Item1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Customer Control\UC_Item2.resx">
-      <DependentUpon>UC_Item2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Customer Control\UC_Item3.resx">
-      <DependentUpon>UC_Item3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Customer Control\UC_Item4.resx">
-      <DependentUpon>UC_Item4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Customer Control\UC_Item5.resx">
-      <DependentUpon>UC_Item5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer Control\UC_OrderDrink.resx">
       <DependentUpon>UC_OrderDrink.cs</DependentUpon>

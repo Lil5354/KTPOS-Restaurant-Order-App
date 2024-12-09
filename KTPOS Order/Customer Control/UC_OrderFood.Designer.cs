@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.Filter = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.FlowMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2CustomGradientPanel16 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.txtTotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.listView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -63,17 +64,6 @@
             this.Filter.Size = new System.Drawing.Size(211, 36);
             this.Filter.TabIndex = 30;
             // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(507, 48);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(81, 31);
-            this.guna2HtmlLabel1.TabIndex = 29;
-            this.guna2HtmlLabel1.Text = "MENU";
-            // 
             // FlowMenu
             // 
             this.FlowMenu.AutoScroll = true;
@@ -95,6 +85,8 @@
             this.guna2CustomGradientPanel16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.guna2CustomGradientPanel16.BorderColor = System.Drawing.Color.Maroon;
             this.guna2CustomGradientPanel16.BorderRadius = 15;
+            this.guna2CustomGradientPanel16.Controls.Add(this.txtTotal);
+            this.guna2CustomGradientPanel16.Controls.Add(this.guna2HtmlLabel2);
             this.guna2CustomGradientPanel16.Controls.Add(this.listView);
             this.guna2CustomGradientPanel16.Controls.Add(this.guna2Button15);
             this.guna2CustomGradientPanel16.Controls.Add(this.guna2HtmlLabel30);
@@ -105,9 +97,33 @@
             this.guna2CustomGradientPanel16.Location = new System.Drawing.Point(39, 126);
             this.guna2CustomGradientPanel16.Name = "guna2CustomGradientPanel16";
             this.guna2CustomGradientPanel16.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(20);
-            this.guna2CustomGradientPanel16.Size = new System.Drawing.Size(391, 454);
+            this.guna2CustomGradientPanel16.Size = new System.Drawing.Size(391, 501);
             this.guna2CustomGradientPanel16.TabIndex = 32;
             this.guna2CustomGradientPanel16.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel16_Paint);
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.AutoSize = false;
+            this.txtTotal.BackColor = System.Drawing.Color.Maroon;
+            this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.ForeColor = System.Drawing.Color.White;
+            this.txtTotal.Location = new System.Drawing.Point(206, 373);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(155, 33);
+            this.txtTotal.TabIndex = 7;
+            this.txtTotal.Text = "H";
+            this.txtTotal.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(54, 367);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(59, 32);
+            this.guna2HtmlLabel2.TabIndex = 6;
+            this.guna2HtmlLabel2.Text = "Total:";
             // 
             // listView
             // 
@@ -151,7 +167,7 @@
             this.guna2Button15.FillColor = System.Drawing.Color.White;
             this.guna2Button15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button15.ForeColor = System.Drawing.Color.Maroon;
-            this.guna2Button15.Location = new System.Drawing.Point(95, 380);
+            this.guna2Button15.Location = new System.Drawing.Point(87, 412);
             this.guna2Button15.Name = "guna2Button15";
             this.guna2Button15.Size = new System.Drawing.Size(213, 62);
             this.guna2Button15.TabIndex = 2;
@@ -179,7 +195,6 @@
             this.Controls.Add(this.guna2CustomGradientPanel16);
             this.Controls.Add(this.FlowMenu);
             this.Controls.Add(this.Filter);
-            this.Controls.Add(this.guna2HtmlLabel1);
             this.Name = "UC_OrderFood";
             this.Size = new System.Drawing.Size(1454, 722);
             this.Load += new System.EventHandler(this.UC_OrderFood_Load_1);
@@ -192,7 +207,6 @@
 
         #endregion
         private Guna.UI2.WinForms.Guna2ComboBox Filter;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2DataGridViewStyler guna2DataGridViewStyler1;
         private System.Windows.Forms.FlowLayoutPanel FlowMenu;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel16;
@@ -202,5 +216,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        public Guna.UI2.WinForms.Guna2HtmlLabel txtTotal;
     }
 }

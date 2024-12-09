@@ -17,9 +17,10 @@ namespace KTPOS_Order.Customer_Control
     {
         string connectionString = "Data Source=DESKTOP-4S5L10L;Initial Catalog=KTPOS;" + "Integrated Security=true";
         // Sô lượng Items  trong sql
-        int Item_Amount = 5;
+        decimal Total = 0;
 
         public static List<ListViewItem> listItems = new List<ListViewItem>();
+        public Dictionary<string, int> Count = new Dictionary<string, int>();
 
        
         public UC_OrderFood()
@@ -27,19 +28,34 @@ namespace KTPOS_Order.Customer_Control
             InitializeComponent();
             
         }
-        private void txtName_Click(object sender, EventArgs e)
-        {
-
-        }
        
         private void FlowMenu_Paint(object sender, PaintEventArgs e)
         {
             
         }
+
+        public void AddOrUpdate (Dictionary<string, int> a, string key)
+        {
+            int val;
+            if (a.TryGetValue(key, out val))
+            {
+                // Tồn tại giá trị!
+                a[key]++;
+            }
+            else
+            {
+                // Thêm giá trị
+                a.Add(key, 1);
+            }
+        }
         public void AddProduct(object sender, EventArgs e)
         {
             PictureBox pictureBox = (PictureBox)sender;
             String ID = pictureBox.Tag.ToString();
+            ListViewItem item = new ListViewItem();
+            AddOrUpdate(Count, ID);
+            string name = "";
+            decimal price = 0;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 // Mở kết nối đến database
@@ -47,22 +63,38 @@ namespace KTPOS_Order.Customer_Control
 
                 // Câu lệnh SQL để lấy thông tin món ăn có ID = 1 từ bảng ITEM
                 string sql = "SELECT * FROM ITEM WHERE ID ="+ ID;
-
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            ListViewItem item = new ListViewItem(new string[]
+                            name = reader["fName"].ToString();
+                            price = decimal.Parse(reader["price"].ToString());
+                            Total += price;
+                            item = new ListViewItem(new string[]
                             {
-                                reader["fName"].ToString(),"1", reader["price"].ToString()
+                                name,Count[ID].ToString(), price.ToString()
                             });
-                            listView.Items.Add(item);
+                            //listView.Items.Add(item);
                         }
                     }
+                }   
+            }
+            if (Count[ID] == 1) listView.Items.Add(item);
+            else
+            {
+                foreach (ListViewItem i in listView.Items)
+                {
+                    if (i.SubItems[0].Text == name)
+                    {
+                        i.SubItems[1].Text = Count[ID].ToString();
+                        decimal x = Count[ID] * price;
+                        i.SubItems[2].Text = x.ToString();
+                    }  
                 }
             }
+            txtTotal.Text = Total.ToString() + "$";
         }
         public void LoadProduct()
         {
