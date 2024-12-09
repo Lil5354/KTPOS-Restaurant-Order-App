@@ -16,5 +16,10 @@ namespace KTPOS_Order.Customer_Control
         {
             InitializeComponent();
         }
+
+        private void UC_OrderDrink_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

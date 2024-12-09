@@ -16,5 +16,17 @@ namespace KTPOS_Order.Customer_Control
         {
             InitializeComponent();
         }
+
+        
+
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void listView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

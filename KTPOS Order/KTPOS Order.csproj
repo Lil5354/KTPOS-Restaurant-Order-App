@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,11 +37,15 @@
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,13 +55,38 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer Control\UC_Item.cs">
+    <Compile Include="Customer Control\UC_Item1.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Customer Control\UC_Item.Designer.cs">
-      <DependentUpon>UC_Item.cs</DependentUpon>
+    <Compile Include="Customer Control\UC_Item1.Designer.cs">
+      <DependentUpon>UC_Item1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer Control\UC_Item2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer Control\UC_Item2.Designer.cs">
+      <DependentUpon>UC_Item2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer Control\UC_Item3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer Control\UC_Item3.Designer.cs">
+      <DependentUpon>UC_Item3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer Control\UC_Item4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer Control\UC_Item4.Designer.cs">
+      <DependentUpon>UC_Item4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer Control\UC_Item5.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer Control\UC_Item5.Designer.cs">
+      <DependentUpon>UC_Item5.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer Control\UC_OrderDrink.cs">
       <SubType>UserControl</SubType>
@@ -88,16 +118,66 @@
     <Compile Include="fCustomer.Designer.cs">
       <DependentUpon>fCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="fStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fStaff.Designer.cs">
+      <DependentUpon>fStaff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Management Control\UC_Admin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Management Control\UC_Admin.Designer.cs">
+      <DependentUpon>UC_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proccess\GetDatabase.cs" />
+    <Compile Include="Proccess\LgAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Customer Control\UC_Item.resx">
-      <DependentUpon>UC_Item.cs</DependentUpon>
+    <Compile Include="Staff Control\UC_ListBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Staff Control\UC_ListBill.Designer.cs">
+      <DependentUpon>UC_ListBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff Control\UC_Payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Staff Control\UC_Payment.Designer.cs">
+      <DependentUpon>UC_Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff Control\UC_QRPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Staff Control\UC_QRPayment.Designer.cs">
+      <DependentUpon>UC_QRPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff Control\UC_Table.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Staff Control\UC_Table.Designer.cs">
+      <DependentUpon>UC_Table.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Customer Control\UC_Item1.resx">
+      <DependentUpon>UC_Item1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer Control\UC_Item2.resx">
+      <DependentUpon>UC_Item2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer Control\UC_Item3.resx">
+      <DependentUpon>UC_Item3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer Control\UC_Item4.resx">
+      <DependentUpon>UC_Item4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer Control\UC_Item5.resx">
+      <DependentUpon>UC_Item5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer Control\UC_OrderDrink.resx">
       <DependentUpon>UC_OrderDrink.cs</DependentUpon>
@@ -114,8 +194,14 @@
     <EmbeddedResource Include="fCustomer.resx">
       <DependentUpon>fCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fStaff.resx">
+      <DependentUpon>fStaff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management Control\UC_Admin.resx">
+      <DependentUpon>UC_Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,6 +213,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Staff Control\UC_ListBill.resx">
+      <DependentUpon>UC_ListBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff Control\UC_Payment.resx">
+      <DependentUpon>UC_Payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff Control\UC_QRPayment.resx">
+      <DependentUpon>UC_QRPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff Control\UC_Table.resx">
+      <DependentUpon>UC_Table.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -209,6 +307,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hamburger2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bground1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bground.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

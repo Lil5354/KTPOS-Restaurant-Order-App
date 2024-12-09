@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KTPOS_Order.Proccess;
 
 namespace KTPOS_Order
 {
@@ -21,25 +22,44 @@ namespace KTPOS_Order
         {
 
         }
-        private void fLog_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
-            {
-                e.Cancel = true;
-            }
-        }
+        
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            fCustomer cus = new fCustomer();
-            cus.Show();
-            this.Hide();
+        
+           
+            string email = txtUser.Text;
+            string password = txtPass.Text;
+            try
+            {
+                if (CLogin(email, password))
+                {
+                    fCustomer f = new fCustomer();
+                    this.Hide();
+                    f.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid email or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please enter a valid email or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+        bool CLogin(string email, string password)
+        {
+
+            return LgAccount.Instance.Login(email, password);
         }
 
-        private void btnEyes_Click_2(object sender, EventArgs e)
+            private void btnEyes_Click_2(object sender, EventArgs e)
         {
             if (txtPass.PasswordChar == '\0')
             {

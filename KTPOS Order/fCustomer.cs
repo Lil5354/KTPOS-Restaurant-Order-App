@@ -16,6 +16,7 @@ namespace KTPOS_Order
         public fCustomer()
         {
             InitializeComponent();
+           
         }
 
         private void guna2PictureBox1_Click(object sender, EventArgs e)
