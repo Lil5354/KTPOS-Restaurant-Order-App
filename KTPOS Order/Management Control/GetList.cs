@@ -28,8 +28,27 @@ namespace KTPOS_Order.Management_Control
             // Return null if login fails
             return 0;
         }
-        public int UpdateList(string name)
+        
+        public int UpdateList(string fname,string name, string email, string role)
         {
+            string query = "UPDATE ACCOUNT SET FullName = N'" +name+ "', Email = '" +email+ "',[Role] = '" +role+ "'WHERE FullName = N'" + fname + "' ";
+            int result = GetDatabase.Instance.ExecuteNonQuery(query);
+            if (result > 0)
+            {
+                return result;
+            }
+            // Return null if login fails
+            return 0;
+        }
+        public int InsertList(string name, string email, string role)
+        {
+            string query = "INSERT INTO ACCOUNT (FullName, Email, [Role]) VALUES (N'" + name + "','" + email + "','" + role + "' )";
+            int result = GetDatabase.Instance.ExecuteNonQuery(query);
+            if (result > 0)
+            {
+                return result;
+            }
+            // Return null if login fails
             return 0;
         }
     }

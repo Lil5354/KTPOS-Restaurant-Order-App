@@ -11,7 +11,8 @@ CREATE TABLE ACCOUNT (
 	FullName    NVARCHAR(50) NOT NULL,
     [Password]  NVARCHAR(50) NOT NULL CHECK(LEN([Password]) >= 6) DEFAULT 'ktpos123',
 	ExpY		TINYINT		  NULL,
-    [Role]      NVARCHAR(20) CHECK([Role] IN ('Staff', 'Manager','Chef','Customer'))
+    [Role]      NVARCHAR(20) CHECK([Role] IN ('Staff', 'Manager','Chef','Customer')),
+	Visible		int not null default 1 --0: FALSE 1: TRUE 
 );
 GO
 CREATE TABLE [TABLE] (
@@ -55,9 +56,10 @@ CREATE TABLE BILLINF(
 INSERT INTO ACCOUNT (FullName, Email, [Password],	ExpY,		[Role]		 ) 
 VALUES
     (N'Võ Đăng Khoa',				'khoavd2809@gmail.com',     'khoavo123',		2,		'Manager'),
-    (N'Dương Thị Thanh Thảo',		'thaott26@gmail.com',		'pupu123',			NULL,  'Manager'),
+    (N'Dương Thị Thanh Thảo',		'thaott26@gmail.com',		'pupu123',			NULL,	'Manager'),
     (N'Hoàng Văn Thiên',			'hvt2003@gmail.com',		'chillguy1',		1,		'Staff'),
     (N'Lê Thiện Nhân',				'nhanle@gmail.com',			'cuchuoi2xu',		1,		'Staff'),
+	(N'Từ Tuấn Sang',				'tsang@gmail.com',			'tsang123',			1,		'Chef'),
     (N'Nguyễn Thành Đạt',			'dathphong@gmail.com',		'hoangtusitinh',	NULL,	'Staff');
 
 INSERT INTO [TABLE] (fname, status)
@@ -103,7 +105,21 @@ VALUES
 (2, 5, 3); -- 3 Ice Creams on the second bill
 
 GO
-SELECT ITEM.fname, fb.fname, idCategory FROM ITEM
+SELECT ITEM.fname, fb.fname, idCategory, price FROM ITEM
 JOIN [F&BCATEGORY] fb
 ON ITEM.idCategory = fb.ID
-SELECT FullName, Email, ExpY, [Role] FROM ACCOUNT Order by [Role] ASC
+--DELETE FROM ACCOUNT WHERE Email = 'hvt2003@gmail.com'
+--SELECT * FROM ACCOUNT Order by [Role] ASC
+--UPDATE ACCOUNT 
+--SET Visible = 0
+--WHERE FullName = N'Võ Đăng Khoa' 
+SELECT * FROM ACCOUNT Order by [Role] ASC
+
+--			UPDATE ACCOUNT 
+	--		SET FullName = N'Lê Thiện Style',	Email = 'nhanle@gmail.com',	[Role] = 'Manager'
+		--	WHERE FullName = N'Lê Thiện Nhân'
+			--SELECT * FROM ACCOUNT Order by [Role] ASC
+INSERT INTO ACCOUNT (FullName, Email,	ExpY,		[Role]		 ) 
+VALUES
+    (N'Nguyễn Giang Gia Huy',				'huybo@gmail.com',		2,		'Chef')
+SELECT * FROM ACCOUNT Order by [Role] ASC

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Security;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using KTPOS_Order.Proccess;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
@@ -22,12 +23,14 @@ namespace KTPOS_Order.Management_Control
         }
         private void LoadAccountList()
         {
-            dtgvAccount.DataSource = null;
+            
             // Clear existing rows (if necessary, e.g., for unbound data).
-            dtgvAccount.Rows.Clear();
-            string query = "SELECT FullName, Email, ExpY, [Role], [Password] FROM ACCOUNT WHERE Visible = 1 Order by [Role] ASC";
+            
+            string query = "SELECT FullName, Email, ExpY, [Role] FROM ACCOUNT WHERE Visible = 1 Order by [Role] ASC";
             try
             {
+                dtgvAccount.DataSource = null;
+                dtgvAccount.Rows.Clear();
                 // Call the ExecuteQuery method to get data from the database.
                 DataTable data = GetDatabase.Instance.ExecuteQuery(query);
                 // Bind the data to the DataGridView.
@@ -39,11 +42,6 @@ namespace KTPOS_Order.Management_Control
                 MessageBox.Show("Error loading account list: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void account_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnViewAcc_Click(object sender, EventArgs e)
         {
             LoadAccountList();
@@ -51,28 +49,24 @@ namespace KTPOS_Order.Management_Control
 
         private void btnAddAcc_Click(object sender, EventArgs e)
         {
-            /*string query = "INSERT INTO ACCOUNT (FullName, Email, ExpY, [Role]) VALUES (@FullName, @Email, @ExpY, @Role)";
-
             try
             {
-                // Execute the query with parameters.
-                GetDatabase.Instance.ExecuteQuery(query, new object[] { fullName, email, expY, role });
-                MessageBox.Show("Account created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Reload the account list after creation.
-                LoadAccountList();
+                string name = txtFullName.Text, email = txtEmail.Text, role = cbBRole.Text;
+                int n = GetList.Instance.InsertList(name, email, role);
+                if (n > 0)
+                {
+                    MessageBox.Show("Account update successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadAccountList();
+                }
+                else
+                {
+                    MessageBox.Show("Error update account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
-                // Handle any potential exceptions.
-                MessageBox.Show("Error creating account: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error update account: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            */
-        }
-
-        private void dtgvAccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void btnDeleteAcc_Click(object sender, EventArgs e)
@@ -93,23 +87,48 @@ namespace KTPOS_Order.Management_Control
                 }
             }
             catch (Exception ex) {
-                MessageBox.Show("Error creating account: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error delete account: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
-        private void txtSearchAcc_TextChanged(object sender, EventArgs e)
-        {
 
+        private void dtgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Lấy hàng hiện tại
+                DataGridViewRow row = dtgvAccount.Rows[e.RowIndex];
+
+                // Gán dữ liệu từ các cột vào TextBox
+                txtFullName.Text = row.Cells["FullName"].Value?.ToString();
+                txtEmail.Text = row.Cells["Email"].Value?.ToString();
+                cbBRole.Text = row.Cells["Role"].Value?.ToString();
+            }
         }
 
-        private void dtgvAccount_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void btnUpdateAcc_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void guna2DataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            int CurrentIndex = dtgvAccount.CurrentCell.RowIndex;
+            string fname = Convert.ToString(dtgvAccount.Rows[CurrentIndex].Cells[0].Value.ToString());
+           
+            try
+            {
+                string name = txtFullName.Text, email = txtEmail.Text, role = cbBRole.Text;
+                int n = GetList.Instance.UpdateList(fname, name, email, role);
+                if (n > 0)
+                {
+                    MessageBox.Show("Account update successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadAccountList();
+                }
+                else
+                {
+                    MessageBox.Show("Error update account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error update account: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
