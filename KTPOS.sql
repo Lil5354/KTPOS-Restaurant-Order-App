@@ -130,4 +130,41 @@ VALUES
 (7, 4, 5),
 (7, 2, 2),
 (8, 4, 2);
-SELECT FullName as [FULL NAME], Email AS [EMAIL], ExpY AS [EXP IN YEAR], [Role] AS [ROLE] FROM ACCOUNT WHERE Visible = 1 Order by [Role] ASC
+
+SELECT * FROM ITEM
+SELECT * FROM Bill
+/*SELECT 
+    b.ID AS Bill_ID,
+    bi.idFD AS Item_ID,
+    i.fname AS Item_Name,
+    bi.count AS Quantity,
+    i.price AS Price,
+    c.fname AS Category_Name,
+    b.Datepayment AS Date_Of_Purchase
+FROM 
+    BILLINF bi
+JOIN 
+    ITEM i ON bi.idFD = i.ID
+JOIN 
+    [F&BCATEGORY] c ON i.idCategory = c.ID
+JOIN 
+    Bill b ON bi.idBill = b.ID
+ORDER BY 
+    b.ID;*/
+SELECT 
+    b.ID AS Bill_ID,
+    t.fname AS Table_Name,
+    SUM(i.price * bi.count) AS Total_Price,
+    b.Datepayment AS Date_Checkout
+FROM 
+    BILLINF bi
+JOIN 
+    Bill b ON bi.idBill = b.ID
+JOIN 
+    [TABLE] t ON b.idTable = t.ID
+JOIN 
+    ITEM i ON bi.idFD = i.ID
+GROUP BY 
+    b.ID, t.fname, b.Datepayment
+ORDER BY 
+    b.ID;

@@ -134,7 +134,8 @@ namespace KTPOS_Order.Management_Control
                     GetLists.Instance.LoadAccountList(query, dtgvAccount);
                     break;
                 case "TABLE":
-                    query = "SELECT * FROM TABLE WHERE Visible = 1 Order by [Role] ASC";
+                    query = "SELECT ID, fname AS [TABLE NAME] FROM [TABLE]";
+                    GetLists.Instance.LoadAccountList(query, dtgvTable);
                     break;
                 case "CATEGORIES":
                     query = "SELECT ID, fname AS [NAME CATEGORIES] FROM [F&BCATEGORY]";
@@ -145,7 +146,9 @@ namespace KTPOS_Order.Management_Control
                     GetLists.Instance.LoadAccountList(query, dtgvFandB);
                     break;
                 case "REVENUE":
-                    query = "SELECT * FROM REVENUE WHERE Visible = 1 Order by [Role] ASC";
+                    query = "SELECT b.ID AS [ID BILL], t.fname AS [TABLE NAME], SUM(i.price * bi.count) AS [TOTAL PRICE], b.Datepayment AS [DATE CHECKOUT] FROM BILLINF bi " +
+                        "JOIN Bill b ON bi.idBill = b.ID JOIN [TABLE] t ON b.idTable = t.ID JOIN ITEM i ON bi.idFD = i.ID GROUP BY b.ID, t.fname, b.Datepayment ORDER BY b.ID;";
+                    GetLists.Instance.LoadAccountList(query, dtgvRevenue);
                     break;
                 default:
                     query = "";
