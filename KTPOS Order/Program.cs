@@ -16,7 +16,7 @@ namespace KTPOS_Order
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fCustomer());
+            Application.Run(new fStaff("Manager"));
         }
     }
 }
