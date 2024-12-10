@@ -56,11 +56,13 @@ CREATE TABLE BILLINF(
 INSERT INTO ACCOUNT (FullName, Email, [Password],	ExpY,		[Role]		 ) 
 VALUES
     (N'Võ Đăng Khoa',				'khoavd2809@gmail.com',     'khoavo123',		2,		'Manager'),
-    (N'Dương Thị Thanh Thảo',		'thaott26@gmail.com',		'pupu123',			0,	'Manager'),
+    (N'Dương Thị Thanh Thảo',		'thaott26@gmail.com',		'pupu123',			0,		'Manager'),
     (N'Hoàng Văn Thiên',			'hvt2003@gmail.com',		'chillguy1',		1,		'Staff'),
     (N'Lê Thiện Nhân',				'nhanle@gmail.com',			'cuchuoi2xu',		1,		'Staff'),
 	(N'Từ Tuấn Sang',				'tsang@gmail.com',			'tsang123',			1,		'Chef'),
-    (N'Nguyễn Thành Đạt',			'dathphong@gmail.com',		'hoangtusitinh',	0,	'Staff');
+    (N'Nguyễn Thành Đạt',			'dathphong@gmail.com',		'hoangtusitinh',	0,		'Staff'),
+	(N'Nguyễn Giang Gia Huy',		'huybo@gmail.com',			'huybo123',			0,		'Chef');
+
 
 INSERT INTO [TABLE] (fname, status)
 VALUES 
@@ -128,10 +130,4 @@ VALUES
 (7, 4, 5),
 (7, 2, 2),
 (8, 4, 2);
-
-select * from ACCOUNT
-select * from [TABLE]
-select * from [F&BCATEGORY]
-select * from ITEM
-select * from Bill
-select * from BILLINF
+SELECT FullName as [FULL NAME], Email AS [EMAIL], ExpY AS [EXP IN YEAR], [Role] AS [ROLE] FROM ACCOUNT WHERE Visible = 1 Order by [Role] ASC

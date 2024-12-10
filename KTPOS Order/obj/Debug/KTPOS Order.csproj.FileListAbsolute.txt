@@ -130,3 +130,7 @@ D:\FILE CỦA THẢO\KTPOS\KTPOS-Restaurant-Order-App - Sao chép\KTPOS Order\ob
 D:\FILE CỦA THẢO\KTPOS\KTPOS-Restaurant-Order-App - Sao chép\KTPOS Order\obj\Debug\KTPOS Or.1190A991.Up2Date
 D:\FILE CỦA THẢO\KTPOS\KTPOS-Restaurant-Order-App - Sao chép\KTPOS Order\obj\Debug\KTPOS Order.exe
 D:\FILE CỦA THẢO\KTPOS\KTPOS-Restaurant-Order-App - Sao chép\KTPOS Order\obj\Debug\KTPOS Order.pdb
+D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\zxing.dll
+D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\zxing.presentation.dll
+D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\zxing.xml
+D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\zxing.presentation.xml
