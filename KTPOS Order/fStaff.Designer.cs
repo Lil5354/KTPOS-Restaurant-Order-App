@@ -147,7 +147,7 @@
             this.btnManage.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnManage.HoverState.FillColor = System.Drawing.Color.White;
             this.btnManage.HoverState.ForeColor = System.Drawing.Color.Maroon;
-            this.btnManage.Location = new System.Drawing.Point(599, 18);
+            this.btnManage.Location = new System.Drawing.Point(598, 18);
             this.btnManage.Name = "btnManage";
             this.btnManage.Size = new System.Drawing.Size(148, 52);
             this.btnManage.TabIndex = 29;
@@ -175,9 +175,9 @@
             this.btnProccessing.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnProccessing.HoverState.FillColor = System.Drawing.Color.White;
             this.btnProccessing.HoverState.ForeColor = System.Drawing.Color.Maroon;
-            this.btnProccessing.Location = new System.Drawing.Point(186, 18);
+            this.btnProccessing.Location = new System.Drawing.Point(173, 18);
             this.btnProccessing.Name = "btnProccessing";
-            this.btnProccessing.Size = new System.Drawing.Size(170, 52);
+            this.btnProccessing.Size = new System.Drawing.Size(130, 52);
             this.btnProccessing.TabIndex = 27;
             this.btnProccessing.Text = "Proccessing";
             // 
@@ -203,7 +203,7 @@
             this.btnPayment.HoverState.ForeColor = System.Drawing.Color.Maroon;
             this.btnPayment.Location = new System.Drawing.Point(34, 18);
             this.btnPayment.Name = "btnPayment";
-            this.btnPayment.Size = new System.Drawing.Size(159, 52);
+            this.btnPayment.Size = new System.Drawing.Size(117, 52);
             this.btnPayment.TabIndex = 26;
             this.btnPayment.Text = "Payment";
             this.btnPayment.Click += new System.EventHandler(this.btnListBill_Click);
@@ -228,12 +228,13 @@
             this.btnTable.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnTable.HoverState.FillColor = System.Drawing.Color.White;
             this.btnTable.HoverState.ForeColor = System.Drawing.Color.Maroon;
-            this.btnTable.Location = new System.Drawing.Point(361, 18);
+            this.btnTable.Location = new System.Drawing.Point(336, 18);
             this.btnTable.Name = "btnTable";
             this.btnTable.Size = new System.Drawing.Size(102, 52);
             this.btnTable.TabIndex = 31;
             this.btnTable.Text = "Table";
             this.btnTable.UseTransparentBackground = true;
+            this.btnTable.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // fStaff
             // 

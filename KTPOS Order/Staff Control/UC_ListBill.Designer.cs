@@ -60,7 +60,12 @@
             this.Filter.ItemHeight = 30;
             this.Filter.Items.AddRange(new object[] {
             "Newest",
-            "Latest"});
+            "Latest",
+            "Table number",
+            "Paid",
+            "Unpaid",
+            "Ascending ID",
+            "Descending ID"});
             this.Filter.Location = new System.Drawing.Point(649, 52);
             this.Filter.Name = "Filter";
             this.Filter.Size = new System.Drawing.Size(211, 36);
@@ -150,6 +155,7 @@
             this.ListBill.ThemeStyle.RowsStyle.Height = 24;
             this.ListBill.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(185)))));
             this.ListBill.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ListBill.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListBill_CellContentClick);
             // 
             // ID
             // 
@@ -195,7 +201,7 @@
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.Filter);
             this.Name = "UC_ListBill";
-            this.Size = new System.Drawing.Size(924, 634);
+            this.Size = new System.Drawing.Size(1338, 634);
             this.Load += new System.EventHandler(this.UC_ListBill_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ListBill)).EndInit();

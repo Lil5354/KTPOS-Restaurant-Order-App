@@ -127,11 +127,14 @@
   <data name="1ddf7dbc9b47c8dab0a1456ae07ac4c6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1ddf7dbc9b47c8dab0a1456ae07ac4c6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bground1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bground1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bceb84a6f9736ddd47c7709c63290b37" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bceb84a6f9736ddd47c7709c63290b37.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="key-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\key-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="user-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="26df8325fe115cf3f8c0fd7a99c74108" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\26df8325fe115cf3f8c0fd7a99c74108.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,11 +142,14 @@
   <data name="hamburger2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hamburger2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bground.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="xmark-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\xmark-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="d62d6c72fbe203f5cf1061e28e17df672" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\d62d6c72fbe203f5cf1061e28e17df672.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="04b9623fbf2f88158ccd31572ad6c0b8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\04b9623fbf2f88158ccd31572ad6c0b8.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,11 +178,8 @@
   <data name="kisspng-cheeseburger-hamburger-fast-food-whopper-veggie-bu-5b240248236510.359649701529086536145" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kisspng-cheeseburger-hamburger-fast-food-whopper-veggie-bu-5b240248236510.359649701529086536145.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bground.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="burger-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\burger-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo_momo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo_momo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="5b22541a9c8beadec5fef91246d5c8c7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\5b22541a9c8beadec5fef91246d5c8c7.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,14 +190,17 @@
   <data name="magnifying-glass-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\magnifying-glass-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="key-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\key-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cocktail1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cocktail1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="shutterstock_1088296091" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shutterstock_1088296091.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="d62d6c72fbe203f5cf1061e28e17df672" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\d62d6c72fbe203f5cf1061e28e17df672.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="burger-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\burger-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="eye-slash-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eye-slash-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,7 +208,7 @@
   <data name="window-restore-solid (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\window-restore-solid (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bground1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bground1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="xmark-solid1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmark-solid1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

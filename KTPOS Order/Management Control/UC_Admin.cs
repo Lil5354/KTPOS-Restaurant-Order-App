@@ -8,12 +8,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Security;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using System.Xml.Linq;
 using KTPOS_Order.Proccess;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace KTPOS_Order.Management_Control
 {
@@ -24,10 +20,52 @@ namespace KTPOS_Order.Management_Control
         {
             InitializeComponent();
         }
-        
+
+        private void guna2CustomGradientPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void UC_Admin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgvAccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                index = e.RowIndex;
+            }
+        }
+        private void LoadAccountList()
+        {
+            // Clear existing rows (if necessary, e.g., for unbound data).
+
+            string query = "SELECT FullName, Email, ExpY, [Role] FROM ACCOUNT WHERE Visible = 1 Order by [Role] ASC";
+            try
+            {
+                dtgvAccount.DataSource = null;
+                dtgvAccount.Rows.Clear();
+                // Call the ExecuteQuery method to get data from the database.
+                DataTable data = GetDatabase.Instance.ExecuteQuery(query);
+                // Bind the data to the DataGridView.
+                dtgvAccount.DataSource = data;
+            }
+            catch (Exception ex)
+            {
+                // Handle any potential exceptions here.
+                MessageBox.Show("Error loading account list: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void btnViewAcc_Click(object sender, EventArgs e)
         {
-            //GetList.Instance.LoadAccountList(dtgvAccount);
+            LoadAccountList();
+        }
+
+        private void account_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnAddAcc_Click(object sender, EventArgs e)
@@ -35,11 +73,11 @@ namespace KTPOS_Order.Management_Control
             try
             {
                 string name = txtFullName.Text, email = txtEmail.Text, role = cbBRole.Text;
-                int n = GetList.Instance.InsertList(name, email, role);
+                int n = GetLists.Instance.InsertList(name, email, role);
                 if (n > 0)
                 {
                     MessageBox.Show("Account update successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //GetList.Instance.LoadAccountList(dtgvAccount);
+                    LoadAccountList();
                 }
                 else
                 {
@@ -64,7 +102,7 @@ namespace KTPOS_Order.Management_Control
                 string name = Convert.ToString(dtgvAccount.Rows[CurrentIndex].Cells[0].Value.ToString());
                 try
                 {
-                    int n = GetList.Instance.DeleteList(name);
+                    int n = GetLists.Instance.DeleteList(name);
                     if (n > 0)
                     {
                         MessageBox.Show("Account delete successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -100,15 +138,15 @@ namespace KTPOS_Order.Management_Control
         {
             int CurrentIndex = dtgvAccount.CurrentCell.RowIndex;
             string fname = Convert.ToString(dtgvAccount.Rows[CurrentIndex].Cells[0].Value.ToString());
-           
+
             try
             {
                 string name = txtFullName.Text, email = txtEmail.Text, role = cbBRole.Text;
-                int n = GetList.Instance.UpdateList(fname, name, email, role);
+                int n = GetLists.Instance.UpdateList(fname, name, email, role);
                 if (n > 0)
                 {
                     MessageBox.Show("Account insert successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   // GetList.Instance.LoadAccountList(dtgvAccount);
+                    LoadAccountList();
                 }
                 else
                 {
@@ -120,26 +158,9 @@ namespace KTPOS_Order.Management_Control
                 MessageBox.Show("Error insert account: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void ListBill_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                index = e.RowIndex;
-            }
-        }
-
-        private void dtgvAccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                index = e.RowIndex;
-            }
-        }
         string query = "";
         private void tcManager_SelectedIndexChanged(object sender, EventArgs e)
         {
-  
             // Lấy tab được chọn
             string selectedTab = tcManager.SelectedTab.Text;
             // Tạo câu truy vấn dựa vào tab được chọn
@@ -147,18 +168,18 @@ namespace KTPOS_Order.Management_Control
             {
                 case "ACCOUNT":
                     query = "SELECT FullName, Email, ExpY, [Role] FROM ACCOUNT WHERE Visible = 1 Order by [Role] ASC";
-                    GetList.Instance.LoadAccountList(query, dtgvAccount);
+                    GetLists.Instance.LoadAccountList(query, dtgvAccount);
                     break;
                 case "TABLE":
-                    query = "SELECT * FROM [TABLE] Order by [ID] ASC";
+                    query = "SELECT * FROM TABLE WHERE Visible = 1 Order by [Role] ASC";
                     break;
                 case "CATEGORIES":
                     query = "SELECT ID, fname AS [NAME CATEGORIES] FROM [F&BCATEGORY]";
-                    GetList.Instance.LoadAccountList(query, dtgvCate);
+                    GetLists.Instance.LoadAccountList(query, dtgvCate);
                     break;
                 case "F&B":
                     query = "SELECT fb.fname [Type], ITEM.fname AS [Name], price[Price] FROM ITEM JOIN [F&BCATEGORY] fb ON idCategory = fb.ID Order by [Type] ASC";
-                    GetList.Instance.LoadAccountList(query, dtgvFandB);
+                    GetLists.Instance.LoadAccountList(query, dtgvFandB);
                     break;
                 case "REVENUE":
                     query = "SELECT * FROM REVENUE WHERE Visible = 1 Order by [Role] ASC";
@@ -168,6 +189,13 @@ namespace KTPOS_Order.Management_Control
                     break;
             }
         }
-    
+
+        private void ListBill_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                index = e.RowIndex;
+            }
+        }
     }
 }

@@ -51,6 +51,12 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer Control\UC_Item.cs">
@@ -101,13 +107,14 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Management Control\GetList.cs" />
+    <Compile Include="Management Control\GetLists.cs" />
     <Compile Include="Management Control\UC_Admin.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Management Control\UC_Admin.Designer.cs">
       <DependentUpon>UC_Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Proccess\BillProcessor.cs" />
     <Compile Include="Proccess\GetDatabase.cs" />
     <Compile Include="Proccess\LgAccount.cs" />
     <Compile Include="Program.cs" />
@@ -274,6 +281,10 @@
   <ItemGroup>
     <None Include="Resources\bground.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\logo_momo.png" />
+    <None Include="Resources\xmark-solid1.png" />
+    <None Include="Resources\logo_momo1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
