@@ -29,19 +29,23 @@ namespace KTPOS_Order
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-        
-           
+            string role = "Manager";
+            fCustomer f = new fCustomer();
+            this.Hide();
+            f.ShowDialog();
+            /*
             string email = txtUser.Text;
             string password = txtPass.Text;
             try
             {
-                if (CLogin(email, password))
+                string role = LgAccount.Instance.LgManage(email, password);
+                if (role != null)
                 {
-                    fCustomer f = new fCustomer();
+                    fStaff f = new fStaff(role);
                     this.Hide();
                     f.ShowDialog();
                 }
-                else
+                else 
                 {
                     MessageBox.Show("Please enter a valid email or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -52,14 +56,10 @@ namespace KTPOS_Order
                 MessageBox.Show("Please enter a valid email or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-        }
-        bool CLogin(string email, string password)
-        {
-
-            return LgAccount.Instance.Login(email, password);
+            */
         }
 
-            private void btnEyes_Click_2(object sender, EventArgs e)
+        private void btnEyes_Click_2(object sender, EventArgs e)
         {
             if (txtPass.PasswordChar == '\0')
             {
@@ -81,7 +81,16 @@ namespace KTPOS_Order
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult dialog = MessageBox.Show("Do you really want to exit?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialog == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                MessageBox.Show("Exit cancelled. Continue your activity.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Focus();
+            }
         }
 
         private void btnMinSize_Click(object sender, EventArgs e)
@@ -96,6 +105,20 @@ namespace KTPOS_Order
             this.WindowState = FormWindowState.Maximized;
             btnMaxSize.Visible = false;
             btnMinSize.Visible = true;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Do you really want to exit?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialog == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                MessageBox.Show("Exit cancelled. Continue your activity.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Focus();
+            }
         }
     }
 }

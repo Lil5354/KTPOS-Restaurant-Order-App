@@ -284,6 +284,16 @@ namespace KTPOS_Order.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_momo {
+            get {
+                object obj = ResourceManager.GetObject("logo_momo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap magnifying_glass_solid {
             get {
                 object obj = ResourceManager.GetObject("magnifying-glass-solid", resourceCulture);
@@ -347,6 +357,16 @@ namespace KTPOS_Order.Properties {
         internal static System.Drawing.Bitmap xmark_solid {
             get {
                 object obj = ResourceManager.GetObject("xmark-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap xmark_solid1 {
+            get {
+                object obj = ResourceManager.GetObject("xmark-solid1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

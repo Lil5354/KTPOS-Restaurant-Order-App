@@ -1,6 +1,4 @@
-﻿USE master
-GO
-ALTER DATABASE KTPOS SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+﻿USE MASTER
 GO
 DROP DATABASE IF EXISTS KTPOS
 CREATE DATABASE KTPOS
@@ -32,7 +30,6 @@ CREATE TABLE ITEM(
 	fname NVARCHAR(50) NOT NULL,
 	idCategory INT NOT NULL,
 	price float not null,
-	gr nvarchar(50) not null
 
 	FOREIGN KEY (idCategory) REFERENCES dbo.[F&BCATEGORY](ID)
 );
@@ -78,14 +75,13 @@ VALUES
 ('Desserts');
 
 -- Insert data into ITEM
-INSERT INTO ITEM (fname, idCategory, price, gr)
+INSERT INTO ITEM (fname, idCategory, price)
 VALUES 
-('Coke', 1, 1.5, 'Drink'),
-('Beer', 1, 3.0, 'Drink'),
-('Spring Rolls', 2, 5.0, 'Food'),
-('Steak', 3, 20.0, 'Food'),
-('Ice Cream', 4, 4.0, 'Others'),
-('Hamberger', 2, 4.0, 'Food');
+('Coke', 2, 1.5),
+('Beer', 2, 3.0),
+('Spring Rolls', 1, 5.0),
+('Steak', 1, 20.0),
+('Ice Cream', 1, 4.0);
 
 -- Insert data into Bill
 INSERT INTO Bill (Datepayment, idTable, status)

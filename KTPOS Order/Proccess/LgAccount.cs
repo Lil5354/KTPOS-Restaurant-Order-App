@@ -15,11 +15,17 @@ namespace KTPOS_Order.Proccess
             get { if (instance == null) instance = new LgAccount(); return instance; }
             private set { instance = value; }
         }
-        public bool Login(string email, string password)
+        public string LgManage(string email, string password)
         {
             string query = "SELECT * FROM ACCOUNT WHERE Email = N'" + email + "' AND [Password] =N'" + password + "' ";
             DataTable result = GetDatabase.Instance.ExecuteQuery(query);
-            return result.Rows.Count > 0;
+            if (result.Rows.Count > 0)
+            {
+                // Return the role of the logged-in user
+                return result.Rows[0]["Role"].ToString();
+            }
+            // Return null if login fails
+            return null;
         }
     }
 }

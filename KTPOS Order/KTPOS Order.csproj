@@ -22,7 +22,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,15 +36,12 @@
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,14 +51,26 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer Control\UC_Item1.cs">
+    <Compile Include="Class\Datalistview.cs" />
+    <Compile Include="Customer Control\UC_Item.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Customer Control\UC_Item1.Designer.cs">
-      <DependentUpon>UC_Item1.cs</DependentUpon>
+    <Compile Include="Customer Control\UC_Item.Designer.cs">
+      <DependentUpon>UC_Item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer Control\UC_Order.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer Control\UC_Order.Designer.cs">
+      <DependentUpon>UC_Order.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer Control\UC_OrderDrink.cs">
       <SubType>UserControl</SubType>
@@ -106,6 +114,7 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Management Control\GetLists.cs" />
     <Compile Include="Management Control\UC_Admin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,8 +149,11 @@
     <Compile Include="Staff Control\UC_Table.Designer.cs">
       <DependentUpon>UC_Table.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Customer Control\UC_Item1.resx">
-      <DependentUpon>UC_Item1.cs</DependentUpon>
+    <EmbeddedResource Include="Customer Control\UC_Item.resx">
+      <DependentUpon>UC_Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer Control\UC_Order.resx">
+      <DependentUpon>UC_Order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer Control\UC_OrderDrink.resx">
       <DependentUpon>UC_OrderDrink.cs</DependentUpon>
@@ -277,6 +289,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\logo_momo.png" />
+    <Content Include="Temp\Bill.txt" />
+    <None Include="Resources\xmark-solid1.png" />
+    <None Include="Resources\logo_momo1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

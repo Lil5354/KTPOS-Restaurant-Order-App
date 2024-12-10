@@ -37,7 +37,18 @@
             this.btnPay = new Guna.UI2.WinForms.Guna2Button();
             this.btnChat = new Guna.UI2.WinForms.Guna2Button();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2CustomGradientPanel16 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.txtTotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.listView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.guna2HtmlLabel30 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.FlowMenu = new System.Windows.Forms.FlowLayoutPanel();
+            this.Filter = new Guna.UI2.WinForms.Guna2ComboBox();
             btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2CustomGradientPanel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
@@ -57,7 +68,7 @@
             btnClose.FillColor = System.Drawing.Color.Transparent;
             btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
             btnClose.ForeColor = System.Drawing.Color.Transparent;
-            btnClose.Location = new System.Drawing.Point(1119, 25);
+            btnClose.Location = new System.Drawing.Point(1350, 25);
             btnClose.Name = "btnClose";
             btnClose.Size = new System.Drawing.Size(25, 25);
             btnClose.TabIndex = 8;
@@ -76,7 +87,7 @@
             this.btnMinSize.FillColor = System.Drawing.Color.Transparent;
             this.btnMinSize.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnMinSize.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMinSize.Location = new System.Drawing.Point(1077, 25);
+            this.btnMinSize.Location = new System.Drawing.Point(1308, 25);
             this.btnMinSize.Name = "btnMinSize";
             this.btnMinSize.Size = new System.Drawing.Size(25, 25);
             this.btnMinSize.TabIndex = 19;
@@ -95,7 +106,7 @@
             this.btnMaxSize.FillColor = System.Drawing.Color.Transparent;
             this.btnMaxSize.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnMaxSize.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMaxSize.Location = new System.Drawing.Point(1077, 25);
+            this.btnMaxSize.Location = new System.Drawing.Point(1308, 25);
             this.btnMaxSize.Name = "btnMaxSize";
             this.btnMaxSize.Size = new System.Drawing.Size(25, 25);
             this.btnMaxSize.TabIndex = 20;
@@ -150,7 +161,7 @@
             this.btnFoodOptions.HoverState.ForeColor = System.Drawing.Color.Maroon;
             this.btnFoodOptions.Location = new System.Drawing.Point(141, 12);
             this.btnFoodOptions.Name = "btnFoodOptions";
-            this.btnFoodOptions.Size = new System.Drawing.Size(207, 52);
+            this.btnFoodOptions.Size = new System.Drawing.Size(250, 52);
             this.btnFoodOptions.TabIndex = 22;
             this.btnFoodOptions.Text = "Hamburger and others";
             this.btnFoodOptions.Click += new System.EventHandler(this.btnFoodOptions_Click);
@@ -259,7 +270,7 @@
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.IconLeft = global::KTPOS_Order.Properties.Resources.magnifying_glass_solid;
             this.txtSearch.IconLeftOffset = new System.Drawing.Point(6, 0);
-            this.txtSearch.Location = new System.Drawing.Point(840, 20);
+            this.txtSearch.Location = new System.Drawing.Point(1071, 20);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSearch.MaximumSize = new System.Drawing.Size(240, 38);
             this.txtSearch.Name = "txtSearch";
@@ -270,6 +281,124 @@
             this.txtSearch.TabIndex = 26;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // guna2CustomGradientPanel16
+            // 
+            this.guna2CustomGradientPanel16.AutoSize = true;
+            this.guna2CustomGradientPanel16.BackColor = System.Drawing.Color.Transparent;
+            this.guna2CustomGradientPanel16.BackgroundImage = global::KTPOS_Order.Properties.Resources._26df8325fe115cf3f8c0fd7a99c74108;
+            this.guna2CustomGradientPanel16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.guna2CustomGradientPanel16.BorderColor = System.Drawing.Color.Maroon;
+            this.guna2CustomGradientPanel16.BorderRadius = 15;
+            this.guna2CustomGradientPanel16.Controls.Add(this.txtTotal);
+            this.guna2CustomGradientPanel16.Controls.Add(this.guna2HtmlLabel2);
+            this.guna2CustomGradientPanel16.Controls.Add(this.listView);
+            this.guna2CustomGradientPanel16.Controls.Add(this.guna2HtmlLabel30);
+            this.guna2CustomGradientPanel16.FillColor = System.Drawing.Color.Maroon;
+            this.guna2CustomGradientPanel16.FillColor2 = System.Drawing.Color.Maroon;
+            this.guna2CustomGradientPanel16.FillColor3 = System.Drawing.Color.Maroon;
+            this.guna2CustomGradientPanel16.FillColor4 = System.Drawing.Color.Maroon;
+            this.guna2CustomGradientPanel16.Location = new System.Drawing.Point(52, 137);
+            this.guna2CustomGradientPanel16.Name = "guna2CustomGradientPanel16";
+            this.guna2CustomGradientPanel16.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(20);
+            this.guna2CustomGradientPanel16.Size = new System.Drawing.Size(391, 501);
+            this.guna2CustomGradientPanel16.TabIndex = 34;
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.AutoSize = false;
+            this.txtTotal.BackColor = System.Drawing.Color.Maroon;
+            this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.ForeColor = System.Drawing.Color.White;
+            this.txtTotal.Location = new System.Drawing.Point(206, 413);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(155, 33);
+            this.txtTotal.TabIndex = 7;
+            this.txtTotal.Text = "H";
+            this.txtTotal.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(54, 407);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(59, 32);
+            this.guna2HtmlLabel2.TabIndex = 6;
+            this.guna2HtmlLabel2.Text = "Total:";
+            // 
+            // listView
+            // 
+            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listView.HideSelection = false;
+            this.listView.Location = new System.Drawing.Point(54, 93);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(283, 268);
+            this.listView.TabIndex = 5;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.Details;
+            this.listView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView_ItemSelectionChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Name";
+            this.columnHeader1.Width = 102;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Amount";
+            this.columnHeader2.Width = 117;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Cost";
+            // 
+            // guna2HtmlLabel30
+            // 
+            this.guna2HtmlLabel30.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel30.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel30.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel30.Location = new System.Drawing.Point(133, 26);
+            this.guna2HtmlLabel30.Name = "guna2HtmlLabel30";
+            this.guna2HtmlLabel30.Size = new System.Drawing.Size(103, 38);
+            this.guna2HtmlLabel30.TabIndex = 3;
+            this.guna2HtmlLabel30.Text = "RECEIPT";
+            // 
+            // FlowMenu
+            // 
+            this.FlowMenu.AutoScroll = true;
+            this.FlowMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.FlowMenu.BackColor = System.Drawing.Color.Transparent;
+            this.FlowMenu.Location = new System.Drawing.Point(473, 137);
+            this.FlowMenu.Name = "FlowMenu";
+            this.FlowMenu.Size = new System.Drawing.Size(839, 501);
+            this.FlowMenu.TabIndex = 36;
+            // 
+            // Filter
+            // 
+            this.Filter.BackColor = System.Drawing.Color.Transparent;
+            this.Filter.BorderRadius = 7;
+            this.Filter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Filter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Filter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Filter.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.Filter.ItemHeight = 30;
+            this.Filter.Items.AddRange(new object[] {
+            "Best Sellers",
+            "New Arrivals",
+            "Featured Dishes",
+            "Combo Deals",
+            "Most Loved"});
+            this.Filter.Location = new System.Drawing.Point(1089, 95);
+            this.Filter.Name = "Filter";
+            this.Filter.Size = new System.Drawing.Size(211, 36);
+            this.Filter.TabIndex = 35;
+            // 
             // fCustomer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -277,7 +406,10 @@
             this.AutoSize = true;
             this.BackgroundImage = global::KTPOS_Order.Properties.Resources.shutterstock_1088296091;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1169, 740);
+            this.ClientSize = new System.Drawing.Size(1400, 740);
+            this.Controls.Add(this.FlowMenu);
+            this.Controls.Add(this.Filter);
+            this.Controls.Add(this.guna2CustomGradientPanel16);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnChat);
             this.Controls.Add(this.btnPay);
@@ -290,19 +422,32 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fCustomer";
             this.Text = "Customer";
+            this.Load += new System.EventHandler(this.fCustomer_Load);
+            this.guna2CustomGradientPanel16.ResumeLayout(false);
+            this.guna2CustomGradientPanel16.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Button btnMinSize;
-        private Guna.UI2.WinForms.Guna2Button btnMaxSize;
-        private Guna.UI2.WinForms.Guna2Button btnFoodOrder;
-        private Guna.UI2.WinForms.Guna2Button btnFoodOptions;
-        private Guna.UI2.WinForms.Guna2Button btnDrinks;
-        private Guna.UI2.WinForms.Guna2Button btnPay;
-        private Guna.UI2.WinForms.Guna2Button btnChat;
-        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
+        public Guna.UI2.WinForms.Guna2Button btnMinSize;
+        public Guna.UI2.WinForms.Guna2Button btnMaxSize;
+        public Guna.UI2.WinForms.Guna2Button btnFoodOrder;
+        public Guna.UI2.WinForms.Guna2Button btnFoodOptions;
+        public Guna.UI2.WinForms.Guna2Button btnDrinks;
+        public Guna.UI2.WinForms.Guna2Button btnPay;
+        public Guna.UI2.WinForms.Guna2Button btnChat;
+        public Guna.UI2.WinForms.Guna2TextBox txtSearch;
+        public Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel16;
+        public Guna.UI2.WinForms.Guna2HtmlLabel txtTotal;
+        public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        public System.Windows.Forms.ListView listView;
+        public System.Windows.Forms.ColumnHeader columnHeader1;
+        public System.Windows.Forms.ColumnHeader columnHeader2;
+        public System.Windows.Forms.ColumnHeader columnHeader3;
+        public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel30;
+        public System.Windows.Forms.FlowLayoutPanel FlowMenu;
+        public Guna.UI2.WinForms.Guna2ComboBox Filter;
     }
 }
