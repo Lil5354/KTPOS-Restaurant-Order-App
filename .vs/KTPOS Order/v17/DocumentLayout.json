@@ -4,25 +4,33 @@
   "Documents": [
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\douments\\github\\ktpos-restaurant-order-app\\ktpos order\\management control\\uc_admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\management control\\uc_admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
 =======
       "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\douments\\github\\ktpos-restaurant-order-app\\ktpos order\\proccess\\getdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\proccess\\getdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
 >>>>>>> Stashed changes
+=======
+      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\ktpos order\\management control\\getlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\management control\\getlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> Stashed changes
     },
     {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\ktpos order\\management control\\uc_admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\douments\\github\\ktpos-restaurant-order-app\\ktpos order\\management control\\uc_admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\management control\\uc_admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
 <<<<<<< Updated upstream
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\ktpos order\\proccess\\getdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\proccess\\getdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+<<<<<<< Updated upstream
+=======
+      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\ktpos order\\management control\\uc_admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\management control\\uc_admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\ktpos order\\management control\\getlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\management control\\getlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> Stashed changes
+      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\ktpos order\\proccess\\getdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\proccess\\getdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\ktpos order\\management control\\uc_admin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -203,11 +211,15 @@
         {
           "DockedWidth": 200,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           "SelectedChildIndex": 1,
+=======
+          "SelectedChildIndex": 0,
+>>>>>>> Stashed changes
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "GetList.cs",
               "DocumentMoniker": "D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Management Control\\GetList.cs",
               "RelativeDocumentMoniker": "KTPOS Order\\Management Control\\GetList.cs",
@@ -279,17 +291,23 @@
 >>>>>>> Stashed changes
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-09T06:47:29.043Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 0,
 <<<<<<< Updated upstream
+=======
+              "DocumentIndex": 2,
+>>>>>>> Stashed changes
               "Title": "UC_Admin.cs",
               "DocumentMoniker": "D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Management Control\\UC_Admin.cs",
               "RelativeDocumentMoniker": "KTPOS Order\\Management Control\\UC_Admin.cs",
               "ToolTip": "D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Management Control\\UC_Admin.cs",
               "RelativeToolTip": "KTPOS Order\\Management Control\\UC_Admin.cs",
+<<<<<<< Updated upstream
               "ViewState": "AgIAAIoAAAAAAAAAAAAuwI4AAAAgAAAAAAAAAA==",
 =======
               "Title": "GetDatabase.cs",
@@ -298,6 +316,9 @@
               "ToolTip": "D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Proccess\\GetDatabase.cs",
               "RelativeToolTip": "KTPOS Order\\Proccess\\GetDatabase.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+>>>>>>> Stashed changes
+=======
+              "ViewState": "AgIAAIoAAAAAAAAAAAAuwJkAAABEAAAAAAAAAA==",
 >>>>>>> Stashed changes
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-08T10:57:00.497Z",
@@ -315,11 +336,12 @@
               "RelativeToolTip": "KTPOS Order\\Management Control\\UC_Admin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-07T02:58:42.713Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "GetDatabase.cs",
               "DocumentMoniker": "D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Proccess\\GetDatabase.cs",
               "RelativeDocumentMoniker": "KTPOS Order\\Proccess\\GetDatabase.cs",

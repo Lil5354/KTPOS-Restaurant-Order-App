@@ -150,7 +150,7 @@ namespace KTPOS_Order.Management_Control
                     GetList.Instance.LoadAccountList(query, dtgvAccount);
                     break;
                 case "TABLE":
-                    query = "SELECT * FROM TABLE WHERE Visible = 1 Order by [Role] ASC";
+                    query = "SELECT * FROM [TABLE] Order by [ID] ASC";
                     break;
                 case "CATEGORIES":
                     query = "SELECT ID, fname AS [NAME CATEGORIES] FROM [F&BCATEGORY]";
