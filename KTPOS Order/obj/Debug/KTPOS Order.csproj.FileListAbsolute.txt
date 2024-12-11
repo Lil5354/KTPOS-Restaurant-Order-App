@@ -103,3 +103,4 @@ E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Or.1190A991.Up
 E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Order.exe
 E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Order.pdb
 E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_Order.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_ChangAmount.resources

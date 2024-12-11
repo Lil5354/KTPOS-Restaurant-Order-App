@@ -38,6 +38,7 @@
             this.btnChat = new Guna.UI2.WinForms.Guna2Button();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2CustomGradientPanel16 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.btnOrder = new Guna.UI2.WinForms.Guna2Button();
             this.txtTotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.listView = new System.Windows.Forms.ListView();
@@ -47,7 +48,8 @@
             this.guna2HtmlLabel30 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.FlowMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.Filter = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnOrder = new Guna.UI2.WinForms.Guna2Button();
+            this.tbNewAmount = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtChange = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel16.SuspendLayout();
             this.SuspendLayout();
@@ -290,6 +292,8 @@
             this.guna2CustomGradientPanel16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.guna2CustomGradientPanel16.BorderColor = System.Drawing.Color.Maroon;
             this.guna2CustomGradientPanel16.BorderRadius = 15;
+            this.guna2CustomGradientPanel16.Controls.Add(this.tbNewAmount);
+            this.guna2CustomGradientPanel16.Controls.Add(this.txtChange);
             this.guna2CustomGradientPanel16.Controls.Add(this.btnOrder);
             this.guna2CustomGradientPanel16.Controls.Add(this.txtTotal);
             this.guna2CustomGradientPanel16.Controls.Add(this.guna2HtmlLabel2);
@@ -305,6 +309,28 @@
             this.guna2CustomGradientPanel16.Size = new System.Drawing.Size(391, 501);
             this.guna2CustomGradientPanel16.TabIndex = 34;
             // 
+            // btnOrder
+            // 
+            this.btnOrder.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnOrder.Animated = true;
+            this.btnOrder.AutoRoundedCorners = true;
+            this.btnOrder.BackColor = System.Drawing.Color.Transparent;
+            this.btnOrder.BorderRadius = 30;
+            this.btnOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOrder.FillColor = System.Drawing.Color.White;
+            this.btnOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOrder.ForeColor = System.Drawing.Color.Maroon;
+            this.btnOrder.Location = new System.Drawing.Point(89, 418);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(213, 62);
+            this.btnOrder.TabIndex = 8;
+            this.btnOrder.Text = "Order";
+            this.btnOrder.UseTransparentBackground = true;
+            this.btnOrder.Click += new System.EventHandler(this.guna2Button15_Click);
+            // 
             // txtTotal
             // 
             this.txtTotal.AutoSize = false;
@@ -315,7 +341,7 @@
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(155, 33);
             this.txtTotal.TabIndex = 7;
-            this.txtTotal.Text = "H";
+            this.txtTotal.Text = null;
             this.txtTotal.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2HtmlLabel2
@@ -344,6 +370,7 @@
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
             this.listView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView_ItemSelectionChanged);
+            this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -402,27 +429,37 @@
             this.Filter.Size = new System.Drawing.Size(211, 36);
             this.Filter.TabIndex = 35;
             // 
-            // btnOrder
+            // tbNewAmount
             // 
-            this.btnOrder.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnOrder.Animated = true;
-            this.btnOrder.AutoRoundedCorners = true;
-            this.btnOrder.BackColor = System.Drawing.Color.Transparent;
-            this.btnOrder.BorderRadius = 30;
-            this.btnOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnOrder.FillColor = System.Drawing.Color.White;
-            this.btnOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrder.ForeColor = System.Drawing.Color.Maroon;
-            this.btnOrder.Location = new System.Drawing.Point(89, 418);
-            this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(213, 62);
-            this.btnOrder.TabIndex = 8;
-            this.btnOrder.Text = "Order";
-            this.btnOrder.UseTransparentBackground = true;
-            this.btnOrder.Click += new System.EventHandler(this.guna2Button15_Click);
+            this.tbNewAmount.BackColor = System.Drawing.Color.Maroon;
+            this.tbNewAmount.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbNewAmount.DefaultText = "";
+            this.tbNewAmount.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbNewAmount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbNewAmount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbNewAmount.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbNewAmount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbNewAmount.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbNewAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbNewAmount.Location = new System.Drawing.Point(198, 204);
+            this.tbNewAmount.Name = "tbNewAmount";
+            this.tbNewAmount.PasswordChar = '\0';
+            this.tbNewAmount.PlaceholderText = "";
+            this.tbNewAmount.SelectedText = "";
+            this.tbNewAmount.Size = new System.Drawing.Size(92, 35);
+            this.tbNewAmount.TabIndex = 10;
+            this.tbNewAmount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbNewAmount_KeyDown);
+            // 
+            // txtChange
+            // 
+            this.txtChange.BackColor = System.Drawing.Color.Transparent;
+            this.txtChange.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChange.ForeColor = System.Drawing.Color.White;
+            this.txtChange.Location = new System.Drawing.Point(89, 205);
+            this.txtChange.Name = "txtChange";
+            this.txtChange.Size = new System.Drawing.Size(103, 34);
+            this.txtChange.TabIndex = 9;
+            this.txtChange.Text = "Amount: ";
             // 
             // fCustomer
             // 
@@ -448,6 +485,7 @@
             this.Name = "fCustomer";
             this.Text = "Customer";
             this.Load += new System.EventHandler(this.fCustomer_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fCustomer_KeyDown);
             this.guna2CustomGradientPanel16.ResumeLayout(false);
             this.guna2CustomGradientPanel16.PerformLayout();
             this.ResumeLayout(false);
@@ -475,5 +513,7 @@
         public System.Windows.Forms.FlowLayoutPanel FlowMenu;
         public Guna.UI2.WinForms.Guna2ComboBox Filter;
         private Guna.UI2.WinForms.Guna2Button btnOrder;
+        private Guna.UI2.WinForms.Guna2TextBox tbNewAmount;
+        public Guna.UI2.WinForms.Guna2HtmlLabel txtChange;
     }
 }

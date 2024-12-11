@@ -60,6 +60,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Datalistview.cs" />
+    <Compile Include="Customer Control\UC_ChangAmount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer Control\UC_ChangAmount.Designer.cs">
+      <DependentUpon>UC_ChangAmount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer Control\UC_Item.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     <Compile Include="Staff Control\UC_Table.Designer.cs">
       <DependentUpon>UC_Table.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Customer Control\UC_ChangAmount.resx">
+      <DependentUpon>UC_ChangAmount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customer Control\UC_Item.resx">
       <DependentUpon>UC_Item.cs</DependentUpon>
     </EmbeddedResource>

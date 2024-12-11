@@ -1,4 +1,0 @@
-Spring Rolls	3	15	
-Beer	2	6	
-Coke	2	3,0	
-Steak	2	40	

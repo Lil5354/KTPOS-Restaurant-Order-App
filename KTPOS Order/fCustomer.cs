@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
@@ -26,6 +28,8 @@ namespace KTPOS_Order
         {
             InitializeComponent();
             File.WriteAllText(filePath, string.Empty);
+            txtChange.SendToBack();
+            tbNewAmount.SendToBack();
         }
         UC_OrderFood UcOrderFood;
 
@@ -63,6 +67,26 @@ namespace KTPOS_Order
             this.Controls.Add(userControl);
             int x = 1400 - userControl.Width; // Xác định tọa độ X
             int y = 740 - userControl.Height; // Xác định tọa độ Y
+            userControl.Location = new Point(x, y);
+            userControl.Anchor = AnchorStyles.Top;
+            userControl.BringToFront();
+
+            // Cập nhật tham chiếu
+            currentUserControl = userControl;
+        }
+        public void AddUserControlAmount(UserControl userControl)
+        {
+            // Xóa UserControl hiện tại (nếu có)
+            if (currentUserControl != null)
+            {
+                this.Controls.Remove(currentUserControl);
+                currentUserControl.Dispose();
+            }
+
+            // Thêm UserControl mới
+            this.Controls.Add(userControl);
+            int x = 370 - userControl.Width; // Xác định tọa độ X
+            int y = 400 - userControl.Height; // Xác định tọa độ Y
             userControl.Location = new Point(x, y);
             userControl.Anchor = AnchorStyles.Top;
             userControl.BringToFront();
@@ -180,7 +204,10 @@ namespace KTPOS_Order
                     }
                 }
             }
-            if (Count[ID] == 1) listView.Items.Add(item);
+            if (Count[ID] == 1)
+            {
+                listView.Items.Add(item);
+            }
             else
             {
                 foreach (ListViewItem i in listView.Items)
@@ -292,6 +319,7 @@ namespace KTPOS_Order
         private void fCustomer_Load(object sender, EventArgs e)
         {
             this.FlowMenu.Controls.Clear();
+            listView.FullRowSelect = true;
             LoadProductAll();
         }
         private void listView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -316,6 +344,54 @@ namespace KTPOS_Order
                         writer.Write(subItem.Text + "\t");
                     }
                     writer.WriteLine();
+                }
+            }
+            listView.Items.Clear();
+            Total = 0;
+            txtTotal.Text = "$";
+        }
+
+        private void listView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView.SelectedItems.Count != 0)
+            {
+                txtChange.BringToFront();
+                tbNewAmount.BringToFront();
+                tbNewAmount.Text = listView.SelectedItems[0].SubItems[1].Text;
+            }
+        }
+
+        private void fCustomer_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void tbNewAmount_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (tbNewAmount.Text != "0")
+                {
+                    decimal tempcost = decimal.Parse(listView.SelectedItems[0].SubItems[2].Text);
+                    int tempamount = int.Parse(listView.SelectedItems[0].SubItems[1].Text);
+                    decimal temp = tempcost / tempamount;
+                    temp = temp * int.Parse(tbNewAmount.Text);
+                    Total += temp - tempcost;
+
+                    listView.SelectedItems[0].SubItems[1].Text = tbNewAmount.Text;
+                    listView.SelectedItems[0].SubItems[2].Text = temp.ToString();
+                    txtTotal.Text = "$" + Total.ToString();
+                    txtChange.SendToBack();
+                    tbNewAmount.SendToBack();
+                }
+                else
+                {
+                    decimal tempcost = decimal.Parse(listView.SelectedItems[0].SubItems[2].Text);
+                    Total -= tempcost;
+                    txtTotal.Text = "$" + Total.ToString();
+                    listView.Items.RemoveAt(listView.SelectedItems[0].Index);
+                    txtChange.SendToBack();
+                    tbNewAmount.SendToBack();
                 }
             }
         }
