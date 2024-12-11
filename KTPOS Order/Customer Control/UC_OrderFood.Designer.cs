@@ -255,7 +255,6 @@
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Name = "UC_OrderFood";
             this.Size = new System.Drawing.Size(1454, 722);
-            this.Load += new System.EventHandler(this.UC_OrderFood_Load_1);
             this.guna2CustomGradientPanel16.ResumeLayout(false);
             this.guna2CustomGradientPanel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();

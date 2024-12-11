@@ -7,17 +7,88 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 using KTPOS_Order.Customer_Control;
+using KTPOS_Order.Proccess;
 
 namespace KTPOS_Order
 {
     public partial class fCustomer : Form
     {
+        public static List<DataGridViewRow> dataGridRows = new List<DataGridViewRow>();
+        public Dictionary<string, int> Count = new Dictionary<string, int>();
+        Decimal Total = 0;
         public fCustomer()
         {
             InitializeComponent();
+            InitializeDataGridView();
+        }
+        private void InitializeDataGridView()
+        {
+            dtgvBillCus.Columns.Add("Name", "Name");
+            dtgvBillCus.Columns.Add("Quantity", "Quantity");
+            dtgvBillCus.Columns.Add("Price", "Price");
+        }
+        public void AddOrUpdate(Dictionary<string, int> dict, string key)
+        {
+            if (dict.ContainsKey(key))
+                dict[key]++;
+            else
+                dict.Add(key, 1);
+        }
+        public void AddProduct(object sender, EventArgs e)
+        {
+            PictureBox pictureBox = (PictureBox)sender;
+            string ID = pictureBox.Tag.ToString();
+            string name = "";
+            decimal price = 0;
+
+            string query = "SELECT fName, Price FROM ITEM WHERE ID = @ID";
+            DataTable result = GetDatabase.Instance.ExecuteQuery(query, new object[] { ID });
+
+            if (result.Rows.Count > 0)
+            {
+                DataRow row = result.Rows[0];
+                name = row["fName"].ToString();
+                price = Convert.ToDecimal(row["Price"]);
+                Total += price;
+
+                AddOrUpdate(Count, ID);
+
+                if (Count[ID] == 1)
+                {
+                    dtgvBillCus.Rows.Add(name, 1, price);
+                }
+                else
+                {
+                    foreach (DataGridViewRow dgvRow in dtgvBillCus.Rows)
+                    {
+                        if (dgvRow.Cells[0].Value.ToString() == name)
+                        {
+                            dgvRow.Cells[1].Value = Count[ID];
+                            dgvRow.Cells[2].Value = Count[ID] * price;
+                        }
+                    }
+                }
+                txtTotal.Text = Total.ToString("C", new System.Globalization.CultureInfo("en-US"));
+            }
         }
 
+        public void LoadProducts(string query)
+        {
+            DataTable result = GetDatabase.Instance.ExecuteQuery(query);
+
+            foreach (DataRow row in result.Rows)
+            {
+                string name = row["fName"].ToString();
+                decimal price = Convert.ToDecimal(row["Price"]);
+                int id = Convert.ToInt32(row["ID"]);
+
+                UC_Item itemControl = new UC_Item(name, price, id);
+                itemControl.guna2CirclePictureBox1.Click += AddProduct;
+                FlowMenu.Controls.Add(itemControl);
+            }
+        }
         private void guna2PictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -57,28 +128,21 @@ namespace KTPOS_Order
 
         private void btnFoodOrder_Click(object sender, EventArgs e)
         {
-            UC_OrderFood ucOrderFood = new UC_OrderFood();
-            AddUserControl(ucOrderFood);
+            FlowMenu.Controls.Clear();
+            LoadProducts("SELECT ID, fName, Price FROM ITEM");
         }
 
         private void btnFoodOptions_Click(object sender, EventArgs e)
         {
-            UC_OrderFoodOption ucOrderFood = new UC_OrderFoodOption();
-            AddUserControl(ucOrderFood);
+            FlowMenu.Controls.Clear();
+            LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 1");
         }
 
         private void btnDrinks_Click(object sender, EventArgs e)
         {
-            UC_OrderDrink ucOrderFood = new UC_OrderDrink();
-            AddUserControl(ucOrderFood);
+            FlowMenu.Controls.Clear();
+            LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 2");
         }
-
-        private void btnPay_Click(object sender, EventArgs e)
-        {
-            UC_Payment ucOrderFood = new UC_Payment();
-            AddUserControl(ucOrderFood);
-        }
-
         private void btnChat_Click(object sender, EventArgs e)
         {
 
@@ -101,6 +165,20 @@ namespace KTPOS_Order
             Application.Exit();
         }
 
-        
+        private void FlowMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void fCustomer_Load(object sender, EventArgs e)
+        {
+            FlowMenu.Controls.Clear();
+            LoadProducts("SELECT ID, fName, Price FROM ITEM");
+        }
+
+        private void txtTotal_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
