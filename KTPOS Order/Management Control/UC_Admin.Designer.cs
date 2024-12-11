@@ -1396,7 +1396,6 @@
             this.cbBRole.Name = "cbBRole";
             this.cbBRole.Size = new System.Drawing.Size(162, 36);
             this.cbBRole.TabIndex = 91;
-            this.cbBRole.SelectedIndexChanged += new System.EventHandler(this.cbBRole_SelectedIndexChanged);
             // 
             // guna2HtmlLabel11
             // 
@@ -1432,7 +1431,6 @@
             this.txtEmail.SelectedText = "";
             this.txtEmail.Size = new System.Drawing.Size(162, 37);
             this.txtEmail.TabIndex = 90;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // guna2HtmlLabel5
             // 

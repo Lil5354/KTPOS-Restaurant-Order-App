@@ -110,6 +110,7 @@ namespace KTPOS_Order.Management_Control
                 {
                     MessageBox.Show("Account insert successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tcManager_SelectedIndexChanged(sender, e);
+                    
                 }
                 else
                 {
@@ -162,16 +163,6 @@ namespace KTPOS_Order.Management_Control
             {
                 index = e.RowIndex;
             }
-        }
-
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbBRole_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

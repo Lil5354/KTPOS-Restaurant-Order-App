@@ -31,15 +31,17 @@ namespace KTPOS_Order.Management_Control
             }
         }
         public void LoadAccountList(string query, DataGridView dtgv)
-        {
+        {   
+            DataTable data = new DataTable();
+            data.Clear();
             try
-            {
-
+            {    
                 // Call the ExecuteQuery method to get data from the database.
-                DataTable data = GetDatabase.Instance.ExecuteQuery(query);
+                data = GetDatabase.Instance.ExecuteQuery(query);
                 AutoBindColumns(dtgv, data);
                 // Bind the data to the DataGridView.
                 dtgv.DataSource = data;
+               
             }
             catch (Exception ex)
             {
