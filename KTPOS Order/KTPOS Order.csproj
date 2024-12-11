@@ -95,12 +95,6 @@
     <Compile Include="Customer Control\UC_OrderFoodOption.Designer.cs">
       <DependentUpon>UC_OrderFoodOption.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer Control\UC_Payment.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Customer Control\UC_Payment.Designer.cs">
-      <DependentUpon>UC_Payment.cs</DependentUpon>
-    </Compile>
     <Compile Include="fChef.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,9 +173,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customer Control\UC_OrderFoodOption.resx">
       <DependentUpon>UC_OrderFoodOption.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Customer Control\UC_Payment.resx">
-      <DependentUpon>UC_Payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fChef.resx">
       <DependentUpon>fChef.cs</DependentUpon>
