@@ -59,6 +59,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chef Control\UC_OrderList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chef Control\UC_OrderList.Designer.cs">
+      <DependentUpon>UC_OrderList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chef Control\UC_Proccessing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chef Control\UC_Proccessing.Designer.cs">
+      <DependentUpon>UC_Proccessing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer Control\UC_Item.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -88,6 +100,12 @@
     </Compile>
     <Compile Include="Customer Control\UC_Payment.Designer.cs">
       <DependentUpon>UC_Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fChef.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fChef.Designer.cs">
+      <DependentUpon>fChef.cs</DependentUpon>
     </Compile>
     <Compile Include="fCustomer.cs">
       <SubType>Form</SubType>
@@ -143,6 +161,12 @@
     <Compile Include="Staff Control\UC_Table.Designer.cs">
       <DependentUpon>UC_Table.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Chef Control\UC_OrderList.resx">
+      <DependentUpon>UC_OrderList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chef Control\UC_Proccessing.resx">
+      <DependentUpon>UC_Proccessing.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customer Control\UC_Item.resx">
       <DependentUpon>UC_Item.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customer Control\UC_Payment.resx">
       <DependentUpon>UC_Payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fChef.resx">
+      <DependentUpon>fChef.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fCustomer.resx">
       <DependentUpon>fCustomer.cs</DependentUpon>
@@ -286,5 +313,6 @@
     <None Include="Resources\xmark-solid1.png" />
     <None Include="Resources\logo_momo1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
