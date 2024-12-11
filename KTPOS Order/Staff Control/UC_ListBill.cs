@@ -84,9 +84,9 @@ namespace KTPOS_Order.Staff_Control
         {
             LoadBillData();
         }
-        private void LoadBillData()
+        public void LoadBillData()
         {
-            ListBill.Rows.Clear(); // Xóa dữ liệu cũ trước khi tải mới
+            ListBill.Rows.Clear(); // Xóa dữ liệu cũ
 
             string queryString = @"
             SELECT id, Datepayment, idTable, 
@@ -99,11 +99,9 @@ namespace KTPOS_Order.Staff_Control
 
             try
             {
-                // Sử dụng GetDatabase để lấy dữ liệu
                 DataTable data = GetDatabase.Instance.ExecuteQuery(queryString);
                 foreach (DataRow row in data.Rows)
                 {
-                    // Thêm dữ liệu vào DataGridView
                     ListBill.Rows.Add(row["id"], row["Datepayment"], row["idTable"], row["StatusText"]);
                 }
             }
@@ -112,6 +110,7 @@ namespace KTPOS_Order.Staff_Control
                 MessageBox.Show("Error loading bill data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        
         private UserControl currentUserControl;
         public void AddUserControl(UserControl userControl)
         {
@@ -132,16 +131,53 @@ namespace KTPOS_Order.Staff_Control
             currentUserControl = userControl;
         }
 
+
         private void ListBill_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == ListBill.Columns["Payment"].Index)
-
+            if (e.ColumnIndex == ListBill.Columns["Payment"].Index && e.RowIndex >= 0)
             {
+                // Lấy ID Bill từ hàng được chọn
+                int selectedBillId = Convert.ToInt32(ListBill.Rows[e.RowIndex].Cells["id"].Value);
 
-                UC_Payment UCPay = new UC_Payment();
+                // Tạo một thể hiện của UC_Payment và truyền tham chiếu của UC_ListBill
+                UC_Payment UCPay = new UC_Payment(this);
+
+                // Đặt ID của Bill đang được chọn
+                UCPay.SelectedBillId = selectedBillId;
+
+                // Thêm UC_Payment vào UserControl hiện tại
                 AddUserControl(UCPay);
 
+                // Tạo một thể hiện của BillProcessor để lấy thông tin chi tiết của Bill
+                BillProcessor billProcessor = new BillProcessor(selectedBillId);
+
+                // Hiển thị thông tin chi tiết Bill trong DataGridView bên trong UC_Payment
+                UCPay.Bill.Rows.Clear(); // Xóa dữ liệu cũ trong DataGridView của UC_Payment
+
+                // Duyệt qua các chi tiết hóa đơn và thêm vào DataGridView trong UC_Payment
+                foreach (DataRow row in billProcessor.BillDetails.Rows)
+                {
+                    UCPay.Bill.Rows.Add(
+                        row["ItemName"],
+                        row["Quantity"],
+                        row["TotalPrice"]
+                    );
+                }
             }
         }
+        private void cbForm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+             // Redirect to QRCode UserControl
+                UC_QRPayment ucQrcode = new UC_QRPayment();
+                AddUserControl(ucQrcode);  // Switch the UserControl to UC_QRcode
+           
+        }
+        public void ReloadBillData()
+        {
+            LoadBillData();
+        }
+
+
+
     }
 }
