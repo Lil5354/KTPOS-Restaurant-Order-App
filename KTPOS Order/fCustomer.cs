@@ -20,10 +20,12 @@ namespace KTPOS_Order
         string connectionString = "Data Source=DESKTOP-4S5L10L;Initial Catalog=KTPOS;" + "Integrated Security=true";
         public static List<ListViewItem> listItems = new List<ListViewItem>();
         public Dictionary<string, int> Count = new Dictionary<string, int>();
+        string filePath = "E:\\Project\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Temp\\Bill.txt";
         Decimal Total = 0;
         public fCustomer()
         {
             InitializeComponent();
+            File.WriteAllText(filePath, string.Empty);
         }
         UC_OrderFood UcOrderFood;
 
@@ -105,21 +107,8 @@ namespace KTPOS_Order
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            string filePath = "E:\\Project\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Temp\\Bill.txt";
-            using (StreamWriter writer = new StreamWriter(filePath))
-            {
-                // Ghi dữ liệu từng dòng
-                foreach (ListViewItem item in listView.Items)
-                {
-                    foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
-                    {
-                        writer.Write(subItem.Text + "\t");
-                    }
-                    writer.WriteLine();
-                }
-            }
-            UC_Payment ucOrderFood = new UC_Payment();
-            AddUserControl(ucOrderFood);
+            UC_Payment uC_Payment = new UC_Payment();
+            AddUserControl(uC_Payment);
         }
 
         private void btnChat_Click(object sender, EventArgs e)
@@ -307,6 +296,28 @@ namespace KTPOS_Order
         }
         private void listView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
+        }
+
+        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button15_Click(object sender, EventArgs e)
+        {
+            string filePath = "E:\\Project\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Temp\\Bill.txt";
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                // Ghi dữ liệu từng dòng
+                foreach (ListViewItem item in listView.Items)
+                {
+                    foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+                    {
+                        writer.Write(subItem.Text + "\t");
+                    }
+                    writer.WriteLine();
+                }
+            }
         }
     }
 }
