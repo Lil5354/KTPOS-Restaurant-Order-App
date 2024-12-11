@@ -18,6 +18,8 @@ namespace KTPOS_Order.Staff_Control
 {
     public partial class UC_Table : UserControl
     {
+        private UC_ListBill parentListBill;
+        public int SelectedBillId { get; set; }
         public UC_Table()
         {
             InitializeComponent();
@@ -259,6 +261,65 @@ namespace KTPOS_Order.Staff_Control
 
         }
 
+        private void btnPayment_Click(object sender, EventArgs e)
+        {
+            string selectedPaymentMethod = cbForm.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(selectedPaymentMethod))
+            {
+                MessageBox.Show("Please select a payment method.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (selectedPaymentMethod == "Transfer")
+            {
+                // Chuyển đến UC_QRPayment
+                UC_QRPayment ucQrPayment = new UC_QRPayment();
+                AddUserControl(ucQrPayment);
+            }
+            else if (selectedPaymentMethod == "Cash")
+            {
+                // Cập nhật trạng thái hóa đơn trong cơ sở dữ liệu
+                string query = $"UPDATE Bill SET status = 1 WHERE ID = {SelectedBillId}";
+                try
+                {
+                    GetDatabase.Instance.ExecuteNonQuery(query);
+                    MessageBox.Show("Payment completed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Reload bill data in the parent ListBill if available
+                    if (parentListBill != null)
+                    {
+                        parentListBill.ReloadBillData();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error updating payment status: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid payment method.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private UserControl currentUserControl;
+        public void AddUserControl(UserControl userControl)
+        {
+            // Xóa UserControl hiện tại (nếu có)
+            if (currentUserControl != null)
+            {
+                this.Controls.Remove(currentUserControl);
+                currentUserControl.Dispose();
+            }
+
+            // Thêm UserControl mới
+            this.Controls.Add(userControl);
+            userControl.Location = new Point(0, 0);
+            userControl.Anchor = AnchorStyles.Right;
+            userControl.BringToFront();
+
+            // Cập nhật tham chiếu
+            currentUserControl = userControl;
+        }
     }
 
 }
