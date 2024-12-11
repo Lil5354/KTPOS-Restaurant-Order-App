@@ -155,21 +155,6 @@ namespace KTPOS_Order.Staff_Control
             cbCategories.ValueMember = "Key";    // Giá trị là ID
         }
 
-        private void UC_Table_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UC_Table_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (cbItem.SelectedItem != null && cbItem.SelectedItem is KeyValuePair<int, string> selectedItem)
@@ -319,6 +304,11 @@ namespace KTPOS_Order.Staff_Control
 
             // Cập nhật tham chiếu
             currentUserControl = userControl;
+        }
+
+        private void dgvBillDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 

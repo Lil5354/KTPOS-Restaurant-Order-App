@@ -32,6 +32,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -46,19 +49,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcManager = new Guna.UI2.WinForms.Guna2TabControl();
             this.Revenue = new System.Windows.Forms.TabPage();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.dtgvRevenue = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tablename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkout = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCompile = new Guna.UI2.WinForms.Guna2Button();
             this.TO = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2DateTimePicker2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -110,6 +114,8 @@
             this.btnEditTable = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.dtgvTable = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.id_table = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchTable = new Guna.UI2.WinForms.Guna2TextBox();
             this.account = new System.Windows.Forms.TabPage();
             this.cbBRole = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -119,7 +125,6 @@
             this.txtFullName = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnViewAcc = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddAcc = new Guna.UI2.WinForms.Guna2Button();
             this.btnDeleteAcc = new Guna.UI2.WinForms.Guna2Button();
             this.btnUpdateAcc = new Guna.UI2.WinForms.Guna2Button();
@@ -130,12 +135,6 @@
             this.ExY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchAcc = new Guna.UI2.WinForms.Guna2TextBox();
-            this.id_table = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tablename = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkout = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcManager.SuspendLayout();
             this.Revenue.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
@@ -171,7 +170,7 @@
             this.tcManager.Location = new System.Drawing.Point(23, 19);
             this.tcManager.Name = "tcManager";
             this.tcManager.SelectedIndex = 0;
-            this.tcManager.Size = new System.Drawing.Size(1156, 559);
+            this.tcManager.Size = new System.Drawing.Size(1156, 594);
             this.tcManager.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.tcManager.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.tcManager.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -204,7 +203,7 @@
             this.Revenue.Location = new System.Drawing.Point(184, 4);
             this.Revenue.Name = "Revenue";
             this.Revenue.Padding = new System.Windows.Forms.Padding(3);
-            this.Revenue.Size = new System.Drawing.Size(968, 551);
+            this.Revenue.Size = new System.Drawing.Size(968, 586);
             this.Revenue.TabIndex = 0;
             this.Revenue.Text = "REVENUE";
             // 
@@ -296,6 +295,50 @@
             this.dtgvRevenue.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dtgvRevenue.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListBill_CellContentClick);
             // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ID.FillWeight = 106.9519F;
+            this.ID.HeaderText = "ID BILL";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // tablename
+            // 
+            this.tablename.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.tablename.DefaultCellStyle = dataGridViewCellStyle3;
+            this.tablename.FillWeight = 99.17856F;
+            this.tablename.HeaderText = "TABLE NAME";
+            this.tablename.MinimumWidth = 6;
+            this.tablename.Name = "tablename";
+            this.tablename.ReadOnly = true;
+            // 
+            // checkout
+            // 
+            this.checkout.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.checkout.DefaultCellStyle = dataGridViewCellStyle4;
+            this.checkout.FillWeight = 78.51307F;
+            this.checkout.HeaderText = "DATE CHECKOUT";
+            this.checkout.MinimumWidth = 6;
+            this.checkout.Name = "checkout";
+            this.checkout.ReadOnly = true;
+            // 
+            // totalprice
+            // 
+            this.totalprice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Format = "G";
+            dataGridViewCellStyle5.NullValue = null;
+            this.totalprice.DefaultCellStyle = dataGridViewCellStyle5;
+            this.totalprice.FillWeight = 115.3565F;
+            this.totalprice.HeaderText = "TOTAL PRICE";
+            this.totalprice.MinimumWidth = 6;
+            this.totalprice.Name = "totalprice";
+            this.totalprice.ReadOnly = true;
+            // 
             // btnCompile
             // 
             this.btnCompile.Animated = true;
@@ -324,7 +367,7 @@
             this.TO.ForeColor = System.Drawing.Color.Black;
             this.TO.Location = new System.Drawing.Point(384, 37);
             this.TO.Name = "TO";
-            this.TO.Size = new System.Drawing.Size(28, 27);
+            this.TO.Size = new System.Drawing.Size(35, 34);
             this.TO.TabIndex = 2;
             this.TO.Text = "TO";
             this.TO.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -378,7 +421,7 @@
             this.F_B.Location = new System.Drawing.Point(184, 4);
             this.F_B.Name = "F_B";
             this.F_B.Padding = new System.Windows.Forms.Padding(3);
-            this.F_B.Size = new System.Drawing.Size(968, 551);
+            this.F_B.Size = new System.Drawing.Size(968, 586);
             this.F_B.TabIndex = 1;
             this.F_B.Text = "F&B";
             // 
@@ -428,7 +471,7 @@
             this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.Maroon;
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(779, 415);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(37, 21);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(47, 27);
             this.guna2HtmlLabel4.TabIndex = 47;
             this.guna2HtmlLabel4.Text = "Price";
             this.guna2HtmlLabel4.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -440,7 +483,7 @@
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Maroon;
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(779, 319);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(75, 21);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(97, 27);
             this.guna2HtmlLabel3.TabIndex = 46;
             this.guna2HtmlLabel3.Text = "Categories";
             this.guna2HtmlLabel3.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -474,7 +517,7 @@
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Maroon;
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(779, 224);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(43, 21);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(55, 27);
             this.guna2HtmlLabel2.TabIndex = 44;
             this.guna2HtmlLabel2.Text = "Name";
             this.guna2HtmlLabel2.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -508,7 +551,7 @@
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Maroon;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(779, 129);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(17, 21);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(23, 27);
             this.guna2HtmlLabel1.TabIndex = 41;
             this.guna2HtmlLabel1.Text = "ID";
             this.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -523,7 +566,7 @@
             this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.Maroon;
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(37, 92);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(726, 433);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(694, 433);
             this.guna2CustomGradientPanel1.TabIndex = 40;
             // 
             // dtgvFandB
@@ -575,7 +618,7 @@
             this.dtgvFandB.RowHeadersVisible = false;
             this.dtgvFandB.RowHeadersWidth = 51;
             this.dtgvFandB.RowTemplate.Height = 24;
-            this.dtgvFandB.Size = new System.Drawing.Size(696, 415);
+            this.dtgvFandB.Size = new System.Drawing.Size(666, 415);
             this.dtgvFandB.TabIndex = 0;
             this.dtgvFandB.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgvFandB.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -628,7 +671,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnEditFB);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(303, 16);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(460, 55);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(457, 55);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // btnViewFB
@@ -758,7 +801,7 @@
             this.Categaries.Controls.Add(this.txtSearchCategories);
             this.Categaries.Location = new System.Drawing.Point(184, 4);
             this.Categaries.Name = "Categaries";
-            this.Categaries.Size = new System.Drawing.Size(968, 551);
+            this.Categaries.Size = new System.Drawing.Size(968, 586);
             this.Categaries.TabIndex = 4;
             this.Categaries.Text = "CATEGORIES";
             // 
@@ -791,7 +834,7 @@
             this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.Maroon;
             this.guna2HtmlLabel7.Location = new System.Drawing.Point(760, 225);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(119, 21);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(154, 27);
             this.guna2HtmlLabel7.TabIndex = 89;
             this.guna2HtmlLabel7.Text = "Name Categories";
             this.guna2HtmlLabel7.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -825,7 +868,7 @@
             this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.Maroon;
             this.guna2HtmlLabel8.Location = new System.Drawing.Point(760, 130);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(17, 21);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(23, 27);
             this.guna2HtmlLabel8.TabIndex = 87;
             this.guna2HtmlLabel8.Text = "ID";
             this.guna2HtmlLabel8.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -1075,7 +1118,7 @@
             this.Table.Location = new System.Drawing.Point(184, 4);
             this.Table.Name = "Table";
             this.Table.Padding = new System.Windows.Forms.Padding(3);
-            this.Table.Size = new System.Drawing.Size(968, 551);
+            this.Table.Size = new System.Drawing.Size(968, 586);
             this.Table.TabIndex = 2;
             this.Table.Text = "TABLE";
             // 
@@ -1108,7 +1151,7 @@
             this.guna2HtmlLabel9.ForeColor = System.Drawing.Color.Maroon;
             this.guna2HtmlLabel9.Location = new System.Drawing.Point(760, 226);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            this.guna2HtmlLabel9.Size = new System.Drawing.Size(58, 21);
+            this.guna2HtmlLabel9.Size = new System.Drawing.Size(77, 27);
             this.guna2HtmlLabel9.TabIndex = 68;
             this.guna2HtmlLabel9.Text = "Number";
             this.guna2HtmlLabel9.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -1142,7 +1185,7 @@
             this.guna2HtmlLabel10.ForeColor = System.Drawing.Color.Maroon;
             this.guna2HtmlLabel10.Location = new System.Drawing.Point(760, 131);
             this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
-            this.guna2HtmlLabel10.Size = new System.Drawing.Size(17, 21);
+            this.guna2HtmlLabel10.Size = new System.Drawing.Size(23, 27);
             this.guna2HtmlLabel10.TabIndex = 66;
             this.guna2HtmlLabel10.Text = "ID";
             this.guna2HtmlLabel10.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -1327,6 +1370,28 @@
             this.dtgvTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(185)))));
             this.dtgvTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             // 
+            // id_table
+            // 
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.Format = "G";
+            dataGridViewCellStyle20.NullValue = null;
+            this.id_table.DefaultCellStyle = dataGridViewCellStyle20;
+            this.id_table.FillWeight = 115.3565F;
+            this.id_table.HeaderText = "ID";
+            this.id_table.MinimumWidth = 6;
+            this.id_table.Name = "id_table";
+            this.id_table.ReadOnly = true;
+            // 
+            // Number
+            // 
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Number.DefaultCellStyle = dataGridViewCellStyle21;
+            this.Number.FillWeight = 99.17856F;
+            this.Number.HeaderText = "TABLE NAME";
+            this.Number.MinimumWidth = 6;
+            this.Number.Name = "Number";
+            this.Number.ReadOnly = true;
+            // 
             // txtSearchTable
             // 
             this.txtSearchTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1372,7 +1437,7 @@
             this.account.ForeColor = System.Drawing.Color.White;
             this.account.Location = new System.Drawing.Point(184, 4);
             this.account.Name = "account";
-            this.account.Size = new System.Drawing.Size(968, 551);
+            this.account.Size = new System.Drawing.Size(968, 586);
             this.account.TabIndex = 3;
             this.account.Text = "ACCOUNT";
             // 
@@ -1404,7 +1469,7 @@
             this.guna2HtmlLabel11.ForeColor = System.Drawing.Color.Maroon;
             this.guna2HtmlLabel11.Location = new System.Drawing.Point(760, 314);
             this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
-            this.guna2HtmlLabel11.Size = new System.Drawing.Size(33, 21);
+            this.guna2HtmlLabel11.Size = new System.Drawing.Size(42, 27);
             this.guna2HtmlLabel11.TabIndex = 92;
             this.guna2HtmlLabel11.Text = "Role";
             this.guna2HtmlLabel11.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -1439,7 +1504,7 @@
             this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.Maroon;
             this.guna2HtmlLabel5.Location = new System.Drawing.Point(760, 225);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(39, 21);
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(50, 27);
             this.guna2HtmlLabel5.TabIndex = 89;
             this.guna2HtmlLabel5.Text = "Email";
             this.guna2HtmlLabel5.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -1474,43 +1539,20 @@
             this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.Maroon;
             this.guna2HtmlLabel6.Location = new System.Drawing.Point(760, 130);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(70, 21);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(92, 27);
             this.guna2HtmlLabel6.TabIndex = 87;
             this.guna2HtmlLabel6.Text = "Full Name";
             this.guna2HtmlLabel6.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.Controls.Add(this.btnViewAcc);
             this.flowLayoutPanel3.Controls.Add(this.btnAddAcc);
             this.flowLayoutPanel3.Controls.Add(this.btnDeleteAcc);
             this.flowLayoutPanel3.Controls.Add(this.btnUpdateAcc);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(268, 16);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(377, 32);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(467, 55);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(351, 54);
             this.flowLayoutPanel3.TabIndex = 86;
-            // 
-            // btnViewAcc
-            // 
-            this.btnViewAcc.Animated = true;
-            this.btnViewAcc.BackColor = System.Drawing.Color.Transparent;
-            this.btnViewAcc.BorderColor = System.Drawing.Color.Maroon;
-            this.btnViewAcc.BorderRadius = 20;
-            this.btnViewAcc.BorderThickness = 1;
-            this.btnViewAcc.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnViewAcc.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnViewAcc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnViewAcc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnViewAcc.FillColor = System.Drawing.Color.White;
-            this.btnViewAcc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnViewAcc.ForeColor = System.Drawing.Color.Maroon;
-            this.btnViewAcc.Location = new System.Drawing.Point(3, 3);
-            this.btnViewAcc.Name = "btnViewAcc";
-            this.btnViewAcc.Size = new System.Drawing.Size(108, 45);
-            this.btnViewAcc.TabIndex = 39;
-            this.btnViewAcc.Text = "VIEW";
-            this.btnViewAcc.UseTransparentBackground = true;
-            this.btnViewAcc.Click += new System.EventHandler(this.btnViewAcc_Click);
             // 
             // btnAddAcc
             // 
@@ -1526,7 +1568,7 @@
             this.btnAddAcc.FillColor = System.Drawing.Color.White;
             this.btnAddAcc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnAddAcc.ForeColor = System.Drawing.Color.Maroon;
-            this.btnAddAcc.Location = new System.Drawing.Point(117, 3);
+            this.btnAddAcc.Location = new System.Drawing.Point(3, 3);
             this.btnAddAcc.Name = "btnAddAcc";
             this.btnAddAcc.Size = new System.Drawing.Size(108, 45);
             this.btnAddAcc.TabIndex = 40;
@@ -1548,7 +1590,7 @@
             this.btnDeleteAcc.FillColor = System.Drawing.Color.White;
             this.btnDeleteAcc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnDeleteAcc.ForeColor = System.Drawing.Color.Maroon;
-            this.btnDeleteAcc.Location = new System.Drawing.Point(231, 3);
+            this.btnDeleteAcc.Location = new System.Drawing.Point(117, 3);
             this.btnDeleteAcc.Name = "btnDeleteAcc";
             this.btnDeleteAcc.Size = new System.Drawing.Size(108, 45);
             this.btnDeleteAcc.TabIndex = 41;
@@ -1570,7 +1612,7 @@
             this.btnUpdateAcc.FillColor = System.Drawing.Color.White;
             this.btnUpdateAcc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnUpdateAcc.ForeColor = System.Drawing.Color.Maroon;
-            this.btnUpdateAcc.Location = new System.Drawing.Point(345, 3);
+            this.btnUpdateAcc.Location = new System.Drawing.Point(231, 3);
             this.btnUpdateAcc.Name = "btnUpdateAcc";
             this.btnUpdateAcc.Size = new System.Drawing.Size(115, 45);
             this.btnUpdateAcc.TabIndex = 42;
@@ -1711,84 +1753,20 @@
             this.txtSearchAcc.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSearchAcc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearchAcc.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtSearchAcc.ForeColor = System.Drawing.Color.Black;
+            this.txtSearchAcc.ForeColor = System.Drawing.Color.Maroon;
             this.txtSearchAcc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearchAcc.IconLeft = global::KTPOS_Order.Properties.Resources.magnifying_glass_solid;
             this.txtSearchAcc.IconLeftOffset = new System.Drawing.Point(6, 0);
-            this.txtSearchAcc.Location = new System.Drawing.Point(37, 33);
+            this.txtSearchAcc.Location = new System.Drawing.Point(37, 42);
             this.txtSearchAcc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSearchAcc.MaximumSize = new System.Drawing.Size(240, 38);
             this.txtSearchAcc.Name = "txtSearchAcc";
             this.txtSearchAcc.PasswordChar = '\0';
             this.txtSearchAcc.PlaceholderText = "Search";
             this.txtSearchAcc.SelectedText = "";
-            this.txtSearchAcc.Size = new System.Drawing.Size(210, 38);
+            this.txtSearchAcc.Size = new System.Drawing.Size(240, 38);
             this.txtSearchAcc.TabIndex = 84;
-            // 
-            // id_table
-            // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.Format = "G";
-            dataGridViewCellStyle20.NullValue = null;
-            this.id_table.DefaultCellStyle = dataGridViewCellStyle20;
-            this.id_table.FillWeight = 115.3565F;
-            this.id_table.HeaderText = "ID";
-            this.id_table.MinimumWidth = 6;
-            this.id_table.Name = "id_table";
-            this.id_table.ReadOnly = true;
-            // 
-            // Number
-            // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Number.DefaultCellStyle = dataGridViewCellStyle21;
-            this.Number.FillWeight = 99.17856F;
-            this.Number.HeaderText = "TABLE NAME";
-            this.Number.MinimumWidth = 6;
-            this.Number.Name = "Number";
-            this.Number.ReadOnly = true;
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ID.FillWeight = 106.9519F;
-            this.ID.HeaderText = "ID BILL";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // tablename
-            // 
-            this.tablename.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.tablename.DefaultCellStyle = dataGridViewCellStyle3;
-            this.tablename.FillWeight = 99.17856F;
-            this.tablename.HeaderText = "TABLE NAME";
-            this.tablename.MinimumWidth = 6;
-            this.tablename.Name = "tablename";
-            this.tablename.ReadOnly = true;
-            // 
-            // checkout
-            // 
-            this.checkout.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.checkout.DefaultCellStyle = dataGridViewCellStyle4;
-            this.checkout.FillWeight = 78.51307F;
-            this.checkout.HeaderText = "DATE CHECKOUT";
-            this.checkout.MinimumWidth = 6;
-            this.checkout.Name = "checkout";
-            this.checkout.ReadOnly = true;
-            // 
-            // totalprice
-            // 
-            this.totalprice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Format = "G";
-            dataGridViewCellStyle5.NullValue = null;
-            this.totalprice.DefaultCellStyle = dataGridViewCellStyle5;
-            this.totalprice.FillWeight = 115.3565F;
-            this.totalprice.HeaderText = "TOTAL PRICE";
-            this.totalprice.MinimumWidth = 6;
-            this.totalprice.Name = "totalprice";
-            this.totalprice.ReadOnly = true;
+            this.txtSearchAcc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearchAcc_KeyUp);
             // 
             // UC_Admin
             // 
@@ -1875,7 +1853,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtFullName;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private Guna.UI2.WinForms.Guna2Button btnViewAcc;
         private Guna.UI2.WinForms.Guna2Button btnAddAcc;
         private Guna.UI2.WinForms.Guna2Button btnDeleteAcc;
         private Guna.UI2.WinForms.Guna2Button btnUpdateAcc;

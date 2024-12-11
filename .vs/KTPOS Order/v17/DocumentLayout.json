@@ -1,66 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\",
+  "WorkspaceRootPath": "D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\file c\u1EE7a th\u1EA3o\\ktpos\\th\u01B0 mu\u0323c m\u01A1\u0301i\\ktpos-restaurant-order-app\\ktpos order\\fchef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\fchef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\douments\\github\\ktpos-restaurant-order-app\\ktpos order\\management control\\uc_admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\management control\\uc_admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\file c\u1EE7a th\u1EA3o\\ktpos\\th\u01B0 mu\u0323c m\u01A1\u0301i\\ktpos-restaurant-order-app\\ktpos order\\chef control\\uc_orderlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\chef control\\uc_orderlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\douments\\github\\ktpos-restaurant-order-app\\ktpos order\\management control\\uc_admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\management control\\uc_admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\file c\u1EE7a th\u1EA3o\\ktpos\\th\u01B0 mu\u0323c m\u01A1\u0301i\\ktpos-restaurant-order-app\\ktpos order\\chef control\\uc_proccessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\chef control\\uc_proccessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\file c\u1EE7a th\u1EA3o\\ktpos\\th\u01B0 mu\u0323c m\u01A1\u0301i\\ktpos-restaurant-order-app\\ktpos order\\staff control\\uc_payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\staff control\\uc_payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\file c\u1EE7a th\u1EA3o\\ktpos\\th\u01B0 mu\u0323c m\u01A1\u0301i\\ktpos-restaurant-order-app\\ktpos order\\customer control\\uc_payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\customer control\\uc_payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\file c\u1EE7a th\u1EA3o\\ktpos\\th\u01B0 mu\u0323c m\u01A1\u0301i\\ktpos-restaurant-order-app\\ktpos order\\fchef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\fchef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\file c\u1EE7a th\u1EA3o\\ktpos\\th\u01B0 mu\u0323c m\u01A1\u0301i\\ktpos-restaurant-order-app\\ktpos order\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\file c\u1EE7a th\u1EA3o\\ktpos\\th\u01B0 mu\u0323c m\u01A1\u0301i\\ktpos-restaurant-order-app\\ktpos order\\chef control\\uc_proccessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\chef control\\uc_proccessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\file c\u1EE7a th\u1EA3o\\ktpos\\th\u01B0 mu\u0323c m\u01A1\u0301i\\ktpos-restaurant-order-app\\ktpos order\\chef control\\uc_orderlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\chef control\\uc_orderlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\file c\u1EE7a th\u1EA3o\\ktpos\\th\u01B0 mu\u0323c m\u01A1\u0301i\\ktpos-restaurant-order-app\\ktpos order\\fstaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\fstaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\file c\u1EE7a th\u1EA3o\\ktpos\\th\u01B0 mu\u0323c m\u01A1\u0301i\\ktpos-restaurant-order-app\\ktpos order\\fstaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\douments\\github\\ktpos-restaurant-order-app\\ktpos order\\fstaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\fstaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\file c\u1EE7a th\u1EA3o\\ktpos\\th\u01B0 mu\u0323c m\u01A1\u0301i\\ktpos-restaurant-order-app\\ktpos order\\chef control\\uc_orderlist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\chef control\\uc_orderlist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\ktpos order\\proccess\\lgaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\proccess\\lgaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|d:\\file c\u1EE7a th\u1EA3o\\ktpos\\th\u01B0 mu\u0323c m\u01A1\u0301i\\ktpos-restaurant-order-app\\ktpos order\\staff control\\uc_listbill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\staff control\\uc_listbill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\ktpos order\\customer control\\uc_orderfoodoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\customer control\\uc_orderfoodoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\ktpos order\\management control\\getlists.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{599159AB-9458-4613-BF92-BBA02BFA5271}|KTPOS Order\\KTPOS Order.csproj|solutionrelative:ktpos order\\management control\\getlists.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,197 +26,68 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UC_Payment.cs [Design]",
-              "DocumentMoniker": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Staff Control\\UC_Payment.cs",
-              "RelativeDocumentMoniker": "KTPOS Order\\Staff Control\\UC_Payment.cs",
-              "ToolTip": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Staff Control\\UC_Payment.cs [Design]",
-              "RelativeToolTip": "KTPOS Order\\Staff Control\\UC_Payment.cs [Design]",
+              "Title": "GetLists.cs",
+              "DocumentMoniker": "D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Management Control\\GetLists.cs",
+              "RelativeDocumentMoniker": "KTPOS Order\\Management Control\\GetLists.cs",
+              "ToolTip": "D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Management Control\\GetLists.cs",
+              "RelativeToolTip": "KTPOS Order\\Management Control\\GetLists.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:59:09.611Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UC_Payment.cs [Design]",
-              "DocumentMoniker": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Customer Control\\UC_Payment.cs",
-              "RelativeDocumentMoniker": "KTPOS Order\\Customer Control\\UC_Payment.cs",
-              "ToolTip": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Customer Control\\UC_Payment.cs [Design]",
-              "RelativeToolTip": "KTPOS Order\\Customer Control\\UC_Payment.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:59:02.581Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Program.cs",
-              "RelativeDocumentMoniker": "KTPOS Order\\Program.cs",
-              "ToolTip": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Program.cs",
-              "RelativeToolTip": "KTPOS Order\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:52:47.179Z",
+              "WhenOpened": "2024-12-08T13:27:11.263Z",
+              "IsPinned": true,
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UC_Proccessing.cs",
-              "DocumentMoniker": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Chef Control\\UC_Proccessing.cs",
-              "RelativeDocumentMoniker": "KTPOS Order\\Chef Control\\UC_Proccessing.cs",
-              "ToolTip": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Chef Control\\UC_Proccessing.cs",
-              "RelativeToolTip": "KTPOS Order\\Chef Control\\UC_Proccessing.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:51:11.81Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UC_OrderList.cs",
-              "DocumentMoniker": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Chef Control\\UC_OrderList.cs",
-              "RelativeDocumentMoniker": "KTPOS Order\\Chef Control\\UC_OrderList.cs",
-              "ToolTip": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Chef Control\\UC_OrderList.cs",
-              "RelativeToolTip": "KTPOS Order\\Chef Control\\UC_OrderList.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:51:07.369Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "fChef.cs",
-              "DocumentMoniker": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\fChef.cs",
-              "RelativeDocumentMoniker": "KTPOS Order\\fChef.cs",
-              "ToolTip": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\fChef.cs",
-              "RelativeToolTip": "KTPOS Order\\fChef.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAWwFIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:50:06.525Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "fStaff.cs [Design]",
-              "DocumentMoniker": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\fStaff.cs",
-              "RelativeDocumentMoniker": "KTPOS Order\\fStaff.cs",
-              "ToolTip": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\fStaff.cs [Design]",
-              "RelativeToolTip": "KTPOS Order\\fStaff.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:49:47.927Z",
-              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UC_Proccessing.cs [Design]",
-              "DocumentMoniker": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Chef Control\\UC_Proccessing.cs",
-              "RelativeDocumentMoniker": "KTPOS Order\\Chef Control\\UC_Proccessing.cs",
-              "ToolTip": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Chef Control\\UC_Proccessing.cs [Design]",
-              "RelativeToolTip": "KTPOS Order\\Chef Control\\UC_Proccessing.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:42:49.422Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "UC_OrderList.Designer.cs",
-              "DocumentMoniker": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Chef Control\\UC_OrderList.Designer.cs",
-              "RelativeDocumentMoniker": "KTPOS Order\\Chef Control\\UC_OrderList.Designer.cs",
-              "ToolTip": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Chef Control\\UC_OrderList.Designer.cs",
-              "RelativeToolTip": "KTPOS Order\\Chef Control\\UC_OrderList.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:42:15.389Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "UC_ListBill.cs [Design]",
-              "DocumentMoniker": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Staff Control\\UC_ListBill.cs",
-              "RelativeDocumentMoniker": "KTPOS Order\\Staff Control\\UC_ListBill.cs",
-              "ToolTip": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Staff Control\\UC_ListBill.cs [Design]",
-              "RelativeToolTip": "KTPOS Order\\Staff Control\\UC_ListBill.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:39:34.746Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UC_OrderList.cs [Design]",
-              "DocumentMoniker": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Chef Control\\UC_OrderList.cs",
-              "RelativeDocumentMoniker": "KTPOS Order\\Chef Control\\UC_OrderList.cs",
-              "ToolTip": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Chef Control\\UC_OrderList.cs [Design]",
-              "RelativeToolTip": "KTPOS Order\\Chef Control\\UC_OrderList.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:28:38.792Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "fStaff.cs",
-              "DocumentMoniker": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\fStaff.cs",
+              "Title": "fStaff.cs [Design]",
+              "DocumentMoniker": "D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\KTPOS Order\\fStaff.cs",
               "RelativeDocumentMoniker": "KTPOS Order\\fStaff.cs",
-              "ToolTip": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\fStaff.cs",
-              "RelativeToolTip": "KTPOS Order\\fStaff.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAAwDMAAAAkAAAAAAAAAA==",
+              "ToolTip": "D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\KTPOS Order\\fStaff.cs [Design]",
+              "RelativeToolTip": "KTPOS Order\\fStaff.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:17:06.896Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T09:50:06.412Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "fChef.cs [Design]",
-              "DocumentMoniker": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\fChef.cs",
-              "RelativeDocumentMoniker": "KTPOS Order\\fChef.cs",
-              "ToolTip": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\fChef.cs [Design]",
-              "RelativeToolTip": "KTPOS Order\\fChef.cs [Design]",
+              "Title": "UC_Admin.cs",
+              "DocumentMoniker": "D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Management Control\\UC_Admin.cs",
+              "RelativeDocumentMoniker": "KTPOS Order\\Management Control\\UC_Admin.cs",
+              "ToolTip": "D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Management Control\\UC_Admin.cs",
+              "RelativeToolTip": "KTPOS Order\\Management Control\\UC_Admin.cs",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAswDoAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:12:49.986Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "UC_OrderFoodOption.cs [Design]",
-              "DocumentMoniker": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Customer Control\\UC_OrderFoodOption.cs",
-              "RelativeDocumentMoniker": "KTPOS Order\\Customer Control\\UC_OrderFoodOption.cs",
-              "ToolTip": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Customer Control\\UC_OrderFoodOption.cs [Design]",
-              "RelativeToolTip": "KTPOS Order\\Customer Control\\UC_OrderFoodOption.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:04:33.917Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "LgAccount.cs",
-              "DocumentMoniker": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Proccess\\LgAccount.cs",
-              "RelativeDocumentMoniker": "KTPOS Order\\Proccess\\LgAccount.cs",
-              "ToolTip": "D:\\FILE C\u1EE6A TH\u1EA2O\\KTPOS\\Th\u01B0 mu\u0323c m\u01A1\u0301i\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Proccess\\LgAccount.cs",
-              "RelativeToolTip": "KTPOS Order\\Proccess\\LgAccount.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T08:22:23.66Z",
+              "WhenOpened": "2024-12-11T09:49:41.397Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UC_Admin.cs [Design]",
+              "DocumentMoniker": "D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Management Control\\UC_Admin.cs",
+              "RelativeDocumentMoniker": "KTPOS Order\\Management Control\\UC_Admin.cs",
+              "ToolTip": "D:\\Douments\\GitHub\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Management Control\\UC_Admin.cs [Design]",
+              "RelativeToolTip": "KTPOS Order\\Management Control\\UC_Admin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T09:49:35.549Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
