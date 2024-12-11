@@ -4,11 +4,13 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KTPOS_Order.Management_Control;
 
 namespace KTPOS_Order.Proccess
 {
     public class BillProcessor
     {
+       
         public int BillID { get; private set; }
         public DataTable BillDetails { get; private set; }
 
@@ -29,6 +31,7 @@ namespace KTPOS_Order.Proccess
 
             BillDetails = GetDatabase.Instance.ExecuteQuery(billDetailsQuery, new object[] { BillID });
         }
+
     }
 }
 

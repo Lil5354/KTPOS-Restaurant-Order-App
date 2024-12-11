@@ -114,6 +114,7 @@
     <Compile Include="Management Control\UC_Admin.Designer.cs">
       <DependentUpon>UC_Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Proccess\BillPayment.cs" />
     <Compile Include="Proccess\BillProcessor.cs" />
     <Compile Include="Proccess\GetDatabase.cs" />
     <Compile Include="Proccess\LgAccount.cs" />

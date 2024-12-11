@@ -87,6 +87,8 @@
             // 
             // ListBill
             // 
+            this.ListBill.AllowUserToAddRows = false;
+            this.ListBill.AllowUserToDeleteRows = false;
             this.ListBill.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,6 +122,7 @@
             this.ListBill.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.ListBill.Location = new System.Drawing.Point(15, 3);
             this.ListBill.Name = "ListBill";
+            this.ListBill.ReadOnly = true;
             this.ListBill.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
@@ -147,7 +150,7 @@
             this.ListBill.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.ListBill.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.ListBill.ThemeStyle.HeaderStyle.Height = 32;
-            this.ListBill.ThemeStyle.ReadOnly = false;
+            this.ListBill.ThemeStyle.ReadOnly = true;
             this.ListBill.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.ListBill.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.ListBill.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -164,6 +167,7 @@
             this.ID.HeaderText = "ID";
             this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             // 
             // Time
             // 
@@ -174,6 +178,7 @@
             this.Time.HeaderText = "Time";
             this.Time.MinimumWidth = 6;
             this.Time.Name = "Time";
+            this.Time.ReadOnly = true;
             // 
             // Table
             // 
@@ -182,6 +187,7 @@
             this.Table.HeaderText = "Table";
             this.Table.MinimumWidth = 6;
             this.Table.Name = "Table";
+            this.Table.ReadOnly = true;
             // 
             // Payment
             // 
@@ -193,6 +199,7 @@
             this.Payment.HeaderText = "Payment";
             this.Payment.MinimumWidth = 3;
             this.Payment.Name = "Payment";
+            this.Payment.ReadOnly = true;
             // 
             // UC_ListBill
             // 

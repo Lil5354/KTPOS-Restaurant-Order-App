@@ -150,8 +150,8 @@ JOIN
 JOIN 
     Bill b ON bi.idBill = b.ID
 ORDER BY 
-    b.ID;*/
-SELECT 
+    b.ID;*/x
+/*SELECT 
     b.ID AS Bill_ID,
     t.fname AS Table_Name,
     SUM(i.price * bi.count) AS Total_Price,
@@ -167,4 +167,22 @@ JOIN
 GROUP BY 
     b.ID, t.fname, b.Datepayment
 ORDER BY 
-    b.ID;
+    b.ID;*/
+/*SELECT 
+    b.ID AS Bill_ID,
+    SUM(i.price * bi.count) AS Total_Price
+FROM 
+    BILLINF bi
+JOIN 
+    Bill b ON bi.idBill = b.ID
+JOIN 
+    ITEM i ON bi.idFD = i.ID
+WHERE 
+    b.status = 0 -- Only include paid bills
+GROUP BY 
+    b.ID
+ORDER BY 
+    b.ID;*/
+SELECT FullName as [FULL NAME], Email AS [EMAIL], ExpY AS [EXP IN YEAR], [Role] AS [ROLE] FROM ACCOUNT 
+WHERE Visible = 1 AND FullName Like N'%Th%'
+Order by [Role] ASC
