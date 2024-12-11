@@ -11,7 +11,11 @@ namespace KTPOS_Order.Proccess
     public class GetDatabase
     {
         private static GetDatabase instance;
+<<<<<<< Updated upstream
         private string connectionString = "Data Source=KHOAZO\\MSSQLSERVER03;Initial Catalog=KTPOS;Integrated Security=True";
+=======
+        private string connectionString = "Data Source=KHOAZO\\MSSQLSERVER03;Initial Catalog=KTPOS;Integrated Security=True;";
+>>>>>>> Stashed changes
 
         public static GetDatabase Instance
         {
