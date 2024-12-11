@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +15,14 @@ namespace KTPOS_Order.Staff_Control
 {
     public partial class UC_ListBill : UserControl
     {
+        public void ReloadBillData()
+        {
+            
+        }
         public UC_ListBill()
         {
             InitializeComponent();
+            //UpdateTotalAmount();
         }
 
         private void Filter_SelectedIndexChanged(object sender, EventArgs e)
@@ -110,7 +117,7 @@ namespace KTPOS_Order.Staff_Control
                 MessageBox.Show("Error loading bill data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         private UserControl currentUserControl;
         public void AddUserControl(UserControl userControl)
         {
@@ -134,50 +141,96 @@ namespace KTPOS_Order.Staff_Control
 
         private void ListBill_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.ColumnIndex == ListBill.Columns["Payment"].Index && e.RowIndex >= 0)
             {
                 // Lấy ID Bill từ hàng được chọn
                 int selectedBillId = Convert.ToInt32(ListBill.Rows[e.RowIndex].Cells["id"].Value);
-
-                // Tạo một thể hiện của UC_Payment và truyền tham chiếu của UC_ListBill
-                UC_Payment UCPay = new UC_Payment(this);
-
-                // Đặt ID của Bill đang được chọn
-                UCPay.SelectedBillId = selectedBillId;
-
-                // Thêm UC_Payment vào UserControl hiện tại
-                AddUserControl(UCPay);
-
-                // Tạo một thể hiện của BillProcessor để lấy thông tin chi tiết của Bill
+                SelectedBillId = selectedBillId;
+                // Hiển thị chi tiết Bill trực tiếp trong DataGridView
                 BillProcessor billProcessor = new BillProcessor(selectedBillId);
 
-                // Hiển thị thông tin chi tiết Bill trong DataGridView bên trong UC_Payment
-                UCPay.Bill.Rows.Clear(); // Xóa dữ liệu cũ trong DataGridView của UC_Payment
+                // Xóa dữ liệu cũ
+                Bill.Rows.Clear();
 
-                // Duyệt qua các chi tiết hóa đơn và thêm vào DataGridView trong UC_Payment
+                // Thêm dữ liệu vào DataGridView
                 foreach (DataRow row in billProcessor.BillDetails.Rows)
                 {
-                    UCPay.Bill.Rows.Add(
+                    Bill.Rows.Add(
                         row["ItemName"],
                         row["Quantity"],
                         row["TotalPrice"]
                     );
                 }
+                btnPay_Click(sender, e);
             }
         }
         private void cbForm_SelectedIndexChanged(object sender, EventArgs e)
         {
-             // Redirect to QRCode UserControl
-                UC_QRPayment ucQrcode = new UC_QRPayment();
-                AddUserControl(ucQrcode);  // Switch the UserControl to UC_QRcode
-           
+            // Redirect to QRCode UserControl
+            UC_QRPayment ucQrcode = new UC_QRPayment();
+            AddUserControl(ucQrcode);  // Switch the UserControl to UC_QRcode
+
         }
-        public void ReloadBillData()
+        //private void UpdateTotalAmount()
+        //{
+        //    decimal totalAmount = GetCurrentTotalAmount();
+
+        //    // Apply discount and update lblTotalAmount
+        //    lblTotalAmount.Text = totalAmount.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"));
+        //}
+
+        //private decimal GetCurrentTotalAmount()
+        //{
+        //    decimal totalAmount = 0;
+
+        //    foreach (DataGridViewRow row in Bill.Rows)
+        //    {
+        //        if (row.Cells[3].Value != null && decimal.TryParse(row.Cells[3].Value.ToString(),
+        //                                                               NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"), out decimal rowTotal))
+        //        {
+        //            totalAmount += rowTotal;
+        //        }
+        //    }
+
+        //    return totalAmount;
+        //}
+        
+        public int SelectedBillId { get; set; }
+        private void btnPay_Click(object sender, EventArgs e)
         {
-            LoadBillData();
+            string selectedPaymentMethod = cbForm.SelectedItem?.ToString();
+
+            if (selectedPaymentMethod == "Cash")
+            {
+                string query = $"UPDATE Bill SET status = 1 WHERE ID = {SelectedBillId}";
+                try
+                {
+                    GetDatabase.Instance.ExecuteNonQuery(query);
+                    MessageBox.Show("Payment completed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Reload the ListBill data to reflect the updated status
+                    LoadBillData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error updating payment status: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (selectedPaymentMethod == "Transfer")
+            {
+                // Transfer logic: switch to another control for QR Payment, etc.
+                UC_QRPayment ucQrPayment = new UC_QRPayment();
+                AddUserControl(ucQrPayment);
+            }
+            else
+            {
+                MessageBox.Show("Please select a valid payment method.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
-
-
-
     }
 }
+
+        
+
+    
