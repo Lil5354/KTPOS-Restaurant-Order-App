@@ -41,7 +41,7 @@ namespace KTPOS_Order.Staff_Control
 
         private void btn_pay_Click_1(object sender, EventArgs e)
         {
-            var qrcode_text = $"2|99|{txt_phone.Text.Trim()}|{name.Text.Trim()}|{txt_content.Text.Trim()}|0|0|{txt_sotien.Text.Trim()}";
+            var qrcode_text = $"2|99|{txt_phone.Text.Trim()}|{name.Text.Trim()}|{txt_content.Text.Trim()}|0|0|{txt_cost.Text.Trim()}";
             BarcodeWriter barcodeWriter = new BarcodeWriter();
             EncodingOptions encodingOptions = new EncodingOptions() { Width = 250, Height = 250, Margin = 0, PureBarcode = false };
             encodingOptions.Hints.Add(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);

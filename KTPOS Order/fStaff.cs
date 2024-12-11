@@ -90,5 +90,11 @@ namespace KTPOS_Order
         {
 
         }
+
+        private void btnTable_Click(object sender, EventArgs e)
+        {
+            UC_Table ucStaff = new UC_Table ();
+            AddUserControl(ucStaff);
+        }
     }
 }

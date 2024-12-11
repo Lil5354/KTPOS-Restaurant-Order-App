@@ -2,58 +2,105 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 using KTPOS_Order.Customer_Control;
+using KTPOS_Order.Proccess;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace KTPOS_Order
 {
     public partial class fCustomer : Form
     {
-        string connectionString = "Data Source=DESKTOP-4S5L10L;Initial Catalog=KTPOS;" + "Integrated Security=true";
-        public static List<ListViewItem> listItems = new List<ListViewItem>();
+        public static List<DataGridViewRow> dataGridRows = new List<DataGridViewRow>();
         public Dictionary<string, int> Count = new Dictionary<string, int>();
-        string filePath = "E:\\Project\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Temp\\Bill.txt";
         Decimal Total = 0;
+        Decimal SubTotal = 0;
         public fCustomer()
         {
             InitializeComponent();
-            File.WriteAllText(filePath, string.Empty);
+            InitializeDataGridView();
             txtChange.SendToBack();
             tbNewAmount.SendToBack();
+            Filter.SelectedItem = "Default"; 
         }
-        UC_OrderFood UcOrderFood;
-
-        public fCustomer(UC_OrderFood ucOrderFood)
+        private void InitializeDataGridView()
         {
-            InitializeComponent();
-            UcOrderFood = ucOrderFood;
+            dtgvBillCus.Columns.Add("Name", "Name");
+            dtgvBillCus.Columns.Add("Quantity", "Quantity");
+            dtgvBillCus.Columns.Add("Price", "Price");
+        }
+        public void AddOrUpdate(Dictionary<string, int> dict, string key)
+        {
+            if (dict.ContainsKey(key))
+                dict[key]++;
+            else
+                dict.Add(key, 1);
+        }
+        public void AddProduct(object sender, EventArgs e)
+        {
+            PictureBox pictureBox = (PictureBox)sender;
+            string ID = pictureBox.Tag.ToString();
+            string name = "";
+            decimal price = 0;
+
+            string query = "SELECT fName, Price FROM ITEM WHERE ID = @ID";
+            DataTable result = GetDatabase.Instance.ExecuteQuery(query, new object[] { ID });
+
+            if (result.Rows.Count > 0)
+            {
+                DataRow row = result.Rows[0];
+                name = row["fName"].ToString();
+                price = Convert.ToDecimal(row["Price"]);
+                Total += price;
+                SubTotal += price;
+
+                AddOrUpdate(Count, ID);
+
+                if (Count[ID] == 1)
+                {
+                    dtgvBillCus.Rows.Add(name, 1, price);
+                }
+                else
+                {
+                    foreach (DataGridViewRow dgvRow in dtgvBillCus.Rows)
+                    {
+                        if (dgvRow.Cells[0].Value.ToString() == name)
+                        {
+                            dgvRow.Cells[1].Value = Count[ID];
+                            dgvRow.Cells[2].Value = Count[ID] * price;
+                        }
+                    }
+                }
+                txtSubTotal.Text = Total.ToString("C", new System.Globalization.CultureInfo("en-US"));
+                txtTotal.Text = Total.ToString("C", new System.Globalization.CultureInfo("en-US"));
+            }
         }
 
+        public void LoadProducts(string query)
+        {
+            DataTable result = GetDatabase.Instance.ExecuteQuery(query);
+
+            foreach (DataRow row in result.Rows)
+            {
+                string name = row["fName"].ToString();
+                decimal price = Convert.ToDecimal(row["Price"]);
+                int id = Convert.ToInt32(row["ID"]);
+
+                UC_Item itemControl = new UC_Item(name, price, id);
+                itemControl.guna2CirclePictureBox1.Click += AddProduct;
+                FlowMenu.Controls.Add(itemControl);
+            }
+        }
         private void guna2PictureBox1_Click(object sender, EventArgs e)
         {
 
         }
         private UserControl currentUserControl;
-        bool kt = true;
-
-        public void ClearUC()
-        {
-            if (currentUserControl != null)
-            {
-                this.Controls.Remove(currentUserControl);
-                currentUserControl.Dispose();
-            }
-        }
         public void AddUserControl(UserControl userControl)
         {
             // Xóa UserControl hiện tại (nếu có)
@@ -65,29 +112,7 @@ namespace KTPOS_Order
 
             // Thêm UserControl mới
             this.Controls.Add(userControl);
-            int x = 1400 - userControl.Width; // Xác định tọa độ X
-            int y = 740 - userControl.Height; // Xác định tọa độ Y
-            userControl.Location = new Point(x, y);
-            userControl.Anchor = AnchorStyles.Top;
-            userControl.BringToFront();
-
-            // Cập nhật tham chiếu
-            currentUserControl = userControl;
-        }
-        public void AddUserControlAmount(UserControl userControl)
-        {
-            // Xóa UserControl hiện tại (nếu có)
-            if (currentUserControl != null)
-            {
-                this.Controls.Remove(currentUserControl);
-                currentUserControl.Dispose();
-            }
-
-            // Thêm UserControl mới
-            this.Controls.Add(userControl);
-            int x = 370 - userControl.Width; // Xác định tọa độ X
-            int y = 400 - userControl.Height; // Xác định tọa độ Y
-            userControl.Location = new Point(x, y);
+            userControl.Location = new Point(110, 103);
             userControl.Anchor = AnchorStyles.Top;
             userControl.BringToFront();
 
@@ -110,35 +135,27 @@ namespace KTPOS_Order
 
         private void btnFoodOrder_Click(object sender, EventArgs e)
         {
-            ClearUC();
-            this.FlowMenu.Controls.Clear();
-            LoadProductAll();
+            FlowMenu.Controls.Clear();
+            LoadProducts("SELECT ID, fName, Price FROM ITEM");
         }
 
         private void btnFoodOptions_Click(object sender, EventArgs e)
         {
-            ClearUC();
-            this.FlowMenu.Controls.Clear();
-            LoadProductFood();
+            FlowMenu.Controls.Clear();
+            LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 1");
         }
 
         private void btnDrinks_Click(object sender, EventArgs e)
         {
-            ClearUC();
-            this.FlowMenu.Controls.Clear();
-            LoadProductDrink();
+            FlowMenu.Controls.Clear();
+            LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 2");
         }
-
-        private void btnPay_Click(object sender, EventArgs e)
-        {
-            UC_Payment uC_Payment = new UC_Payment();
-            AddUserControl(uC_Payment);
-        }
-
         private void btnChat_Click(object sender, EventArgs e)
         {
 
         }
+
+       
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
@@ -156,214 +173,31 @@ namespace KTPOS_Order
         {
             Application.Exit();
         }
-        public void AddOrUpdate(Dictionary<string, int> a, string key)
+
+        private void FlowMenu_Paint(object sender, PaintEventArgs e)
         {
-            int val;
-            if (a.TryGetValue(key, out val))
-            {
-                // Tồn tại giá trị!
-                a[key]++;
-            }
-            else
-            {
-                // Thêm giá trị
-                a.Add(key, 1);
-            }
+
         }
 
-        public void AddProduct(object sender, EventArgs e)
-        {
-            PictureBox pictureBox = (PictureBox)sender;
-            String ID = pictureBox.Tag.ToString();
-            ListViewItem item = new ListViewItem();
-            AddOrUpdate(Count, ID);
-            string name = "";
-            decimal price = 0;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                // Mở kết nối đến database
-                connection.Open();
-
-                // Câu lệnh SQL để lấy thông tin món ăn có ID = 1 từ bảng ITEM
-                string sql = "SELECT * FROM ITEM WHERE ID =" + ID;
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            name = reader["fName"].ToString();
-                            price = decimal.Parse(reader["price"].ToString());
-                            Total += price;
-                            item = new ListViewItem(new string[]
-                            {
-                                name,Count[ID].ToString(), price.ToString()
-                            });
-                            //listView.Items.Add(item);
-                        }
-                    }
-                }
-            }
-            if (Count[ID] == 1)
-            {
-                listView.Items.Add(item);
-            }
-            else
-            {
-                foreach (ListViewItem i in listView.Items)
-                {
-                    if (i.SubItems[0].Text == name)
-                    {
-                        i.SubItems[1].Text = Count[ID].ToString();
-                        decimal x = Count[ID] * price;
-                        i.SubItems[2].Text = x.ToString();
-                    }
-                }
-            }
-            txtTotal.Text = Total.ToString() + "$";
-        }
-        public void LoadProductAll()
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                // Mở kết nối đến database
-                connection.Open();
-
-                // Câu lệnh SQL để lấy thông tin món ăn có ID = 1 từ bảng ITEM
-                string sql = "SELECT ID, fName, Price FROM ITEM";
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            // Lấy tên món ăn từ cột "fName"
-                            string fName = reader["fName"].ToString();
-
-                            // Lấy giá từ cột "Price" và chuyển đổi sang kiểu decimal
-                            decimal Price = Convert.ToDecimal(reader["Price"]);
-                            int id = Convert.ToInt32(reader["ID"].ToString());
-
-                            // Tạo một instance mới của UC_Item truyền tên món ăn và giá
-                            UC_Item itemControl = new UC_Item(fName, Price, id);
-                            itemControl.guna2CirclePictureBox1.Click += AddProduct;
-                            this.FlowMenu.Controls.Add(itemControl);
-                        }
-                    }
-                }
-            }
-        }
-
-        public void LoadProductFood()
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                // Mở kết nối đến database
-                connection.Open();
-
-                // Câu lệnh SQL để lấy thông tin món ăn có ID = 1 từ bảng ITEM
-                string sql = "SELECT ID, fName, Price FROM ITEM where idCategory = 1";
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            // Lấy tên món ăn từ cột "fName"
-                            string fName = reader["fName"].ToString();
-
-                            // Lấy giá từ cột "Price" và chuyển đổi sang kiểu decimal
-                            decimal Price = Convert.ToDecimal(reader["Price"]);
-                            int id = Convert.ToInt32(reader["ID"].ToString());
-
-                            // Tạo một instance mới của UC_Item truyền tên món ăn và giá
-                            UC_Item itemControl = new UC_Item(fName, Price, id);
-                            itemControl.guna2CirclePictureBox1.Click += AddProduct;
-                            this.FlowMenu.Controls.Add(itemControl);
-                        }
-                    }
-                }
-            }
-        }
-        public void LoadProductDrink()
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                // Mở kết nối đến database
-                connection.Open();
-
-                // Câu lệnh SQL để lấy thông tin món ăn có ID = 1 từ bảng ITEM
-                string sql = "SELECT ID, fName, Price FROM ITEM where idCategory = 2";
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            // Lấy tên món ăn từ cột "fName"
-                            string fName = reader["fName"].ToString();
-
-                            // Lấy giá từ cột "Price" và chuyển đổi sang kiểu decimal
-                            decimal Price = Convert.ToDecimal(reader["Price"]);
-                            int id = Convert.ToInt32(reader["ID"].ToString());
-
-                            // Tạo một instance mới của UC_Item truyền tên món ăn và giá
-                            UC_Item itemControl = new UC_Item(fName, Price, id);
-                            itemControl.guna2CirclePictureBox1.Click += AddProduct;
-                            this.FlowMenu.Controls.Add(itemControl);
-                        }
-                    }
-                }
-            }
-        }
         private void fCustomer_Load(object sender, EventArgs e)
         {
-            this.FlowMenu.Controls.Clear();
-            listView.FullRowSelect = true;
-            LoadProductAll();
-        }
-        private void listView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
+            FlowMenu.Controls.Clear();
+            LoadProducts("SELECT ID, fName, Price FROM ITEM");
         }
 
-        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
+        private void txtTotal_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void guna2Button15_Click(object sender, EventArgs e)
+        private void dtgvBillCus_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string filePath = "E:\\Project\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Temp\\Bill.txt";
-            using (StreamWriter writer = new StreamWriter(filePath))
-            {
-                // Ghi dữ liệu từng dòng
-                foreach (ListViewItem item in listView.Items)
-                {
-                    foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
-                    {
-                        writer.Write(subItem.Text + "\t");
-                    }
-                    writer.WriteLine();
-                }
-            }
-            listView.Items.Clear();
-            Total = 0;
-            txtTotal.Text = "$";
-        }
-
-        private void listView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listView.SelectedItems.Count != 0)
+            if (dtgvBillCus.Rows.Count > 0)
             {
                 txtChange.BringToFront();
                 tbNewAmount.BringToFront();
-                tbNewAmount.Text = listView.SelectedItems[0].SubItems[1].Text;
+                tbNewAmount.Text = dtgvBillCus.SelectedRows[0].Cells[1].Value.ToString();
             }
-        }
-
-        private void fCustomer_KeyDown(object sender, KeyEventArgs e)
-        {
-            
         }
 
         private void tbNewAmount_KeyDown(object sender, KeyEventArgs e)
@@ -372,26 +206,85 @@ namespace KTPOS_Order
             {
                 if (tbNewAmount.Text != "0")
                 {
-                    decimal tempcost = decimal.Parse(listView.SelectedItems[0].SubItems[2].Text);
-                    int tempamount = int.Parse(listView.SelectedItems[0].SubItems[1].Text);
+                    decimal tempcost = decimal.Parse(dtgvBillCus.SelectedRows[0].Cells[2].Value.ToString());
+                    int tempamount = int.Parse(dtgvBillCus.SelectedRows[0].Cells[1].Value.ToString());
                     decimal temp = tempcost / tempamount;
                     temp = temp * int.Parse(tbNewAmount.Text);
                     Total += temp - tempcost;
+                    SubTotal += temp - tempcost;
 
-                    listView.SelectedItems[0].SubItems[1].Text = tbNewAmount.Text;
-                    listView.SelectedItems[0].SubItems[2].Text = temp.ToString();
+                    dtgvBillCus.SelectedRows[0].Cells[1].Value = tbNewAmount.Text;
+                    dtgvBillCus.SelectedRows[0].Cells[2].Value = temp.ToString();
                     txtTotal.Text = "$" + Total.ToString();
+                    txtSubTotal.Text = "$" + SubTotal.ToString();
                     txtChange.SendToBack();
                     tbNewAmount.SendToBack();
                 }
                 else
                 {
-                    decimal tempcost = decimal.Parse(listView.SelectedItems[0].SubItems[2].Text);
+                    decimal tempcost = decimal.Parse(dtgvBillCus.SelectedRows[0].Cells[2].Value.ToString());
                     Total -= tempcost;
+                    SubTotal -= tempcost;
                     txtTotal.Text = "$" + Total.ToString();
-                    listView.Items.RemoveAt(listView.SelectedItems[0].Index);
+                    txtSubTotal.Text = "$" + SubTotal.ToString();
+                    dtgvBillCus.Rows.Remove(dtgvBillCus.SelectedRows[0]);
                     txtChange.SendToBack();
                     tbNewAmount.SendToBack();
+                }
+            }
+        }
+
+        private void Filter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string filter = Filter.SelectedItem.ToString();
+            switch (filter)
+            {
+                case "Default":
+                    FlowMenu.Controls.Clear();
+                    LoadProducts("SELECT ID, fName, Price FROM ITEM");
+                    break;
+                case "Best Sellers" :
+                    FlowMenu.Controls.Clear();
+                    LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 4");
+                    break;
+                case "New Arrivals":
+                    FlowMenu.Controls.Clear();
+                    LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 1");
+                    break;
+                case "Featured Dishes":
+                    FlowMenu.Controls.Clear();
+                    LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 2");
+                    break;
+                case "Combo Deals":
+                    FlowMenu.Controls.Clear();
+                    LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 3");
+                    break;
+                case "Most Loved":
+                    FlowMenu.Controls.Clear();
+                    LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 4");
+                    break;
+            }
+        }
+
+        private void txtSearch_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || txtSearch.Text.Trim().Length == 0)
+            {
+                foreach (UC_Item item in FlowMenu.Controls)
+                {
+                    string name = item.GetName();
+                    var uc = (UserControl)item;
+                    uc.Visible = name.ToLower().ToLower().Contains(txtSearch.Text.Trim().ToLower());
                 }
             }
         }

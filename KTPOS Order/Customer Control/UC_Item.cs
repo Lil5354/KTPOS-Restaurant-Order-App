@@ -32,6 +32,12 @@ namespace KTPOS_Order.Customer_Control
             txtCost.Text = $"${Price:0.00}";
             guna2CirclePictureBox1.Tag = id;
         }
+
+        public string GetName()
+        {
+            return txtName.Text;
+        }
+
         public UC_Item Item()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -65,7 +71,6 @@ namespace KTPOS_Order.Customer_Control
                 }
             }
         }
-
         public void get()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -95,7 +100,6 @@ namespace KTPOS_Order.Customer_Control
                 }
             }
         }
-
         private void UC_Item_Load(object sender, EventArgs e)
         {
 
@@ -103,16 +107,11 @@ namespace KTPOS_Order.Customer_Control
 
         private void btnItem_Click(object sender, EventArgs e)
         {
-            UC_OrderFood a = new UC_OrderFood();
+
         }
 
         private void txtName_Click(object sender, EventArgs e)
         {
-        }
-
-        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

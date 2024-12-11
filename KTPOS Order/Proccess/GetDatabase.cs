@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
@@ -11,7 +11,7 @@ namespace KTPOS_Order.Proccess
     public class GetDatabase
     {
         private static GetDatabase instance;
-        private string connectionString = "Data Source=DESKTOP-4S5L10L;Initial Catalog=KTPOS;Integrated Security=True;";
+        string connectionString = "Data Source=DESKTOP-4S5L10L;Initial Catalog=KTPOS;" + "Integrated Security=true";
 
         public static GetDatabase Instance
         {

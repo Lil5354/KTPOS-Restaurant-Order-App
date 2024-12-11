@@ -37,24 +37,48 @@
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txt_content = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.txt_sotien = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txt_cost = new Guna.UI2.WinForms.Guna2TextBox();
             this.pic_qrcode = new System.Windows.Forms.PictureBox();
             btnClose = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.pic_qrcode)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnClose
+            // 
+            btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            btnClose.Animated = true;
+            btnClose.AutoRoundedCorners = true;
+            btnClose.BackColor = System.Drawing.Color.Transparent;
+            btnClose.BackgroundImage = global::KTPOS_Order.Properties.Resources.xmark_solid1;
+            btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            btnClose.BorderRadius = 11;
+            btnClose.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton;
+            btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            btnClose.FillColor = System.Drawing.Color.Transparent;
+            btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
+            btnClose.ForeColor = System.Drawing.Color.Transparent;
+            btnClose.Location = new System.Drawing.Point(685, 22);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new System.Drawing.Size(25, 25);
+            btnClose.TabIndex = 17;
+            btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // txt_phone
             // 
             this.txt_phone.BorderColor = System.Drawing.Color.Maroon;
             this.txt_phone.BorderRadius = 5;
             this.txt_phone.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_phone.DefaultText = "";
+            this.txt_phone.DefaultText = "0843019548";
             this.txt_phone.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txt_phone.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txt_phone.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_phone.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_phone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_phone.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_phone.ForeColor = System.Drawing.Color.Maroon;
             this.txt_phone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_phone.Location = new System.Drawing.Point(67, 78);
             this.txt_phone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -109,13 +133,14 @@
             this.txt_name.BorderColor = System.Drawing.Color.Maroon;
             this.txt_name.BorderRadius = 5;
             this.txt_name.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_name.DefaultText = "";
+            this.txt_name.DefaultText = "Võ Đăng Khoa";
             this.txt_name.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txt_name.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txt_name.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_name.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_name.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_name.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_name.ForeColor = System.Drawing.Color.Maroon;
             this.txt_name.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_name.Location = new System.Drawing.Point(67, 150);
             this.txt_name.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -170,27 +195,27 @@
             this.guna2HtmlLabel4.TabIndex = 16;
             this.guna2HtmlLabel4.Text = "Cost:";
             // 
-            // txt_sotien
+            // txt_cost
             // 
-            this.txt_sotien.BorderColor = System.Drawing.Color.Maroon;
-            this.txt_sotien.BorderRadius = 5;
-            this.txt_sotien.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_sotien.DefaultText = "";
-            this.txt_sotien.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_sotien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_sotien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_sotien.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_sotien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_sotien.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_sotien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_sotien.Location = new System.Drawing.Point(67, 307);
-            this.txt_sotien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_sotien.Name = "txt_sotien";
-            this.txt_sotien.PasswordChar = '\0';
-            this.txt_sotien.PlaceholderText = "";
-            this.txt_sotien.SelectedText = "";
-            this.txt_sotien.Size = new System.Drawing.Size(208, 31);
-            this.txt_sotien.TabIndex = 15;
+            this.txt_cost.BorderColor = System.Drawing.Color.Maroon;
+            this.txt_cost.BorderRadius = 5;
+            this.txt_cost.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_cost.DefaultText = "";
+            this.txt_cost.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_cost.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_cost.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_cost.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_cost.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_cost.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_cost.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_cost.Location = new System.Drawing.Point(67, 307);
+            this.txt_cost.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_cost.Name = "txt_cost";
+            this.txt_cost.PasswordChar = '\0';
+            this.txt_cost.PlaceholderText = "";
+            this.txt_cost.SelectedText = "";
+            this.txt_cost.Size = new System.Drawing.Size(208, 31);
+            this.txt_cost.TabIndex = 15;
             // 
             // pic_qrcode
             // 
@@ -201,29 +226,6 @@
             this.pic_qrcode.TabStop = false;
             this.pic_qrcode.Click += new System.EventHandler(this.pic_qrcode_Click_1);
             // 
-            // btnClose
-            // 
-            btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            btnClose.Animated = true;
-            btnClose.AutoRoundedCorners = true;
-            btnClose.BackColor = System.Drawing.Color.Transparent;
-            btnClose.BackgroundImage = global::KTPOS_Order.Properties.Resources.xmark_solid1;
-            btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            btnClose.BorderRadius = 11;
-            btnClose.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton;
-            btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            btnClose.FillColor = System.Drawing.Color.Transparent;
-            btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
-            btnClose.ForeColor = System.Drawing.Color.Transparent;
-            btnClose.Location = new System.Drawing.Point(685, 22);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new System.Drawing.Size(25, 25);
-            btnClose.TabIndex = 17;
-            btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // UC_QRPayment
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -231,7 +233,7 @@
             this.Controls.Add(btnClose);
             this.Controls.Add(this.pic_qrcode);
             this.Controls.Add(this.guna2HtmlLabel4);
-            this.Controls.Add(this.txt_sotien);
+            this.Controls.Add(this.txt_cost);
             this.Controls.Add(this.guna2HtmlLabel3);
             this.Controls.Add(this.txt_content);
             this.Controls.Add(this.name);
@@ -257,7 +259,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2TextBox txt_content;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
-        private Guna.UI2.WinForms.Guna2TextBox txt_sotien;
+        private Guna.UI2.WinForms.Guna2TextBox txt_cost;
         private System.Windows.Forms.PictureBox pic_qrcode;
     }
 }

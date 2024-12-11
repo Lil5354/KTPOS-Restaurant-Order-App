@@ -101,7 +101,6 @@
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox1.TabIndex = 5;
             this.guna2CirclePictureBox1.TabStop = false;
-            this.guna2CirclePictureBox1.Click += new System.EventHandler(this.guna2CirclePictureBox1_Click);
             // 
             // UC_Item
             // 
@@ -122,9 +121,9 @@
 
         #endregion
 
-        public Guna.UI2.WinForms.Guna2Button btnItem;
-        public Guna.UI2.WinForms.Guna2HtmlLabel txtCost;
-        public Guna.UI2.WinForms.Guna2HtmlLabel txtName;
+        private Guna.UI2.WinForms.Guna2Button btnItem;
+        private Guna.UI2.WinForms.Guna2HtmlLabel txtCost;
+        private Guna.UI2.WinForms.Guna2HtmlLabel txtName;
         public Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
     }
 }

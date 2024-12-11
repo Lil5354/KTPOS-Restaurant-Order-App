@@ -21,10 +21,5 @@ namespace KTPOS_Order.Customer_Control
         {
 
         }
-
-        private void UC_OrderFoodOption_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

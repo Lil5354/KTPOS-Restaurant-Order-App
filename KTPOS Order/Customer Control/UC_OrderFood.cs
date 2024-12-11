@@ -9,25 +9,15 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace KTPOS_Order.Customer_Control
 {
     public partial class UC_OrderFood : UserControl
     {
-        string connectionString = "Data Source=DESKTOP-4S5L10L;Initial Catalog=KTPOS;" + "Integrated Security=true";
-        decimal Total = 0;
-
-        public static List<ListViewItem> listItems = new List<ListViewItem>();
-        public Dictionary<string, int> Count = new Dictionary<string, int>();
+        //string connectionString = "Data Source=KHOAZO\\MSSQLSERVER03;Initial Catalog=KTPOS;" + "Integrated Security=true";
         public UC_OrderFood()
         {
             InitializeComponent();
-        }
-
-        public void AddUserControlToFlowPanel(UserControl uc)
-        {
-            FlowMenu.Controls.Add(uc);
         }
         private void txtName_Click(object sender, EventArgs e)
         {
@@ -39,18 +29,39 @@ namespace KTPOS_Order.Customer_Control
 
         }
 
-        private void UC_OrderFood_Load_1(object sender, EventArgs e)
-        {
+        //private void UC_OrderFood_Load_1(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        FlowMenu.Controls.Clear();
 
-        }
-
+        //        using (SqlConnection connection = new SqlConnection(connectionString))
+        //        {
+        //            connection.Open();
+        //            string sql = "SELECT fName, Price FROM ITEM";
+        //            using (SqlCommand command = new SqlCommand(sql, connection))
+        //            {
+        //                using (SqlDataReader reader = command.ExecuteReader())
+        //                {
+        //                    while (reader.Read())
+        //                    {
+        //                        string fName = reader["fName"].ToString();
+        //                        decimal Price = Convert.ToDecimal(reader["Price"]);
+        //                        int id = Convert.ToInt32(rows["ID"]);
+        //                        UC_Item itemControl = new UC_Item(fName,Price,id);
+        //                        FlowMenu.Controls.Add(itemControl);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"There are some errors: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
         {
 
         }

@@ -29,11 +29,11 @@ namespace KTPOS_Order
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string role = "Manager";
-            fCustomer f = new fCustomer();
+            /*string role = "Manager";
+            fStaff f = new fStaff(role);
             this.Hide();
-            f.ShowDialog();
-            /*
+            f.ShowDialog();*/
+            
             string email = txtUser.Text;
             string password = txtPass.Text;
             try
@@ -56,7 +56,7 @@ namespace KTPOS_Order
                 MessageBox.Show("Please enter a valid email or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            */
+            
         }
 
         private void btnEyes_Click_2(object sender, EventArgs e)
@@ -88,7 +88,7 @@ namespace KTPOS_Order
             }
             else
             {
-                MessageBox.Show("Exit cancelled. Continue your activity.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Exit cancelled. Continue your activity ❤️.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Focus();
             }
         }

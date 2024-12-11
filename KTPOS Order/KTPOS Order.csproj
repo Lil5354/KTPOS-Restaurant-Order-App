@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -59,24 +59,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\Datalistview.cs" />
-    <Compile Include="Customer Control\UC_ChangAmount.cs">
+    <Compile Include="Chef Control\UC_OrderList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Customer Control\UC_ChangAmount.Designer.cs">
-      <DependentUpon>UC_ChangAmount.cs</DependentUpon>
+    <Compile Include="Chef Control\UC_OrderList.Designer.cs">
+      <DependentUpon>UC_OrderList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chef Control\UC_Proccessing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chef Control\UC_Proccessing.Designer.cs">
+      <DependentUpon>UC_Proccessing.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer Control\UC_Item.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Customer Control\UC_Item.Designer.cs">
       <DependentUpon>UC_Item.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Customer Control\UC_Order.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Customer Control\UC_Order.Designer.cs">
-      <DependentUpon>UC_Order.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer Control\UC_OrderDrink.cs">
       <SubType>UserControl</SubType>
@@ -96,11 +95,11 @@
     <Compile Include="Customer Control\UC_OrderFoodOption.Designer.cs">
       <DependentUpon>UC_OrderFoodOption.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer Control\UC_Payment.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="fChef.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer Control\UC_Payment.Designer.cs">
-      <DependentUpon>UC_Payment.cs</DependentUpon>
+    <Compile Include="fChef.Designer.cs">
+      <DependentUpon>fChef.cs</DependentUpon>
     </Compile>
     <Compile Include="fCustomer.cs">
       <SubType>Form</SubType>
@@ -127,6 +126,8 @@
     <Compile Include="Management Control\UC_Admin.Designer.cs">
       <DependentUpon>UC_Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Proccess\BillPayment.cs" />
+    <Compile Include="Proccess\BillProcessor.cs" />
     <Compile Include="Proccess\GetDatabase.cs" />
     <Compile Include="Proccess\LgAccount.cs" />
     <Compile Include="Program.cs" />
@@ -155,14 +156,14 @@
     <Compile Include="Staff Control\UC_Table.Designer.cs">
       <DependentUpon>UC_Table.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Customer Control\UC_ChangAmount.resx">
-      <DependentUpon>UC_ChangAmount.cs</DependentUpon>
+    <EmbeddedResource Include="Chef Control\UC_OrderList.resx">
+      <DependentUpon>UC_OrderList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chef Control\UC_Proccessing.resx">
+      <DependentUpon>UC_Proccessing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer Control\UC_Item.resx">
       <DependentUpon>UC_Item.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Customer Control\UC_Order.resx">
-      <DependentUpon>UC_Order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer Control\UC_OrderDrink.resx">
       <DependentUpon>UC_OrderDrink.cs</DependentUpon>
@@ -173,8 +174,8 @@
     <EmbeddedResource Include="Customer Control\UC_OrderFoodOption.resx">
       <DependentUpon>UC_OrderFoodOption.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer Control\UC_Payment.resx">
-      <DependentUpon>UC_Payment.cs</DependentUpon>
+    <EmbeddedResource Include="fChef.resx">
+      <DependentUpon>fChef.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fCustomer.resx">
       <DependentUpon>fCustomer.cs</DependentUpon>
@@ -301,9 +302,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\logo_momo.png" />
-    <Content Include="Temp\Bill.txt" />
     <None Include="Resources\xmark-solid1.png" />
     <None Include="Resources\logo_momo1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

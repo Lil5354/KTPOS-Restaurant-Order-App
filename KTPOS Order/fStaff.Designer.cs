@@ -234,6 +234,7 @@
             this.btnTable.TabIndex = 31;
             this.btnTable.Text = "Table";
             this.btnTable.UseTransparentBackground = true;
+            this.btnTable.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // fStaff
             // 
