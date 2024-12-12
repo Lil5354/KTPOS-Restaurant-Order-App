@@ -23,8 +23,22 @@ namespace KTPOS_Order.Customer_Control
         public UC_Item()
         {
             InitializeComponent();
-        }
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+         ControlStyles.AllPaintingInWmPaint, true);
+            this.DoubleBuffered = true;
 
+            // Thiết lập DoubleBuffered cho các control con bằng Reflection
+            SetDoubleBuffered(txtName, true);
+            SetDoubleBuffered(txtCost, true);
+            SetDoubleBuffered(guna2CirclePictureBox1, true);
+        }
+        private void SetDoubleBuffered(Control control, bool value)
+        {
+            var property = typeof(Control).GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.NonPublic |
+                System.Reflection.BindingFlags.Instance);
+            property?.SetValue(control, value, null);
+        }
         public UC_Item(string fName, decimal Price, int id)
         {
             InitializeComponent();

@@ -123,8 +123,8 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Button btnItem;
-        private Guna.UI2.WinForms.Guna2HtmlLabel txtCost;
-        private Guna.UI2.WinForms.Guna2HtmlLabel txtName;
         public Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        public Guna.UI2.WinForms.Guna2HtmlLabel txtCost;
+        public Guna.UI2.WinForms.Guna2HtmlLabel txtName;
     }
 }

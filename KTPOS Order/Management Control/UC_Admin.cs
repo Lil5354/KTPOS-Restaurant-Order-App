@@ -21,6 +21,17 @@ namespace KTPOS_Order.Management_Control
         {
             InitializeComponent();
             this.Load += ManagementControl_Load;
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.AllPaintingInWmPaint, true);
+            this.DoubleBuffered = true;
+            SetDoubleBuffered(tcManager, true);
+        }
+        private void SetDoubleBuffered(Control control, bool value)
+        {
+            var property = typeof(Control).GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.NonPublic |
+                System.Reflection.BindingFlags.Instance);
+            property?.SetValue(control, value, null);
         }
         private void ManagementControl_Load(object sender, EventArgs e)
         {
@@ -178,6 +189,11 @@ namespace KTPOS_Order.Management_Control
         {
             query = "SELECT FullName as [FULL NAME], Email AS [EMAIL], ExpY AS [EXP IN YEAR], [Role] AS [ROLE] FROM ACCOUNT \r\nWHERE Visible = 1 AND FullName Like " + "N'%" + txtSearchAcc.Text.ToString() + "%' Order by [Role] ASC";
             GetLists.Instance.LoadAccountList(query, dtgvAccount);
+        }
+
+        private void UC_Admin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

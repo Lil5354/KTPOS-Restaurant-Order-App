@@ -22,8 +22,18 @@ namespace KTPOS_Order.Staff_Control
         public UC_ListBill()
         {
             InitializeComponent();
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.AllPaintingInWmPaint, true);
+            this.DoubleBuffered = true;
+            SetDoubleBuffered(ListBill, true);
         }
-
+        private void SetDoubleBuffered(Control control, bool value)
+        {
+            var property = typeof(Control).GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.NonPublic |
+                System.Reflection.BindingFlags.Instance);
+            property?.SetValue(control, value, null);
+        }
         private void Filter_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedFilter = Filter.SelectedItem.ToString();

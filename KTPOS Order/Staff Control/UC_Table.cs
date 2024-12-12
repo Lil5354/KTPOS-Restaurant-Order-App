@@ -26,6 +26,18 @@ namespace KTPOS_Order.Staff_Control
             LoadTables();
             cbCategories.SelectedIndexChanged += cbCategories_SelectedIndexChanged;
             LoadCategories();
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.AllPaintingInWmPaint, true);
+            this.DoubleBuffered = true;
+            SetDoubleBuffered(flTable, true);
+            SetDoubleBuffered(dgvBillDetails, true);
+        }
+        private void SetDoubleBuffered(Control control, bool value)
+        {
+            var property = typeof(Control).GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.NonPublic |
+                System.Reflection.BindingFlags.Instance);
+            property?.SetValue(control, value, null);
         }
         private void LoadTables()
         {

@@ -16,6 +16,11 @@ namespace KTPOS_Order
         public Login()
         {
             InitializeComponent();
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                 ControlStyles.AllPaintingInWmPaint, true);
+
+            // Hoặc nếu muốn chi tiết hơn
+            this.DoubleBuffered = true;
         }
 
         private void txtUser_TextChanged(object sender, EventArgs e)
@@ -119,6 +124,11 @@ namespace KTPOS_Order
                 MessageBox.Show("Exit cancelled. Continue your activity.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Focus();
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

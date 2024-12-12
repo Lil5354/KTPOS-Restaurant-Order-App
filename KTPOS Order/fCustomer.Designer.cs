@@ -41,6 +41,7 @@
             this.btnChat = new Guna.UI2.WinForms.Guna2Button();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2CustomGradientPanel16 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.nUDItem = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.txtSubTotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -55,11 +56,10 @@
             this.FlowMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.Filter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lbTable = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.nUDItem = new Guna.UI2.WinForms.Guna2NumericUpDown();
             btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvBillCus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvBillCus)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
@@ -295,6 +295,20 @@
             this.guna2CustomGradientPanel16.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(20);
             this.guna2CustomGradientPanel16.Size = new System.Drawing.Size(395, 620);
             this.guna2CustomGradientPanel16.TabIndex = 33;
+            // 
+            // nUDItem
+            // 
+            this.nUDItem.BackColor = System.Drawing.Color.Transparent;
+            this.nUDItem.BorderRadius = 10;
+            this.nUDItem.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nUDItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.nUDItem.Location = new System.Drawing.Point(270, 16);
+            this.nUDItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.nUDItem.Name = "nUDItem";
+            this.nUDItem.Size = new System.Drawing.Size(81, 36);
+            this.nUDItem.TabIndex = 51;
+            this.nUDItem.UpDownButtonFillColor = System.Drawing.Color.Maroon;
+            this.nUDItem.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // guna2TextBox1
             // 
@@ -556,20 +570,6 @@
             this.lbTable.TabIndex = 49;
             this.lbTable.Text = "MENU";
             // 
-            // nUDItem
-            // 
-            this.nUDItem.BackColor = System.Drawing.Color.Transparent;
-            this.nUDItem.BorderRadius = 10;
-            this.nUDItem.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.nUDItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.nUDItem.Location = new System.Drawing.Point(270, 16);
-            this.nUDItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.nUDItem.Name = "nUDItem";
-            this.nUDItem.Size = new System.Drawing.Size(81, 36);
-            this.nUDItem.TabIndex = 51;
-            this.nUDItem.UpDownButtonFillColor = System.Drawing.Color.Maroon;
-            this.nUDItem.UpDownButtonForeColor = System.Drawing.Color.White;
-            // 
             // fCustomer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -596,8 +596,8 @@
             this.Load += new System.EventHandler(this.fCustomer_Load);
             this.guna2CustomGradientPanel16.ResumeLayout(false);
             this.guna2CustomGradientPanel16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvBillCus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvBillCus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

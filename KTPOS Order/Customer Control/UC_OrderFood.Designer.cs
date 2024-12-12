@@ -78,7 +78,7 @@
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(507, 48);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(104, 40);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(101, 38);
             this.guna2HtmlLabel1.TabIndex = 29;
             this.guna2HtmlLabel1.Text = "MENU";
             // 
@@ -239,7 +239,7 @@
             this.guna2HtmlLabel30.ForeColor = System.Drawing.Color.White;
             this.guna2HtmlLabel30.Location = new System.Drawing.Point(133, 26);
             this.guna2HtmlLabel30.Name = "guna2HtmlLabel30";
-            this.guna2HtmlLabel30.Size = new System.Drawing.Size(134, 48);
+            this.guna2HtmlLabel30.Size = new System.Drawing.Size(131, 47);
             this.guna2HtmlLabel30.TabIndex = 3;
             this.guna2HtmlLabel30.Text = "RECEIPT";
             // 
@@ -255,6 +255,7 @@
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Name = "UC_OrderFood";
             this.Size = new System.Drawing.Size(1454, 722);
+            this.Load += new System.EventHandler(this.UC_OrderFood_Load);
             this.guna2CustomGradientPanel16.ResumeLayout(false);
             this.guna2CustomGradientPanel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();

@@ -23,6 +23,18 @@ namespace KTPOS_Order
         {
             InitializeComponent();
             InitializeDataGridView();
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.AllPaintingInWmPaint, true);
+            this.DoubleBuffered = true;
+            SetDoubleBuffered(FlowMenu, true);
+            SetDoubleBuffered(dtgvBillCus, true);
+        }
+        private void SetDoubleBuffered(Control control, bool value)
+        {
+            var property = typeof(Control).GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.NonPublic |
+                System.Reflection.BindingFlags.Instance);
+            property?.SetValue(control, value, null);
         }
         private void InitializeDataGridView()
         {
@@ -111,17 +123,19 @@ namespace KTPOS_Order
             // Xóa UserControl hiện tại (nếu có)
             if (currentUserControl != null)
             {
-                this.Controls.Remove(currentUserControl);
-                currentUserControl.Dispose();
+                currentUserControl.Visible = false;
             }
 
-            // Thêm UserControl mới
-            this.Controls.Add(userControl);
+            // Thêm hoặc hiển thị control
+            if (!this.Controls.Contains(userControl))
+            {
+                this.Controls.Add(userControl);
+            }
             userControl.Location = new Point(110, 103);
             userControl.Anchor = AnchorStyles.Top;
+            userControl.Visible = true;
             userControl.BringToFront();
 
-            // Cập nhật tham chiếu
             currentUserControl = userControl;
         }
         private void btnMaxSize_Click(object sender, EventArgs e)
