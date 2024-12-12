@@ -18,12 +18,14 @@ GO
 CREATE TABLE [TABLE] (
 	ID int identity primary key,
 	fname NVARCHAR(50),
-	status int not null default 1 --1: AVAILABLE/ 0:UNAVAILABLE
+	status int not null default 1, --1: AVAILABLE/ 0:UNAVAILABLE
+	Visible		int not null default 1 --0: FALSE 1: TRUE 
 );
 GO
 CREATE TABLE [F&BCATEGORY](
 	ID INT IDENTITY PRIMARY KEY,
-	fname nvarchar(50)
+	fname nvarchar(50),
+	Visible		int not null default 1 --0: FALSE 1: TRUE 
 );
 GO
 CREATE TABLE ITEM(
@@ -31,6 +33,7 @@ CREATE TABLE ITEM(
 	fname NVARCHAR(50) NOT NULL,
 	idCategory INT NOT NULL,
 	price float not null,
+	Visible		int not null default 1 --0: FALSE 1: TRUE 
 
 	FOREIGN KEY (idCategory) REFERENCES dbo.[F&BCATEGORY](ID)
 );
@@ -39,7 +42,7 @@ CREATE TABLE Bill(
 	ID INT IDENTITY PRIMARY KEY,
 	Datepayment DATE NOT NULL default getdate(),
 	idTable		int not null,
-	status int not null default 0 --1: Have pay 0: Not pay yet
+	status int not null default 0, --1: Have pay 0: Not pay yet
 
 	FOREIGN KEY (idTable) REFERENCES dbo.[TABLE](ID)
 );
@@ -48,7 +51,7 @@ CREATE TABLE BILLINF(
 	ID INT IDENTITY PRIMARY KEY,
 	idBill int not null,
 	idFD int not null,
-	count int not null default 0
+	count int not null default 0,
 
 	FOREIGN KEY (idBill) REFERENCES dbo.Bill(id),
 	FOREIGN KEY (idFD)	 REFERENCES dbo.ITEM(id)
@@ -183,6 +186,14 @@ GROUP BY
     b.ID
 ORDER BY 
     b.ID;*/
-SELECT FullName as [FULL NAME], Email AS [EMAIL], ExpY AS [EXP IN YEAR], [Role] AS [ROLE] FROM ACCOUNT 
-WHERE Visible = 1 AND FullName Like N'%Th%'
-Order by [Role] ASC
+INSERT INTO ITEM (fname, idCategory, price)
+SELECT 
+    N'New Item Name' AS fname, -- Thay 'New Item Name' bằng tên món muốn thêm
+    c.ID AS idCategory,
+    10.0 AS price -- Thay 10.0 bằng giá mong muốn
+FROM 
+    [F&BCATEGORY] c
+WHERE 
+    c.fname = 'Food';
+
+	SELECT fb.fname [TYPE], ITEM.fname AS [NAME], price[PRICE] FROM ITEM JOIN [F&BCATEGORY] fb ON idCategory = fb.ID  Order by [Type] ASC

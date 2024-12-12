@@ -27,7 +27,7 @@ namespace KTPOS_Order.Management_Control
             // Đặt trạng thái mặc định khi UserControl được load
             tcManager.SelectedTab = null;
         }
-        private void dtgvAccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgvAccount_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -54,18 +54,18 @@ namespace KTPOS_Order.Management_Control
                 int n = GetLists.Instance.InsertList(name, email, role);
                 if (n > 0)
                 {
-                    MessageBox.Show("Account update successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Account add successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tcManager_SelectedIndexChanged(sender, e);
                     ClearTxtAccount();
                 }
                 else
                 {
-                    MessageBox.Show("Error update account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error add account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error update account: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error add account: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnDeleteAcc_Click(object sender, EventArgs e)
@@ -100,30 +100,37 @@ namespace KTPOS_Order.Management_Control
         }
         private void btnUpdateAcc_Click(object sender, EventArgs e)
         {
-            int CurrentIndex = dtgvAccount.CurrentCell.RowIndex;
-            string fname = Convert.ToString(dtgvAccount.Rows[CurrentIndex].Cells[0].Value.ToString());
 
-            try
+            if (index == -1)
             {
-                string name = txtFullName.Text, email = txtEmail.Text, role = cbBRole.Text;
-                int n = GetLists.Instance.UpdateList(fname, name, email, role);
-                if (n > 0)
-                {
-                    MessageBox.Show("Account insert successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    tcManager_SelectedIndexChanged(sender, e);
-                    ClearTxtAccount();
-                }
-                else
-                {
-                    MessageBox.Show("Error insert account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Please chose the row need to be update!", "Notice!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error insert account: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    int CurrentIndex = dtgvAccount.CurrentCell.RowIndex;
+                    string fname = Convert.ToString(dtgvAccount.Rows[CurrentIndex].Cells[0].Value.ToString());
+                    string name = txtFullName.Text, email = txtEmail.Text, role = cbBRole.Text;
+                    int n = GetLists.Instance.UpdateList(fname, name, email, role);
+                    if (n > 0)
+                    {
+                        MessageBox.Show("Account update successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tcManager_SelectedIndexChanged(sender, e);
+                        ClearTxtAccount();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error update account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error update account: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
-        string query = "";
+        string query = "", q = "";
         public void tcManager_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tcManager.SelectedTab != null) {
@@ -137,16 +144,18 @@ namespace KTPOS_Order.Management_Control
                         GetLists.Instance.LoadAccountList(query, dtgvAccount);
                         break;
                     case "TABLE":
-                        query = "SELECT ID, fname AS [TABLE NAME] FROM [TABLE]";
+                        query = "SELECT ID, fname AS [TABLE NAME] FROM [TABLE] WHERE Visible = 1";
                         GetLists.Instance.LoadAccountList(query, dtgvTable);
                         break;
                     case "CATEGORIES":
-                        query = "SELECT ID, fname AS [NAME CATEGORIES] FROM [F&BCATEGORY]";
+                        query = "SELECT fname AS [NAME CATEGORIES] FROM [F&BCATEGORY] WHERE Visible = 1";
                         GetLists.Instance.LoadAccountList(query, dtgvCate);
                         break;
                     case "F&B":
-                        query = "SELECT fb.fname [TYPE], ITEM.fname AS [NAME], price[PRICE] FROM ITEM JOIN [F&BCATEGORY] fb ON idCategory = fb.ID Order by [Type] ASC";
+                        query = "SELECT fb.fname [TYPE], ITEM.fname AS [NAME], price[PRICE] FROM ITEM JOIN [F&BCATEGORY] fb ON idCategory = fb.ID  Order by [Type] ASC";
                         GetLists.Instance.LoadAccountList(query, dtgvFandB);
+                        q = "SELECT fname AS [NAME CATEGORIES] FROM [F&BCATEGORY] WHERE Visible = 1";
+                        GetDatabase.Instance.LoadDataToComboBox(q, cbCategoriesFB);
                         break;
                     case "REVENUE":
                         query = "SELECT b.ID AS [ID BILL], t.fname AS [TABLE NAME], SUM(i.price * bi.count) AS [TOTAL PRICE], b.Datepayment AS [DATE CHECKOUT] FROM BILLINF bi " +
@@ -159,32 +168,17 @@ namespace KTPOS_Order.Management_Control
                 }
             }
         }
-        public void ClearTxtAccount()
+        private void ClearTxtAccount()
         {
             txtSearchAcc.Text = "";
             txtFullName.Text = "";
             txtEmail.Text = "";
             cbBRole.SelectedIndex = -1;
         }
-        private void ListBill_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                index = e.RowIndex;
-            }
-        }
         private void txtSearchAcc_KeyUp(object sender, KeyEventArgs e)
         {
             query = "SELECT FullName as [FULL NAME], Email AS [EMAIL], ExpY AS [EXP IN YEAR], [Role] AS [ROLE] FROM ACCOUNT \r\nWHERE Visible = 1 AND FullName Like " + "N'%" + txtSearchAcc.Text.ToString() + "%'";
             GetLists.Instance.LoadAccountList(query, dtgvAccount);
-        }
-
-        private void dtgvCate_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                index = e.RowIndex;
-            }
         }
         private void dtgvCate_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -193,10 +187,172 @@ namespace KTPOS_Order.Management_Control
                 // Lấy hàng hiện tại
                 DataGridViewRow row = dtgvCate.Rows[e.RowIndex];
                 // Gán dữ liệu từ các cột vào TextBox
-                txtIDCate.Text = row.Cells[0].Value?.ToString();
-                txtNameCate.Text = row.Cells[1].Value?.ToString();
+                txtNameCate.Text = row.Cells[0].Value?.ToString();
+            }
+        }
+        private void dtgvCate_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                index = e.RowIndex;
+            }
+        }
+        public void ClearTxtCate()
+        {
+            txtSearchCategories.Text = "";
+            txtNameCate.Text = "";
+        }
+        private void btnAddCategories_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string name = txtNameCate.Text;
+                int n = GetLists.Instance.InsertCate(name);
+                if (n > 0)
+                {
+                    MessageBox.Show("Category add successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tcManager_SelectedIndexChanged(sender, e);
+                    ClearTxtAccount();
+                }
+                else
+                {
+                    MessageBox.Show("Error add account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error add account: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        private void btnDeleteCategories_Click(object sender, EventArgs e)
+        {
+            if (index == -1)
+            {
+                MessageBox.Show("Please chose the row need to be delete!", "Notice!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                int CurrentIndex = dtgvCate.CurrentCell.RowIndex;
+                string name = Convert.ToString(dtgvCate.Rows[CurrentIndex].Cells[0].Value.ToString());
+                try
+                {
+                    int n = GetLists.Instance.DeleteCate(name);
+                    if (n > 0)
+                    {
+                        MessageBox.Show("Category delete successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tcManager_SelectedIndexChanged(sender, e);
+                        ClearTxtCate();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error delete category", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error delete category: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void btnEditCategories_Click(object sender, EventArgs e)
+        {
+
+            if (index == -1)
+            {
+                MessageBox.Show("Please chose the row need to be edit!", "Notice!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                try
+                {
+                    int CurrentIndex = dtgvCate.CurrentCell.RowIndex;
+                    string fname = Convert.ToString(dtgvCate.Rows[CurrentIndex].Cells[0].Value.ToString());
+                    string name = txtNameCate.Text;
+                    int n = GetLists.Instance.UpdateCate(fname, name);
+                    if (n > 0)
+                    {
+                        MessageBox.Show("Category update successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tcManager_SelectedIndexChanged(sender, e);
+                        ClearTxtCate();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error update category", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error update category: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void txtSearchCategories_TextChanged(object sender, EventArgs e)
+        {
+            query = "SELECT fname AS [NAME CATEGORIES] FROM [F&BCATEGORY] \r\nWHERE Visible = 1 AND fName Like " + "N'%" + txtSearchCategories.Text.ToString() + "%'";
+            GetLists.Instance.LoadAccountList(query, dtgvCate);
+        }
+
+
+        //F&B (ITEM)
+        private void ClearTxtFaB()
+        {
+            txtNameFB.Text = "";
+            txtPriceFB.Text = "";
+            cbCategoriesFB.SelectedIndex = -1;
+        }
+        private void dtgvFandB_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                index = e.RowIndex;
+            }
+        }
+        private void dtgvFandB_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Lấy hàng hiện tại
+                DataGridViewRow row = dtgvFandB.Rows[e.RowIndex];
+                // Gán dữ liệu từ các cột vào TextBox
+                txtNameFB.Text = row.Cells[1].Value?.ToString();
+                txtPriceFB.Text = row.Cells[2].Value?.ToString();
+                cbCategoriesFB.Text = row.Cells[0].Value?.ToString();
+            }
+        }
+        private void btnAddFB_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string name = txtNameFB.Text, email = txtEmail.Text, role = cbBRole.Text;
+                int n = GetLists.Instance.InsertList(name, email, role);
+                if (n > 0)
+                {
+                    MessageBox.Show("F&B add successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tcManager_SelectedIndexChanged(sender, e);
+                    ClearTxtAccount();
+                }
+                else
+                {
+                    MessageBox.Show("F&B add account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("F&B add account: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btnDeleteFB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditFB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
+        
     }
 }
