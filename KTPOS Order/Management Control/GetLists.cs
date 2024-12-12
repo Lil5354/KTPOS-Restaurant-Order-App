@@ -31,7 +31,7 @@ namespace KTPOS_Order.Management_Control
             }
         }
         public void LoadAccountList(string query, DataGridView dtgv)
-        {   
+        {
             try
             {
                 // Call the ExecuteQuery method to get data from the database.
@@ -41,7 +41,7 @@ namespace KTPOS_Order.Management_Control
                 // Bind the data to the DataGridView.
                 dtgv.DataSource = data;
                 dtgv.ClearSelection();
-               
+
             }
             catch (Exception ex)
             {
@@ -82,5 +82,6 @@ namespace KTPOS_Order.Management_Control
             // Return null if login fails
             return 0;
         }
+        //public int 
     }
 }

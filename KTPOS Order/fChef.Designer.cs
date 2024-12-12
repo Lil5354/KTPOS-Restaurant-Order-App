@@ -121,7 +121,7 @@
             this.btnMaterial.HoverState.ForeColor = System.Drawing.Color.Maroon;
             this.btnMaterial.Location = new System.Drawing.Point(314, 12);
             this.btnMaterial.Name = "btnMaterial";
-            this.btnMaterial.Size = new System.Drawing.Size(216, 52);
+            this.btnMaterial.Size = new System.Drawing.Size(230, 52);
             this.btnMaterial.TabIndex = 35;
             this.btnMaterial.Text = "Material Management";
             this.btnMaterial.UseTransparentBackground = true;

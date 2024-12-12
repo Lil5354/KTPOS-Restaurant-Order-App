@@ -68,7 +68,6 @@ namespace KTPOS_Order.Management_Control
                 MessageBox.Show("Error update account: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnDeleteAcc_Click(object sender, EventArgs e)
         {
             if (index == -1)
@@ -176,8 +175,28 @@ namespace KTPOS_Order.Management_Control
         }
         private void txtSearchAcc_KeyUp(object sender, KeyEventArgs e)
         {
-            query = "SELECT FullName as [FULL NAME], Email AS [EMAIL], ExpY AS [EXP IN YEAR], [Role] AS [ROLE] FROM ACCOUNT \r\nWHERE Visible = 1 AND FullName Like " + "N'%" + txtSearchAcc.Text.ToString() + "%' Order by [Role] ASC";
+            query = "SELECT FullName as [FULL NAME], Email AS [EMAIL], ExpY AS [EXP IN YEAR], [Role] AS [ROLE] FROM ACCOUNT \r\nWHERE Visible = 1 AND FullName Like " + "N'%" + txtSearchAcc.Text.ToString() + "%'";
             GetLists.Instance.LoadAccountList(query, dtgvAccount);
         }
+
+        private void dtgvCate_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                index = e.RowIndex;
+            }
+        }
+        private void dtgvCate_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Lấy hàng hiện tại
+                DataGridViewRow row = dtgvCate.Rows[e.RowIndex];
+                // Gán dữ liệu từ các cột vào TextBox
+                txtIDCate.Text = row.Cells[0].Value?.ToString();
+                txtNameCate.Text = row.Cells[1].Value?.ToString();
+            }
+        }
+
     }
 }
