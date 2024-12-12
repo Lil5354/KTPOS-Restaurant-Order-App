@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Guna.UI2.WinForms;
 using KTPOS_Order.Customer_Control;
 using KTPOS_Order.Proccess;
@@ -203,69 +204,110 @@ namespace KTPOS_Order
 
         }
 
-        //private void btnOrder_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        // Validate data
-        //        if (dtgvBillCus.Rows.Count == 0 || txtTotal.Text.Trim() == "0.00")
-        //        {
-        //            MessageBox.Show("Please add items to the bill before placing an order.");
-        //            return;
-        //        }
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            //if (dtgvBillCus.Rows.Count == 0)
+            //{
+            //    MessageBox.Show("No items in the order.", "Order Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
-        //        // Get the selected table ID dynamically
-        //        int idTable = GetSelectedTableId(); // Replace with the actual logic to get the table ID
+            //try
+            //{
+            //    // Lấy ID của bàn (hoặc ID mặc định)
+            //    int tableID = 1; // Giả sử ID bàn là 1, bạn có thể thay đổi theo nhu cầu
 
-        //        // Insert Bill record
-        //        string insertBillQuery = "INSERT INTO Bill (Datepayment, idTable, status) VALUES (GETDATE(), @idTable, 1)";
-        //        GetDatabase.Instance.ExecuteNonQuery(insertBillQuery, new object[] { idTable });
+            //    // Tạo một hóa đơn mới
+            //    string insertBillQuery = "INSERT INTO Bill (idTable, status) OUTPUT INSERTED.ID VALUES (@idTable, @status)";
+            //    object billIDObj = GetDatabase.Instance.ExecuteScalar(insertBillQuery, new object[] { tableID, 0 });
 
-        //        // Get the ID of the newly inserted Bill
-        //        object result = GetDatabase.Instance.ExecuteScalar("SELECT SCOPE_IDENTITY()");
-        //        if (result == null || result == DBNull.Value)
-        //        {
-        //            MessageBox.Show("Failed to retrieve Bill ID.");
-        //            return;
-        //        }
-        //        int billId = Convert.ToInt32(result);
+            //    if (billIDObj == null)
+            //    {
+            //        MessageBox.Show("Failed to create a new bill.", "Order Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        return;
+            //    }
 
-        //        // Insert BillInf records for each item in the bill
-        //        foreach (DataGridViewRow row in dtgvBillCus.Rows)
-        //        {
-        //            string itemName = row.Cells[0].Value.ToString();
-        //            int quantity = Convert.ToInt32(row.Cells[1].Value);
+            //    int billID = Convert.ToInt32(billIDObj);
 
-        //            // Get item ID
-        //            string getItemIdQuery = "SELECT ID FROM ITEM WHERE fname = @Name";
-        //            result = GetDatabase.Instance.ExecuteScalar(getItemIdQuery, new object[] { itemName });
-        //            if (result == null || result == DBNull.Value)
-        //            {
-        //                MessageBox.Show($"Item '{itemName}' not found.");
-        //                continue;
-        //            }
-        //            int itemId = Convert.ToInt32(result);
+                // Cập nhật các chi tiết hóa đơn
+            //    foreach (DataGridViewRow row in dtgvBillCus.Rows)
+            //    {
+            //        string itemName = row.Cells["Name"].Value.ToString();
+            //        int quantity = Convert.ToInt32(row.Cells["Quantity"].Value);
 
-        //            // Insert BillInf record
-        //            string insertBillInfQuery = "INSERT INTO BILLINF (idBill, idFD, count) VALUES (@idBill, @idFD, @count)";
-        //            GetDatabase.Instance.ExecuteNonQuery(insertBillInfQuery, new object[] { billId, itemId, quantity });
-        //        }
+            //        // Lấy ID của mặt hàng dựa trên tên
+            //        string getItemIDQuery = "SELECT ID FROM ITEM WHERE fName = @fName";
+            //        DataTable itemResult = GetDatabase.Instance.ExecuteQuery(getItemIDQuery, new object[] { itemName });
 
-        //        // Reset UI after successful order
-        //        dtgvBillCus.Rows.Clear();
-        //        txtSubTotal.Text = "0.00";
-        //        txtVAT.Text = "0.00";
-        //        txtTotal.Text = "0.00";
-        //        MessageBox.Show("Order placed successfully!");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Error: {ex.Message}");
-        //    }
-        //}
-        //private int GetSelectedTableId()
-        //{
-           
-        //}
+            //        if (itemResult.Rows.Count > 0)
+            //        {
+            //            int itemID = Convert.ToInt32(itemResult.Rows[0]["ID"]);
+
+            //            // Thêm chi tiết vào bảng BILLINF
+            //            string insertBillInfQuery = "INSERT INTO BILLINF (idBill, idFD, count) VALUES (@idBill, @idFD, @count)";
+            //            GetDatabase.Instance.ExecuteNonQuery(insertBillInfQuery, new object[] { billID, itemID, quantity });
+            //        }
+            //    }
+
+            //    // Hiển thị thông báo thành công
+            //    MessageBox.Show("Order has been placed successfully!", "Order Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //    // Xóa giỏ hàng sau khi đặt hàng thành công
+            //    dtgvBillCus.Rows.Clear();
+            //    Total = 0;
+            //    txtSubTotal.Text = Total.ToString("C", new System.Globalization.CultureInfo("en-US"));
+            //    txtVAT.Text = "0";
+            //    txtTotal.Text = "0";
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"An error occurred: {ex.Message}", "Order Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+        }
+        
+        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || txtSearch.Text.Trim().Length == 0)
+            {
+                foreach (UC_Item item in FlowMenu.Controls)
+                {
+                    string name = item.GetName();
+                    var uc = (UserControl)item;
+                    uc.Visible = name.ToLower().ToLower().Contains(txtSearch.Text.Trim().ToLower());
+                }
+            }
+        }
+        
+        private void Filter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string filter = Filter.SelectedItem.ToString();
+            switch (filter)
+            {
+                case "Default":
+                    FlowMenu.Controls.Clear();
+                    LoadProducts("SELECT ID, fName, Price FROM ITEM");
+                    break;
+                case "Best Sellers":
+                    FlowMenu.Controls.Clear();
+                    LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 4");
+                    break;
+                case "New Arrivals":
+                    FlowMenu.Controls.Clear();
+                    LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 1");
+                    break;
+                case "Featured Dishes":
+                    FlowMenu.Controls.Clear();
+                    LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 2");
+                    break;
+                case "Combo Deals":
+                    FlowMenu.Controls.Clear();
+                    LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 3");
+                    break;
+                case "Most Loved":
+                    FlowMenu.Controls.Clear();
+                    LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 4");
+                    break;
+            }
+        }
     }
 }

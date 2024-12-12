@@ -55,9 +55,11 @@
             this.FlowMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.Filter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lbTable = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.nUDItem = new Guna.UI2.WinForms.Guna2NumericUpDown();
             btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBillCus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDItem)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
@@ -261,6 +263,7 @@
             this.txtSearch.Size = new System.Drawing.Size(210, 38);
             this.txtSearch.TabIndex = 26;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
             // 
             // guna2CustomGradientPanel16
             // 
@@ -271,6 +274,7 @@
             this.guna2CustomGradientPanel16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.guna2CustomGradientPanel16.BorderColor = System.Drawing.Color.Maroon;
             this.guna2CustomGradientPanel16.BorderRadius = 15;
+            this.guna2CustomGradientPanel16.Controls.Add(this.nUDItem);
             this.guna2CustomGradientPanel16.Controls.Add(this.guna2TextBox1);
             this.guna2CustomGradientPanel16.Controls.Add(this.guna2Button1);
             this.guna2CustomGradientPanel16.Controls.Add(this.txtSubTotal);
@@ -491,14 +495,14 @@
             this.btnOrder.TabIndex = 2;
             this.btnOrder.Text = "Order";
             this.btnOrder.UseTransparentBackground = true;
-            //this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
             // guna2HtmlLabel30
             // 
             this.guna2HtmlLabel30.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel30.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel30.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel30.Location = new System.Drawing.Point(130, 16);
+            this.guna2HtmlLabel30.Location = new System.Drawing.Point(34, 16);
             this.guna2HtmlLabel30.Name = "guna2HtmlLabel30";
             this.guna2HtmlLabel30.Size = new System.Drawing.Size(131, 47);
             this.guna2HtmlLabel30.TabIndex = 3;
@@ -538,6 +542,7 @@
             this.Filter.Name = "Filter";
             this.Filter.Size = new System.Drawing.Size(211, 36);
             this.Filter.TabIndex = 50;
+            this.Filter.SelectedIndexChanged += new System.EventHandler(this.Filter_SelectedIndexChanged);
             // 
             // lbTable
             // 
@@ -547,9 +552,23 @@
             this.lbTable.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbTable.Location = new System.Drawing.Point(471, 106);
             this.lbTable.Name = "lbTable";
-            this.lbTable.Size = new System.Drawing.Size(140, 38);
+            this.lbTable.Size = new System.Drawing.Size(101, 38);
             this.lbTable.TabIndex = 49;
-            this.lbTable.Text = "TABLE 1";
+            this.lbTable.Text = "MENU";
+            // 
+            // nUDItem
+            // 
+            this.nUDItem.BackColor = System.Drawing.Color.Transparent;
+            this.nUDItem.BorderRadius = 10;
+            this.nUDItem.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nUDItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.nUDItem.Location = new System.Drawing.Point(270, 16);
+            this.nUDItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.nUDItem.Name = "nUDItem";
+            this.nUDItem.Size = new System.Drawing.Size(81, 36);
+            this.nUDItem.TabIndex = 51;
+            this.nUDItem.UpDownButtonFillColor = System.Drawing.Color.Maroon;
+            this.nUDItem.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // fCustomer
             // 
@@ -578,6 +597,7 @@
             this.guna2CustomGradientPanel16.ResumeLayout(false);
             this.guna2CustomGradientPanel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBillCus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -606,5 +626,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2ComboBox Filter;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbTable;
+        private Guna.UI2.WinForms.Guna2NumericUpDown nUDItem;
     }
 }

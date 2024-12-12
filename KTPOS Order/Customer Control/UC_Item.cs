@@ -94,6 +94,10 @@ namespace KTPOS_Order.Customer_Control
                 }
             }
         }
+        public string GetName()
+        {
+            return txtName.Text;
+        }
         private void UC_Item_Load(object sender, EventArgs e)
         {
 
@@ -106,6 +110,11 @@ namespace KTPOS_Order.Customer_Control
 
         private void txtName_Click(object sender, EventArgs e)
         {
+        }
+
+        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
