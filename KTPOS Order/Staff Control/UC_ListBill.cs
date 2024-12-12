@@ -22,7 +22,6 @@ namespace KTPOS_Order.Staff_Control
         public UC_ListBill()
         {
             InitializeComponent();
-            //UpdateTotalAmount();
         }
 
         private void Filter_SelectedIndexChanged(object sender, EventArgs e)
@@ -138,7 +137,7 @@ namespace KTPOS_Order.Staff_Control
             currentUserControl = userControl;
         }
 
-
+        private decimal _totalAmount = 0;
         private void ListBill_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -147,21 +146,31 @@ namespace KTPOS_Order.Staff_Control
                 // Lấy ID Bill từ hàng được chọn
                 int selectedBillId = Convert.ToInt32(ListBill.Rows[e.RowIndex].Cells["id"].Value);
                 SelectedBillId = selectedBillId;
+
                 // Hiển thị chi tiết Bill trực tiếp trong DataGridView
                 BillProcessor billProcessor = new BillProcessor(selectedBillId);
 
                 // Xóa dữ liệu cũ
                 Bill.Rows.Clear();
 
-                // Thêm dữ liệu vào DataGridView
+                // Thêm dữ liệu vào DataGridView và tính tổng
+                _totalAmount = 0;
                 foreach (DataRow row in billProcessor.BillDetails.Rows)
                 {
+                    int quantity = Convert.ToInt32(row["Quantity"]);
+                    decimal price = Convert.ToDecimal(row["TotalPrice"]);
+                    _totalAmount += quantity * price;
+
                     Bill.Rows.Add(
                         row["ItemName"],
                         row["Quantity"],
-                        row["TotalPrice"]
+                        price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))
                     );
                 }
+
+                // Cập nhật tổng tiền
+                lblTotalAmount.Text = _totalAmount.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"));
+
                 btnPay_Click(sender, e);
             }
         }
@@ -172,29 +181,6 @@ namespace KTPOS_Order.Staff_Control
             AddUserControl(ucQrcode);  // Switch the UserControl to UC_QRcode
 
         }
-        //private void UpdateTotalAmount()
-        //{
-        //    decimal totalAmount = GetCurrentTotalAmount();
-
-        //    // Apply discount and update lblTotalAmount
-        //    lblTotalAmount.Text = totalAmount.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"));
-        //}
-
-        //private decimal GetCurrentTotalAmount()
-        //{
-        //    decimal totalAmount = 0;
-
-        //    foreach (DataGridViewRow row in Bill.Rows)
-        //    {
-        //        if (row.Cells[3].Value != null && decimal.TryParse(row.Cells[3].Value.ToString(),
-        //                                                               NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"), out decimal rowTotal))
-        //        {
-        //            totalAmount += rowTotal;
-        //        }
-        //    }
-
-        //    return totalAmount;
-        //}
         
         public int SelectedBillId { get; set; }
         private void btnPay_Click(object sender, EventArgs e)
@@ -219,8 +205,20 @@ namespace KTPOS_Order.Staff_Control
             }
             else if (selectedPaymentMethod == "Transfer")
             {
-                // Transfer logic: switch to another control for QR Payment, etc.
+                int selectedBillId = Convert.ToInt32(ListBill.CurrentRow?.Cells["id"].Value);
+                decimal totalAmountUSD = Convert.ToDecimal(lblTotalAmount.Text.Trim('$'));
+
+                // Convert USD to VND
+                decimal exchangeRate = 23000; // Adjust this rate as needed
+                decimal totalAmountVND = totalAmountUSD * exchangeRate;
+
+                // Prepare QR content
+                string qrcodeText = $"BILL ID: {selectedBillId}";
+
+                // Open UC_QRPayment and populate fields
                 UC_QRPayment ucQrPayment = new UC_QRPayment();
+                ucQrPayment.txtContent.Text = qrcodeText;
+                ucQrPayment.txtCost.Text = totalAmountVND.ToString("N0"); // Format as VND
                 AddUserControl(ucQrPayment);
             }
             else
