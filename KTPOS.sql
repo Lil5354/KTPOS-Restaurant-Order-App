@@ -7,74 +7,74 @@ GO
 USE KTPOS	
 GO
 CREATE TABLE ACCOUNT (
-	Email       NVARCHAR(50) primary key,
-	FullName    NVARCHAR(50) NOT NULL,
-    [Password]  NVARCHAR(50) NOT NULL CHECK(LEN([Password]) >= 6) DEFAULT 'ktpos123',
-	ExpY		TINYINT		  NOT NULL DEFAULT 0,
-    [Role]      NVARCHAR(20) CHECK([Role] IN ('Staff', 'Manager','Chef','Customer')),
-	Visible		int not null default 1 --0: FALSE 1: TRUE 
+	EMAIL       NVARCHAR(50) PRIMARY KEY,
+	FULLNAME    NVARCHAR(50) NOT NULL,
+    [PASSWORD]  NVARCHAR(50) NOT NULL CHECK(LEN([Password]) >= 6) DEFAULT 'ktpos123',
+	EXPY		TINYINT		  NOT NULL DEFAULT 0,
+    [ROLE]      NVARCHAR(20) CHECK([Role] IN ('Staff', 'Manager','Chef','Customer')),
+	VISIBLE		int not null default 1 --0: FALSE 1: TRUE 
 );
 GO
 CREATE TABLE [TABLE] (
-	ID int identity primary key,
-	fname NVARCHAR(50) UNIQUE,
-	status int not null default 1, --1: AVAILABLE/ 0:UNAVAILABLE
-	Visible		int not null default 1 --0: FALSE 1: TRUE 
+	ID			INT IDENTITY PRIMARY KEY,
+	FNAME		NVARCHAR(50) UNIQUE,
+	STATUS		INT NOT NULL DEFAULT 1, --1: AVAILABLE/ 0:UNAVAILABLE
+	VISIBLE		INT NOT NULL DEFAULT 1 --0: FALSE 1: TRUE 
 );
-GO --Lệnh khi add bàn mới tự insert theo số bàn đã có
-CREATE PROCEDURE InsertNewTable
-AS
-BEGIN
-    DECLARE @maxID INT;
-    DECLARE @tableName NVARCHAR(50);
-
-    -- Lấy ID lớn nhất hiện có trong bảng TABLE
-    SELECT @maxID = ISNULL(MAX(ID), 0) FROM [TABLE];
-
-    -- Tạo tên bàn mới
-    SET @tableName = CONCAT('Table ', @maxID + 1);
-
-    -- Thêm bàn mới vào TABLE
-    INSERT INTO [TABLE] (fname, status)
-    VALUES (@tableName, 1); -- Status mặc định là AVAILABLE
-END;
 GO
 CREATE TABLE [F&BCATEGORY](
-	ID INT IDENTITY PRIMARY KEY,
-	fname nvarchar(50) UNIQUE NOT NULL,
-	Visible		int not null default 1 --0: FALSE 1: TRUE 
+	ID			INT IDENTITY PRIMARY KEY,
+	FNAME		NVARCHAR(50) UNIQUE NOT NULL,
+	VISIBLE		INT NOT NULL DEFAULT 1 --0: FALSE 1: TRUE 
 );
 GO
 CREATE TABLE ITEM(
-	ID INT IDENTITY PRIMARY KEY,
-	fname NVARCHAR(50) NOT NULL,
-	idCategory INT NOT NULL,
-	price float not null,
-	Visible		int not null default 1, --0: FALSE 1: TRUE 
+	ID			INT IDENTITY PRIMARY KEY,
+	FNAME		NVARCHAR(50) NOT NULL,
+	IDCATEGORY	INT NOT NULL,
+	PRICE		FLOAT NOT NULL,
+	VISIBLE		INT NOT NULL DEFAULT 1, --0: FALSE 1: TRUE 
 
-	CONSTRAINT UQ_Item_Name_Category UNIQUE (fname, idCategory),
-	FOREIGN KEY (idCategory) REFERENCES dbo.[F&BCATEGORY](ID)
+	CONSTRAINT UQ_ITEM_NAME_CATEGORY UNIQUE (FNAME, IDCATEGORY),
+	FOREIGN KEY (IDCATEGORY) REFERENCES DBO.[F&BCATEGORY](ID)
 );
 GO
-CREATE TABLE Bill(
-	ID INT IDENTITY PRIMARY KEY,
-	Datepayment DATE NOT NULL default getdate(),
-	idTable		int not null,
-	status int not null default 0, --1: Have pay 0: Not pay yet
+CREATE TABLE BILL(
+	ID			INT IDENTITY PRIMARY KEY,
+	DATEPAYMENT DATE NOT NULL DEFAULT GETDATE(),
+	IDTABLE		INT NOT NULL,
+	STATUS		INT NOT NULL DEFAULT 0, --1: HAVE PAY 0: NOT PAY YET
 
-	FOREIGN KEY (idTable) REFERENCES dbo.[TABLE](ID)
+	FOREIGN KEY (IDTABLE) REFERENCES DBO.[TABLE](ID)
 );
 GO 
 CREATE TABLE BILLINF(
-	ID INT IDENTITY PRIMARY KEY,
-	idBill int not null,
-	idFD int not null,
-	count int not null default 0,
+	ID		INT IDENTITY PRIMARY KEY,
+	IDBILL	INT NOT NULL,
+	IDFD	INT NOT NULL,
+	COUNT	INT NOT NULL DEFAULT 0,
 
-	FOREIGN KEY (idBill) REFERENCES dbo.Bill(id),
-	FOREIGN KEY (idFD)	 REFERENCES dbo.ITEM(id)
+	FOREIGN KEY (IDBILL) REFERENCES DBO.BILL(ID),
+	FOREIGN KEY (IDFD)	 REFERENCES DBO.ITEM(ID)
 );
-INSERT INTO ACCOUNT (FullName, Email, [Password],	ExpY,		[Role]		 ) 
+GO --LỆNH KHI ADD BÀN MỚI TỰ INSERT THEO SỐ BÀN ĐÃ CÓ
+CREATE PROCEDURE INSERTNEWTABLE
+AS
+BEGIN
+    DECLARE @MAXID INT;
+    DECLARE @TABLENAME NVARCHAR(50);
+
+    -- LẤY ID LỚN NHẤT HIỆN CÓ TRONG BẢNG TABLE
+    SELECT @MAXID = ISNULL(MAX(ID), 0) FROM [TABLE];
+
+    -- TẠO TÊN BÀN MỚI
+    SET @TABLENAME = CONCAT('TABLE ', @MAXID + 1);
+
+    -- THÊM BÀN MỚI VÀO TABLE
+    INSERT INTO [TABLE] (FNAME, STATUS)
+    VALUES (@TABLENAME, 1); -- STATUS MẶC ĐỊNH LÀ AVAILABLE
+END;
+INSERT INTO ACCOUNT (FULLNAME, EMAIL, [PASSWORD],	EXPY,		[ROLE]		 ) 
 VALUES
     (N'Võ Đăng Khoa',				'khoavd2809@gmail.com',     'khoavo123',		2,		'Manager'),
     (N'Dương Thị Thanh Thảo',		'thaott26@gmail.com',		'pupu123',			0,		'Manager'),
@@ -85,7 +85,7 @@ VALUES
 	(N'Nguyễn Giang Gia Huy',		'huybo@gmail.com',			'huybo123',			0,		'Chef');
 
 
-INSERT INTO [TABLE] (fname, status)
+INSERT INTO [TABLE] (FNAME, STATUS)
 VALUES 
 ('Table 1', 0),
 ('Table 2', 0),
@@ -99,7 +99,7 @@ VALUES
 ('Table 10', 1); -- Unavailable table
 
 -- Insert data into [F&BCATEGORY]
-INSERT INTO [F&BCATEGORY] (fname)
+INSERT INTO [F&BCATEGORY] (FNAME)
 VALUES
 ('Food'),
 ('Drinks'),
@@ -108,7 +108,7 @@ VALUES
 ('Desserts');
 
 -- Insert data into ITEM
-INSERT INTO ITEM (fname, idCategory, price)
+INSERT INTO ITEM (FNAME, IDCATEGORY, PRICE)
 VALUES 
 ('Coffee', 2, 2.0),
 ('Coffee', 5, 2.0),
@@ -123,7 +123,7 @@ VALUES
 ('Ice Cream', 4, 4.0);
 
 -- Insert data into Bill
-INSERT INTO Bill (Datepayment, idTable, status)
+INSERT INTO BILL (DATEPAYMENT, IDTABLE, STATUS)
 VALUES 
 ('2024-12-08', 1, 0),
 ('2024-12-12', 2, 0),
@@ -135,7 +135,7 @@ VALUES
 ('2024-12-05', 9, 0); -- Paid bill
 
 -- Insert data into BILLINF
-INSERT INTO BILLINF (idBill, idFD, count)
+INSERT INTO BILLINF (IDBILL, IDFD, COUNT)
 VALUES 
 (1, 1, 2), -- 2 Cokes on the first bill
 (1, 3, 1), -- 1 Spring Roll on the first bill
@@ -153,18 +153,18 @@ VALUES
 (7, 2, 2),
 (8, 4, 2);
 
-SELECT b.ID AS [ID BILL], t.fname AS [TABLE NAME], SUM(i.price * bi.count) AS [TOTAL PRICE], b.Datepayment AS [DATE CHECKOUT] FROM BILLINF bi
-JOIN Bill b ON bi.idBill = b.ID JOIN [TABLE] t ON b.idTable = t.ID JOIN ITEM i ON bi.idFD = i.ID GROUP BY b.ID, t.fname, b.Datepayment ORDER BY b.ID;
+SELECT B.ID AS [ID BILL], T.FNAME AS [TABLE NAME], SUM(I.PRICE * BI.COUNT) AS [TOTAL PRICE], B.DATEPAYMENT AS [DATE CHECKOUT] FROM BILLINF BI
+JOIN BILL B ON BI.IDBILL = B.ID JOIN [TABLE] T ON B.IDTABLE = T.ID JOIN ITEM I ON BI.IDFD = I.ID GROUP BY B.ID, T.FNAME, B.DATEPAYMENT ORDER BY B.ID;
 
-SELECT b.ID AS [ID BILL], 
-       t.fname AS [TABLE NAME], 
-       SUM(i.price * bi.count) AS [TOTAL PRICE], 
-       b.Datepayment AS [DATE CHECKOUT] 
-FROM BILLINF bi 
-JOIN Bill b ON bi.idBill = b.ID 
-JOIN [TABLE] t ON b.idTable = t.ID 
-JOIN ITEM i ON bi.idFD = i.ID 
-WHERE b.Datepayment BETWEEN '2024-12-01' AND '2024-12-5'
-GROUP BY b.ID, t.fname, b.Datepayment 
-ORDER BY b.ID;
+SELECT B.ID AS [ID BILL], 
+       T.FNAME AS [TABLE NAME], 
+       SUM(I.PRICE * BI.COUNT) AS [TOTAL PRICE], 
+       B.DATEPAYMENT AS [DATE CHECKOUT] 
+FROM BILLINF BI 
+JOIN BILL B ON BI.IDBILL = B.ID 
+JOIN [TABLE] T ON B.IDTABLE = T.ID 
+JOIN ITEM I ON BI.IDFD = I.ID 
+WHERE B.DATEPAYMENT BETWEEN '2024-12-01' AND '2024-12-5'
+GROUP BY B.ID, T.FNAME, B.DATEPAYMENT 
+ORDER BY B.ID;
 SELECT * FROM ACCOUNT
