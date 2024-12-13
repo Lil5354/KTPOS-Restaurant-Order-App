@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Security;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 using KTPOS_Order.Proccess;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
@@ -96,7 +97,7 @@ namespace KTPOS_Order.Management_Control
             // Return null if login fails
             return 0;
         }
-        public int DeleteCate(string name) 
+        public int DeleteCate(string name)
         {
             string query = "UPDATE [F&BCATEGORY] SET Visible = 0 WHERE fname = N'" + name + "' ";
             int result = GetDatabase.Instance.ExecuteNonQuery(query);
@@ -109,7 +110,7 @@ namespace KTPOS_Order.Management_Control
         }
         public int UpdateCate(string fname, string name)
         {
-            string query = "UPDATE [F&BCATEGORY] SET fname = N'" + name + "''WHERE fname = N'" + fname + "' ";
+            string query = "UPDATE [F&BCATEGORY] SET fname = N'" + name + "'WHERE fname = N'" + fname + "' ";
             int result = GetDatabase.Instance.ExecuteNonQuery(query);
             if (result > 0)
             {
@@ -118,11 +119,11 @@ namespace KTPOS_Order.Management_Control
             // Return null if login fails
             return 0;
         }
-        public int InsertItem(string name,string price, string fname)
+        public int InsertItem(string name, string price, string fname)
         {
             string query = "INSERT INTO ITEM (fname, idCategory, price) " +
-                "SELECT N'" +name+"' AS fname, c.ID AS idCategory,'" +price+ "' AS price FROM [F&BCATEGORY] c " +
-                "WHERE c.fname = '"+fname+"' "; 
+                "SELECT N'" + name + "' AS fname, c.ID AS idCategory,'" + price + "' AS price FROM [F&BCATEGORY] c " +
+                "WHERE c.fname = '" + fname + "' ";
             int result = GetDatabase.Instance.ExecuteNonQuery(query);
             if (result > 0)
             {
@@ -131,15 +132,60 @@ namespace KTPOS_Order.Management_Control
             // Return null if function false
             return 0;
         }
-        public int DeleteItem(string name)
+        public int DeleteItem(string name, string namefcate)
         {
-            string query = "UPDATE ITEM SET Visible = 0 WHERE fname = '" +name+ "' ";
+            string query = "UPDATE ITEM SET Visible = 0 WHERE fname = '" + name + "'AND idCategory IN (SELECT ID FROM [F&BCATEGORY] WHERE fname = '"+namefcate+"'); ";
             int result = GetDatabase.Instance.ExecuteNonQuery(query);
             if (result > 0)
             {
                 return result;
             }
             // Return null if function false
+            return 0;
+        }
+        public int UpdateItem(string name, string price, string namecate, string fname, string namefcate) 
+        {
+            string query = "UPDATE ITEM SET fname = '"+ name +"', idCategory = (SELECT c.ID FROM [F&BCATEGORY] c WHERE c.fname = '"+ namecate +"'), " +
+                "price ="+price+" WHERE fname = '"+ fname + "' AND idCategory IN (SELECT ID FROM [F&BCATEGORY] WHERE fname = '"+namefcate+"')";
+            int result = GetDatabase.Instance.ExecuteNonQuery(query);
+            if (result > 0)
+            {
+                return result;
+            }
+            // Return null if function false
+            return 0;
+        }
+        public int InsertTable()
+        {
+            string query = "EXEC InsertNewTable;";
+            int result = GetDatabase.Instance.ExecuteNonQuery(query);
+            if (result > 0)
+            {
+                return result;
+            }
+            // Return null if function false
+            return 0;
+        }
+        public int DeleteTable(string name)
+        {
+            string query = "UPDATE [TABLE] SET Visible = 0 WHERE fname = '" + name + "' ";
+            int result = GetDatabase.Instance.ExecuteNonQuery(query);
+            if (result > 0)
+            {
+                return result;
+            }
+            // Return null if function false
+            return 0;
+        }
+        public int UpdateTable(string name, string fname)
+        {
+            string query = "UPDATE [TABLE] SET fname = N'"+name+"' WHERE fname = N'"+fname+"'";
+            int result = GetDatabase.Instance.ExecuteNonQuery(query);
+            if (result > 0)
+            {
+                return result;
+            }
+            // Return null if login fails
             return 0;
         }
     }
