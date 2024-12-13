@@ -17,13 +17,32 @@ CREATE TABLE ACCOUNT (
 GO
 CREATE TABLE [TABLE] (
 	ID int identity primary key,
-	fname NVARCHAR(50),
-	status int not null default 1 --1: AVAILABLE/ 0:UNAVAILABLE
+	fname NVARCHAR(50) UNIQUE,
+	status int not null default 1, --1: AVAILABLE/ 0:UNAVAILABLE
+	Visible		int not null default 1 --0: FALSE 1: TRUE 
 );
+GO --Lệnh khi add bàn mới tự insert theo số bàn đã có
+CREATE PROCEDURE InsertNewTable
+AS
+BEGIN
+    DECLARE @maxID INT;
+    DECLARE @tableName NVARCHAR(50);
+
+    -- Lấy ID lớn nhất hiện có trong bảng TABLE
+    SELECT @maxID = ISNULL(MAX(ID), 0) FROM [TABLE];
+
+    -- Tạo tên bàn mới
+    SET @tableName = CONCAT('Table ', @maxID + 1);
+
+    -- Thêm bàn mới vào TABLE
+    INSERT INTO [TABLE] (fname, status)
+    VALUES (@tableName, 1); -- Status mặc định là AVAILABLE
+END;
 GO
 CREATE TABLE [F&BCATEGORY](
 	ID INT IDENTITY PRIMARY KEY,
-	fname nvarchar(50)
+	fname nvarchar(50) UNIQUE NOT NULL,
+	Visible		int not null default 1 --0: FALSE 1: TRUE 
 );
 GO
 CREATE TABLE ITEM(
@@ -31,7 +50,9 @@ CREATE TABLE ITEM(
 	fname NVARCHAR(50) NOT NULL,
 	idCategory INT NOT NULL,
 	price float not null,
+	Visible		int not null default 1, --0: FALSE 1: TRUE 
 
+	CONSTRAINT UQ_Item_Name_Category UNIQUE (fname, idCategory),
 	FOREIGN KEY (idCategory) REFERENCES dbo.[F&BCATEGORY](ID)
 );
 GO
@@ -39,7 +60,7 @@ CREATE TABLE Bill(
 	ID INT IDENTITY PRIMARY KEY,
 	Datepayment DATE NOT NULL default getdate(),
 	idTable		int not null,
-	status int not null default 0 --1: Have pay 0: Not pay yet
+	status int not null default 0, --1: Have pay 0: Not pay yet
 
 	FOREIGN KEY (idTable) REFERENCES dbo.[TABLE](ID)
 );
@@ -48,7 +69,7 @@ CREATE TABLE BILLINF(
 	ID INT IDENTITY PRIMARY KEY,
 	idBill int not null,
 	idFD int not null,
-	count int not null default 0
+	count int not null default 0,
 
 	FOREIGN KEY (idBill) REFERENCES dbo.Bill(id),
 	FOREIGN KEY (idFD)	 REFERENCES dbo.ITEM(id)
@@ -90,6 +111,7 @@ VALUES
 INSERT INTO ITEM (fname, idCategory, price)
 VALUES 
 ('Coffee', 2, 2.0),
+('Coffee', 5, 2.0),
 ('Tea', 2, 1.0),
 ('Fried Rice', 1, 10.0),
 ('Pizza', 1, 15.0),
@@ -103,14 +125,14 @@ VALUES
 -- Insert data into Bill
 INSERT INTO Bill (Datepayment, idTable, status)
 VALUES 
-(GETDATE(), 1, 0),
-(GETDATE(), 2, 0),
+('2024-12-08', 1, 0),
+('2024-12-12', 2, 0),
 (GETDATE(), 3, 0),
 (GETDATE(), 4, 0),
 (GETDATE(), 6, 1),
-(GETDATE(), 7, 0),
-(GETDATE(), 8, 0), -- Unpaid bill
-(GETDATE(), 9, 0); -- Paid bill
+('2024-12-07', 7, 0),
+('2024-12-01', 8, 0), -- Unpaid bill
+('2024-12-05', 9, 0); -- Paid bill
 
 -- Insert data into BILLINF
 INSERT INTO BILLINF (idBill, idFD, count)
@@ -131,58 +153,18 @@ VALUES
 (7, 2, 2),
 (8, 4, 2);
 
-SELECT * FROM ITEM
-SELECT * FROM Bill
-/*SELECT 
-    b.ID AS Bill_ID,
-    bi.idFD AS Item_ID,
-    i.fname AS Item_Name,
-    bi.count AS Quantity,
-    i.price AS Price,
-    c.fname AS Category_Name,
-    b.Datepayment AS Date_Of_Purchase
-FROM 
-    BILLINF bi
-JOIN 
-    ITEM i ON bi.idFD = i.ID
-JOIN 
-    [F&BCATEGORY] c ON i.idCategory = c.ID
-JOIN 
-    Bill b ON bi.idBill = b.ID
-ORDER BY 
-    b.ID;*/x
-/*SELECT 
-    b.ID AS Bill_ID,
-    t.fname AS Table_Name,
-    SUM(i.price * bi.count) AS Total_Price,
-    b.Datepayment AS Date_Checkout
-FROM 
-    BILLINF bi
-JOIN 
-    Bill b ON bi.idBill = b.ID
-JOIN 
-    [TABLE] t ON b.idTable = t.ID
-JOIN 
-    ITEM i ON bi.idFD = i.ID
-GROUP BY 
-    b.ID, t.fname, b.Datepayment
-ORDER BY 
-    b.ID;*/
-/*SELECT 
-    b.ID AS Bill_ID,
-    SUM(i.price * bi.count) AS Total_Price
-FROM 
-    BILLINF bi
-JOIN 
-    Bill b ON bi.idBill = b.ID
-JOIN 
-    ITEM i ON bi.idFD = i.ID
-WHERE 
-    b.status = 0 -- Only include paid bills
-GROUP BY 
-    b.ID
-ORDER BY 
-    b.ID;*/
-SELECT FullName as [FULL NAME], Email AS [EMAIL], ExpY AS [EXP IN YEAR], [Role] AS [ROLE] FROM ACCOUNT 
-WHERE Visible = 1 AND FullName Like N'%Th%'
-Order by [Role] ASC
+SELECT b.ID AS [ID BILL], t.fname AS [TABLE NAME], SUM(i.price * bi.count) AS [TOTAL PRICE], b.Datepayment AS [DATE CHECKOUT] FROM BILLINF bi
+JOIN Bill b ON bi.idBill = b.ID JOIN [TABLE] t ON b.idTable = t.ID JOIN ITEM i ON bi.idFD = i.ID GROUP BY b.ID, t.fname, b.Datepayment ORDER BY b.ID;
+
+SELECT b.ID AS [ID BILL], 
+       t.fname AS [TABLE NAME], 
+       SUM(i.price * bi.count) AS [TOTAL PRICE], 
+       b.Datepayment AS [DATE CHECKOUT] 
+FROM BILLINF bi 
+JOIN Bill b ON bi.idBill = b.ID 
+JOIN [TABLE] t ON b.idTable = t.ID 
+JOIN ITEM i ON bi.idFD = i.ID 
+WHERE b.Datepayment BETWEEN '2024-12-01' AND '2024-12-5'
+GROUP BY b.ID, t.fname, b.Datepayment 
+ORDER BY b.ID;
+SELECT * FROM ACCOUNT

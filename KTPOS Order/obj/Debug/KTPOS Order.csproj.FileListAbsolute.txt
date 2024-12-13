@@ -31,14 +31,12 @@ D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_OrderDrink.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_OrderFood.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_OrderFoodOption.resources
-D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_Payment.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.fCustomer.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.fStaff.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Login.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Management_Control.UC_Admin.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Properties.Resources.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_ListBill.resources
-D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_Payment.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_QRPayment.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_Table.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Order.csproj.GenerateResource.cache
@@ -252,3 +250,6 @@ D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug
 D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Or.1190A991.Up2Date
 D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Order.exe
 D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Order.pdb
+D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Chef_Control.UC_OrderList.resources
+D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Chef_Control.UC_Proccessing.resources
+D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.fChef.resources
