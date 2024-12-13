@@ -74,6 +74,7 @@ BEGIN
     INSERT INTO [TABLE] (FNAME, STATUS)
     VALUES (@TABLENAME, 1); -- STATUS MẶC ĐỊNH LÀ AVAILABLE
 END;
+GO
 INSERT INTO ACCOUNT (FULLNAME, EMAIL, [PASSWORD],	EXPY,		[ROLE]		 ) 
 VALUES
     (N'Võ Đăng Khoa',				'khoavd2809@gmail.com',     'khoavo123',		2,		'Manager'),
@@ -83,8 +84,7 @@ VALUES
 	(N'Từ Tuấn Sang',				'tsang@gmail.com',			'tsang123',			1,		'Chef'),
     (N'Nguyễn Thành Đạt',			'dathphong@gmail.com',		'hoangtusitinh',	0,		'Staff'),
 	(N'Nguyễn Giang Gia Huy',		'huybo@gmail.com',			'huybo123',			0,		'Chef');
-
-
+GO
 INSERT INTO [TABLE] (FNAME, STATUS)
 VALUES 
 ('Table 1', 0),
@@ -97,7 +97,7 @@ VALUES
 ('Table 8', 0),
 ('Table 9', 0), --Available table
 ('Table 10', 1); -- Unavailable table
-
+GO
 -- Insert data into [F&BCATEGORY]
 INSERT INTO [F&BCATEGORY] (FNAME)
 VALUES
@@ -106,7 +106,7 @@ VALUES
 ('Appetizers'),
 ('Main Course'),
 ('Desserts');
-
+GO
 -- Insert data into ITEM
 INSERT INTO ITEM (FNAME, IDCATEGORY, PRICE)
 VALUES 
@@ -121,7 +121,7 @@ VALUES
 ('Spring Rolls', 1, 5.0),
 ('Steak', 1, 20.0),
 ('Ice Cream', 4, 4.0);
-
+GO
 -- Insert data into Bill
 INSERT INTO BILL (DATEPAYMENT, IDTABLE, STATUS)
 VALUES 
@@ -133,7 +133,7 @@ VALUES
 ('2024-12-07', 7, 0),
 ('2024-12-01', 8, 0), -- Unpaid bill
 ('2024-12-05', 9, 0); -- Paid bill
-
+GO
 -- Insert data into BILLINF
 INSERT INTO BILLINF (IDBILL, IDFD, COUNT)
 VALUES 
@@ -152,7 +152,7 @@ VALUES
 (7, 4, 5),
 (7, 2, 2),
 (8, 4, 2);
-
+GO
 SELECT B.ID AS [ID BILL], T.FNAME AS [TABLE NAME], SUM(I.PRICE * BI.COUNT) AS [TOTAL PRICE], B.DATEPAYMENT AS [DATE CHECKOUT] FROM BILLINF BI
 JOIN BILL B ON BI.IDBILL = B.ID JOIN [TABLE] T ON B.IDTABLE = T.ID JOIN ITEM I ON BI.IDFD = I.ID GROUP BY B.ID, T.FNAME, B.DATEPAYMENT ORDER BY B.ID;
 
