@@ -60,7 +60,7 @@ namespace KTPOS_Order.Management_Control
             {
                 return result;
             }
-            // Return null if login fails
+            // Return null if function false
             return 0;
         }
         public int UpdateList(string fname, string name, string email, string role)
@@ -71,7 +71,7 @@ namespace KTPOS_Order.Management_Control
             {
                 return result;
             }
-            // Return null if login fails
+            // Return null if function false
             return 0;
         }
         public int InsertList(string name, string email, string role)
@@ -82,7 +82,7 @@ namespace KTPOS_Order.Management_Control
             {
                 return result;
             }
-            // Return null if login fails
+            // Return null if function false
             return 0;
         }
         public int InsertCate(string name)
@@ -118,22 +118,19 @@ namespace KTPOS_Order.Management_Control
             // Return null if login fails
             return 0;
         }
-       /* public int InsertItem(string name)
+
+        public int InsertItem(string name,float price, string fname)
         {
             string query = "INSERT INTO ITEM (fname, idCategory, price) " +
-                " SELECT N'New Item Name' AS fname, c.ID AS idCategory,
-    10.0 AS price --Thay 10.0 bằng giá mong muốn
-FROM
-    [F & BCATEGORY] c
-WHERE
-    c.fname = 'Drinks'; ";
+                "SELECT N'" +name+"' AS fname, c.ID AS idCategory,'" +price+ "' AS price FROM [F&BCATEGORY] c " +
+                "WHERE c.fname = '"+fname+"' "; 
             int result = GetDatabase.Instance.ExecuteNonQuery(query);
             if (result > 0)
             {
                 return result;
             }
-            // Return null if login fails
+            // Return null if function false
             return 0;
-        }*/
+        }
     }
 }
