@@ -31,14 +31,12 @@ D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_OrderDrink.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_OrderFood.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_OrderFoodOption.resources
-D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_Payment.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.fCustomer.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.fStaff.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Login.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Management_Control.UC_Admin.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Properties.Resources.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_ListBill.resources
-D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_Payment.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_QRPayment.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_Table.resources
 D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Order.csproj.GenerateResource.cache
@@ -223,33 +221,64 @@ D:\FILE CỦA THẢO\KTPOS\bản sao\KTPOS-Restaurant-Order-App\KTPOS Order\bin\
 D:\FILE CỦA THẢO\KTPOS\bản sao\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\zxing.xml
 D:\FILE CỦA THẢO\KTPOS\bản sao\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\zxing.presentation.xml
 D:\FILE CỦA THẢO\KTPOS\bản sao\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Or.1190A991.Up2Date
-E:\Project\Main\KTPOS Order\bin\Debug\KTPOS Order.exe.config
-E:\Project\Main\KTPOS Order\bin\Debug\KTPOS Order.exe
-E:\Project\Main\KTPOS Order\bin\Debug\KTPOS Order.pdb
-E:\Project\Main\KTPOS Order\bin\Debug\Guna.UI2.dll
-E:\Project\Main\KTPOS Order\bin\Debug\zxing.dll
-E:\Project\Main\KTPOS Order\bin\Debug\zxing.presentation.dll
-E:\Project\Main\KTPOS Order\bin\Debug\zxing.xml
-E:\Project\Main\KTPOS Order\bin\Debug\zxing.presentation.xml
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS Order.csproj.AssemblyReference.cache
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS_Order.Chef_Control.UC_OrderList.resources
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS_Order.Chef_Control.UC_Proccessing.resources
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_Item.resources
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_OrderDrink.resources
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_OrderFood.resources
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_OrderFoodOption.resources
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS_Order.fChef.resources
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS_Order.fCustomer.resources
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS_Order.fStaff.resources
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS_Order.Login.resources
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS_Order.Management_Control.UC_Admin.resources
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS_Order.Properties.Resources.resources
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_ListBill.resources
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_Payment.resources
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_QRPayment.resources
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_Table.resources
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS Order.csproj.GenerateResource.cache
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS Order.csproj.CoreCompileInputs.cache
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS Or.1190A991.Up2Date
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS Order.exe
-E:\Project\Main\KTPOS Order\obj\Debug\KTPOS Order.pdb
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\KTPOS Order.exe.config
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\KTPOS Order.exe
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\KTPOS Order.pdb
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\Guna.UI2.dll
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\zxing.dll
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\zxing.presentation.dll
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\zxing.xml
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\zxing.presentation.xml
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Order.csproj.AssemblyReference.cache
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Chef_Control.UC_OrderList.resources
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Chef_Control.UC_Proccessing.resources
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_Item.resources
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_OrderDrink.resources
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_OrderFood.resources
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_OrderFoodOption.resources
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.fChef.resources
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.fCustomer.resources
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.fStaff.resources
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Login.resources
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Management_Control.UC_Admin.resources
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Properties.Resources.resources
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_ListBill.resources
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_QRPayment.resources
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_Table.resources
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Order.csproj.GenerateResource.cache
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Order.csproj.CoreCompileInputs.cache
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Or.1190A991.Up2Date
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Order.exe
+D:\FILE CỦA THẢO\KTPOS\main\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Order.pdb
+D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Chef_Control.UC_OrderList.resources
+D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Chef_Control.UC_Proccessing.resources
+D:\Douments\GitHub\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.fChef.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\KTPOS Order.exe.config
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\KTPOS Order.exe
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\KTPOS Order.pdb
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\Guna.UI2.dll
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\zxing.dll
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\zxing.presentation.dll
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\zxing.xml
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\bin\Debug\zxing.presentation.xml
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Order.csproj.AssemblyReference.cache
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Chef_Control.UC_OrderList.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Chef_Control.UC_Proccessing.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_Item.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_OrderDrink.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_OrderFood.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Customer_Control.UC_OrderFoodOption.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.fChef.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.fCustomer.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.fStaff.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Login.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Management_Control.UC_Admin.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Properties.Resources.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_ListBill.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_QRPayment.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS_Order.Staff_Control.UC_Table.resources
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Order.csproj.GenerateResource.cache
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Order.csproj.CoreCompileInputs.cache
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Or.1190A991.Up2Date
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Order.exe
+E:\Project\KTPOS-Restaurant-Order-App\KTPOS Order\obj\Debug\KTPOS Order.pdb

@@ -40,6 +40,7 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.btnMinSize = new Guna.UI2.WinForms.Guna2Button();
             this.btnMaxSize = new Guna.UI2.WinForms.Guna2Button();
+            this.TableChange = new Guna.UI2.WinForms.Guna2ComboBox();
             btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -267,6 +268,27 @@
             this.btnMaxSize.TabIndex = 21;
             this.btnMaxSize.Click += new System.EventHandler(this.btnMaxSize_Click);
             // 
+            // TableChange
+            // 
+            this.TableChange.BackColor = System.Drawing.Color.Transparent;
+            this.TableChange.BorderColor = System.Drawing.Color.Maroon;
+            this.TableChange.BorderRadius = 7;
+            this.TableChange.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.TableChange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TableChange.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TableChange.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TableChange.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TableChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.TableChange.ItemHeight = 30;
+            this.TableChange.Items.AddRange(new object[] {
+            "Guest",
+            "Staff"});
+            this.TableChange.Location = new System.Drawing.Point(29, 21);
+            this.TableChange.Name = "TableChange";
+            this.TableChange.Size = new System.Drawing.Size(127, 36);
+            this.TableChange.TabIndex = 39;
+            this.TableChange.SelectedIndexChanged += new System.EventHandler(this.TableChange_SelectedIndexChanged);
+            // 
             // Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -275,6 +297,7 @@
             this.BackgroundImage = global::KTPOS_Order.Properties.Resources.shutterstock_1088296091;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(683, 450);
+            this.Controls.Add(this.TableChange);
             this.Controls.Add(this.btnMaxSize);
             this.Controls.Add(this.btnMinSize);
             this.Controls.Add(btnClose);
@@ -282,6 +305,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -300,5 +324,6 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Button btnMinSize;
         private Guna.UI2.WinForms.Guna2Button btnMaxSize;
+        private Guna.UI2.WinForms.Guna2ComboBox TableChange;
     }
 }

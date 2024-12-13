@@ -11,20 +11,36 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using System.Xml.Linq;
+using KTPOS_Order.Proccess;
 using static ZXing.QrCode.Internal.Mode;
 
 namespace KTPOS_Order.Customer_Control
 {
     public partial class UC_Item : UserControl
     {
-        string connectionString = "Data Source=DESKTOP-4S5L10L;Initial Catalog=KTPOS;" + "Integrated Security=true";
         string fName;
         decimal Price;
+        private string connectionString;
+
         public UC_Item()
         {
             InitializeComponent();
-        }
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+         ControlStyles.AllPaintingInWmPaint, true);
+            this.DoubleBuffered = true;
 
+            // Thiết lập DoubleBuffered cho các control con bằng Reflection
+            SetDoubleBuffered(txtName, true);
+            SetDoubleBuffered(txtCost, true);
+            SetDoubleBuffered(guna2CirclePictureBox1, true);
+        }
+        private void SetDoubleBuffered(Control control, bool value)
+        {
+            var property = typeof(Control).GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.NonPublic |
+                System.Reflection.BindingFlags.Instance);
+            property?.SetValue(control, value, null);
+        }
         public UC_Item(string fName, decimal Price, int id)
         {
             InitializeComponent();
@@ -32,45 +48,37 @@ namespace KTPOS_Order.Customer_Control
             txtCost.Text = $"${Price:0.00}";
             guna2CirclePictureBox1.Tag = id;
         }
+        //public UC_Item Item()
+        //{
+        //    string query = "SELECT fName, Price FROM ITEM WHERE ID = @ID";
+        //    DataTable data = GetDatabase.Instance.ExecuteQuery(query, new object[] { 1 });
 
-        public string GetName()
-        {
-            return txtName.Text;
-        }
+        //    if (data.Rows.Count > 0)
+        //    {
+        //        DataRow row = data.Rows[0];
+        //        fName = row["fName"].ToString();
+        //        Price = Convert.ToDecimal(row["Price"]);
 
-        public UC_Item Item()
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                // Mở kết nối đến database
-                connection.Open();
+        //        // Tạo một instance mới của UC_Item truyền tên món ăn và giá
+        //        UC_Item itemControl = new UC_Item(fName, Price, 1);
+        //        return itemControl;
+        //    }
+        //    else return null;
+        //}
 
-                // Câu lệnh SQL để lấy thông tin món ăn có ID = 1 từ bảng ITEM
-                string sql = "SELECT fName, Price FROM ITEM WHERE ID = 1";
+        //public void Get()
+        //{
+        //    // Sử dụng GetDatabase để truy vấn dữ liệu
+        //    string query = "SELECT fName, Price FROM ITEM WHERE ID = @ID";
+        //    DataTable data = GetDatabase.Instance.ExecuteQuery(query, new object[] { 1 });
 
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            // Lấy tên món ăn từ cột "fName"
-                            fName = reader["fName"].ToString();
-
-                            // Lấy giá từ cột "Price" và chuyển đổi sang kiểu decimal
-                            Price = Convert.ToDecimal(reader["Price"]);
-
-                            // Tạo một instance mới của UC_Item truyền tên món ăn và giá
-                            UC_Item itemControl = new UC_Item(fName, Price, 1);
-
-                            // Trả về thông tin của món
-                            return itemControl;
-                        }
-                        else return null;
-                    }
-                }
-            }
-        }
+        //    if (data.Rows.Count > 0)
+        //    {
+        //        DataRow row = data.Rows[0];
+        //        fName = row["fName"].ToString();
+        //        Price = Convert.ToDecimal(row["Price"]);
+        //    }
+        //}
         public void get()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -100,18 +108,9 @@ namespace KTPOS_Order.Customer_Control
                 }
             }
         }
-        private void UC_Item_Load(object sender, EventArgs e)
+        public string GetName()
         {
-
-        }
-
-        private void btnItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtName_Click(object sender, EventArgs e)
-        {
+            return txtName.Text;
         }
     }
 }

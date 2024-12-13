@@ -29,19 +29,9 @@ namespace KTPOS_Order.Staff_Control
             g.DrawImage(image, 0, 0, new_width, new_height);
             return new_image;
         }
-
-        private void UC_QRPayment_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void pic_qrcode_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_pay_Click_1(object sender, EventArgs e)
         {
-            var qrcode_text = $"2|99|{txt_phone.Text.Trim()}|{name.Text.Trim()}|{txt_content.Text.Trim()}|0|0|{txt_cost.Text.Trim()}";
+            var qrcode_text = $"2|99|{txt_phone.Text.Trim()}|{name.Text.Trim()}|{txtContent.Text.Trim()}|0|0|{txtCost.Text.Trim()}";
             BarcodeWriter barcodeWriter = new BarcodeWriter();
             EncodingOptions encodingOptions = new EncodingOptions() { Width = 250, Height = 250, Margin = 0, PureBarcode = false };
             encodingOptions.Hints.Add(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
@@ -54,7 +44,6 @@ namespace KTPOS_Order.Staff_Control
             g.DrawImage(logo, new Point((bitmap.Width - logo.Width) / 2, (bitmap.Height - logo.Height) / 2));
             pic_qrcode.Image = bitmap;
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Do you really want to exit?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

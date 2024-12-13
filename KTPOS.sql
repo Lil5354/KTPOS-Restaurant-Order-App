@@ -1,10 +1,14 @@
 ﻿USE MASTER
 GO
+ALTER DATABASE KTPOS SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+GO
 DROP DATABASE IF EXISTS KTPOS
 GO
 CREATE DATABASE KTPOS
 GO
-USE KTPOS	
+USE KTPOS
+
+
 GO
 CREATE TABLE ACCOUNT (
 	Email       NVARCHAR(50) primary key,
@@ -18,12 +22,14 @@ GO
 CREATE TABLE [TABLE] (
 	ID int identity primary key,
 	fname NVARCHAR(50),
-	status int not null default 1 --1: AVAILABLE/ 0:UNAVAILABLE
+	status int not null default 1, --1: AVAILABLE/ 0:UNAVAILABLE
+	Visible		int not null default 1 --0: FALSE 1: TRUE 
 );
 GO
 CREATE TABLE [F&BCATEGORY](
 	ID INT IDENTITY PRIMARY KEY,
-	fname nvarchar(50)
+	fname nvarchar(50),
+	Visible		int not null default 1 --0: FALSE 1: TRUE 
 );
 GO
 CREATE TABLE ITEM(
@@ -31,6 +37,7 @@ CREATE TABLE ITEM(
 	fname NVARCHAR(50) NOT NULL,
 	idCategory INT NOT NULL,
 	price float not null,
+	Visible		int not null default 1 --0: FALSE 1: TRUE 
 
 	FOREIGN KEY (idCategory) REFERENCES dbo.[F&BCATEGORY](ID)
 );
@@ -39,7 +46,7 @@ CREATE TABLE Bill(
 	ID INT IDENTITY PRIMARY KEY,
 	Datepayment DATE NOT NULL default getdate(),
 	idTable		int not null,
-	status int not null default 0 --1: Have pay 0: Not pay yet
+	status int not null default 0, --1: Have pay 0: Not pay yet
 
 	FOREIGN KEY (idTable) REFERENCES dbo.[TABLE](ID)
 );
@@ -48,7 +55,7 @@ CREATE TABLE BILLINF(
 	ID INT IDENTITY PRIMARY KEY,
 	idBill int not null,
 	idFD int not null,
-	count int not null default 0
+	count int not null default 0,
 
 	FOREIGN KEY (idBill) REFERENCES dbo.Bill(id),
 	FOREIGN KEY (idFD)	 REFERENCES dbo.ITEM(id)
@@ -115,74 +122,12 @@ VALUES
 -- Insert data into BILLINF
 INSERT INTO BILLINF (idBill, idFD, count)
 VALUES 
-(1, 1, 2), -- 2 Cokes on the first bill
-(1, 3, 1), -- 1 Spring Roll on the first bill
-(2, 4, 1), -- 1 Steak on the second bill
-(2, 5, 3), -- 3 Ice Creams on the second bill
-(3, 1, 4),
-(4, 2, 2),
-(4, 3, 2),
-(4, 1, 3),
-(4, 4, 5),
-(5, 1, 5),
-(6, 2, 10),
-(7, 3, 5),
-(7, 4, 5),
-(7, 2, 2),
-(8, 4, 2);
+(1, 1, 2), -- 2 Coffee on the first bill
+(1, 3, 1), -- 1 Fried Rice on the first bill
+(2, 4, 1), -- 1 Pizza on the second bill
+(2, 5, 3); -- 3 Cheesecake on the second bill
 
-SELECT * FROM ITEM
-SELECT * FROM Bill
-/*SELECT 
-    b.ID AS Bill_ID,
-    bi.idFD AS Item_ID,
-    i.fname AS Item_Name,
-    bi.count AS Quantity,
-    i.price AS Price,
-    c.fname AS Category_Name,
-    b.Datepayment AS Date_Of_Purchase
-FROM 
-    BILLINF bi
-JOIN 
-    ITEM i ON bi.idFD = i.ID
-JOIN 
-    [F&BCATEGORY] c ON i.idCategory = c.ID
-JOIN 
-    Bill b ON bi.idBill = b.ID
-ORDER BY 
-    b.ID;*/x
-/*SELECT 
-    b.ID AS Bill_ID,
-    t.fname AS Table_Name,
-    SUM(i.price * bi.count) AS Total_Price,
-    b.Datepayment AS Date_Checkout
-FROM 
-    BILLINF bi
-JOIN 
-    Bill b ON bi.idBill = b.ID
-JOIN 
-    [TABLE] t ON b.idTable = t.ID
-JOIN 
-    ITEM i ON bi.idFD = i.ID
-GROUP BY 
-    b.ID, t.fname, b.Datepayment
-ORDER BY 
-    b.ID;*/
-/*SELECT 
-    b.ID AS Bill_ID,
-    SUM(i.price * bi.count) AS Total_Price
-FROM 
-    BILLINF bi
-JOIN 
-    Bill b ON bi.idBill = b.ID
-JOIN 
-    ITEM i ON bi.idFD = i.ID
-WHERE 
-    b.status = 0 -- Only include paid bills
-GROUP BY 
-    b.ID
-ORDER BY 
-    b.ID;*/
-SELECT FullName as [FULL NAME], Email AS [EMAIL], ExpY AS [EXP IN YEAR], [Role] AS [ROLE] FROM ACCOUNT 
-WHERE Visible = 1 AND FullName Like N'%Th%'
-Order by [Role] ASC
+
+SELECT fb.fname [TYPE], i.fname AS [NAME], price[PRICE] FROM ITEM i JOIN [F&BCATEGORY] fb ON idCategory = fb.ID  WHERE i.Visible = 1 Order by [Type] ASC
+
+use KTPOS select * from BILLINF;

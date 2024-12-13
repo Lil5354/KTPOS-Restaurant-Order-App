@@ -254,7 +254,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fStaff";
             this.Text = "Staff ";
-            this.Load += new System.EventHandler(this.fStaff_Load);
             this.ResumeLayout(false);
 
         }

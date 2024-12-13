@@ -138,12 +138,6 @@
     <Compile Include="Staff Control\UC_ListBill.Designer.cs">
       <DependentUpon>UC_ListBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="Staff Control\UC_Payment.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Staff Control\UC_Payment.Designer.cs">
-      <DependentUpon>UC_Payment.cs</DependentUpon>
-    </Compile>
     <Compile Include="Staff Control\UC_QRPayment.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -201,9 +195,6 @@
     </Compile>
     <EmbeddedResource Include="Staff Control\UC_ListBill.resx">
       <DependentUpon>UC_ListBill.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Staff Control\UC_Payment.resx">
-      <DependentUpon>UC_Payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff Control\UC_QRPayment.resx">
       <DependentUpon>UC_QRPayment.cs</DependentUpon>

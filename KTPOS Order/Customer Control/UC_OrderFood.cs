@@ -65,5 +65,10 @@ namespace KTPOS_Order.Customer_Control
         {
 
         }
+
+        private void UC_OrderFood_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
