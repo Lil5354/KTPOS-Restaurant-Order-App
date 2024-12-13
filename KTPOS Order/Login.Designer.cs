@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Guna2Button btnClose;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pLogin = new System.Windows.Forms.Panel();
             this.btnHide = new Guna.UI2.WinForms.Guna2Button();
             this.btnEyes = new Guna.UI2.WinForms.Guna2Button();
@@ -41,7 +42,8 @@
             this.btnMinSize = new Guna.UI2.WinForms.Guna2Button();
             this.btnMaxSize = new Guna.UI2.WinForms.Guna2Button();
             this.cbbLogin = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.pLogin.SuspendLayout();
             this.SuspendLayout();
@@ -83,7 +85,7 @@
             this.pLogin.Controls.Add(this.btnExit);
             this.pLogin.Controls.Add(this.txtPass);
             this.pLogin.Controls.Add(this.txtUser);
-            this.pLogin.Location = new System.Drawing.Point(123, 100);
+            this.pLogin.Location = new System.Drawing.Point(127, 90);
             this.pLogin.Name = "pLogin";
             this.pLogin.Size = new System.Drawing.Size(441, 262);
             this.pLogin.TabIndex = 2;
@@ -246,7 +248,7 @@
             this.btnMinSize.Location = new System.Drawing.Point(602, 21);
             this.btnMinSize.Name = "btnMinSize";
             this.btnMinSize.Size = new System.Drawing.Size(25, 25);
-            this.btnMinSize.TabIndex = 20;
+            this.btnMinSize.TabIndex = 31;
             this.btnMinSize.Click += new System.EventHandler(this.btnMinSize_Click);
             // 
             // btnMaxSize
@@ -265,13 +267,14 @@
             this.btnMaxSize.Location = new System.Drawing.Point(602, 21);
             this.btnMaxSize.Name = "btnMaxSize";
             this.btnMaxSize.Size = new System.Drawing.Size(25, 25);
-            this.btnMaxSize.TabIndex = 21;
+            this.btnMaxSize.TabIndex = 30;
             this.btnMaxSize.Click += new System.EventHandler(this.btnMaxSize_Click);
             // 
             // cbbLogin
             // 
             this.cbbLogin.BackColor = System.Drawing.Color.Transparent;
             this.cbbLogin.BorderColor = System.Drawing.Color.Maroon;
+            this.cbbLogin.BorderRadius = 10;
             this.cbbLogin.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbbLogin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbLogin.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -282,21 +285,36 @@
             this.cbbLogin.Items.AddRange(new object[] {
             "Guest",
             "Staff"});
-            this.cbbLogin.Location = new System.Drawing.Point(33, 31);
+            this.cbbLogin.Location = new System.Drawing.Point(25, 21);
             this.cbbLogin.Name = "cbbLogin";
             this.cbbLogin.Size = new System.Drawing.Size(150, 36);
             this.cbbLogin.TabIndex = 39;
             this.cbbLogin.SelectedIndexChanged += new System.EventHandler(this.TableChange_SelectedIndexChanged);
             // 
-            // guna2HtmlLabel1
+            // lb1
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(71, 7);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(71, 18);
-            this.guna2HtmlLabel1.TabIndex = 41;
-            this.guna2HtmlLabel1.Text = "WELCOME";
+            this.lb1.AutoSize = false;
+            this.lb1.BackColor = System.Drawing.Color.Transparent;
+            this.lb1.Font = new System.Drawing.Font("VNI-Butlong", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb1.ForeColor = System.Drawing.Color.White;
+            this.lb1.Location = new System.Drawing.Point(57, 124);
+            this.lb1.Name = "lb1";
+            this.lb1.Size = new System.Drawing.Size(325, 109);
+            this.lb1.TabIndex = 40;
+            this.lb1.Text = "Welcome";
+            // 
+            // lb2
+            // 
+            this.lb2.AutoSize = false;
+            this.lb2.AutoSizeHeightOnly = true;
+            this.lb2.BackColor = System.Drawing.Color.Transparent;
+            this.lb2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lb2.ForeColor = System.Drawing.Color.White;
+            this.lb2.Location = new System.Drawing.Point(57, 225);
+            this.lb2.Name = "lb2";
+            this.lb2.Size = new System.Drawing.Size(511, 113);
+            this.lb2.TabIndex = 41;
+            this.lb2.Text = resources.GetString("lb2.Text");
             // 
             // Login
             // 
@@ -306,7 +324,8 @@
             this.BackgroundImage = global::KTPOS_Order.Properties.Resources.shutterstock_1088296091;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(683, 450);
-            this.Controls.Add(this.guna2HtmlLabel1);
+            this.Controls.Add(this.lb2);
+            this.Controls.Add(this.lb1);
             this.Controls.Add(this.cbbLogin);
             this.Controls.Add(this.btnMaxSize);
             this.Controls.Add(this.btnMinSize);
@@ -335,6 +354,7 @@
         private Guna.UI2.WinForms.Guna2Button btnMinSize;
         private Guna.UI2.WinForms.Guna2Button btnMaxSize;
         private Guna.UI2.WinForms.Guna2ComboBox cbbLogin;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lb1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lb2;
     }
 }

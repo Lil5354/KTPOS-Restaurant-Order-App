@@ -22,6 +22,12 @@ namespace KTPOS_Order
 
             // Hoặc nếu muốn chi tiết hơn
             this.DoubleBuffered = true;
+            this.WindowState = FormWindowState.Maximized;
+
+            // Đặt StartPosition là CenterScreen để căn giữa màn hình
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.MinimumSize = new Size(800, 450);
+            btnMinSize.BringToFront();
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -99,8 +105,13 @@ namespace KTPOS_Order
         private void btnMinSize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
+            this.StartPosition = FormStartPosition.Manual;
+
+            // Tùy chỉnh lại vị trí nếu cần (giữ nguyên vị trí hiện tại)
+            this.Location = new Point(0, 0);
             btnMinSize.Visible = false;
             btnMaxSize.Visible = true;
+            lb2.Visible = false;
         }
 
         private void btnMaxSize_Click(object sender, EventArgs e)
@@ -140,6 +151,8 @@ namespace KTPOS_Order
             else
             {
                 pLogin.Visible = true;
+                lb1.Visible = false;
+                lb2.Visible = false;
             }
         }
     }
