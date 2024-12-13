@@ -118,12 +118,22 @@ namespace KTPOS_Order.Management_Control
             // Return null if login fails
             return 0;
         }
-
-        public int InsertItem(string name,float price, string fname)
+        public int InsertItem(string name,string price, string fname)
         {
             string query = "INSERT INTO ITEM (fname, idCategory, price) " +
                 "SELECT N'" +name+"' AS fname, c.ID AS idCategory,'" +price+ "' AS price FROM [F&BCATEGORY] c " +
                 "WHERE c.fname = '"+fname+"' "; 
+            int result = GetDatabase.Instance.ExecuteNonQuery(query);
+            if (result > 0)
+            {
+                return result;
+            }
+            // Return null if function false
+            return 0;
+        }
+        public int DeleteItem(string name)
+        {
+            string query = "UPDATE ITEM SET Visible = 0 WHERE fname = '" +name+ "' ";
             int result = GetDatabase.Instance.ExecuteNonQuery(query);
             if (result > 0)
             {

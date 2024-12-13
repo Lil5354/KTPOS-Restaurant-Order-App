@@ -83,7 +83,6 @@ namespace KTPOS_Order
                 btnEyes.Visible = true;
             }
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Do you really want to exit?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -127,6 +126,11 @@ namespace KTPOS_Order
         }
 
         private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TableChange_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

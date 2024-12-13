@@ -287,6 +287,7 @@
             this.TableChange.Name = "TableChange";
             this.TableChange.Size = new System.Drawing.Size(127, 36);
             this.TableChange.TabIndex = 39;
+            this.TableChange.SelectedIndexChanged += new System.EventHandler(this.TableChange_SelectedIndexChanged);
             // 
             // Login
             // 

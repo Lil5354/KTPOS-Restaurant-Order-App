@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -38,7 +39,7 @@ namespace KTPOS_Order.Management_Control
             // Đặt trạng thái mặc định khi UserControl được load
             tcManager.SelectedTab = null;
         }
-        private void dtgvAccount_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dtgvAccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -163,7 +164,8 @@ namespace KTPOS_Order.Management_Control
                         GetLists.Instance.LoadAccountList(query, dtgvCate);
                         break;
                     case "F&B":
-                        query = "SELECT fb.fname [TYPE], ITEM.fname AS [NAME], price[PRICE] FROM ITEM JOIN [F&BCATEGORY] fb ON idCategory = fb.ID  Order by [Type] ASC";
+                        query = "SELECT fb.fname [TYPE], i.fname AS [NAME], price[PRICE] FROM ITEM i JOIN [F&BCATEGORY] fb ON idCategory = fb.ID  " +
+                            "WHERE i.Visible = 1 Order by [Type] ASC";
                         GetLists.Instance.LoadAccountList(query, dtgvFandB);
                         q = "SELECT fname AS [NAME CATEGORIES] FROM [F&BCATEGORY] WHERE Visible = 1";
                         GetDatabase.Instance.LoadDataToComboBox(q, cbCategoriesFB);
@@ -191,7 +193,7 @@ namespace KTPOS_Order.Management_Control
             query = "SELECT FullName as [FULL NAME], Email AS [EMAIL], ExpY AS [EXP IN YEAR], [Role] AS [ROLE] FROM ACCOUNT \r\nWHERE Visible = 1 AND FullName Like " + "N'%" + txtSearchAcc.Text.ToString() + "%'";
             GetLists.Instance.LoadAccountList(query, dtgvAccount);
         }
-        private void dtgvCate_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgvCate_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -201,7 +203,8 @@ namespace KTPOS_Order.Management_Control
                 txtNameCate.Text = row.Cells[0].Value?.ToString();
             }
         }
-        private void dtgvCate_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+
+        private void dtgvCate_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -213,7 +216,7 @@ namespace KTPOS_Order.Management_Control
             txtSearchCategories.Text = "";
             txtNameCate.Text = "";
         }
-        private void btnAddCategories_Click(object sender, EventArgs e)
+        private void btnAddCategories_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -235,8 +238,7 @@ namespace KTPOS_Order.Management_Control
                 MessageBox.Show("Error add account: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void btnDeleteCategories_Click(object sender, EventArgs e)
+        private void btnDeleteCategories_Click_1(object sender, EventArgs e)
         {
             if (index == -1)
             {
@@ -266,7 +268,7 @@ namespace KTPOS_Order.Management_Control
                 }
             }
         }
-        private void btnEditCategories_Click(object sender, EventArgs e)
+        private void btnEditCategories_Click_1(object sender, EventArgs e)
         {
 
             if (index == -1)
@@ -303,8 +305,6 @@ namespace KTPOS_Order.Management_Control
             query = "SELECT fname AS [NAME CATEGORIES] FROM [F&BCATEGORY] \r\nWHERE Visible = 1 AND fName Like " + "N'%" + txtSearchCategories.Text.ToString() + "%'";
             GetLists.Instance.LoadAccountList(query, dtgvCate);
         }
-
-
         //F&B (ITEM)
         private void ClearTxtFaB()
         {
@@ -331,17 +331,24 @@ namespace KTPOS_Order.Management_Control
                 cbCategoriesFB.Text = row.Cells[0].Value?.ToString();
             }
         }
+        private void txtPriceFB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
         private void btnAddFB_Click(object sender, EventArgs e)
         {
             try
             {
-                string name = txtNameFB.Text, email = txtEmail.Text, role = cbBRole.Text;
-                int n = GetLists.Instance.InsertList(name, email, role);
+                string name = txtNameFB.Text, price = txtPriceFB.Text, fname = cbCategoriesFB.Text;
+                int n = GetLists.Instance.InsertItem(name, price, fname);
                 if (n > 0)
                 {
                     MessageBox.Show("F&B add successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tcManager_SelectedIndexChanged(sender, e);
-                    ClearTxtAccount();
+                    ClearTxtFaB();
                 }
                 else
                 {
@@ -355,12 +362,64 @@ namespace KTPOS_Order.Management_Control
         }
         private void btnDeleteFB_Click(object sender, EventArgs e)
         {
-
+            if (index == -1)
+            {
+                MessageBox.Show("Please chose the row need to be delete!", "Notice!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                int CurrentIndex = dtgvFandB.CurrentCell.RowIndex;
+                string name = Convert.ToString(dtgvFandB.Rows[CurrentIndex].Cells[1].Value.ToString());
+                try
+                {
+                    int n = GetLists.Instance.DeleteItem(name);
+                    if (n > 0)
+                    {
+                        MessageBox.Show("F&B delete successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tcManager_SelectedIndexChanged(sender, e);
+                        ClearTxtCate();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error delete F&B", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error delete F&B: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
-
         private void btnEditFB_Click(object sender, EventArgs e)
         {
-
+            if (index == -1)
+            {
+                MessageBox.Show("Please chose the row need to be edit!", "Notice!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                try
+                {
+                    int CurrentIndex = dtgvFandB.CurrentCell.RowIndex;
+                    string fname = Convert.ToString(dtgvFandB.Rows[CurrentIndex].Cells[0].Value.ToString());
+                    string name = txtNameCate.Text;
+                    int n = GetLists.Instance.UpdateCate(fname, name);
+                    if (n > 0)
+                    {
+                        MessageBox.Show("Category update successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tcManager_SelectedIndexChanged(sender, e);
+                        ClearTxtCate();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error update category", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error update category: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         
