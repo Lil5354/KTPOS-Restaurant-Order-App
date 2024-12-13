@@ -87,7 +87,7 @@ namespace KTPOS_Order.Customer_Control
                 connection.Open();
 
                 // Câu lệnh SQL để lấy thông tin món ăn có ID = 1 từ bảng ITEM
-                string sql = "SELECT fName, Price FROM ITEM WHERE ID = 1";
+                string sql = "SELECT fName, Price FROM ITEM";
 
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {

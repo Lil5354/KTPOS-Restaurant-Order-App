@@ -23,8 +23,10 @@ namespace KTPOS_Order
         public static List<DataGridViewRow> dataGridRows = new List<DataGridViewRow>();
         public Dictionary<string, int> Count = new Dictionary<string, int>();
         Decimal Total = 0;
-        decimal SubTotal = 0;
+        Decimal SubTotal = 0;
+        Decimal VATamount = 0;
         int BillId = 0;
+        int BTN = 0;
         public fCustomer()
         {
             InitializeComponent();
@@ -37,6 +39,7 @@ namespace KTPOS_Order
             SetDoubleBuffered(btnMaxSize, true);
             SetDoubleBuffered(btnMinSize, true);
             nUDItem.Visible = false;
+            Filter.SelectedIndex = 0;
         }
         private void SetDoubleBuffered(Control control, bool value)
         {
@@ -51,9 +54,9 @@ namespace KTPOS_Order
             dtgvBillCus.Columns.Add("Quantity", "Quantity");
             dtgvBillCus.Columns.Add("Price", "Price");
             DataGridViewTextBoxColumn idFDColumn = new DataGridViewTextBoxColumn();
-            idFDColumn.Name = "idFD"; 
-            idFDColumn.HeaderText = "ID Food";  
-            idFDColumn.Visible = false;  
+            idFDColumn.Name = "idFD";
+            idFDColumn.HeaderText = "ID Food";
+            idFDColumn.Visible = false;
             dtgvBillCus.Columns.Add(idFDColumn);
         }
         public void AddOrUpdate(Dictionary<string, int> dict, string key)
@@ -73,13 +76,17 @@ namespace KTPOS_Order
             string name = "";
             decimal price = 0;
 
-            string query = "SELECT fName, Price FROM ITEM WHERE ID = @ID";
+            string query = "SELECT *  FROM ITEM WHERE ID = @ID";
             DataTable result = GetDatabase.Instance.ExecuteQuery(query, new object[] { ID });
 
             if (result.Rows.Count > 0)
             {
                 DataRow row = result.Rows[0];
                 name = row["fName"].ToString();
+                string queryid = "SELECT fname, MIN(id) AS id FROM ITEM where fname = '" + name + "' GROUP BY fname ORDER BY id";
+                DataTable id = GetDatabase.Instance.ExecuteQuery(queryid);
+                DataRow row1 = id.Rows[0];
+                ID = row1["ID"].ToString();
                 price = Convert.ToDecimal(row["Price"]);
                 SubTotal += price;
 
@@ -117,12 +124,11 @@ namespace KTPOS_Order
         public void LoadProducts(string query)
         {
             DataTable result = GetDatabase.Instance.ExecuteQuery(query);
-
             foreach (DataRow row in result.Rows)
             {
                 string name = row["fName"].ToString();
                 decimal price = Convert.ToDecimal(row["Price"]);
-                int id = Convert.ToInt32(row["ID"]);
+                int id = int.Parse(row["ID"].ToString());
 
                 UC_Item itemControl = new UC_Item(name, price, id);
                 itemControl.guna2CirclePictureBox1.Click += AddProduct;
@@ -170,17 +176,20 @@ namespace KTPOS_Order
         private void btnFoodOrder_Click(object sender, EventArgs e)
         {
             FlowMenu.Controls.Clear();
-            LoadProducts("SELECT ID, fName, Price FROM ITEM");
+            LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory IN (1,2)");
+            BTN = 0;
         }
         private void btnFoodOptions_Click(object sender, EventArgs e)
         {
             FlowMenu.Controls.Clear();
             LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 1");
+            BTN = 1;
         }
         private void btnDrinks_Click(object sender, EventArgs e)
         {
             FlowMenu.Controls.Clear();
             LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 2");
+            BTN = 2;
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -198,7 +207,7 @@ namespace KTPOS_Order
         private void fCustomer_Load(object sender, EventArgs e)
         {
             FlowMenu.Controls.Clear();
-            LoadProducts("SELECT ID, fName, Price FROM ITEM");
+            LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory IN (1,2)");
         }
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
@@ -215,31 +224,97 @@ namespace KTPOS_Order
         private void Filter_SelectedIndexChanged(object sender, EventArgs e)
         {
             string filter = Filter.SelectedItem.ToString();
-            switch (filter)
+            string filter2;
+            FlowMenu.Controls.Clear();
+            int x = 0, y = 0;
+            switch (BTN)
             {
-                case "Default":
-                    FlowMenu.Controls.Clear();
-                    LoadProducts("SELECT ID, fName, Price FROM ITEM");
+                case 1:
+                    x = 1;
+                    switch (filter)
+                    {
+                        case "Default":
+                            LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 1");
+                            return;
+                        case "Best Sellers":
+                            y = 3;
+                            break;
+                        case "New Arrivals":
+                            y = 4;
+                            break;
+                            break;
+                        case "Featured Dishes":
+                            y = 5;
+                            break;
+                            break;
+                        case "Combo Deals":
+                            y = 6;
+                            break;
+                            break;
+                        case "Most Loved":
+                            y = 7;
+                            break;
+                            break;
+                    }
+                    filter2 = $"SELECT TOP 1 * FROM ITEM WHERE idCategory IN ({x}, {y}) AND fname IN (SELECT fname FROM ITEM WHERE idCategory IN ({x}, {y}) GROUP BY fname HAVING COUNT(*) > 1)ORDER BY id DESC";
+                    LoadProducts(filter2);
                     break;
-                case "Best Sellers":
-                    FlowMenu.Controls.Clear();
-                    LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 4");
+                case 2:
+                    x = 2;
+                    switch (filter)
+                    {
+                        case "Default":
+                            LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 2");
+                            break;
+                        case "Best Sellers":
+                            y = 3;
+                            break;
+                        case "New Arrivals":
+                            y = 4;
+                            break;
+                            break;
+                        case "Featured Dishes":
+                            y = 5;
+                            break;
+                            break;
+                        case "Combo Deals":
+                            y = 6;
+                            break;
+                            break;
+                        case "Most Loved":
+                            y = 7;
+                            break;
+                    }
+                    filter2 = $"SELECT TOP 1 * FROM ITEM WHERE idCategory IN ({x}, {y}) AND fname IN (SELECT fname FROM ITEM WHERE idCategory IN ({x}, {y}) GROUP BY fname HAVING COUNT(*) > 1)ORDER BY id DESC";
+                    LoadProducts(filter2);
                     break;
-                case "New Arrivals":
-                    FlowMenu.Controls.Clear();
-                    LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 1");
-                    break;
-                case "Featured Dishes":
-                    FlowMenu.Controls.Clear();
-                    LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 2");
-                    break;
-                case "Combo Deals":
-                    FlowMenu.Controls.Clear();
-                    LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 3");
-                    break;
-                case "Most Loved":
-                    FlowMenu.Controls.Clear();
-                    LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 4");
+                case 0:
+                    switch (filter)
+                    {
+                        case "Default":
+                            LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory IN (1,2)");
+                            return;
+                        case "Best Sellers":
+                            y = 3;
+                            break;
+                        case "New Arrivals":
+                            y = 4;
+                            break;
+                            break;
+                        case "Featured Dishes":
+                            y = 5;
+                            break;
+                            break;
+                        case "Combo Deals":
+                            y = 6;
+                            break;
+                            break;
+                        case "Most Loved":
+                            y = 7;
+                            break;
+                    }
+                    filter2 = $"SELECT ID, fName, Price FROM ITEM WHERE idCategory = {y}";
+                    LoadProducts(filter2);
                     break;
             }
         }
@@ -266,7 +341,7 @@ namespace KTPOS_Order
         private void nUDItem_ValueChanged(object sender, EventArgs e)
         {
             string key = dtgvBillCus.SelectedRows[0].Cells[0].Value.ToString();
-            int d = (int) nUDItem.Value;
+            int d = (int)nUDItem.Value;
             Count[key] = d;
             if (nUDItem.Value != 0)
             {
@@ -301,7 +376,7 @@ namespace KTPOS_Order
 
         private void fCustomer_MouseDown(object sender, MouseEventArgs e)
         {
-            nUDItem.Visible=false;
+            nUDItem.Visible = false;
         }
 
         private void dtgvBillCus_MouseDown(object sender, MouseEventArgs e)
@@ -316,69 +391,70 @@ namespace KTPOS_Order
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
+            if (dtgvBillCus.RowCount == 0)
+            {
+                MessageBox.Show("You haven't order any yet.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }              
             DialogResult dialog = MessageBox.Show("Do you really want to Order?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == DialogResult.Yes)
             {
-                string filePath = "E:\\Project\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Note\\Bill Note.txt";
-                using (StreamWriter writer = new StreamWriter(filePath))
+                string filePath = "E:\\Project\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Note\\BillNote";
+                string queryid = "SELECT TOP 1 * FROM BILLINF ORDER BY idBill DESC";
+                DataTable result = GetDatabase.Instance.ExecuteQuery(queryid);
+                if (result.Rows.Count > 0)
+                {
+                    DataRow row = result.Rows[0];
+                    BillId = int.Parse(row["idBill"].ToString());
+                }
+                else
+                {
+                    BillId = 0;
+                }
+                BillId++;
+                filePath = filePath + BillId.ToString() + ".txt";
+                if (txtNoteBill != null) using (StreamWriter writer = new StreamWriter(filePath))
                 {
                     writer.Write(txtNoteBill.Text);
                 }
                 txtNoteBill.Clear();
-                    // Kết nối cơ sở dữ liệu SQL Server
-                    string connectionString = "Data Source=DESKTOP-4S5L10L;Initial Catalog=KTPOS;" + "Integrated Security=true";
-                string queryid = "SELECT TOP 1 * FROM BILLINF ORDER BY idBill DESC";
-                // Duyệt qua từng dòng trong DataGridView và thêm vào cơ sở dữ liệu
-                using (SqlConnection conn = new SqlConnection(connectionString))
+
+
+                foreach (DataGridViewRow row in dtgvBillCus.Rows)
                 {
-                    conn.Open();
-                    SqlDataAdapter da = new SqlDataAdapter(queryid, conn);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+                    // Kiểm tra nếu dòng không phải là dòng trống
+                    if (row.IsNewRow) continue;
+                    int count = Convert.ToInt32(row.Cells["Quantity"].Value);
+                    int idFD = Convert.ToInt32(row.Cells["idFD"].Value);
 
-                    if (dt.Rows.Count > 0)
-                    {
-                        DataRow row = dt.Rows[0];
-                        BillId = int.Parse(row["idBill"].ToString());
-                    }
-                    else
-                    {
-                        BillId = 0;
-                    }
-                    BillId++;
-                    foreach (DataGridViewRow row in dtgvBillCus.Rows)
-                    {
-                        // Kiểm tra nếu dòng không phải là dòng trống
-                        if (row.IsNewRow) continue;
+                    // Chuẩn bị câu lệnh SQL để chèn dữ liệu
+                    string query = "INSERT INTO BILLINF (idBill, idFD, count) VALUES ("+ BillId.ToString() + "," + idFD.ToString() + "," + count.ToString()+")";
 
-                        int idFD = Convert.ToInt32(row.Cells["idFD"].Value);
-                        int count = Convert.ToInt32(row.Cells["Quantity"].Value);
-
-                        // Chuẩn bị câu lệnh SQL để chèn dữ liệu
-                        string query = "INSERT INTO BILLINF (idBill, idFD, count) VALUES (@idBill, @idFD, @count)";
-
-                        using (SqlCommand cmd = new SqlCommand(query, conn))
-                        {
-                            // Thêm tham số vào câu lệnh SQL
-                            cmd.Parameters.AddWithValue("@idBill", BillId);
-                            cmd.Parameters.AddWithValue("@idFD", idFD);
-                            cmd.Parameters.AddWithValue("@count", count);
-
-                            // Thực thi câu lệnh SQL
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
+                    DataTable result1 = GetDatabase.Instance.ExecuteQuery(query);
                 }
                 while (dtgvBillCus.Rows.Count > 0)
                 {
                     dtgvBillCus.Rows.RemoveAt(0);
                 }
+                Reset();
             }
             else
             {
                 MessageBox.Show("Order cancelled. Continue your activity.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Focus();
             }
+        }
+        void Reset()
+        {
+            Total = 0;
+            SubTotal = 0;
+            VATamount = 0;
+            txtTotal.Text = Total.ToString("C", new System.Globalization.CultureInfo("en-US"));
+            txtSubTotal.Text = SubTotal.ToString("C", new System.Globalization.CultureInfo("en-US"));
+            txtVAT.Text = VATamount.ToString("C", new System.Globalization.CultureInfo("en-US"));
+            int BillId = 0;
+            dataGridRows = new List<DataGridViewRow>();
+            Count = new Dictionary<string, int>();
         }
     }
 }

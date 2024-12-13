@@ -89,23 +89,30 @@ INSERT INTO [F&BCATEGORY] (fname)
 VALUES
 ('Food'),
 ('Drinks'),
-('Appetizers'),
-('Main Course'),
-('Desserts');
+('Best Sellers'),
+('New Arrivals'),
+('Featured Dishes'),
+('Combo Deals'),
+('Most Loved');
 
 -- Insert data into ITEM
 INSERT INTO ITEM (fname, idCategory, price)
 VALUES 
-('Coffee', 2, 2.0),
-('Tea', 2, 1.0),
-('Fried Rice', 1, 10.0),
-('Pizza', 1, 15.0),
-('Cheesecake', 4, 6.0),
-('Coke', 2, 1.5),
-('Beer', 2, 3.0),
-('Spring Rolls', 1, 5.0),
+('Coffee', 2, 2.0), 
+('Tea', 2, 1.0), 
+('Fried Rice', 1, 10.0), 
+('Pizza', 1, 15.0), 
+('Cheesecake', 1, 6.0), 
+('Coke', 2, 1.5), 
+('Beer', 2, 3.0), 
+('Spring Rolls', 1, 5.0), 
 ('Steak', 1, 20.0),
-('Ice Cream', 4, 4.0);
+
+('Coffee', 3, 2.0),
+('Tea', 4, 1.0),
+('Fried Rice', 5, 10.0),
+('Pizza', 6, 15.0),
+('Cheesecake', 7, 6.0);
 
 -- Insert data into Bill
 INSERT INTO Bill (Datepayment, idTable, status)
@@ -127,7 +134,4 @@ VALUES
 (2, 4, 1), -- 1 Pizza on the second bill
 (2, 5, 3); -- 3 Cheesecake on the second bill
 
-
-SELECT fb.fname [TYPE], i.fname AS [NAME], price[PRICE] FROM ITEM i JOIN [F&BCATEGORY] fb ON idCategory = fb.ID  WHERE i.Visible = 1 Order by [Type] ASC
-
-use KTPOS select * from BILLINF;
+select * from BILLINF
