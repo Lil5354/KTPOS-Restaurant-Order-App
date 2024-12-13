@@ -88,7 +88,6 @@
             this.txt_phone.SelectedText = "";
             this.txt_phone.Size = new System.Drawing.Size(208, 31);
             this.txt_phone.TabIndex = 6;
-            this.txt_phone.TextChanged += new System.EventHandler(this.txt_phone_TextChanged);
             // 
             // guna2HtmlLabel1
             // 
@@ -184,7 +183,6 @@
             this.txtContent.SelectedText = "";
             this.txtContent.Size = new System.Drawing.Size(208, 31);
             this.txtContent.TabIndex = 13;
-            this.txtContent.TextChanged += new System.EventHandler(this.txt_content_TextChanged);
             // 
             // guna2HtmlLabel4
             // 
@@ -226,7 +224,6 @@
             this.pic_qrcode.Size = new System.Drawing.Size(250, 233);
             this.pic_qrcode.TabIndex = 7;
             this.pic_qrcode.TabStop = false;
-            this.pic_qrcode.Click += new System.EventHandler(this.pic_qrcode_Click_1);
             // 
             // UC_QRPayment
             // 
@@ -245,7 +242,6 @@
             this.Controls.Add(this.txt_phone);
             this.Name = "UC_QRPayment";
             this.Size = new System.Drawing.Size(738, 502);
-            this.Load += new System.EventHandler(this.UC_QRPayment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_qrcode)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

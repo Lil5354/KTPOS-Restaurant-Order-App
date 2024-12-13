@@ -29,16 +29,6 @@ namespace KTPOS_Order.Staff_Control
             g.DrawImage(image, 0, 0, new_width, new_height);
             return new_image;
         }
-
-        private void UC_QRPayment_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void pic_qrcode_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_pay_Click_1(object sender, EventArgs e)
         {
             var qrcode_text = $"2|99|{txt_phone.Text.Trim()}|{name.Text.Trim()}|{txtContent.Text.Trim()}|0|0|{txtCost.Text.Trim()}";
@@ -54,7 +44,6 @@ namespace KTPOS_Order.Staff_Control
             g.DrawImage(logo, new Point((bitmap.Width - logo.Width) / 2, (bitmap.Height - logo.Height) / 2));
             pic_qrcode.Image = bitmap;
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Do you really want to exit?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -71,16 +60,6 @@ namespace KTPOS_Order.Staff_Control
                 MessageBox.Show("Exit cancelled. Continue your activity.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Focus();
             }
-        }
-
-        private void txt_content_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_phone_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

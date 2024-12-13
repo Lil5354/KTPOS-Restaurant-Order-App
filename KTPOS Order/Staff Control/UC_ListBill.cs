@@ -15,17 +15,22 @@ namespace KTPOS_Order.Staff_Control
 {
     public partial class UC_ListBill : UserControl
     {
-        public void ReloadBillData()
-        {
-            
-        }
         public UC_ListBill()
         {
             InitializeComponent();
             SetStyle(ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.AllPaintingInWmPaint, true);
             this.DoubleBuffered = true;
-            SetDoubleBuffered(ListBill, true);
+            SetDoubleBuffered(ListBill, true);      // DataGridView for listing bills
+            SetDoubleBuffered(Bill, true);         // DataGridView for bill details
+            SetDoubleBuffered(Filter, true);       // ComboBox for filters
+            SetDoubleBuffered(cbForm, true);       // ComboBox for payment methods
+            SetDoubleBuffered(lblTotalAmount, true);
+            ListBill.RowPrePaint += (s, e) => {
+                e.PaintCells(e.RowBounds, DataGridViewPaintParts.All);
+                e.Handled = true;
+            };
+
         }
         private void SetDoubleBuffered(Control control, bool value)
         {
@@ -95,7 +100,6 @@ namespace KTPOS_Order.Staff_Control
                 MessageBox.Show("Error filtering data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void UC_ListBill_Load(object sender, EventArgs e)
         {
             LoadBillData();
@@ -130,20 +134,20 @@ namespace KTPOS_Order.Staff_Control
         private UserControl currentUserControl;
         public void AddUserControl(UserControl userControl)
         {
-            // Xóa UserControl hiện tại (nếu có)
             if (currentUserControl != null)
             {
                 this.Controls.Remove(currentUserControl);
-                currentUserControl.Dispose();
+                currentUserControl.Dispose(); // Đảm bảo giải phóng tài nguyên đúng cách
             }
 
-            // Thêm UserControl mới
+            // Các cải tiến:
+            userControl.SuspendLayout(); // Tạm dừng layout để giảm thiểu việc vẽ lại
             this.Controls.Add(userControl);
             userControl.Location = new Point(this.Width - userControl.Width, 103);
             userControl.Anchor = AnchorStyles.Right;
             userControl.BringToFront();
+            userControl.ResumeLayout(true); // Khôi phục layout một cách hiệu quả
 
-            // Cập nhật tham chiếu
             currentUserControl = userControl;
         }
 
@@ -191,7 +195,6 @@ namespace KTPOS_Order.Staff_Control
             AddUserControl(ucQrcode);  // Switch the UserControl to UC_QRcode
 
         }
-        
         public int SelectedBillId { get; set; }
         private void btnPay_Click(object sender, EventArgs e)
         {

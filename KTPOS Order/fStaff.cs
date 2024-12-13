@@ -22,6 +22,9 @@ namespace KTPOS_Order
             InitializeComponent();
             this.userRole = role;
             ConfigureUIBasedOnRole();
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.AllPaintingInWmPaint, true);
+            this.DoubleBuffered = true;
         }
         private void ConfigureUIBasedOnRole()
         {
@@ -30,20 +33,20 @@ namespace KTPOS_Order
         }
         public void AddUserControl(UserControl userControl)
         {
-            // Xóa UserControl hiện tại (nếu có)
             if (currentUserControl != null)
             {
                 this.Controls.Remove(currentUserControl);
-                currentUserControl.Dispose();
+                currentUserControl.Dispose(); // Đảm bảo giải phóng tài nguyên đúng cách
             }
 
-            // Thêm UserControl mới
+            // Các cải tiến:
+            userControl.SuspendLayout(); // Tạm dừng layout để giảm thiểu việc vẽ lại
             this.Controls.Add(userControl);
-            userControl.Location = new Point(110, 103);
+            userControl.Location = new Point(110, 90);
             userControl.Anchor = AnchorStyles.Top;
             userControl.BringToFront();
+            userControl.ResumeLayout(true); // Khôi phục layout một cách hiệu quả
 
-            // Cập nhật tham chiếu
             currentUserControl = userControl;
         }
         private void btnListBill_Click(object sender, EventArgs e)
@@ -51,7 +54,6 @@ namespace KTPOS_Order
             UC_ListBill ucStaff = new UC_ListBill();
             AddUserControl(ucStaff);
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Do you really want to exit?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -65,32 +67,23 @@ namespace KTPOS_Order
                 this.Focus();
             }
         }
-
         private void btnMaxSize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
             btnMaxSize.Visible = false;
             btnMinSize.Visible = true;
         }
-
         private void btnMinSize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
             btnMinSize.Visible = false;
             btnMaxSize.Visible = true;
         }
-
         private void btnManage_Click(object sender, EventArgs e)
         {
             UC_Admin ucAdmin = new UC_Admin(); ;
             AddUserControl(ucAdmin);
         }
-
-        private void fStaff_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnTable_Click(object sender, EventArgs e)
         {
             UC_Table ucStaff = new UC_Table ();

@@ -28,6 +28,8 @@ namespace KTPOS_Order
             this.DoubleBuffered = true;
             SetDoubleBuffered(FlowMenu, true);
             SetDoubleBuffered(dtgvBillCus, true);
+            SetDoubleBuffered(btnMaxSize, true);
+            SetDoubleBuffered(btnMinSize, true);
         }
         private void SetDoubleBuffered(Control control, bool value)
         {
@@ -96,8 +98,6 @@ namespace KTPOS_Order
                 txtTotal.Text = totalAfterVAT.ToString("C", new System.Globalization.CultureInfo("en-US"));
             }
         }
-        
-
         public void LoadProducts(string query)
         {
             DataTable result = GetDatabase.Instance.ExecuteQuery(query);
@@ -113,30 +113,31 @@ namespace KTPOS_Order
                 FlowMenu.Controls.Add(itemControl);
             }
         }
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
         private UserControl currentUserControl;
         public void AddUserControl(UserControl userControl)
         {
             // Xóa UserControl hiện tại (nếu có)
             if (currentUserControl != null)
             {
-                currentUserControl.Visible = false;
+                this.Controls.Remove(currentUserControl);
+                currentUserControl.Dispose(); // Đảm bảo giải phóng tài nguyên đúng cách
             }
-
-            // Thêm hoặc hiển thị control
-            if (!this.Controls.Contains(userControl))
-            {
-                this.Controls.Add(userControl);
-            }
-            userControl.Location = new Point(110, 103);
+            userControl.SuspendLayout(); // Tạm dừng layout để giảm thiểu việc vẽ lại
+            this.Controls.Add(userControl);
+            userControl.Location = new Point(110, 90);
             userControl.Anchor = AnchorStyles.Top;
-            userControl.Visible = true;
             userControl.BringToFront();
+            userControl.ResumeLayout(true); // Khôi phục layout một cách hiệu quả
 
             currentUserControl = userControl;
+        }
+        public void RemoveSpecificUserControl(UserControl userControl)
+        {
+            if (this.Controls.Contains(userControl))
+            {
+                this.Controls.Remove(userControl);
+                userControl.Dispose();
+            }
         }
         private void btnMaxSize_Click(object sender, EventArgs e)
         {
@@ -144,141 +145,36 @@ namespace KTPOS_Order
             btnMaxSize.Visible = false;
             btnMinSize.Visible = true;
         }
-
         private void btnMinSize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
             btnMinSize.Visible = false;
             btnMaxSize.Visible = true;
         }
-
         private void btnFoodOrder_Click(object sender, EventArgs e)
         {
             FlowMenu.Controls.Clear();
             LoadProducts("SELECT ID, fName, Price FROM ITEM");
         }
-
         private void btnFoodOptions_Click(object sender, EventArgs e)
         {
             FlowMenu.Controls.Clear();
             LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 1");
         }
-
         private void btnDrinks_Click(object sender, EventArgs e)
         {
             FlowMenu.Controls.Clear();
             LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory = 2");
         }
-        
-        private void btnChat_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        public void RemoveSpecificUserControl(UserControl userControl)
-        {
-            if (this.Controls.Contains(userControl))
-            {
-                this.Controls.Remove(userControl);
-                userControl.Dispose(); 
-            }
-        }
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-        private void FlowMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void fCustomer_Load(object sender, EventArgs e)
         {
             FlowMenu.Controls.Clear();
             LoadProducts("SELECT ID, fName, Price FROM ITEM");
         }
-
-        private void txtTotal_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTotal_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtVAT_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnOrder_Click(object sender, EventArgs e)
-        {
-            //if (dtgvBillCus.Rows.Count == 0)
-            //{
-            //    MessageBox.Show("No items in the order.", "Order Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-
-            //try
-            //{
-            //    // Lấy ID của bàn (hoặc ID mặc định)
-            //    int tableID = 1; // Giả sử ID bàn là 1, bạn có thể thay đổi theo nhu cầu
-
-            //    // Tạo một hóa đơn mới
-            //    string insertBillQuery = "INSERT INTO Bill (idTable, status) OUTPUT INSERTED.ID VALUES (@idTable, @status)";
-            //    object billIDObj = GetDatabase.Instance.ExecuteScalar(insertBillQuery, new object[] { tableID, 0 });
-
-            //    if (billIDObj == null)
-            //    {
-            //        MessageBox.Show("Failed to create a new bill.", "Order Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        return;
-            //    }
-
-            //    int billID = Convert.ToInt32(billIDObj);
-
-                // Cập nhật các chi tiết hóa đơn
-            //    foreach (DataGridViewRow row in dtgvBillCus.Rows)
-            //    {
-            //        string itemName = row.Cells["Name"].Value.ToString();
-            //        int quantity = Convert.ToInt32(row.Cells["Quantity"].Value);
-
-            //        // Lấy ID của mặt hàng dựa trên tên
-            //        string getItemIDQuery = "SELECT ID FROM ITEM WHERE fName = @fName";
-            //        DataTable itemResult = GetDatabase.Instance.ExecuteQuery(getItemIDQuery, new object[] { itemName });
-
-            //        if (itemResult.Rows.Count > 0)
-            //        {
-            //            int itemID = Convert.ToInt32(itemResult.Rows[0]["ID"]);
-
-            //            // Thêm chi tiết vào bảng BILLINF
-            //            string insertBillInfQuery = "INSERT INTO BILLINF (idBill, idFD, count) VALUES (@idBill, @idFD, @count)";
-            //            GetDatabase.Instance.ExecuteNonQuery(insertBillInfQuery, new object[] { billID, itemID, quantity });
-            //        }
-            //    }
-
-            //    // Hiển thị thông báo thành công
-            //    MessageBox.Show("Order has been placed successfully!", "Order Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            //    // Xóa giỏ hàng sau khi đặt hàng thành công
-            //    dtgvBillCus.Rows.Clear();
-            //    Total = 0;
-            //    txtSubTotal.Text = Total.ToString("C", new System.Globalization.CultureInfo("en-US"));
-            //    txtVAT.Text = "0";
-            //    txtTotal.Text = "0";
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show($"An error occurred: {ex.Message}", "Order Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-        }
-        
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter || txtSearch.Text.Trim().Length == 0)
@@ -291,7 +187,6 @@ namespace KTPOS_Order
                 }
             }
         }
-        
         private void Filter_SelectedIndexChanged(object sender, EventArgs e)
         {
             string filter = Filter.SelectedItem.ToString();

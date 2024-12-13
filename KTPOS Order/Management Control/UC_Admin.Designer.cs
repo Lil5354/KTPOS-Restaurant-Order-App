@@ -1777,7 +1777,6 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "UC_Admin";
             this.Size = new System.Drawing.Size(1179, 689);
-            this.Load += new System.EventHandler(this.UC_Admin_Load);
             this.tcManager.ResumeLayout(false);
             this.Revenue.ResumeLayout(false);
             this.Revenue.PerformLayout();

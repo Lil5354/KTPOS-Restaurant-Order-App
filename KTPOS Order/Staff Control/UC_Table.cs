@@ -31,6 +31,12 @@ namespace KTPOS_Order.Staff_Control
             this.DoubleBuffered = true;
             SetDoubleBuffered(flTable, true);
             SetDoubleBuffered(dgvBillDetails, true);
+            SetDoubleBuffered(cbCategories, true);
+            SetDoubleBuffered(cbItem, true);
+            SetDoubleBuffered(lblTotalAmount, true);
+            SetDoubleBuffered(btnAdd, true);
+            SetDoubleBuffered(btnPayment, true);
+            SetDoubleBuffered(Discount, true);
         }
         private void SetDoubleBuffered(Control control, bool value)
         {
@@ -166,7 +172,6 @@ namespace KTPOS_Order.Staff_Control
             cbCategories.DisplayMember = "Value"; // Hiển thị tên danh mục
             cbCategories.ValueMember = "Key";    // Giá trị là ID
         }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (cbItem.SelectedItem != null && cbItem.SelectedItem is KeyValuePair<int, string> selectedItem)
@@ -219,8 +224,6 @@ namespace KTPOS_Order.Staff_Control
             decimal newTotal = totalAmount - discountAmount;
             lblTotalAmount.Text = newTotal.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"));
         }
-        
-
         private decimal GetDiscountValue()
         {
             // ... Implement your logic here to retrieve and validate discount value (e.g., from a NumericUpDown or TextBox) ...
@@ -235,7 +238,6 @@ namespace KTPOS_Order.Staff_Control
             }
             return Discount.Value;
         }
-
         private decimal GetCurrentTotalAmount()
         {
             decimal totalAmount = 0;
@@ -251,13 +253,11 @@ namespace KTPOS_Order.Staff_Control
 
             return totalAmount;
         }
-
         private void Discount_ValueChanged(object sender, EventArgs e)
         {
             UpdateTotalAmount();
 
         }
-
         private void btnPayment_Click(object sender, EventArgs e)
         {
             string selectedPaymentMethod = cbForm.SelectedItem?.ToString();
@@ -361,18 +361,7 @@ namespace KTPOS_Order.Staff_Control
             // Cập nhật tham chiếu
             currentUserControl = userControl;
         }
-
-        private void dgvBillDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void UC_Table_Load(object sender, EventArgs e)
-        {
-
-        }
     }
-
 }
 
 
