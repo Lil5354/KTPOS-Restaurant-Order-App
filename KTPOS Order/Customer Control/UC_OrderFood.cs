@@ -14,7 +14,7 @@ namespace KTPOS_Order.Customer_Control
 {
     public partial class UC_OrderFood : UserControl
     {
-        string connectionString = "Data Source=LAPTOP-QE1MRLKN\\SQLEXPRESS01;Initial Catalog=KTPOS;" + "Integrated Security=true";
+        //string connectionString = "Data Source=KHOAZO\\MSSQLSERVER03;Initial Catalog=KTPOS;" + "Integrated Security=true";
         public UC_OrderFood()
         {
             InitializeComponent();
@@ -29,35 +29,46 @@ namespace KTPOS_Order.Customer_Control
 
         }
 
-        private void UC_OrderFood_Load_1(object sender, EventArgs e)
-        {
-            try
-            {
-                FlowMenu.Controls.Clear();
+        //private void UC_OrderFood_Load_1(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        FlowMenu.Controls.Clear();
 
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    string sql = "SELECT fName, Price FROM ITEM";
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                string fName = reader["fName"].ToString();
-                                decimal Price = Convert.ToDecimal(reader["Price"]);
-                                UC_Item itemControl = new UC_Item(fName,Price);
-                                FlowMenu.Controls.Add(itemControl);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        //        using (SqlConnection connection = new SqlConnection(connectionString))
+        //        {
+        //            connection.Open();
+        //            string sql = "SELECT fName, Price FROM ITEM";
+        //            using (SqlCommand command = new SqlCommand(sql, connection))
+        //            {
+        //                using (SqlDataReader reader = command.ExecuteReader())
+        //                {
+        //                    while (reader.Read())
+        //                    {
+        //                        string fName = reader["fName"].ToString();
+        //                        decimal Price = Convert.ToDecimal(reader["Price"]);
+        //                        int id = Convert.ToInt32(rows["ID"]);
+        //                        UC_Item itemControl = new UC_Item(fName,Price,id);
+        //                        FlowMenu.Controls.Add(itemControl);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"There are some errors: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
+
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void UC_OrderFood_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

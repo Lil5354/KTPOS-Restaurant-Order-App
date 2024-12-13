@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Security;
 using System.Windows.Forms;
 using KTPOS_Order.Proccess;
 
@@ -17,6 +16,11 @@ namespace KTPOS_Order
         public Login()
         {
             InitializeComponent();
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                 ControlStyles.AllPaintingInWmPaint, true);
+
+            // Hoặc nếu muốn chi tiết hơn
+            this.DoubleBuffered = true;
         }
 
         private void txtUser_TextChanged(object sender, EventArgs e)
@@ -26,25 +30,15 @@ namespace KTPOS_Order
         
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Do you really want to exit?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialog == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-            else
-            {
-                MessageBox.Show("Exit cancelled. Continue your activity.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Focus();
-            }
+            Application.Exit();
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string role = "Manager";
+            /*string role = "Manager";
             fStaff f = new fStaff(role);
             this.Hide();
-            f.ShowDialog();
-            /*
+            f.ShowDialog();*/
+            
             string email = txtUser.Text;
             string password = txtPass.Text;
             try
@@ -67,8 +61,9 @@ namespace KTPOS_Order
                 MessageBox.Show("Please enter a valid email or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            */
+            
         }
+
         private void btnEyes_Click_2(object sender, EventArgs e)
         {
             if (txtPass.PasswordChar == '\0')
@@ -91,7 +86,16 @@ namespace KTPOS_Order
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult dialog = MessageBox.Show("Do you really want to exit?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialog == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                MessageBox.Show("Exit cancelled. Continue your activity ❤️.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Focus();
+            }
         }
 
         private void btnMinSize_Click(object sender, EventArgs e)
@@ -110,7 +114,7 @@ namespace KTPOS_Order
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Do you really want to exit?","Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dialog = MessageBox.Show("Do you really want to exit?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == DialogResult.Yes)
             {
                 Application.Exit();
@@ -120,6 +124,11 @@ namespace KTPOS_Order
                 MessageBox.Show("Exit cancelled. Continue your activity.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Focus();
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

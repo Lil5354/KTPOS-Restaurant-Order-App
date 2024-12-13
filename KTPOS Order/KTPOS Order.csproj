@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -50,8 +51,26 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chef Control\UC_OrderList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chef Control\UC_OrderList.Designer.cs">
+      <DependentUpon>UC_OrderList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chef Control\UC_Proccessing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chef Control\UC_Proccessing.Designer.cs">
+      <DependentUpon>UC_Proccessing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer Control\UC_Item.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -76,23 +95,17 @@
     <Compile Include="Customer Control\UC_OrderFoodOption.Designer.cs">
       <DependentUpon>UC_OrderFoodOption.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer Control\UC_Payment.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="fChef.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer Control\UC_Payment.Designer.cs">
-      <DependentUpon>UC_Payment.cs</DependentUpon>
+    <Compile Include="fChef.Designer.cs">
+      <DependentUpon>fChef.cs</DependentUpon>
     </Compile>
     <Compile Include="fCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fCustomer.Designer.cs">
       <DependentUpon>fCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="fManagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fManagement.Designer.cs">
-      <DependentUpon>fManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="fStaff.cs">
       <SubType>Form</SubType>
@@ -106,22 +119,43 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Management Control\GetLists.cs" />
+    <Compile Include="Management Control\UC_Admin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Management Control\UC_Admin.Designer.cs">
+      <DependentUpon>UC_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proccess\BillPayment.cs" />
+    <Compile Include="Proccess\BillProcessor.cs" />
     <Compile Include="Proccess\GetDatabase.cs" />
     <Compile Include="Proccess\LgAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Staff Control\UC_Account.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Staff Control\UC_Account.Designer.cs">
-      <DependentUpon>UC_Account.cs</DependentUpon>
-    </Compile>
     <Compile Include="Staff Control\UC_ListBill.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Staff Control\UC_ListBill.Designer.cs">
       <DependentUpon>UC_ListBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="Staff Control\UC_QRPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Staff Control\UC_QRPayment.Designer.cs">
+      <DependentUpon>UC_QRPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff Control\UC_Table.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Staff Control\UC_Table.Designer.cs">
+      <DependentUpon>UC_Table.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Chef Control\UC_OrderList.resx">
+      <DependentUpon>UC_OrderList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chef Control\UC_Proccessing.resx">
+      <DependentUpon>UC_Proccessing.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customer Control\UC_Item.resx">
       <DependentUpon>UC_Item.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,20 +168,20 @@
     <EmbeddedResource Include="Customer Control\UC_OrderFoodOption.resx">
       <DependentUpon>UC_OrderFoodOption.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer Control\UC_Payment.resx">
-      <DependentUpon>UC_Payment.cs</DependentUpon>
+    <EmbeddedResource Include="fChef.resx">
+      <DependentUpon>fChef.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fCustomer.resx">
       <DependentUpon>fCustomer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fManagement.resx">
-      <DependentUpon>fManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fStaff.resx">
       <DependentUpon>fStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management Control\UC_Admin.resx">
+      <DependentUpon>UC_Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -159,11 +193,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Staff Control\UC_Account.resx">
-      <DependentUpon>UC_Account.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Staff Control\UC_ListBill.resx">
       <DependentUpon>UC_ListBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff Control\UC_QRPayment.resx">
+      <DependentUpon>UC_QRPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff Control\UC_Table.resx">
+      <DependentUpon>UC_Table.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -254,5 +291,11 @@
   <ItemGroup>
     <None Include="Resources\bground.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\logo_momo.png" />
+    <None Include="Resources\xmark-solid1.png" />
+    <None Include="Resources\logo_momo1.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

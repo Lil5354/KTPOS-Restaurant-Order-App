@@ -24,7 +24,6 @@ namespace KTPOS_Order.Proccess
                 // Return the role of the logged-in user
                 return result.Rows[0]["Role"].ToString();
             }
-
             // Return null if login fails
             return null;
         }
