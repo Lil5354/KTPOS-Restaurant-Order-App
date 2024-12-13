@@ -57,7 +57,6 @@
             this.btnItem.Name = "btnItem";
             this.btnItem.Size = new System.Drawing.Size(160, 196);
             this.btnItem.TabIndex = 0;
-            this.btnItem.Click += new System.EventHandler(this.btnItem_Click);
             // 
             // txtCost
             // 
@@ -86,7 +85,6 @@
             this.txtName.TabIndex = 4;
             this.txtName.Text = "H";
             this.txtName.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.txtName.Click += new System.EventHandler(this.txtName_Click);
             // 
             // guna2CirclePictureBox1
             // 
@@ -113,7 +111,6 @@
             this.Name = "UC_Item";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Size = new System.Drawing.Size(160, 196);
-            this.Load += new System.EventHandler(this.UC_Item_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -122,8 +119,8 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Button btnItem;
-        private Guna.UI2.WinForms.Guna2HtmlLabel txtCost;
-        private Guna.UI2.WinForms.Guna2HtmlLabel txtName;
         public Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        public Guna.UI2.WinForms.Guna2HtmlLabel txtCost;
+        public Guna.UI2.WinForms.Guna2HtmlLabel txtName;
     }
 }

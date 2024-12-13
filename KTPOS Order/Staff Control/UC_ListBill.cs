@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +18,27 @@ namespace KTPOS_Order.Staff_Control
         public UC_ListBill()
         {
             InitializeComponent();
-        }
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.AllPaintingInWmPaint, true);
+            this.DoubleBuffered = true;
+            SetDoubleBuffered(ListBill, true);      // DataGridView for listing bills
+            SetDoubleBuffered(Bill, true);         // DataGridView for bill details
+            SetDoubleBuffered(Filter, true);       // ComboBox for filters
+            SetDoubleBuffered(cbForm, true);       // ComboBox for payment methods
+            SetDoubleBuffered(lblTotalAmount, true);
+            ListBill.RowPrePaint += (s, e) => {
+                e.PaintCells(e.RowBounds, DataGridViewPaintParts.All);
+                e.Handled = true;
+            };
 
+        }
+        private void SetDoubleBuffered(Control control, bool value)
+        {
+            var property = typeof(Control).GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.NonPublic |
+                System.Reflection.BindingFlags.Instance);
+            property?.SetValue(control, value, null);
+        }
         private void Filter_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedFilter = Filter.SelectedItem.ToString();
@@ -79,7 +100,6 @@ namespace KTPOS_Order.Staff_Control
                 MessageBox.Show("Error filtering data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void UC_ListBill_Load(object sender, EventArgs e)
         {
             LoadBillData();
@@ -110,74 +130,118 @@ namespace KTPOS_Order.Staff_Control
                 MessageBox.Show("Error loading bill data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         private UserControl currentUserControl;
         public void AddUserControl(UserControl userControl)
         {
-            // Xóa UserControl hiện tại (nếu có)
             if (currentUserControl != null)
             {
                 this.Controls.Remove(currentUserControl);
-                currentUserControl.Dispose();
+                currentUserControl.Dispose(); // Đảm bảo giải phóng tài nguyên đúng cách
             }
 
-            // Thêm UserControl mới
+            // Các cải tiến:
+            userControl.SuspendLayout(); // Tạm dừng layout để giảm thiểu việc vẽ lại
             this.Controls.Add(userControl);
             userControl.Location = new Point(this.Width - userControl.Width, 103);
             userControl.Anchor = AnchorStyles.Right;
             userControl.BringToFront();
+            userControl.ResumeLayout(true); // Khôi phục layout một cách hiệu quả
 
-            // Cập nhật tham chiếu
             currentUserControl = userControl;
         }
 
-
+        private decimal _totalAmount = 0;
         private void ListBill_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.ColumnIndex == ListBill.Columns["Payment"].Index && e.RowIndex >= 0)
             {
                 // Lấy ID Bill từ hàng được chọn
                 int selectedBillId = Convert.ToInt32(ListBill.Rows[e.RowIndex].Cells["id"].Value);
+                SelectedBillId = selectedBillId;
 
-                // Tạo một thể hiện của UC_Payment và truyền tham chiếu của UC_ListBill
-                UC_Payment UCPay = new UC_Payment(this);
-
-                // Đặt ID của Bill đang được chọn
-                UCPay.SelectedBillId = selectedBillId;
-
-                // Thêm UC_Payment vào UserControl hiện tại
-                AddUserControl(UCPay);
-
-                // Tạo một thể hiện của BillProcessor để lấy thông tin chi tiết của Bill
+                // Hiển thị chi tiết Bill trực tiếp trong DataGridView
                 BillProcessor billProcessor = new BillProcessor(selectedBillId);
 
-                // Hiển thị thông tin chi tiết Bill trong DataGridView bên trong UC_Payment
-                UCPay.Bill.Rows.Clear(); // Xóa dữ liệu cũ trong DataGridView của UC_Payment
+                // Xóa dữ liệu cũ
+                Bill.Rows.Clear();
 
-                // Duyệt qua các chi tiết hóa đơn và thêm vào DataGridView trong UC_Payment
+                // Thêm dữ liệu vào DataGridView và tính tổng
+                _totalAmount = 0;
                 foreach (DataRow row in billProcessor.BillDetails.Rows)
                 {
-                    UCPay.Bill.Rows.Add(
+                    int quantity = Convert.ToInt32(row["Quantity"]);
+                    decimal price = Convert.ToDecimal(row["TotalPrice"]);
+                    _totalAmount += quantity * price;
+
+                    Bill.Rows.Add(
                         row["ItemName"],
                         row["Quantity"],
-                        row["TotalPrice"]
+                        price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))
                     );
                 }
+
+                // Cập nhật tổng tiền
+                lblTotalAmount.Text = _totalAmount.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"));
+
+                btnPay_Click(sender, e);
             }
         }
         private void cbForm_SelectedIndexChanged(object sender, EventArgs e)
         {
-             // Redirect to QRCode UserControl
-                UC_QRPayment ucQrcode = new UC_QRPayment();
-                AddUserControl(ucQrcode);  // Switch the UserControl to UC_QRcode
-           
+            // Redirect to QRCode UserControl
+            UC_QRPayment ucQrcode = new UC_QRPayment();
+            AddUserControl(ucQrcode);  // Switch the UserControl to UC_QRcode
+
         }
-        public void ReloadBillData()
+        public int SelectedBillId { get; set; }
+        private void btnPay_Click(object sender, EventArgs e)
         {
-            LoadBillData();
+            string selectedPaymentMethod = cbForm.SelectedItem?.ToString();
+
+            if (selectedPaymentMethod == "Cash")
+            {
+                string query = $"UPDATE Bill SET status = 1 WHERE ID = {SelectedBillId}";
+                try
+                {
+                    GetDatabase.Instance.ExecuteNonQuery(query);
+                    MessageBox.Show("Payment completed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Reload the ListBill data to reflect the updated status
+                    LoadBillData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error updating payment status: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (selectedPaymentMethod == "Transfer")
+            {
+                int selectedBillId = Convert.ToInt32(ListBill.CurrentRow?.Cells["id"].Value);
+                decimal totalAmountUSD = Convert.ToDecimal(lblTotalAmount.Text.Trim('$'));
+
+                // Convert USD to VND
+                decimal exchangeRate = 23000; // Adjust this rate as needed
+                decimal totalAmountVND = totalAmountUSD * exchangeRate;
+
+                // Prepare QR content
+                string qrcodeText = $"BILL ID: {selectedBillId}";
+
+                // Open UC_QRPayment and populate fields
+                UC_QRPayment ucQrPayment = new UC_QRPayment();
+                ucQrPayment.txtContent.Text = qrcodeText;
+                ucQrPayment.txtCost.Text = totalAmountVND.ToString("N0"); // Format as VND
+                AddUserControl(ucQrPayment);
+            }
+            else
+            {
+                MessageBox.Show("Please select a valid payment method.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
-
-
-
     }
 }
+
+        
+
+    

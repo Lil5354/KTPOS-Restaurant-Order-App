@@ -149,7 +149,7 @@
             this.lblTotalAmount.Name = "lblTotalAmount";
             this.lblTotalAmount.Size = new System.Drawing.Size(132, 36);
             this.lblTotalAmount.TabIndex = 49;
-            this.lblTotalAmount.Text = "$500";
+            this.lblTotalAmount.Text = "$0";
             this.lblTotalAmount.UseTransparentBackground = true;
             // 
             // guna2HtmlLabel2
@@ -159,7 +159,7 @@
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.White;
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(240, 433);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(69, 32);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(66, 30);
             this.guna2HtmlLabel2.TabIndex = 48;
             this.guna2HtmlLabel2.Text = "TOTAL";
             // 
@@ -170,7 +170,7 @@
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(202, 396);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(110, 32);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(104, 30);
             this.guna2HtmlLabel1.TabIndex = 46;
             this.guna2HtmlLabel1.Text = "DISCOUNT";
             // 
@@ -514,7 +514,6 @@
             this.dgvBillDetails.ThemeStyle.RowsStyle.Height = 24;
             this.dgvBillDetails.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(185)))));
             this.dgvBillDetails.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.dgvBillDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBillDetails_CellContentClick);
             // 
             // Item
             // 

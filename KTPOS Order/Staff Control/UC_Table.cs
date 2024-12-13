@@ -26,6 +26,24 @@ namespace KTPOS_Order.Staff_Control
             LoadTables();
             cbCategories.SelectedIndexChanged += cbCategories_SelectedIndexChanged;
             LoadCategories();
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.AllPaintingInWmPaint, true);
+            this.DoubleBuffered = true;
+            SetDoubleBuffered(flTable, true);
+            SetDoubleBuffered(dgvBillDetails, true);
+            SetDoubleBuffered(cbCategories, true);
+            SetDoubleBuffered(cbItem, true);
+            SetDoubleBuffered(lblTotalAmount, true);
+            SetDoubleBuffered(btnAdd, true);
+            SetDoubleBuffered(btnPayment, true);
+            SetDoubleBuffered(Discount, true);
+        }
+        private void SetDoubleBuffered(Control control, bool value)
+        {
+            var property = typeof(Control).GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.NonPublic |
+                System.Reflection.BindingFlags.Instance);
+            property?.SetValue(control, value, null);
         }
         private void LoadTables()
         {
@@ -154,7 +172,6 @@ namespace KTPOS_Order.Staff_Control
             cbCategories.DisplayMember = "Value"; // Hiển thị tên danh mục
             cbCategories.ValueMember = "Key";    // Giá trị là ID
         }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (cbItem.SelectedItem != null && cbItem.SelectedItem is KeyValuePair<int, string> selectedItem)
@@ -207,8 +224,6 @@ namespace KTPOS_Order.Staff_Control
             decimal newTotal = totalAmount - discountAmount;
             lblTotalAmount.Text = newTotal.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"));
         }
-        
-
         private decimal GetDiscountValue()
         {
             // ... Implement your logic here to retrieve and validate discount value (e.g., from a NumericUpDown or TextBox) ...
@@ -223,7 +238,6 @@ namespace KTPOS_Order.Staff_Control
             }
             return Discount.Value;
         }
-
         private decimal GetCurrentTotalAmount()
         {
             decimal totalAmount = 0;
@@ -239,52 +253,94 @@ namespace KTPOS_Order.Staff_Control
 
             return totalAmount;
         }
-
         private void Discount_ValueChanged(object sender, EventArgs e)
         {
             UpdateTotalAmount();
 
         }
-
         private void btnPayment_Click(object sender, EventArgs e)
         {
             string selectedPaymentMethod = cbForm.SelectedItem?.ToString();
-            if (string.IsNullOrEmpty(selectedPaymentMethod))
+
+            // Get the current table's ID from the selected table button
+            int currentTableId = GetCurrentTableId();
+
+            if (currentTableId == -1)
             {
-                MessageBox.Show("Please select a payment method.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a table first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (selectedPaymentMethod == "Transfer")
-            {
-                // Chuyển đến UC_QRPayment
-                UC_QRPayment ucQrPayment = new UC_QRPayment();
-                AddUserControl(ucQrPayment);
-            }
-            else if (selectedPaymentMethod == "Cash")
-            {
-                // Cập nhật trạng thái hóa đơn trong cơ sở dữ liệu
-                string query = $"UPDATE Bill SET status = 1 WHERE ID = {SelectedBillId}";
-                try
-                {
-                    GetDatabase.Instance.ExecuteNonQuery(query);
-                    MessageBox.Show("Payment completed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Query to get the bill ID for the current table
+            string billIdQuery = @"
+        SELECT ID 
+        FROM Bill 
+        WHERE idTable = @tableId AND status = 0";
 
-                    // Reload bill data in the parent ListBill if available
-                    if (parentListBill != null)
+            try
+            {
+                object billIdResult = GetDatabase.Instance.ExecuteScalar(billIdQuery, new object[] { currentTableId });
+
+                if (billIdResult != null)
+                {
+                    SelectedBillId = Convert.ToInt32(billIdResult);
+
+                    if (selectedPaymentMethod == "Cash")
                     {
-                        parentListBill.ReloadBillData();
+                        string query = $"UPDATE Bill SET status = 1 WHERE ID = {SelectedBillId}";
+                        try
+                        {
+                            GetDatabase.Instance.ExecuteNonQuery(query);
+                            MessageBox.Show("Payment completed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error updating payment status: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else if (selectedPaymentMethod == "Transfer")
+                    {
+                        decimal totalAmountUSD = Convert.ToDecimal(lblTotalAmount.Text.Trim('$'));
+
+                        // Convert USD to VND
+                        decimal exchangeRate = 240; // Adjust this rate as needed
+                        decimal totalAmountVND = totalAmountUSD * exchangeRate;
+
+                        // Prepare QR content
+                        string qrcodeText = $"BILL ID: {SelectedBillId}";
+
+                        // Open UC_QRPayment and populate fields
+                        UC_QRPayment ucQrPayment = new UC_QRPayment();
+                        ucQrPayment.txtContent.Text = qrcodeText;
+                        ucQrPayment.txtCost.Text = totalAmountVND.ToString("#"); // Format as VND
+                        AddUserControl(ucQrPayment);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select a valid payment method.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Error updating payment status: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No unpaid bill found for the selected table.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Invalid payment method.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error retrieving bill ID: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private int GetCurrentTableId()
+        {
+            // Find the selected table button in the flTable FlowLayoutPanel
+            foreach (Control control in flTable.Controls)
+            {
+                if (control is Guna2Button tableButton && tableButton.FillColor == Color.BurlyWood)
+                {
+                    return Convert.ToInt32(tableButton.Tag);
+                }
+            }
+            return -1; // Return -1 if no table is selected
         }
         private UserControl currentUserControl;
         public void AddUserControl(UserControl userControl)
@@ -305,13 +361,7 @@ namespace KTPOS_Order.Staff_Control
             // Cập nhật tham chiếu
             currentUserControl = userControl;
         }
-
-        private void dgvBillDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
-
 }
 
 

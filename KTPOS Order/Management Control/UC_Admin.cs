@@ -21,6 +21,17 @@ namespace KTPOS_Order.Management_Control
         {
             InitializeComponent();
             this.Load += ManagementControl_Load;
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.AllPaintingInWmPaint, true);
+            this.DoubleBuffered = true;
+            SetDoubleBuffered(tcManager, true);
+        }
+        private void SetDoubleBuffered(Control control, bool value)
+        {
+            var property = typeof(Control).GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.NonPublic |
+                System.Reflection.BindingFlags.Instance);
+            property?.SetValue(control, value, null);
         }
         private void ManagementControl_Load(object sender, EventArgs e)
         {
