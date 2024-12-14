@@ -356,7 +356,7 @@ namespace KTPOS_Order
             }
             else
             {
-                decimal tempcost = decimal.Parse(dtgvBillCus.SelectedRows[0].Cells[2].Value.ToString());
+                decimal tempcost = decimal.Parse(dtgvBillCus.SelectedRows[0].Cells[1].Value.ToString());
                 SubTotal -= tempcost;
                 decimal vatAmount = SubTotal * 0.10m;
                 Total = SubTotal + vatAmount;
@@ -380,8 +380,7 @@ namespace KTPOS_Order
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
-        {
-            if (dtgvBillCus.RowCount == 0)
+        {if (dtgvBillCus.RowCount == 0)
             {
                 MessageBox.Show("You haven't order any yet.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -390,12 +389,22 @@ namespace KTPOS_Order
             if (dialog == DialogResult.Yes)
             {
                 string filePath = "D:\\FILE CỦA THẢO\\KTPOS\\Functions\\Thư mục mới\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Note\\BillNote";
-                string queryid = "SELECT TOP 1 * FROM BILLINF ORDER BY idBill DESC";
+                string queryid = "INSERT INTO BILL (IDTABLE, STATUS) VALUES (1, 0); SELECT SCOPE_IDENTITY();";
                 DataTable result = GetDatabase.Instance.ExecuteQuery(queryid);
                 if (result.Rows.Count > 0)
                 {
-                    DataRow row = result.Rows[0];
-                    BillId = int.Parse(row["idBill"].ToString());
+                    int billId = Convert.ToInt32(result.Rows[0][0]);
+
+                    // Then insert BILLINF records
+                    foreach (DataGridViewRow row in dtgvBillCus.Rows)
+                    {
+                        if (row.IsNewRow) continue;
+                        int count = Convert.ToInt32(row.Cells["Quantity"].Value);
+                        int idFD = Convert.ToInt32(row.Cells["idFD"].Value);
+
+                        string billInfQuery = $"INSERT INTO BILLINF (idBill, idFD, count) VALUES ({billId}, {idFD}, {count})";
+                        GetDatabase.Instance.ExecuteQuery(billInfQuery);
+                    }
                 }
                 else
                 {
@@ -410,18 +419,7 @@ namespace KTPOS_Order
                 guna2TextBox1.Clear();
 
 
-                foreach (DataGridViewRow row in dtgvBillCus.Rows)
-                {
-                    // Kiểm tra nếu dòng không phải là dòng trống
-                    if (row.IsNewRow) continue;
-                    int count = Convert.ToInt32(row.Cells["Quantity"].Value);
-                    int idFD = Convert.ToInt32(row.Cells["idFD"].Value);
-
-                    // Chuẩn bị câu lệnh SQL để chèn dữ liệu
-                    string query = "INSERT INTO BILLINF (idBill, idFD, count) VALUES (" + BillId.ToString() + "," + idFD.ToString() + "," + count.ToString() + ")";
-
-                    DataTable result1 = GetDatabase.Instance.ExecuteQuery(query);
-                }
+                
                 while (dtgvBillCus.Rows.Count > 0)
                 {
                     dtgvBillCus.Rows.RemoveAt(0);

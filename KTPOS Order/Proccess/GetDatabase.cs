@@ -121,5 +121,10 @@ namespace KTPOS_Order.Proccess
                 connection.Close();
             }
         }
+
+        internal void ExecuteQuery(string insertBillItemQuery, Dictionary<string, object> dictionary)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
