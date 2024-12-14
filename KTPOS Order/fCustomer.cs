@@ -59,6 +59,11 @@ namespace KTPOS_Order
             idFDColumn.HeaderText = "ID Food";
             idFDColumn.Visible = false;
             dtgvBillCus.Columns.Add(idFDColumn);
+
+            // Set the alignment of each column to Center
+            dtgvBillCus.Columns["Name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dtgvBillCus.Columns["Quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dtgvBillCus.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
         public void AddOrUpdate(Dictionary<string, int> dict, string key)
         {
@@ -93,7 +98,7 @@ namespace KTPOS_Order
 
                 if (Count[name] == 1)
                 {
-                    dtgvBillCus.Rows.Add(name, 1, price, ID);
+                    dtgvBillCus.Rows.Add(name, 1, price.ToString("C", new System.Globalization.CultureInfo("en-US")), ID);
                 }
                 else
                 {
@@ -102,7 +107,7 @@ namespace KTPOS_Order
                         if (dgvRow.Cells[0].Value.ToString() == name)
                         {
                             dgvRow.Cells[1].Value = Count[name];
-                            dgvRow.Cells[2].Value = Count[name] * price;
+                            dgvRow.Cells[2].Value = (Count[name] * price).ToString("C", new System.Globalization.CultureInfo("en-US"));
                         }
                     }
                 }
@@ -210,7 +215,7 @@ namespace KTPOS_Order
         private void fCustomer_Load(object sender, EventArgs e)
         {
             FlowMenu.Controls.Clear();
-            LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory IN (1,2)");
+            //LoadProducts("SELECT ID, fName, Price FROM ITEM WHERE idCategory IN (1,2)");
         }
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
@@ -384,7 +389,7 @@ namespace KTPOS_Order
             DialogResult dialog = MessageBox.Show("Do you really want to Order?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == DialogResult.Yes)
             {
-                string filePath = "E:\\Project\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Note\\BillNote";
+                string filePath = "D:\\FILE CỦA THẢO\\KTPOS\\Functions\\KTPOS-Restaurant-Order-App\\KTPOS Order\\Note\\BillNote";
                 string queryid = "SELECT TOP 1 * FROM BILLINF ORDER BY idBill DESC";
                 DataTable result = GetDatabase.Instance.ExecuteQuery(queryid);
                 if (result.Rows.Count > 0)

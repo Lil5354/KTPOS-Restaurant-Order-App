@@ -446,6 +446,8 @@
             // 
             // dgvBillDetails
             // 
+            this.dgvBillDetails.AllowUserToAddRows = false;
+            this.dgvBillDetails.AllowUserToDeleteRows = false;
             this.dgvBillDetails.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -479,6 +481,7 @@
             this.dgvBillDetails.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvBillDetails.Location = new System.Drawing.Point(15, 3);
             this.dgvBillDetails.Name = "dgvBillDetails";
+            this.dgvBillDetails.ReadOnly = true;
             this.dgvBillDetails.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
@@ -506,7 +509,7 @@
             this.dgvBillDetails.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvBillDetails.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvBillDetails.ThemeStyle.HeaderStyle.Height = 32;
-            this.dgvBillDetails.ThemeStyle.ReadOnly = false;
+            this.dgvBillDetails.ThemeStyle.ReadOnly = true;
             this.dgvBillDetails.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvBillDetails.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvBillDetails.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -523,6 +526,7 @@
             this.Item.HeaderText = "ITEM NAME";
             this.Item.MinimumWidth = 6;
             this.Item.Name = "Item";
+            this.Item.ReadOnly = true;
             // 
             // Price
             // 
@@ -534,6 +538,7 @@
             this.Price.HeaderText = "PRICE";
             this.Price.MinimumWidth = 6;
             this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
             // 
             // Quantity
             // 
@@ -543,6 +548,7 @@
             this.Quantity.HeaderText = "QTY";
             this.Quantity.MinimumWidth = 6;
             this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
             // 
             // Total
             // 
@@ -550,6 +556,7 @@
             this.Total.HeaderText = "TOTAL";
             this.Total.MinimumWidth = 6;
             this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             // 
             // btnChange
             // 

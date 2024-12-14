@@ -12,7 +12,7 @@ namespace KTPOS_Order.Proccess
     public class GetDatabase
     {
         private static GetDatabase instance;
-        private string connectionString = "Data Source=DESKTOP-4S5L10L;Initial Catalog=KTPOS;" + "Integrated Security=true";
+        private string connectionString = "Data Source=LAPTOP-T5G4R7PV\\SQLEXPRESS01;Initial Catalog=KTPOS;" + "Integrated Security=true";
 
         public static GetDatabase Instance
         {
@@ -120,6 +120,16 @@ namespace KTPOS_Order.Proccess
                 }
                 connection.Close();
             }
+        }
+
+        internal IDisposable ExecuteQuery()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal IDisposable GetConnection()
+        {
+            throw new NotImplementedException();
         }
     }
 }
