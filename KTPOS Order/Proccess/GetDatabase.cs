@@ -12,7 +12,7 @@ namespace KTPOS_Order.Proccess
     public class GetDatabase
     {
         private static GetDatabase instance;
-        string connectionString = "Data Source=DESKTOP-4S5L10L;Initial Catalog=KTPOS;" + "Integrated Security=true";
+        private string connectionString = "Data Source=DESKTOP-4S5L10L;Initial Catalog=KTPOS;" + "Integrated Security=true";
 
         public static GetDatabase Instance
         {

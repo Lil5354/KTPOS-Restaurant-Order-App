@@ -30,7 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Guna2Button btnClose;
-            this.panel1 = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            this.pLogin = new System.Windows.Forms.Panel();
             this.btnHide = new Guna.UI2.WinForms.Guna2Button();
             this.btnEyes = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogin = new Guna.UI2.WinForms.Guna2TileButton();
@@ -40,9 +41,11 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.btnMinSize = new Guna.UI2.WinForms.Guna2Button();
             this.btnMaxSize = new Guna.UI2.WinForms.Guna2Button();
-            this.TableChange = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cbbLogin = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.lb1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lb2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.panel1.SuspendLayout();
+            this.pLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
@@ -68,24 +71,24 @@
             btnClose.TabIndex = 9;
             btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // panel1
+            // pLogin
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.AutoSize = true;
-            this.panel1.BackColor = System.Drawing.Color.SaddleBrown;
-            this.panel1.BackgroundImage = global::KTPOS_Order.Properties.Resources._1ddf7dbc9b47c8dab0a1456ae07ac4c6;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.btnHide);
-            this.panel1.Controls.Add(this.btnEyes);
-            this.panel1.Controls.Add(this.btnLogin);
-            this.panel1.Controls.Add(this.btnExit);
-            this.panel1.Controls.Add(this.txtPass);
-            this.panel1.Controls.Add(this.txtUser);
-            this.panel1.Location = new System.Drawing.Point(127, 90);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(441, 262);
-            this.panel1.TabIndex = 2;
+            this.pLogin.AutoScroll = true;
+            this.pLogin.AutoSize = true;
+            this.pLogin.BackColor = System.Drawing.Color.SaddleBrown;
+            this.pLogin.BackgroundImage = global::KTPOS_Order.Properties.Resources._1ddf7dbc9b47c8dab0a1456ae07ac4c6;
+            this.pLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pLogin.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pLogin.Controls.Add(this.btnHide);
+            this.pLogin.Controls.Add(this.btnEyes);
+            this.pLogin.Controls.Add(this.btnLogin);
+            this.pLogin.Controls.Add(this.btnExit);
+            this.pLogin.Controls.Add(this.txtPass);
+            this.pLogin.Controls.Add(this.txtUser);
+            this.pLogin.Location = new System.Drawing.Point(127, 90);
+            this.pLogin.Name = "pLogin";
+            this.pLogin.Size = new System.Drawing.Size(441, 262);
+            this.pLogin.TabIndex = 2;
             // 
             // btnHide
             // 
@@ -224,7 +227,6 @@
             this.txtUser.SelectedText = "";
             this.txtUser.Size = new System.Drawing.Size(243, 40);
             this.txtUser.TabIndex = 7;
-            this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
             // 
             // guna2Elipse1
             // 
@@ -246,7 +248,7 @@
             this.btnMinSize.Location = new System.Drawing.Point(602, 21);
             this.btnMinSize.Name = "btnMinSize";
             this.btnMinSize.Size = new System.Drawing.Size(25, 25);
-            this.btnMinSize.TabIndex = 20;
+            this.btnMinSize.TabIndex = 31;
             this.btnMinSize.Click += new System.EventHandler(this.btnMinSize_Click);
             // 
             // btnMaxSize
@@ -265,29 +267,54 @@
             this.btnMaxSize.Location = new System.Drawing.Point(602, 21);
             this.btnMaxSize.Name = "btnMaxSize";
             this.btnMaxSize.Size = new System.Drawing.Size(25, 25);
-            this.btnMaxSize.TabIndex = 21;
+            this.btnMaxSize.TabIndex = 30;
             this.btnMaxSize.Click += new System.EventHandler(this.btnMaxSize_Click);
             // 
-            // TableChange
+            // cbbLogin
             // 
-            this.TableChange.BackColor = System.Drawing.Color.Transparent;
-            this.TableChange.BorderColor = System.Drawing.Color.Maroon;
-            this.TableChange.BorderRadius = 7;
-            this.TableChange.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.TableChange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TableChange.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TableChange.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TableChange.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TableChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.TableChange.ItemHeight = 30;
-            this.TableChange.Items.AddRange(new object[] {
+            this.cbbLogin.BackColor = System.Drawing.Color.Transparent;
+            this.cbbLogin.BorderColor = System.Drawing.Color.Maroon;
+            this.cbbLogin.BorderRadius = 10;
+            this.cbbLogin.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbLogin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbLogin.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbLogin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbLogin.Font = new System.Drawing.Font("Segoe UI", 11.03226F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbLogin.ForeColor = System.Drawing.Color.Black;
+            this.cbbLogin.ItemHeight = 30;
+            this.cbbLogin.Items.AddRange(new object[] {
             "Guest",
             "Staff"});
-            this.TableChange.Location = new System.Drawing.Point(29, 21);
-            this.TableChange.Name = "TableChange";
-            this.TableChange.Size = new System.Drawing.Size(127, 36);
-            this.TableChange.TabIndex = 39;
-            this.TableChange.SelectedIndexChanged += new System.EventHandler(this.TableChange_SelectedIndexChanged);
+            this.cbbLogin.Location = new System.Drawing.Point(25, 21);
+            this.cbbLogin.Name = "cbbLogin";
+            this.cbbLogin.Size = new System.Drawing.Size(150, 36);
+            this.cbbLogin.TabIndex = 39;
+            this.cbbLogin.SelectedIndexChanged += new System.EventHandler(this.TableChange_SelectedIndexChanged);
+            // 
+            // lb1
+            // 
+            this.lb1.AutoSize = false;
+            this.lb1.BackColor = System.Drawing.Color.Transparent;
+            this.lb1.Font = new System.Drawing.Font("VNI-Butlong", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb1.ForeColor = System.Drawing.Color.White;
+            this.lb1.Location = new System.Drawing.Point(57, 124);
+            this.lb1.Name = "lb1";
+            this.lb1.Size = new System.Drawing.Size(325, 109);
+            this.lb1.TabIndex = 40;
+            this.lb1.Text = "Welcome";
+            // 
+            // lb2
+            // 
+            this.lb2.AutoSize = false;
+            this.lb2.AutoSizeHeightOnly = true;
+            this.lb2.BackColor = System.Drawing.Color.Transparent;
+            this.lb2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lb2.ForeColor = System.Drawing.Color.White;
+            this.lb2.Location = new System.Drawing.Point(57, 225);
+            this.lb2.Name = "lb2";
+            this.lb2.Size = new System.Drawing.Size(511, 113);
+            this.lb2.TabIndex = 41;
+            this.lb2.Text = resources.GetString("lb2.Text");
             // 
             // Login
             // 
@@ -297,16 +324,18 @@
             this.BackgroundImage = global::KTPOS_Order.Properties.Resources.shutterstock_1088296091;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(683, 450);
-            this.Controls.Add(this.TableChange);
+            this.Controls.Add(this.lb2);
+            this.Controls.Add(this.lb1);
+            this.Controls.Add(this.cbbLogin);
             this.Controls.Add(this.btnMaxSize);
             this.Controls.Add(this.btnMinSize);
             this.Controls.Add(btnClose);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
-            this.panel1.ResumeLayout(false);
+            this.pLogin.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,7 +343,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pLogin;
         private Guna.UI2.WinForms.Guna2TileButton btnLogin;
         private Guna.UI2.WinForms.Guna2TileButton btnExit;
         private Guna.UI2.WinForms.Guna2TextBox txtPass;
@@ -324,6 +353,8 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Button btnMinSize;
         private Guna.UI2.WinForms.Guna2Button btnMaxSize;
-        private Guna.UI2.WinForms.Guna2ComboBox TableChange;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbLogin;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lb1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lb2;
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -14,7 +12,6 @@ using System.Xml.Linq;
 using Guna.UI2.WinForms;
 using KTPOS_Order.Customer_Control;
 using KTPOS_Order.Proccess;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace KTPOS_Order
 {
@@ -38,8 +35,12 @@ namespace KTPOS_Order
             SetDoubleBuffered(dtgvBillCus, true);
             SetDoubleBuffered(btnMaxSize, true);
             SetDoubleBuffered(btnMinSize, true);
+            this.WindowState = FormWindowState.Maximized;
             nUDItem.Visible = false;
             Filter.SelectedIndex = 0;
+            // Đặt StartPosition là CenterScreen để căn giữa màn hình
+            this.StartPosition = FormStartPosition.CenterScreen;
+            btnMinSize.BringToFront();
         }
         private void SetDoubleBuffered(Control control, bool value)
         {
@@ -61,12 +62,10 @@ namespace KTPOS_Order
         }
         public void AddOrUpdate(Dictionary<string, int> dict, string key)
         {
-            if (dict.ContainsKey(key) && dict[key] != 0)
+            if (dict.ContainsKey(key))
                 dict[key]++;
-            else if (!dict.ContainsKey(key))
+            else
                 dict.Add(key, 1);
-            else if (dict.ContainsKey(key) && dict[key] == 0)
-                dict[key] = 1;
         }
         public void AddProduct(object sender, EventArgs e)
         {
@@ -170,6 +169,10 @@ namespace KTPOS_Order
         private void btnMinSize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
+            this.StartPosition = FormStartPosition.Manual;
+
+            // Tùy chỉnh lại vị trí nếu cần (giữ nguyên vị trí hiện tại)
+            this.Location = new Point(0, 0);
             btnMinSize.Visible = false;
             btnMaxSize.Visible = true;
         }
@@ -211,14 +214,11 @@ namespace KTPOS_Order
         }
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
-            //if (e.KeyCode == Keys.Enter || txtSearch.Text.Trim().Length == 0)
+            foreach (UC_Item item in FlowMenu.Controls)
             {
-                foreach (UC_Item item in FlowMenu.Controls)
-                {
-                    string name = item.GetName();
-                    var uc = (UserControl)item;
-                    uc.Visible = name.ToLower().ToLower().Contains(txtSearch.Text.Trim().ToLower());
-                }
+                string name = item.GetName();
+                var uc = (UserControl)item;
+                uc.Visible = name.ToLower().ToLower().Contains(txtSearch.Text.Trim().ToLower());
             }
         }
         private void Filter_SelectedIndexChanged(object sender, EventArgs e)
@@ -328,16 +328,6 @@ namespace KTPOS_Order
             }
         }
 
-        private void nUDItem_MouseDown(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void nUDItem_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
         private void nUDItem_ValueChanged(object sender, EventArgs e)
         {
             string key = dtgvBillCus.SelectedRows[0].Cells[0].Value.ToString();
@@ -379,11 +369,6 @@ namespace KTPOS_Order
             nUDItem.Visible = false;
         }
 
-        private void dtgvBillCus_MouseDown(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void guna2CustomGradientPanel16_MouseDown(object sender, MouseEventArgs e)
         {
             nUDItem.Visible = false;
@@ -395,7 +380,7 @@ namespace KTPOS_Order
             {
                 MessageBox.Show("You haven't order any yet.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
-            }              
+            }
             DialogResult dialog = MessageBox.Show("Do you really want to Order?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == DialogResult.Yes)
             {
@@ -413,11 +398,11 @@ namespace KTPOS_Order
                 }
                 BillId++;
                 filePath = filePath + BillId.ToString() + ".txt";
-                if (txtNoteBill != null) using (StreamWriter writer = new StreamWriter(filePath))
-                {
-                    writer.Write(txtNoteBill.Text);
-                }
-                txtNoteBill.Clear();
+                if (guna2TextBox1 != null) using (StreamWriter writer = new StreamWriter(filePath))
+                    {
+                        writer.Write(guna2TextBox1.Text);
+                    }
+                guna2TextBox1.Clear();
 
 
                 foreach (DataGridViewRow row in dtgvBillCus.Rows)
@@ -428,7 +413,7 @@ namespace KTPOS_Order
                     int idFD = Convert.ToInt32(row.Cells["idFD"].Value);
 
                     // Chuẩn bị câu lệnh SQL để chèn dữ liệu
-                    string query = "INSERT INTO BILLINF (idBill, idFD, count) VALUES ("+ BillId.ToString() + "," + idFD.ToString() + "," + count.ToString()+")";
+                    string query = "INSERT INTO BILLINF (idBill, idFD, count) VALUES (" + BillId.ToString() + "," + idFD.ToString() + "," + count.ToString() + ")";
 
                     DataTable result1 = GetDatabase.Instance.ExecuteQuery(query);
                 }

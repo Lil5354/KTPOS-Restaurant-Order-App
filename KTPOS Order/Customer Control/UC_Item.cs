@@ -48,37 +48,6 @@ namespace KTPOS_Order.Customer_Control
             txtCost.Text = $"${Price:0.00}";
             guna2CirclePictureBox1.Tag = id;
         }
-        //public UC_Item Item()
-        //{
-        //    string query = "SELECT fName, Price FROM ITEM WHERE ID = @ID";
-        //    DataTable data = GetDatabase.Instance.ExecuteQuery(query, new object[] { 1 });
-
-        //    if (data.Rows.Count > 0)
-        //    {
-        //        DataRow row = data.Rows[0];
-        //        fName = row["fName"].ToString();
-        //        Price = Convert.ToDecimal(row["Price"]);
-
-        //        // Tạo một instance mới của UC_Item truyền tên món ăn và giá
-        //        UC_Item itemControl = new UC_Item(fName, Price, 1);
-        //        return itemControl;
-        //    }
-        //    else return null;
-        //}
-
-        //public void Get()
-        //{
-        //    // Sử dụng GetDatabase để truy vấn dữ liệu
-        //    string query = "SELECT fName, Price FROM ITEM WHERE ID = @ID";
-        //    DataTable data = GetDatabase.Instance.ExecuteQuery(query, new object[] { 1 });
-
-        //    if (data.Rows.Count > 0)
-        //    {
-        //        DataRow row = data.Rows[0];
-        //        fName = row["fName"].ToString();
-        //        Price = Convert.ToDecimal(row["Price"]);
-        //    }
-        //}
         public void get()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
