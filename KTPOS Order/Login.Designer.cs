@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Guna2Button btnClose;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            this.pLogin = new System.Windows.Forms.Panel();
             this.btnHide = new Guna.UI2.WinForms.Guna2Button();
             this.btnEyes = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogin = new Guna.UI2.WinForms.Guna2TileButton();
@@ -44,6 +43,7 @@
             this.cbbLogin = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lb1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lb2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.pLogin = new System.Windows.Forms.Panel();
             btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.pLogin.SuspendLayout();
             this.SuspendLayout();
@@ -65,30 +65,11 @@
             btnClose.FillColor = System.Drawing.Color.Transparent;
             btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
             btnClose.ForeColor = System.Drawing.Color.Transparent;
-            btnClose.Location = new System.Drawing.Point(633, 21);
+            btnClose.Location = new System.Drawing.Point(631, 21);
             btnClose.Name = "btnClose";
             btnClose.Size = new System.Drawing.Size(25, 25);
             btnClose.TabIndex = 9;
             btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // pLogin
-            // 
-            this.pLogin.AutoScroll = true;
-            this.pLogin.AutoSize = true;
-            this.pLogin.BackColor = System.Drawing.Color.SaddleBrown;
-            this.pLogin.BackgroundImage = global::KTPOS_Order.Properties.Resources._1ddf7dbc9b47c8dab0a1456ae07ac4c6;
-            this.pLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pLogin.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pLogin.Controls.Add(this.btnHide);
-            this.pLogin.Controls.Add(this.btnEyes);
-            this.pLogin.Controls.Add(this.btnLogin);
-            this.pLogin.Controls.Add(this.btnExit);
-            this.pLogin.Controls.Add(this.txtPass);
-            this.pLogin.Controls.Add(this.txtUser);
-            this.pLogin.Location = new System.Drawing.Point(127, 90);
-            this.pLogin.Name = "pLogin";
-            this.pLogin.Size = new System.Drawing.Size(441, 262);
-            this.pLogin.TabIndex = 2;
             // 
             // btnHide
             // 
@@ -245,7 +226,7 @@
             this.btnMinSize.FillColor = System.Drawing.Color.Transparent;
             this.btnMinSize.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnMinSize.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMinSize.Location = new System.Drawing.Point(602, 21);
+            this.btnMinSize.Location = new System.Drawing.Point(600, 21);
             this.btnMinSize.Name = "btnMinSize";
             this.btnMinSize.Size = new System.Drawing.Size(25, 25);
             this.btnMinSize.TabIndex = 31;
@@ -264,7 +245,7 @@
             this.btnMaxSize.FillColor = System.Drawing.Color.Transparent;
             this.btnMaxSize.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnMaxSize.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMaxSize.Location = new System.Drawing.Point(602, 21);
+            this.btnMaxSize.Location = new System.Drawing.Point(600, 21);
             this.btnMaxSize.Name = "btnMaxSize";
             this.btnMaxSize.Size = new System.Drawing.Size(25, 25);
             this.btnMaxSize.TabIndex = 30;
@@ -316,6 +297,25 @@
             this.lb2.TabIndex = 41;
             this.lb2.Text = resources.GetString("lb2.Text");
             // 
+            // pLogin
+            // 
+            this.pLogin.AutoScroll = true;
+            this.pLogin.AutoSize = true;
+            this.pLogin.BackColor = System.Drawing.Color.SaddleBrown;
+            this.pLogin.BackgroundImage = global::KTPOS_Order.Properties.Resources._1ddf7dbc9b47c8dab0a1456ae07ac4c6;
+            this.pLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pLogin.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pLogin.Controls.Add(this.btnHide);
+            this.pLogin.Controls.Add(this.btnEyes);
+            this.pLogin.Controls.Add(this.btnLogin);
+            this.pLogin.Controls.Add(this.btnExit);
+            this.pLogin.Controls.Add(this.txtPass);
+            this.pLogin.Controls.Add(this.txtUser);
+            this.pLogin.Location = new System.Drawing.Point(127, 90);
+            this.pLogin.Name = "pLogin";
+            this.pLogin.Size = new System.Drawing.Size(441, 262);
+            this.pLogin.TabIndex = 2;
+            // 
             // Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -331,6 +331,7 @@
             this.Controls.Add(this.btnMinSize);
             this.Controls.Add(btnClose);
             this.Controls.Add(this.pLogin);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.Text = "Login";
@@ -342,8 +343,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pLogin;
         private Guna.UI2.WinForms.Guna2TileButton btnLogin;
         private Guna.UI2.WinForms.Guna2TileButton btnExit;
         private Guna.UI2.WinForms.Guna2TextBox txtPass;
@@ -356,5 +355,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbbLogin;
         private Guna.UI2.WinForms.Guna2HtmlLabel lb1;
         private Guna.UI2.WinForms.Guna2HtmlLabel lb2;
+        private System.Windows.Forms.Panel pLogin;
     }
 }

@@ -293,6 +293,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\logo_momo.png" />
+    <None Include="Resources\Thiết kế chưa có tên.png" />
     <None Include="Resources\xmark-solid1.png" />
     <None Include="Resources\logo_momo1.png" />
   </ItemGroup>

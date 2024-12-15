@@ -148,9 +148,6 @@
   <data name="xmark-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\xmark-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="d62d6c72fbe203f5cf1061e28e17df672" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\d62d6c72fbe203f5cf1061e28e17df672.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="04b9623fbf2f88158ccd31572ad6c0b8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\04b9623fbf2f88158ccd31572ad6c0b8.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -172,6 +169,9 @@
   <data name="9dd8fcc6e3e80f8997f364abf06fcd83" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\9dd8fcc6e3e80f8997f364abf06fcd83.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="xmark-solid1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmark-solid1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="d62d6c72fbe203f5cf1061e28e17df671" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\d62d6c72fbe203f5cf1061e28e17df671.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -180,6 +180,9 @@
   </data>
   <data name="logo_momo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo_momo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="burger-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\burger-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="5b22541a9c8beadec5fef91246d5c8c7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\5b22541a9c8beadec5fef91246d5c8c7.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,8 +202,8 @@
   <data name="shutterstock_1088296091" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shutterstock_1088296091.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="burger-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\burger-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="d62d6c72fbe203f5cf1061e28e17df672" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\d62d6c72fbe203f5cf1061e28e17df672.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="eye-slash-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eye-slash-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,7 +211,7 @@
   <data name="window-restore-solid (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\window-restore-solid (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="xmark-solid1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\xmark-solid1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Thiết kế chưa có tên" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Thiết kế chưa có tên.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -11,7 +11,7 @@ CREATE TABLE ACCOUNT (
 	FULLNAME    NVARCHAR(50) NOT NULL,
     [PASSWORD]  NVARCHAR(50) NOT NULL CHECK(LEN([Password]) >= 6) DEFAULT 'ktpos123',
 	EXPY		TINYINT		  NOT NULL DEFAULT 0,
-    [ROLE]      NVARCHAR(20) CHECK([Role] IN ('Staff', 'Manager','Chef','Customer')),
+    [ROLE]      NVARCHAR(20) CHECK([Role] IN ('Staff', 'Manager','Chef')),
 	VISIBLE		int not null default 1 --0: FALSE 1: TRUE 
 );
 GO
@@ -57,23 +57,7 @@ CREATE TABLE BILLINF(
 	FOREIGN KEY (IDBILL) REFERENCES DBO.BILL(ID),
 	FOREIGN KEY (IDFD)	 REFERENCES DBO.ITEM(ID)
 );
-GO --LỆNH KHI ADD BÀN MỚI TỰ INSERT THEO SỐ BÀN ĐÃ CÓ
-CREATE PROCEDURE INSERTNEWTABLE
-AS
-BEGIN
-    DECLARE @MAXID INT;
-    DECLARE @TABLENAME NVARCHAR(50);
 
-    -- LẤY ID LỚN NHẤT HIỆN CÓ TRONG BẢNG TABLE
-    SELECT @MAXID = ISNULL(MAX(ID), 0) FROM [TABLE];
-
-    -- TẠO TÊN BÀN MỚI
-    SET @TABLENAME = CONCAT('TABLE ', @MAXID + 1);
-
-    -- THÊM BÀN MỚI VÀO TABLE
-    INSERT INTO [TABLE] (FNAME, STATUS)
-    VALUES (@TABLENAME, 1); -- STATUS MẶC ĐỊNH LÀ AVAILABLE
-END;
 GO
 INSERT INTO ACCOUNT (FULLNAME, EMAIL, [PASSWORD],	EXPY,		[ROLE]		 ) 
 VALUES
@@ -103,24 +87,30 @@ INSERT INTO [F&BCATEGORY] (FNAME)
 VALUES
 ('Food'),
 ('Drinks'),
-('Appetizers'),
-('Main Course'),
-('Desserts');
+('Best Sellers'),
+('New Arrivals'),
+('Featured Dishes'),
+('Combo Deals'),
+('Most Loved');
 GO
 -- Insert data into ITEM
 INSERT INTO ITEM (FNAME, IDCATEGORY, PRICE)
 VALUES 
-('Coffee', 2, 2.0),
-('Coffee', 5, 2.0),
-('Tea', 2, 1.0),
-('Fried Rice', 1, 10.0),
-('Pizza', 1, 15.0),
-('Cheesecake', 4, 6.0),
-('Coke', 2, 1.5),
-('Beer', 2, 3.0),
-('Spring Rolls', 1, 5.0),
+('Coffee', 2, 2.0), 
+('Tea', 2, 1.0), 
+('Fried Rice', 1, 10.0), 
+('Pizza', 1, 15.0), 
+('Cheesecake', 1, 6.0), 
+('Coke', 2, 1.5), 
+('Beer', 2, 3.0), 
+('Spring Rolls', 1, 5.0), 
 ('Steak', 1, 20.0),
-('Ice Cream', 4, 4.0);
+
+('Coffee', 3, 2.0),
+('Tea', 4, 1.0),
+('Fried Rice', 5, 10.0),
+('Pizza', 6, 15.0),
+('Cheesecake', 7, 6.0);
 GO
 -- Insert data into Bill
 INSERT INTO BILL (DATEPAYMENT, IDTABLE, STATUS)
@@ -170,3 +160,21 @@ ORDER BY B.ID;
 SELECT * FROM ACCOUNT
 
 select*from BILLINF
+
+GO --LỆNH KHI ADD BÀN MỚI TỰ INSERT THEO SỐ BÀN ĐÃ CÓ
+CREATE PROCEDURE INSERTNEWTABLE
+AS
+BEGIN
+    DECLARE @MAXID INT;
+    DECLARE @TABLENAME NVARCHAR(50);
+
+    -- LẤY ID LỚN NHẤT HIỆN CÓ TRONG BẢNG TABLE
+    SELECT @MAXID = ISNULL(MAX(ID), 0) FROM [TABLE];
+
+    -- TẠO TÊN BÀN MỚI
+    SET @TABLENAME = CONCAT('TABLE ', @MAXID + 1);
+
+    -- THÊM BÀN MỚI VÀO TABLE
+    INSERT INTO [TABLE] (FNAME, STATUS)
+    VALUES (@TABLENAME, 1); -- STATUS MẶC ĐỊNH LÀ AVAILABLE
+END;
